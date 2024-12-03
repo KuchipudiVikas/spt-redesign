@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
   return (
     <div style={headerStyle}>
       <Navbar />
-      <div className="pt-20">{children}</div>
+      <div className="pt-[60px]">{children}</div>
     </div>
   );
 };
