@@ -13,7 +13,7 @@ import axios from "axios";
  * @param {String} password Password to account
  * @return {Object} Response from the server in format { data: [...], query: <String>, total:<Number> }
  */
-export async function account_login(token, email, password) {
+export async function account_login(token: any, email: any, password: any) {
   let response = await _request({
     token: token,
     url: "/api/account/login",
@@ -35,7 +35,7 @@ export async function account_login(token, email, password) {
   }
 }
 
-export async function delete_account(token) {
+export async function delete_account(token: any) {
   let response = await _request({
     token: token,
     url: "/api/account",
@@ -62,6 +62,9 @@ export async function delete_account(token) {
  * @param lm_data
  * @return {Object} Response from the server in format { data: [...], query: <String>, total:<Number> }
  */
+
+// @ts-ignore
+
 export async function account_register(token, email, password, lm_data) {
   let response = await _request({
     token: token,
@@ -84,7 +87,7 @@ export async function account_register(token, email, password, lm_data) {
   }
 }
 
-export async function logout(token) {
+export async function logout(token: any) {
   let response = await _request({
     token: token,
     url: "/api/account/logout",
@@ -104,6 +107,8 @@ export async function logout(token) {
  * Gets the account info of the current logged in account form the backend server
  * @return {Object} Response from the server in format { data: [...], query: <String>, total:<Number> }
  */
+
+// @ts-ignore
 export async function account_info(token, with_board = false) {
   let response = await _request({ token: token, url: "/api/account" });
   let wb;
@@ -128,7 +133,7 @@ export async function account_info(token, with_board = false) {
 }
 
 // check token
-export async function account_check(token) {
+export async function account_check(token: any) {
   let response = await _request({
     token: token,
     url: "/api/account/check-token",
@@ -146,7 +151,7 @@ export async function account_check(token) {
  * Gets the account info of the current logged in account form the backend server
  * @return {Object} Response from the server in format { data: [...], query: <String>, total:<Number> }
  */
-export async function account_changepass(token, new_password) {
+export async function account_changepass(token: any, new_password: any) {
   const formData = new FormData();
 
   formData.append(
@@ -180,8 +185,8 @@ export async function account_changepass(token, new_password) {
  * @return {Object} Response from the server in format { url }
  */
 export async function account_buyitem(
-  token,
-  item_index,
+  token: any,
+  item_index: any,
   success: string | boolean = false,
   fail: string | boolean = false
 ) {
@@ -210,7 +215,7 @@ export async function account_buyitem(
   }
 }
 
-export async function account_unsubscribe(token) {
+export async function account_unsubscribe(token: any) {
   let response = await _request({
     token: token,
     url: "/api/subs/endsubs",
@@ -235,7 +240,7 @@ export async function account_unsubscribe(token) {
  * @return {Object} Response from the server in format { data: [...] }
  */
 // This is an unused function
-export async function account_token(token, amount, scout = false) {
+export async function account_token(token: any, amount: any, scout = false) {
   let response = await _request({
     token: token,
     url: "/api/account/token",
@@ -261,7 +266,7 @@ export async function account_token(token, amount, scout = false) {
  * @param {List[Number,Number]} range Range of notifications to get
  * @return {Object} Response from the server in format { data: [...] }
  */
-export async function account_getnotif(token, range = [0, 2]) {
+export async function account_getnotif(token: any, range = [0, 2]) {
   let response = await _request({
     token: token,
     url: `/api/notification?${
@@ -273,6 +278,7 @@ export async function account_getnotif(token, range = [0, 2]) {
     if (response) {
       for (let dt of response.data) {
         // console.log(notificationMap);
+        // @ts-ignore
         if (dt.code) dt.message = notificationMap[dt.code].create(dt.data);
       }
       return { simple: response.data, full: response };
@@ -286,7 +292,7 @@ export async function account_getnotif(token, range = [0, 2]) {
 }
 
 // get user meta
-export async function get_metadata(token) {
+export async function get_metadata(token: any) {
   let response = await _request({
     token: token,
     url: "/api/account/metadata",
@@ -301,7 +307,8 @@ export async function get_metadata(token) {
 }
 
 // update user meta
-export async function create_or_update_metadata({token, extraHeaders}) {
+// @ts-ignore
+export async function create_or_update_metadata({ token, extraHeaders }) {
   if (!token) {
     return { simple: false, full: "No token provided" };
   }
@@ -326,6 +333,7 @@ export async function create_or_update_metadata({token, extraHeaders}) {
   }
 }
 
+// @ts-ignore
 export async function getInvoices(token) {
   let response = await _request({
     token: token,

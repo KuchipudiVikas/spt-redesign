@@ -16,7 +16,7 @@ const googleAuthClient = new OAuth2Client(
 // beta.example.com => example.com
 // example.com/* => example.com
 // localhost:3000 => localhost
-const getDomainWithoutSubdomain = (url) => {
+const getDomainWithoutSubdomain = (url: string) => {
   const urlParts = new URL(url).hostname.split(".");
 
   return urlParts
@@ -25,9 +25,9 @@ const getDomainWithoutSubdomain = (url) => {
     .join(".");
 };
 
-const useSecureCookies = process.env.NEXTAUTH_URL.startsWith("https://");
+const useSecureCookies = process.env.NEXTAUTH_URL?.startsWith("https://");
 const cookiePrefix = useSecureCookies ? "__Secure-" : "";
-const hostName = getDomainWithoutSubdomain(process.env.NEXTAUTH_URL);
+const hostName = getDomainWithoutSubdomain(process.env.NEXTAUTH_URL || "");
 
 // Define how we want the session token to be stored in our browser
 const cookies: any = {
@@ -72,7 +72,7 @@ export const authOptions: AuthOptions = {
 
             return { ...res.user, token: res.token };
           } catch (error) {
-            throw new Error(error);
+            throw new Error(error as any);
           }
         } else {
           throw new Error("No credentials");
@@ -81,7 +81,9 @@ export const authOptions: AuthOptions = {
     }),
 
     GoogleProvider({
+      // @ts-ignore
       clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+      // @ts-ignore
       clientSecret: process.env.NEXTAUTH_GOOGLE_CLIENT_SECRET,
 
       // This is the URL that Google will redirect to after authentication
@@ -155,6 +157,7 @@ export const authOptions: AuthOptions = {
   },
 
   callbacks: {
+    // @ts-ignore
     async session({ session, user, token }) {
       if (token && token.exp) {
         // check if token expired

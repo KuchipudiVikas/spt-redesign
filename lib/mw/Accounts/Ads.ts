@@ -2,8 +2,10 @@ import { bulsupips_debug } from "../utils/_vars";
 
 import _request from "../utils/_request";
 
+// @ts-ignore
 async function ads_get(token?) {
   if (sessionStorage.getItem("ads")) {
+    // @ts-ignore
     return JSON.parse(sessionStorage.getItem("ads"));
   }
   let response = await _request({ token: token, url: `/api/ads` });
@@ -13,6 +15,7 @@ async function ads_get(token?) {
       //for(let d in response.data){
       //    response.data[d].message = notificationMap[response.data[d].code].create(response.data[d].data)
       //}
+      // @ts-ignore
       response.data.sort((a, b) =>
         a.index > b.index ? 1 : b.index > a.index ? -1 : 0
       );

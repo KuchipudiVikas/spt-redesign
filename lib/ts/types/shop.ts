@@ -1,8 +1,8 @@
 export interface Features {
-  simple: any[];
+  simple: string[];
   full: {
     query: string;
-    data: any[];
+    data: string[];
     total: number;
     name: string;
     status: number;
