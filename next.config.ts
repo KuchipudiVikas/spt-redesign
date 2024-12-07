@@ -8,7 +8,16 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ["placehold.co"],
+    domains: [
+      "placehold.co",
+      "sptmedia.nyc3.cdn.digitaloceanspaces.com",
+      "lh3.googleusercontent.com",
+      "coverimages.nyc3.digitaloceanspaces.com",
+      "m.media-amazon.com",
+      "pub-5da859198666414bbca8c7866fa6d266.r2.dev",
+      "booksbytitans-bucket.sgp1.digitaloceanspaces.com",
+      "images-na.ssl-images-amazon.com",
+    ],
   },
 };
 

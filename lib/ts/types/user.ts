@@ -14,4 +14,5 @@ export interface User {
   id: string;
   has_past_due: boolean;
   features: Features;
+  image?: string;
 }

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Plus Jakarta Sans", "sans-serif";
 }
 
 .gradient-text {
@@ -11,6 +11,48 @@ body {
   -webkit-background-clip: text;
   color: transparent;
 }
+
+.frame {
+  background: linear-gradient(
+    180deg,
+    rgb(255, 255, 255) 0%,
+    rgba(237.48, 232.6, 255, 0.75) 100%
+  );
+  background-color: rgba(255, 255, 255, 1);
+  height: 793px;
+  overflow: hidden;
+  position: relative;
+  width: 1500px;
+}
+
+.frame .ellipse {
+  background-color: var(--x-953-9fe);
+  border-radius: 264.27px;
+  filter: blur(650px);
+  height: 529px;
+  left: 1133px;
+  position: absolute;
+  top: 408px;
+  width: 529px;
+}
+
+.frame .div {
+  background-color: var(--x-953-9fe);
+  border-radius: 264.27px;
+  filter: blur(750px);
+  height: 529px;
+  left: -215px;
+  position: absolute;
+  top: -244px;
+  width: 529px;
+}
+
+:root {
+  --x-690-2cd: rgba(105, 2, 205, 1);
+  --x-7b-2-8da: rgba(123, 40, 218, 1);
+  --x-953-9fe: rgba(149, 57, 254, 1);
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -39,6 +81,8 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --theme-gray: 0, 0%, 97%;
+
+    --light-border: #e7daf3;
   }
 
   .dark {
@@ -96,4 +140,256 @@ body {
 .pInput {
   border-radius: 56px;
   border: 1px solid #ccc;
+}
+
+.select-lg {
+  padding: 10px 20px;
+  border-radius: 30px;
+  outline: none;
+}
+
+.config-container {
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  gap: 10px;
+  width: fit-content;
+  padding: 10px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+
+  input {
+    outline: none;
+    padding: 22px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+  }
+
+  select {
+    outline: none;
+    border: none;
+  }
+
+  .sp-select {
+    border: 1px solid #ccc;
+    padding: 10px 22px;
+    border-radius: 30px;
+  }
+
+  .search-btn {
+    padding: 10px;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+/* titans pro web app */
+.twa-th {
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  padding: 20px 25px;
+  margin-right: 10px;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.twa-td {
+  background-color: #f7f6f8;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.twa-td .center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* deep view */
+.statItem {
+  padding: 10px;
+  border-radius: 16px;
+  border: 2px solid #f7d6d8;
+  margin-right: 10px;
+}
+
+.dv-datatable {
+  border-radius: 30px !important;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+/* general */
+.samples-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  align-items: center;
+  font-size: 16px;
+  margin-top: 50px;
+
+  .sample-btn-container {
+    display: flex;
+    gap: 10px;
+  }
+
+  button {
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid;
+    background-color: white;
+    color: #000;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: none;
+    border-color: hsl(var(--primary));
+
+    svg {
+      color: hsl(var(--primary));
+    }
+  }
+
+  button:hover {
+    border-color: hsl(var(--primary-foreground));
+    color: white;
+  }
+}
+
+.sp-container {
+  background-color: #f7f6f8;
+
+  .text-label {
+    font-weight: 800;
+    margin-left: 10px;
+  }
+}
+
+.title-container {
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .title {
+    font-size: 60px;
+    margin-top: 20px;
+    font-weight: 900;
+  }
+}
+
+.light-border {
+  border-color: var(--light-border);
+}
+
+.badge-button {
+  padding-left: 6px;
+  padding-right: 16px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  box-shadow: 0px 0px 2px 2px #fff, inset 0px 0px 18px 4px #fff;
+  background: transparent;
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+  border-radius: 40px;
+
+  .badge {
+    background-color: white;
+    color: #c31fe4;
+    height: 26px;
+    font-weight: bold;
+    margin-right: 4px;
+    box-shadow: 0px 0px 8px 2px #ddd;
+    width: 26px;
+    border-radius: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+select {
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+/* kwt */
+
+.kwt-table {
+  border-collapse: separate; /* Allows border-radius to work */
+  border-spacing: 0; /* Adjust spacing if needed */
+  /* padding: 10px; Adds padding inside the table container */
+  border-radius: 16px; /* Adds rounded corners */
+  overflow: hidden; /* Prevents content from overflowing rounded corners */
+  border: 1px solid #ccc; /* Optional border for the table */
+  width: 100%; /* Full width table */
+  font-family: Arial, sans-serif; /* Optional: set font */
+}
+
+/* Style for table headers */
+.kwt-table th {
+  background-color: #f0f0f0; /* Light background for headers */
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Style for table rows */
+.kwt-table td {
+  padding: 15px 20px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Alternating row colors */
+.kwt-table tr:nth-child(even) {
+  background-color: #fafafa; /* Light gray for odd rows */
+}
+
+.kwt-table tr:nth-child(odd) {
+  background-color: #ffffff; /* White for even rows */
+}
+
+/* First and last header cells for rounded corners */
+.kwt-table thead tr th:first-child {
+  border-top-left-radius: 16px; /* Top-left corner */
+}
+
+.period-controller {
+  padding: 10px;
+  a {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .active {
+    background-color: #f7f6f8;
+    font-weight: 900;
+  }
+}
+
+.videoRatioStandard {
+  aspect-ratio: 16/9;
 }

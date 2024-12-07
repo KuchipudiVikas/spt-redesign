@@ -5,33 +5,50 @@ import Footer from "./Footer";
 import { GetServerSidePropsContext } from "next";
 import { getSession } from "next-auth/react";
 import Account from "../../lib/mw/Accounts";
+import { User } from "@/lib/ts/types/user";
+
+interface Meta {
+  title: string;
+  description: string;
+  keywords: string;
+}
 
 interface MainLayoutProps {
   Title: React.ReactNode;
   Body: React.ReactNode;
-  title: string;
-  description: string;
-  keywords: string;
+
   showFooter?: boolean;
+  info: User;
+  meta: Meta;
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({
   Title,
   Body,
-  title,
-  description,
-  keywords,
   showFooter = true,
+  meta = {
+    title: "",
+    description: "",
+    keywords: "",
+  },
 }) => {
+  const isBookCoverPage = meta.title == "Book Cover Creator for KDP";
+
   return (
     <div>
       <Head>
-        <title> {title} </title>
-        <meta name="description" content={description} />
-        <meta name="keywords" content={keywords} />
+        <title> {meta.title} </title>
+        <meta name="description" content={meta.description} />
+        <meta name="keywords" content={meta.keywords} />
       </Head>
       <Header>{Title}</Header>
-      <div className="min-h-[60vh] mx-auto max-w-[1300px]">{Body}</div>
+      <div
+        className={`min-h-[60vh] mx-auto ${
+          !isBookCoverPage && "max-w-[1300px]"
+        }`}
+      >
+        {Body}
+      </div>
 
       {showFooter && <Footer />}
     </div>

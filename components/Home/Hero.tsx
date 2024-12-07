@@ -6,6 +6,13 @@ import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import { Separator } from "../ui/separator";
 import { StarIcon } from "lucide-react";
 
+import SteveImage from "@/public/images/testimonials/9.png";
+import PamImage from "@/public/images/testimonials/10.png";
+import ChrisImage from "@/public/images/testimonials/11.png";
+import LorenzoImage from "@/public/images/testimonials/1.png";
+import NuriaImage from "@/public/images/testimonials/2.png";
+import RachelImage from "@/public/images/testimonials/6.png";
+
 const Hero = () => {
   return (
     <div className="text-black max-w-[1300px] mb-20 mt-20 mx-auto grid grid-cols-2">
@@ -90,18 +97,24 @@ function AllToolsButton() {
 
 function ReviewsHero() {
   const avatars = [
-    "https://github.com/shadcn.png",
-    "https://github.com/user1.png",
-    "https://github.com/user2.png",
-    "https://github.com/user3.png",
-    "https://github.com/user4.png",
+    NuriaImage.src,
+    LorenzoImage.src,
+    SteveImage.src,
+    PamImage.src,
+    RachelImage.src,
   ];
 
   return (
     <div className="mt-8 flex items-center gap-4 ">
       <div className="flex -space-x-4">
         {avatars.map((src, index) => (
-          <Avatar key={index} className="w-[50px] h-[50px]">
+          <Avatar
+            key={index}
+            style={{
+              border: "0.5px solid #ccc",
+            }}
+            className="w-[50px]  bg-[#f7f6f8] h-[50px]"
+          >
             <AvatarImage src={src} alt={`Avatar ${index + 1}`} />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
@@ -158,7 +171,7 @@ function ReviewsHero() {
           </svg>
         </div>
         <div className="text-[14px] font-medium">
-          Trusted by over 130,000 Users
+          Trusted by over 140,000 Users
         </div>
       </div>
     </div>

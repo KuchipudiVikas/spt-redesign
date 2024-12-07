@@ -8,9 +8,11 @@ import { GetServerSidePropsContext } from "next";
 const Login = () => {
   return (
     <MainLayout
-      title="Login - Self Publishing Titans"
-      description="Login to Self Publishing Titans"
-      keywords="login, self publishing titans"
+      meta={{
+        title: "Login - Self Publishing Titans",
+        description: "",
+        keywords: "",
+      }}
       Title={<></>}
       Body={<LoginPage />}
     />

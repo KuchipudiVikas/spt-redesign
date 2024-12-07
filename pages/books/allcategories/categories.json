@@ -1,0 +1,172 @@
+[
+  {
+    "id": 1,
+    "category": "Best Sellers Books",
+    "link": "bestsellersbooks"
+  },
+  {
+    "id": 2,
+    "category": "Arts Photography",
+    "link": "artsphotography"
+  },
+  {
+    "id": 3,
+    "category": "Biographies",
+    "link": "biographies"
+  },
+  {
+    "id": 4,
+    "category": "Books on CD",
+    "link": "booksoncd"
+  },
+  {
+    "id": 5,
+    "category": "Business Money",
+    "link": "businessmoney"
+  },
+  {
+    "id": 6,
+    "category": "Books Calendars",
+    "link": "bookscalendars"
+  },
+  {
+    "id": 7,
+    "category": "Books Children",
+    "link": "bookschildren"
+  },
+  {
+    "id": 8,
+    "category": "Christian Books Bible",
+    "link": "christianbooksbible"
+  },
+  {
+    "id": 9,
+    "category": "Comics Graphics Novels",
+    "link": "comicsgraphicsnovels"
+  },
+  {
+    "id": 10,
+    "category": "Computer Technology",
+    "link": "computertechnology"
+  },
+  {
+    "id": 11,
+    "category": "Cookbooks Food Wine",
+    "link": "cookbooksfoodwine"
+  },
+  {
+    "id": 12,
+    "category": "Crafts Hobbies Home",
+    "link": "craftshobbieshome"
+  },
+  {
+    "id": 13,
+    "category": "Books Education Teaching",
+    "link": "bookseducationteaching"
+  },
+  {
+    "id": 14,
+    "category": "Engineering Transportation",
+    "link": "engineeringtransportation"
+  },
+  {
+    "id": 15,
+    "category": "Health Fitness Dieting",
+    "link": "healthfitnessdieting"
+  },
+  {
+    "id": 16,
+    "category": "Books History",
+    "link": "bookshistory"
+  },
+  {
+    "id": 17,
+    "category": "Humor Entertainment",
+    "link": "humorentertainment"
+  },
+  {
+    "id": 18,
+    "category": "Law",
+    "link": "law"
+  },
+  {
+    "id": 19,
+    "category": "Literature Fiction",
+    "link": "literaturefiction"
+  },
+  {
+    "id": 20,
+    "category": "Medical Books",
+    "link": "medicalbooks"
+  },
+  {
+    "id": 21,
+    "category": "Mystery Thriller Suspense",
+    "link": "mysterythrillersuspense"
+  },
+  {
+    "id": 22,
+    "category": "Parenting Relationships",
+    "link": "parentingrelationships"
+  },
+  {
+    "id": 23,
+    "category": "Politics Social Sciences",
+    "link": "politicssocialsciences"
+  },
+  {
+    "id": 24,
+    "category": "Reference",
+    "link": "reference"
+  },
+  {
+    "id": 25,
+    "category": "Religion Spirituality",
+    "link": "religionspirituality"
+  },
+  {
+    "id": 26,
+    "category": "Romance",
+    "link": "romance"
+  },
+  {
+    "id": 27,
+    "category": "Science Math",
+    "link": "sciencemath"
+  },
+  {
+    "id": 28,
+    "category": "Science Fiction Fantasy",
+    "link": "sciencefictionfantasy"
+  },
+  {
+    "id": 29,
+    "category": "Self Help",
+    "link": "selfhelp"
+  },
+  {
+    "id": 30,
+    "category": "Sports Outdoors",
+    "link": "sportsoutdoors"
+  },
+  {
+    "id": 31,
+    "category": "Teen Young Adult",
+    "link": "teenyoungadult"
+  },
+  {
+    "id": 32,
+    "category": "Test Preparation",
+    "link": "testpreparation"
+  },
+  {
+    "id": 33,
+    "category": "Travel",
+    "link": "travel"
+  },
+  {
+    "id": 34,
+    "category": "The overall top category",
+    "link": "theoveralltopcategory"
+  }
+]
