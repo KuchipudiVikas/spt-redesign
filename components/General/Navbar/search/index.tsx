@@ -13,7 +13,6 @@ import {
   SearchIcon,
 } from "lucide-react";
 
-// Custom debounce function
 function debounce(func: Function, wait: number) {
   let timeout: NodeJS.Timeout | null;
   return (...args: any[]) => {
