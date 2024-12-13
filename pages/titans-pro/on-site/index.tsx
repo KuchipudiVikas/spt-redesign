@@ -15,9 +15,12 @@ interface IndexProps {
 const TitansProOnsite: React.FC<IndexProps> = ({ info, token }) => {
   return (
     <MainLayout
-      title="TitansPro Onsite - Self Publishing Titans"
-      description="TitansPro Onsite is a service that helps you publish your book in a professional way. We provide you with the tools and resources you need to publish your book and make it available to readers around the world."
-      keywords=""
+      meta={{
+        title: "Titans Pro Onsite",
+        description: "Titans Pro Onsite",
+        keywords: "Titans Pro Onsite",
+      }}
+      info={info}
       Title={
         <div className="flex my-10 justify-center flex-col items-center">
           <h1 className="text-[45px] mt-[20px] font-jsans flex justify-center items-center gap-3 mx-auto  font-extrabold text-center text-gray-900 sm:text-4xl">
@@ -41,7 +44,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   if (!session) {
     return {
       redirect: {
-        destination: `/auth/login?next=${encodeURIComponent(resolvedUrl)}`,
+        destination: `/login?next=${encodeURIComponent(resolvedUrl)}`,
         permanent: false,
       },
     };

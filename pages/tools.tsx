@@ -1,13 +1,22 @@
 import React from "react";
-import MainLayout from "@/components/Layout";
+import MainLayout, { getProfile } from "@/components/Layout";
 import ToolsPage from "@/page_components/ToolsPage";
 import { StarIcon, ArrowDownIcon } from "lucide-react";
 import BrandIcon from "@/public/favIcon.png";
 import Image from "next/image";
+import { GetServerSidePropsContext } from "next";
+import Accounts from "@/lib/mw/Accounts";
+import { getSession } from "next-auth/react";
+import { User } from "@/lib/ts/types/user";
 
-const Tools = () => {
+interface ToolsProps {
+  info: User;
+}
+
+const Tools: React.FC<ToolsProps> = ({ info }) => {
   return (
     <MainLayout
+      info={info}
       meta={{
         title: "Shop Self Publishing Titans",
         description: "Shop Self Publishing Titans",
@@ -47,4 +56,45 @@ function ScrollDownButtonSpecial() {
       Self Publishing Titans
     </div>
   );
+}
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  try {
+    const content = await Accounts.content.home();
+    const feat = await Accounts.features.list({});
+
+    const session = await getSession(context);
+    if (!session) {
+      return {
+        redirect: {
+          destination: "/login",
+          permanent: false,
+        },
+      };
+    }
+
+    const token = session.token;
+
+    return getProfile(context, {
+      pageData: content.simple,
+      features: feat.simple,
+      token,
+    }).catch((error) => {
+      console.error("Error in getProfile: in pages/index.tsx:", error);
+      return {
+        redirect: {
+          destination: "/",
+          permanent: false,
+        },
+      };
+    });
+  } catch (e) {
+    console.error("Error in getServerSideProps in pages/index.tsx:", e);
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 }

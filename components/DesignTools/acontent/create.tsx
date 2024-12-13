@@ -80,7 +80,7 @@ export const Create = ({ userID, closeHandler = () => {} }: CreateProps) => {
     <div>
       {true && (
         <div className=" ">
-          <div className="w-[500px]">
+          <div className="w-[550px]">
             <span className="close" onClick={togglePopup}>
               &times;
             </span>

@@ -200,10 +200,12 @@ const Filters: React.FC<FiltersProps> = ({
       style={{
         borderRadius: "16px",
         padding: "20px",
+        position: "sticky",
+        top: "100px",
       }}
-      className="border  font-psans"
+      className="border "
     >
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between ">
         <h3
           className="font-extrabold"
           style={{

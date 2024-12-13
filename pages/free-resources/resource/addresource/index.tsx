@@ -415,12 +415,27 @@ export function TagFields({
   };
 
   return (
-    <div className="flex border p-3 rounded-2xl flex-col ">
-      <div className="flex justify-between">
-        <label htmlFor=" font-bold text-[22px]">
+    <div
+      style={{
+        position: "sticky",
+        top: "100px",
+      }}
+      className="flex border p-3 rounded-2xl flex-col "
+    >
+      <div className="flex justify-between items-center w-full">
+        <label htmlFor=" font-bold text-[22px] w-full flex justify-between">
           {" "}
-          <span className="font-bold text-[22px] ml-2">Tags </span>{" "}
+          <span className="font-bold text-[22px] ml-2">Filters </span>{" "}
         </label>
+        <span
+          onClick={() => {
+            setFilteredTags(allTags);
+            setSelectedTags([]);
+          }}
+          className="underline cursor-pointer mr-2"
+        >
+          clear
+        </span>
       </div>
       <div className="flex flex-wrap mt-2  overflow-auto">
         {filteredTags.map((tag) => (

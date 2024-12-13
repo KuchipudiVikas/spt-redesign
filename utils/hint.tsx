@@ -11,6 +11,7 @@ interface IHintWrapperProps {
   children: React.ReactNode;
   enterDelay?: number;
   leaveDelay?: number;
+  style?: React.CSSProperties;
 }
 
 const HintWrapper: React.FC<IHintWrapperProps> = ({
@@ -18,6 +19,7 @@ const HintWrapper: React.FC<IHintWrapperProps> = ({
   children,
   enterDelay = 700,
   leaveDelay = 200,
+  style = {},
 }) => {
   return (
     <TooltipProvider>
@@ -25,7 +27,12 @@ const HintWrapper: React.FC<IHintWrapperProps> = ({
         <TooltipTrigger asChild>
           <span>{children}</span>
         </TooltipTrigger>
-        <TooltipContent>
+        <TooltipContent
+          style={{
+            maxWidth: "300px",
+            ...style,
+          }}
+        >
           <p>{hint}</p>
         </TooltipContent>
       </Tooltip>

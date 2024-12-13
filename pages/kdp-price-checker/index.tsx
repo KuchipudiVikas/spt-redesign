@@ -406,7 +406,7 @@ function BookPrice({ token, info, isOwner }: BookPriceProps) {
       }
       Body={
         <div>
-          <div className="container mx-auto min-h-full mb-96">
+          <div className=" comp-container mx-auto min-h-full mb-96">
             <div
               style={{
                 marginTop: "-50px",
@@ -467,6 +467,7 @@ function BookPrice({ token, info, isOwner }: BookPriceProps) {
                         }
                       }}
                     >
+                      {}
                       <SearchIcon size={20} />
                     </Button>
                   </HintWrapper>

@@ -17,18 +17,21 @@ const AllTools = () => {
   useEffect(() => {
     const data = Items.find((item) => item.type === selectedTab);
     setSelectedData(data as Item);
-  }, [selectedData]);
+    setExpandedItem(0);
+  }, [selectedTab]);
 
   const toggleExpand = (index: number) => {
     setExpandedItem(expandedItem === index ? null : index);
   };
+
+  console.log("selected data is", selectedData);
 
   return (
     <div
       style={{
         paddingTop: "50px",
       }}
-      className="w-full flex flex-col max-w-[1300px] mx-auto  font-jsans justify-center"
+      className="w-full flex flex-col  mx-auto  font-jsans justify-center"
     >
       <div
         className="font-jsans mx-auto flex gap-3 font-extrabold"
@@ -53,7 +56,7 @@ const AllTools = () => {
             selectedTab === "et" ? "border-b-2" : "bg-white text-black"
           } flex items-center px-[40px] gap-3 py-[24px] cursor-pointer`}
         >
-          Education Tools
+          Book Creation Tools
         </div>
         <div
           onClick={() => setSelectedTab("ct")}
@@ -72,71 +75,75 @@ const AllTools = () => {
           Research Tools
         </div>
       </div>
-      <div className="border p-5 bg-[#f7f7f8] grid grid-cols-2 gap-10 rounded-xl">
-        <div className="">
-          {selectedData.products.map((product, index) => {
-            console.log(product);
-            return (
-            <div
-              key={index}
-              style={{
-                background: expandedItem === index ? "white" : "white",
-                border: expandedItem === index ? "2px solid #9539fe" : "none",
-                borderRadius: "20px",
-              }}
-              className="border my-2 p-5 rounded-xl cursor-pointer"
-              onClick={() => toggleExpand(index)}
-            >
-              <div
-                className={` text-[18px] flex justify-between items-center ${
-                  expandedItem === index && "font-bold"
-                } `}
-              >
-                {product.title}{" "}
-                <div className="">
-                  {expandedItem === index ? (
-                    <CircleArrowUp
-                      className={`${
-                        expandedItem === index && "text-[#6902cd]"
-                      }`}
-                      size={20}
-                    />
-                  ) : (
-                    <CircleArrowDown size={20} />
+      <div className="border  bg-[#f7f7f8] ">
+        <div className="grid grid-cols-2 p-5 comp-container gap-10 rounded-xl">
+          <div className="">
+            {selectedData.products.map((product, index) => {
+              console.log(product);
+              return (
+                <div
+                  key={index}
+                  style={{
+                    background: expandedItem === index ? "white" : "white",
+                    border:
+                      expandedItem === index ? "2px solid #9539fe" : "none",
+                    borderRadius: "20px",
+                  }}
+                  className="border my-2 p-5 rounded-xl cursor-pointer"
+                  onClick={() => toggleExpand(index)}
+                >
+                  <div
+                    className={` text-[18px] flex justify-between items-center ${
+                      expandedItem === index && "font-bold"
+                    } `}
+                  >
+                    {product.title}{" "}
+                    <div className="">
+                      {expandedItem === index ? (
+                        <CircleArrowUp
+                          className={`${
+                            expandedItem === index && "text-[#6902cd]"
+                          }`}
+                          size={20}
+                        />
+                      ) : (
+                        <CircleArrowDown size={20} />
+                      )}
+                    </div>
+                  </div>
+                  {expandedItem === index && (
+                    <>
+                      <div className="mt-2 grid grid-cols-2">
+                        {product.features.map((feature, featureIndex) => (
+                          <div
+                            key={featureIndex}
+                            className="flex gap-2 items-center"
+                          >
+                            <CheckIcon className="text-primary" size={20} />
+                            <div>{feature}</div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-[30px]">
+                        <button className=" flex items-center gap-3 font-bold px-5 py-2 rounded-full">
+                          Learn More <ArrowRightIcon size={20} />
+                        </button>
+                      </div>
+                    </>
                   )}
                 </div>
-              </div>
-              {expandedItem === index && (
-                <>
-                  <div className="mt-2 grid grid-cols-2">
-                    {product.features.map((feature, featureIndex) => (
-                      <div
-                        key={featureIndex}
-                        className="flex gap-2 items-center"
-                      >
-                        <CheckIcon className="text-primary" size={20} />
-                        <div>{feature}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-[30px]">
-                    <button className=" flex items-center gap-3 font-bold px-5 py-2 rounded-full">
-                      Learn More <ArrowRightIcon size={20} />
-                    </button>
-                  </div>
-                </>
-              )}
-            </div>
-)})}
-        </div>
-        <div className="my-auto">
-          <Image
-            src={BrandLogo.src}
-            alt="Brand Logo"
-            width={600}
-            height={400}
-            className="rounded-xl"
-          />
+              );
+            })}
+          </div>
+          <div className="my-auto">
+            <Image
+              src={BrandLogo.src}
+              alt="Brand Logo"
+              width={600}
+              height={400}
+              className="rounded-xl"
+            />
+          </div>
         </div>
       </div>
     </div>

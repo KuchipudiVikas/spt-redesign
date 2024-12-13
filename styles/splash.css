@@ -1,0 +1,707 @@
+.banner .brand-logo-gradient {
+  height: 52px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 85px;
+}
+
+.banner .frame-3 {
+  align-items: center;
+  display: flex;
+  gap: 35px;
+  left: 382px;
+  position: absolute;
+  top: 21px;
+  width: 406px;
+}
+
+.banner .frame-4 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 5px;
+  position: relative;
+}
+
+.banner .text-wrapper-3 {
+  color: #1a1a1a;
+  font-family: "Helvetica-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.banner .arrow-down-sign-to {
+  height: 6px;
+  position: relative;
+  width: 10.51px;
+}
+
+.banner .group-3 {
+  height: 44px;
+  left: 936px;
+  position: absolute;
+  top: 4px;
+  width: 234px;
+}
+
+.banner .login-instance {
+  left: 0 !important;
+  position: absolute !important;
+  top: 16px !important;
+}
+
+.banner .button-instance {
+  left: 87px !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.banner .line {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 72px;
+  width: 1500px;
+}
+
+.banner .overlap-group {
+  height: 474px;
+  position: absolute;
+  top: 183px;
+}
+
+.banner .frame-5 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 585px;
+}
+
+.banner .frame-6 {
+  -webkit-backdrop-filter: blur(60px) brightness(100%);
+  align-items: center;
+  backdrop-filter: blur(60px) brightness(100%);
+  background-color: #ffffff4c;
+  border-radius: 44px;
+  box-shadow: inset 0px 0px 10px #ffffff, 0px 0px 20px #dddddd40;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 6px;
+  justify-content: center;
+  padding: 6px 16px 6px 6px;
+  position: relative;
+}
+
+.banner .info-wrapper {
+  background-color: #ffffff;
+  border-radius: 12.83px;
+  box-shadow: 0px 4px 10px #00000014;
+  height: 25.65px;
+  position: relative;
+  width: 25.65px;
+}
+
+.banner .info {
+  height: 13px;
+  left: 10px;
+  position: absolute;
+  top: 6px;
+  width: 5px;
+}
+
+.banner .p {
+  color: #252525;
+  font-family: "Poppins", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 23.2px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.banner .frame-7 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.banner .frame-8 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+  width: 100%;
+}
+
+.banner .frame-9 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.banner .grow-visibility-with {
+  color: transparent;
+  font-family: "Plus Jakarta Sans", Helvetica;
+  font-size: 55px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: -26.07px;
+  margin-top: -1px;
+  position: relative;
+  width: 611.07px;
+}
+
+.banner .span {
+  color: #1a1a1a;
+}
+
+.banner .text-wrapper-4 {
+  color: #9539fe;
+}
+
+.banner .text-wrapper-5 {
+  color: #1a1a1a;
+  font-family: "Helvetica-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 30px;
+  margin-right: -26.07px;
+  opacity: 0.8;
+  position: relative;
+  width: 611.07px;
+}
+
+.banner .group-4 {
+  height: 60px;
+  position: relative;
+  width: 360.96px;
+}
+
+.banner .button-2 {
+  background: unset !important;
+  background-color: var(--x-690-2cd) !important;
+  height: 60px !important;
+  left: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.banner .button-3-instance {
+  left: 188px !important;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.banner .frame-10 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 20px;
+  position: relative;
+}
+
+.banner .frame-11 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.banner .ellipse-3 {
+  height: 56px;
+  margin-bottom: -3px;
+  margin-left: -3px;
+  margin-top: -3px;
+  object-fit: cover;
+  position: relative;
+  width: 56px;
+}
+
+.banner .ellipse-4 {
+  height: 56px;
+  margin-bottom: -3px;
+  margin-left: -8px;
+  margin-top: -3px;
+  object-fit: cover;
+  position: relative;
+  width: 56px;
+}
+
+.banner .ellipse-5 {
+  height: 56px;
+  margin-bottom: -3px;
+  margin-left: -8px;
+  margin-right: -3px;
+  margin-top: -3px;
+  object-fit: cover;
+  position: relative;
+  width: 56px;
+}
+
+.banner .frame-12 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 15px;
+  position: relative;
+}
+
+.banner .text-wrapper-6 {
+  color: #1a1a1a;
+  font-family: "Proxima Nova-Extrabold", Helvetica;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 32px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.banner .line-2 {
+  height: 36px;
+  object-fit: cover;
+  position: relative;
+  width: 1px;
+}
+
+.banner .group-5 {
+  height: 37.33px;
+  margin-right: -2px;
+  position: relative;
+  width: 209px;
+}
+
+.banner .text-wrapper-7 {
+  color: #1a1a1a;
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 32px;
+  position: absolute;
+  top: 27px;
+  white-space: nowrap;
+}
+
+.banner .frame-13 {
+  height: 19px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 115px;
+}
+
+.banner .overlap-wrapper {
+  height: 361px;
+
+  position: absolute;
+  top: 61px;
+  width: 668px;
+}
+
+.banner .overlap-2 {
+  height: 361px;
+  position: relative;
+}
+
+.banner .overlap-group-wrapper {
+  height: 327px;
+  left: 124px;
+  position: absolute;
+  top: 0;
+  width: 437px;
+}
+
+.banner .group-wrapper {
+  background-image: url(https://c.animaapp.com/Gy5wEilT/img/vector-6.svg);
+  background-size: 100% 100%;
+  height: 378px;
+  left: -26px;
+  position: relative;
+  top: -21px;
+  width: 488px;
+}
+
+.banner .group-6 {
+  height: 263px;
+  left: 61px;
+  position: relative;
+  top: 47px;
+  width: 363px;
+}
+
+.banner .img-wrapper {
+  background-image: url(https://c.animaapp.com/Gy5wEilT/img/vector-7.svg);
+  background-size: 100% 100%;
+  height: 97px;
+  left: 253px;
+  position: absolute;
+  top: 46px;
+  width: 101px;
+}
+
+.banner .group-7 {
+  height: 58px;
+  left: 19px;
+  position: absolute;
+  top: 25px;
+  width: 62px;
+}
+
+.banner .overlap-3 {
+  background-image: url(https://c.animaapp.com/Gy5wEilT/img/vector-8.svg);
+  background-size: 100% 100%;
+  height: 97px;
+  left: 126px;
+  position: absolute;
+  top: 46px;
+  width: 101px;
+}
+
+.banner .group-8 {
+  height: 45px;
+  left: 20px;
+  position: absolute;
+  top: 24px;
+  width: 59px;
+}
+
+.banner .overlap-group-2 {
+  background-image: url(https://c.animaapp.com/Gy5wEilT/img/vector-9.svg);
+  background-size: 100% 100%;
+  height: 97px;
+  left: 0;
+  position: absolute;
+  top: 167px;
+  width: 101px;
+}
+
+.banner .group-9 {
+  height: 55px;
+  left: 20px;
+  position: absolute;
+  top: 22px;
+  width: 61px;
+}
+
+.banner .regulation-wrapper {
+  background-image: url(https://c.animaapp.com/Gy5wEilT/img/vector-10.svg);
+  background-size: 100% 100%;
+  height: 97px;
+  left: 126px;
+  position: absolute;
+  top: 167px;
+  width: 101px;
+}
+
+.banner .regulation {
+  height: 58px;
+  left: 26px;
+  position: absolute;
+  top: 21px;
+  width: 58px;
+}
+
+.banner .success-story-wrapper {
+  background-image: url(https://c.animaapp.com/Gy5wEilT/img/vector-11.svg);
+  background-size: 100% 100%;
+  height: 97px;
+  left: 253px;
+  position: absolute;
+  top: 167px;
+  width: 101px;
+}
+
+.banner .success-story {
+  height: 60px;
+  left: 21px;
+  position: absolute;
+  top: 20px;
+  width: 60px;
+}
+
+.banner .group-10 {
+  height: 97px;
+  left: 0;
+  position: absolute;
+  top: 46px;
+  width: 101px;
+}
+
+.banner .group-11 {
+  height: 25px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 363px;
+}
+
+.banner .group-12 {
+  height: 24px;
+  left: 125px;
+  position: absolute;
+  top: 0;
+  width: 239px;
+}
+
+.banner .brand-logo-gradient-2 {
+  height: 25px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 41px;
+}
+
+.banner .frame-wrapper {
+  -webkit-backdrop-filter: blur(58.27px) brightness(100%);
+  align-items: center;
+  backdrop-filter: blur(58.27px) brightness(100%);
+  background-color: #ffffff4c;
+  border-radius: 42.73px;
+  box-shadow: inset 0px 0px 9.71px #ffffff, 0px 0px 19.42px #dddddd40;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5.83px;
+  justify-content: center;
+  left: 433px;
+  padding: 5.83px 15.54px 5.83px 5.83px;
+  position: absolute;
+  top: 309px;
+}
+
+.banner .frame-14 {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 4.86px;
+  position: relative;
+  width: 100%;
+}
+
+.banner .group-13 {
+  -webkit-backdrop-filter: blur(95.47px) brightness(100%);
+  backdrop-filter: blur(95.47px) brightness(100%);
+  background-color: #ffffff4c;
+  border-radius: 19.42px;
+  box-shadow: inset 0px 0px 15.91px #ffffff, 0px 0px 31.82px #dddddd40;
+  height: 38.84px;
+  position: relative;
+  width: 38.84px;
+}
+
+.banner .check-list {
+  height: 15px;
+  left: 8px;
+  position: absolute;
+  top: 13px;
+  width: 24px;
+}
+
+.banner .text-wrapper-8 {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 25.7px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.banner .frame-15 {
+  -webkit-backdrop-filter: blur(58.27px) brightness(100%);
+  align-items: center;
+  backdrop-filter: blur(58.27px) brightness(100%);
+  background-color: #ffffff4c;
+  border-radius: 42.73px;
+  box-shadow: inset 0px 0px 9.71px #ffffff, 0px 0px 19.42px #dddddd40;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5.83px;
+  justify-content: center;
+  left: 492px;
+  padding: 5.83px 15.54px 5.83px 5.83px;
+  position: absolute;
+  top: 162px;
+}
+
+.banner .tags {
+  height: 23px;
+  left: 9px;
+  position: absolute;
+  top: 8px;
+  width: 20px;
+}
+
+.banner .frame-16 {
+  -webkit-backdrop-filter: blur(60px) brightness(100%);
+  align-items: center;
+  backdrop-filter: blur(60px) brightness(100%);
+  background-color: #ffffff4c;
+  border-radius: 44px;
+  box-shadow: inset 0px 0px 10px #ffffff, 0px 0px 20px #dddddd40;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+  left: 0;
+  padding: 6px 16px 6px 6px;
+  position: absolute;
+  top: 168px;
+}
+
+.banner .frame-17 {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 5px;
+  position: relative;
+  width: 100%;
+}
+
+.banner .social-wrapper {
+  -webkit-backdrop-filter: blur(98.31px) brightness(100%);
+  backdrop-filter: blur(98.31px) brightness(100%);
+  background-color: #ffffff4c;
+  border-radius: 20px;
+  box-shadow: inset 0px 0px 16.39px #ffffff, 0px 0px 32.77px #dddddd40;
+  height: 40px;
+  position: relative;
+  width: 40px;
+}
+
+.banner .social {
+  height: 25px;
+  left: 7px;
+  position: absolute;
+  top: 7px;
+  width: 25px;
+}
+
+.banner .text-wrapper-9 {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 26.5px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.banner .frame-18 {
+  -webkit-backdrop-filter: blur(58.27px) brightness(100%);
+  align-items: center;
+  backdrop-filter: blur(58.27px) brightness(100%);
+  background-color: #ffffff4c;
+  border-radius: 42.73px;
+  box-shadow: inset 0px 0px 9.71px #ffffff, 0px 0px 19.42px #dddddd40;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5.83px;
+  justify-content: center;
+  left: 33px;
+  padding: 5.83px 15.54px 5.83px 5.83px;
+  position: absolute;
+  top: 311px;
+}
+
+.banner .right {
+  height: 23px;
+  left: 8px;
+  position: absolute;
+  top: 8px;
+  width: 23px;
+}
+
+.banner .frame-19 {
+  -webkit-backdrop-filter: blur(58.27px) brightness(100%);
+  align-items: center;
+  backdrop-filter: blur(58.27px) brightness(100%);
+  background-color: #ffffff4c;
+  border-radius: 42.73px;
+  box-shadow: inset 0px 0px 9.71px #ffffff, 0px 0px 19.42px #dddddd40;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5.83px;
+  justify-content: center;
+  padding: 5.83px 15.54px 5.83px 5.83px;
+  position: absolute;
+  top: 122px;
+  left: 410px;
+}
+
+.banner .trademark {
+  height: 22px;
+  left: 8px;
+  position: absolute;
+  top: 8px;
+  width: 22px;
+}
+
+.banner .frame-20 {
+  -webkit-backdrop-filter: blur(58.27px) brightness(100%);
+  align-items: center;
+  backdrop-filter: blur(58.27px) brightness(100%);
+  background-color: #ffffff4c;
+  border-radius: 42.73px;
+  box-shadow: inset 0px 0px 9.71px #ffffff, 0px 0px 19.42px #dddddd40;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5.83px;
+  justify-content: center;
+  left: 60px;
+  padding: 5.83px 15.54px 5.83px 5.83px;
+  position: absolute;
+  top: 122px;
+}
+
+.banner .t {
+  height: 20px;
+  left: 10px;
+  position: absolute;
+  top: 10px;
+  width: 20px;
+}

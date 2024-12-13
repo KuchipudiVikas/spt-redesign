@@ -574,7 +574,20 @@ function FeaturePage({ token, info, pageData, features, isOwner }) {
                             </td>
                             <td className="  p-1">
                               <div className="flex text-xxs md:text-base justify-between items-center">
-                                <h6>{item.title}</h6>
+                                <HintWrapper
+                                  style={{
+                                    color: "#690ecd",
+                                    background: "#ffffff",
+                                    border: "1px solid #690ecd",
+                                    fontWeight: "700",
+                                    lineHeight: "2",
+                                  }}
+                                  hint={item.title}
+                                >
+                                  <h6 className="elip-2 cursor-pointer">
+                                    {item.title}
+                                  </h6>
+                                </HintWrapper>
                               </div>
                             </td>
 

@@ -12,7 +12,7 @@ interface FaqItemProps {
 export const FaqSection = ({ faq }: FaqItemProps) => {
   return (
     <section className="mx-auto">
-      <h6 className="text-[32px]" textAlign={"center"}>
+      <h6 className="text-[32px] font-bold text-center">
         Frequently Asked Questions
       </h6>
       <div
@@ -25,19 +25,15 @@ export const FaqSection = ({ faq }: FaqItemProps) => {
               <div key={index}>
                 <ItemExpander
                   title={
-                    <div className="mt-6 flex gap-3 cursor-pointer mr-4">
-                      <h6 variant="subtitle1" className={`text-secCol1-700 `}>
-                        0{index + 1}
-                      </h6>
+                    <div className="mt-6 mb-3 flex gap-3 cursor-pointer mr-4">
+                      <h6 className={`text-secCol1-700 `}>{index + 1} .</h6>
 
-                      <h6 variant="body1" fontWeight={500}>
-                        {obj.question}
-                      </h6>
+                      <h6 className="font-semibold">{obj.question}</h6>
                     </div>
                   }
                 >
                   <div>
-                    <div className="font-Inter text-left">
+                    <div className="font-Inter text-[14px] ml-10 leading-7 text-left">
                       <div dangerouslySetInnerHTML={{ __html: obj.answer }} />
                     </div>
                   </div>

@@ -7,6 +7,7 @@ import { shopIds } from "@/data/shopData";
 import { asinTrackerSampleData } from "@/data/sample/asinTracker";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 import {
   RemoveProductTrackingAPI,
@@ -166,6 +167,7 @@ export default function ConfigComponent({
                   }
                 >
                   sample 1
+                  <ArrowRight size={20} />
                 </Button>
                 <Button
                   onClick={() =>
@@ -173,6 +175,7 @@ export default function ConfigComponent({
                   }
                 >
                   sample 2
+                  <ArrowRight size={20} />
                 </Button>
                 <Button
                   onClick={() =>
@@ -180,6 +183,7 @@ export default function ConfigComponent({
                   }
                 >
                   sample 3
+                  <ArrowRight size={20} />
                 </Button>
               </div>
             </div>

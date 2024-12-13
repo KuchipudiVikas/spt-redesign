@@ -25,6 +25,7 @@ import { Button } from "../../ui/button";
 import { CloudDownloadIcon } from "lucide-react";
 import ConfigSection from "./Config";
 import { RotateCwIcon } from "lucide-react";
+import { TrashIcon } from "@radix-ui/react-icons";
 
 interface ICardInfo {
   asin: string;
@@ -55,6 +56,8 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
   const router = useRouter();
   const rKeyword = router.query.keyword;
   const rdomain = router.query.domain;
+
+  const { toast } = useToast();
 
   const [searchedText, setSearchedText] = useState("");
   const [hostname, setHostname] = useState("amazon.com");
@@ -88,13 +91,18 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
           alert("Please upgrade your plan to use this feature");
           return router.push("/titans-ultra");
         }
-        const errorSnackBar: SnackBarState = {
-          isOpen: true,
+        // const errorSnackBar: SnackBarState = {
+        //   isOpen: true,
+        //   title: "Error occurred!",
+        //   message: resJson.error || "Something went wrong!",
+        //   severity: "error",
+        // };
+        // dispatch(openSnackBar(errorSnackBar));
+
+        toast({
           title: "Error occurred!",
-          message: resJson.error || "Something went wrong!",
-          severity: "error",
-        };
-        dispatch(openSnackBar(errorSnackBar));
+          description: resJson.error || "Something went wrong!",
+        });
       }
       setIsLoadingBar(false);
     } else {
@@ -113,13 +121,18 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
           alert("Please upgrade your plan to use this feature");
           return router.push("/titans-ultra");
         }
-        const errorSnackBar: SnackBarState = {
-          isOpen: true,
+        // const errorSnackBar: SnackBarState = {
+        //   isOpen: true,
+        //   title: "Error occurred!",
+        //   message: resJson.error || "Something went wrong!",
+        //   severity: "error",
+        // };
+        // dispatch(openSnackBar(errorSnackBar));
+
+        toast({
           title: "Error occurred!",
-          message: resJson.error || "Something went wrong!",
-          severity: "error",
-        };
-        dispatch(openSnackBar(errorSnackBar));
+          description: resJson.error || "Something went wrong!",
+        });
       }
       setIsLoadingBar(false);
     }
@@ -426,8 +439,6 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
     });
   }
 
-  console.log("product list", productList);
-
   return (
     <div className="">
       {/* <LoadingBar isLoading={isLoadingBar} title="loading..." /> */}
@@ -575,7 +586,7 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
                         }
                         endIcon={
                           asinTrackingList.includes(row.asin) ? (
-                            <DeleteIcon />
+                            <TrashIcon />
                           ) : null
                         }
                         className={` px-3 py-1.5 ${

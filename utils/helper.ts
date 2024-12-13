@@ -20,3 +20,9 @@ export function countWordsAndLetters(str: string): {
     letterCount: letters.length,
   };
 }
+
+export const splitWords = (word: string): string[] => {
+  const words = word.split(" ");
+  const remaining = words.slice(1).join(" ");
+  return [words[0], remaining];
+};

@@ -200,19 +200,36 @@ function BSRSalesCalculatorPage({ info }) {
                   </Button>
                 </div>
               </div>
-              <div className="flex p-2 pt-10 justify-center gap-20 mt-12 md:mt-0">
-                <div className="flex flex-col">
-                  {names.slice(0, dummyName.length / 2).map((item, index) => {
-                    return <h6 key={index}>{item}</h6>;
-                  })}
-                </div>
 
-                <div className="flex flex-col">
-                  {names
-                    .slice(dummyName.length / 2, dummyName.length)
-                    .map((item, index) => {
-                      return <h6 key={index}>{item}</h6>;
+              <div className="bg-white p-2 rounded-3xl mt-12">
+                <h6 className="font-bold p-3 text-xl w-fit mx-auto text-primary mb-4">
+                  Pen Names{" "}
+                </h6>
+                <div className="flex p-2 pt-0 justify-center gap-20 md:mt-0">
+                  <div className="flex flex-col gap-2">
+                    {names.slice(0, dummyName.length / 2).map((item, index) => {
+                      return (
+                        <h6 className="font-medium" key={index}>
+                          {index + 1}. &nbsp;{item}
+                        </h6>
+                      );
                     })}
+                  </div>
+
+                  <div className="flex flex-col gap-2 pb-2">
+                    {names
+                      .slice(dummyName.length / 2, dummyName.length)
+                      .map((item, index) => {
+                        return (
+                          <h6
+                            className="font-medium"
+                            key={index + dummyName.length / 2}
+                          >
+                            {index + 1 + dummyName.length / 2}. &nbsp; {item}
+                          </h6>
+                        );
+                      })}
+                  </div>
                 </div>
               </div>
             </div>

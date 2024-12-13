@@ -12,13 +12,21 @@ import ChrisImage from "@/public/images/testimonials/11.png";
 import LorenzoImage from "@/public/images/testimonials/1.png";
 import NuriaImage from "@/public/images/testimonials/2.png";
 import RachelImage from "@/public/images/testimonials/6.png";
+import dynamic from "next/dynamic";
+import { Banner } from "./Banner";
+import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="text-black max-w-[1300px] mb-20 mt-20 mx-auto grid grid-cols-2">
+    <div
+      style={{
+        margin: "100px auto",
+        marginBottom: "130px",
+      }}
+      className="text-black max-w-[1300px]   mx-auto grid grid-cols-2"
+    >
       <div className="w-[585px]">
         <AllToolsButton />
-
         <div className="text-[55px] flex gap-3 font-extrabold">
           Grow
           <span className="text-primary">Visibility</span>
@@ -27,7 +35,6 @@ const Hero = () => {
         <div className="text-[55px] flex gap-3 font-extrabold">
           Powerful Author Tools
         </div>
-
         <div
           style={{
             lineHeight: "30px",
@@ -48,21 +55,26 @@ const Hero = () => {
             <Image src={DotIcon} alt="Brand Logo" width={5} height={5} />
             Get Started
           </Button>
-          <Button
-            variant={"outline"}
-            className="font-bold bg-transparent flex text-[16px] rounded-full"
-            style={{
-              padding: "24px 40px",
-              border: "2px solid #000",
-            }}
-          >
-            View Tools
-          </Button>
+          <Link href={"/tools"}>
+            <Button
+              variant={"outline"}
+              className="font-bold bg-transparent flex text-[16px] rounded-full"
+              style={{
+                padding: "24px 40px",
+                border: "2px solid #000",
+              }}
+            >
+              View Tools
+            </Button>
+          </Link>
         </div>
 
         <div className="">
           <ReviewsHero />
         </div>
+      </div>
+      <div className="">
+        <Banner />
       </div>
     </div>
   );

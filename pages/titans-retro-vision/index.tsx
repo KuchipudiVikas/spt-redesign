@@ -25,6 +25,7 @@ import EnhancedTable from "@/components/RetroVision/Table";
 import Config from "@/components/RetroVision/Config";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { useToast } from "@/hooks/use-toast";
 
 // const (
 // 	PingMsg                  = "ping"
@@ -386,6 +387,8 @@ function TitansRetroVision({
     setIsMobile(_isMobile);
   }
 
+  const { toast } = useToast();
+
   const setQueryData = async () => {
     if (query.asin && query.domain) {
       setTrackAsin(query.asin);
@@ -394,14 +397,19 @@ function TitansRetroVision({
         await getResultsHandler(query.asin, query.domain);
       } catch (error) {
         console.error(error);
-        dispatch(
-          openSnackBar({
-            isOpen: true,
-            title: "Error occurred!",
-            message: "Something went wrong!",
-            severity: "error",
-          })
-        );
+        // dispatch(
+        //   openSnackBar({
+        //     isOpen: true,
+        //     title: "Error occurred!",
+        //     message: "Something went wrong!",
+        //     severity: "error",
+        //   })
+        // );
+
+        toast({
+          title: "Error occurred!",
+          description: "Something went wrong!",
+        });
       }
     }
   };
@@ -605,17 +613,26 @@ function TitansRetroVision({
         // get free data
         return router.push("/titans-ultra");
       }
-      const errorSnackBar: SnackBarState = {
-        isOpen: true,
+      // const errorSnackBar: SnackBarState = {
+      //   isOpen: true,
+      //   title: "Error occurred!",
+      //   message:
+      //     error?.response?.data?.error ||
+      //     error.message ||
+      //     "Something went wrong!",
+      //   severity: "error",
+      // };
+
+      toast({
+        variant: "destructive",
         title: "Error occurred!",
-        message:
+        description:
           error?.response?.data?.error ||
           error.message ||
           "Something went wrong!",
-        severity: "error",
-      };
+      });
+
       setIsLoading(false);
-      dispatch(openSnackBar(errorSnackBar));
       setError(error);
     }
   };
@@ -674,12 +691,17 @@ function TitansRetroVision({
   return (
     <MainLayout
       info={info}
-      title="Titans Retro View"
-      description="Titans Retro View"
-      keywords=""
+      // title="Titans Retro View"
+      // description="Titans Retro View"
+      // keywords=""
+      meta={{
+        title: "Titans Retro View",
+        description: "Titans Retro View",
+        keywords: "",
+      }}
       Title={<Hero />}
       Body={
-        <div>
+        <div className="comp-container">
           {/* <LoadingBar isLoading={isLoading} title={loadingStatus} /> */}
 
           <Config
@@ -694,6 +716,11 @@ function TitansRetroVision({
             setDomain={setDomain}
             isLoading={isLoading}
             setIsLoading={setIsLoading}
+            setFilteredResults={setFilteredResults}
+            results={results}
+            recordsPerPage={recordsPerPage}
+            setLoadingStatus={setLoadingStatus}
+            getRankAndSetResults={getRankAndSetResults}
           />
 
           {/* <FiltersComponenet
@@ -711,10 +738,7 @@ function TitansRetroVision({
           {data &&
             data.status &&
             data.status === RetroViewStatus.InProgress && (
-              <Alert
-                severity="info"
-                className="mt-5 container mx-auto flex flex-row"
-              >
+              <Alert className="mt-5 container mx-auto flex flex-row">
                 <h6 className="text-sm">
                   Please wait while we are fetching the data in the background
                   and updating the results. This may take a few minutes. We got{" "}
@@ -726,7 +750,7 @@ function TitansRetroVision({
           {
             // show error message
             error && (
-              <Alert severity="error" className="mt-5 container mx-auto">
+              <Alert className="mt-5 container mx-auto">
                 <h6 className="text-sm">
                   {error?.response?.data?.error ||
                     error.message ||

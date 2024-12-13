@@ -51,7 +51,7 @@ const ConfigSection: React.FC<ConfigSectionProps> = ({
           <Input
             type="text"
             className="w-[90vw] hidden md:flex md:w-[35vw] lg:w-[450px]"
-            // placeholder="Search for a product"
+            placeholder="Search for a product"
             value={searchedText}
             onChange={(e) => {
               setSearchedText(e.target.value);

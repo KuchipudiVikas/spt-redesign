@@ -93,6 +93,7 @@ const SelectedKeywords = ({
   setSelectedKeyword5,
   setSelectedKeyword6,
   setSelectedKeyword7,
+  reset,
 
   title,
   removeKeyword,
@@ -217,7 +218,14 @@ const SelectedKeywords = ({
             index={7}
           />
 
-          <Button className="h-full rounded-full">Clear Keywords</Button>
+          <Button
+            onClick={() => {
+              reset();
+            }}
+            className="h-full rounded-full"
+          >
+            Clear Keywords
+          </Button>
         </div>
       </CardContent>
     </Card>

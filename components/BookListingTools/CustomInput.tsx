@@ -8,6 +8,8 @@ interface CustomInputProps {
   errorMessage?: string;
   placeholder?: string;
   severity?: "red" | "orange" | "gray";
+  helperstyle?: React.CSSProperties;
+  style?: React.CSSProperties;
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({
@@ -18,12 +20,12 @@ const CustomInput: React.FC<CustomInputProps> = ({
   errorMessage,
   placeholder,
   severity = "gray",
+  helperstyle = {},
+  style = {},
 }) => {
   const borderColor = error ? (severity === "red" ? "red" : "orange") : "#ccc";
   const backgroundColor = error ? "#ffe6e6" : "white";
   const textColor = error ? (severity === "red" ? "red" : "orange") : "gray";
-
-  console.log("Error messaeg is", errorMessage, helperText);
 
   return (
     <div style={{ position: "relative" }}>
@@ -35,19 +37,24 @@ const CustomInput: React.FC<CustomInputProps> = ({
         style={{
           width: "100%",
           padding: "10px",
+          // paddingBottom: "30px", // Add extra padding to accommodate the helper text
           border: `1px solid ${borderColor}`,
           backgroundColor: backgroundColor,
-          borderRadius: "16px",
+          borderRadius: "30px",
+          ...style,
+          // boxSizing: "border-box",
         }}
-        className="rounded-full my-2"
+        className="rounded-full my-1"
       />
       <div
         style={{
           position: "absolute",
-          bottom: "-20px",
+          // bottom: "5px", // Adjust this value as needed
           right: "10px",
+          top: "53px",
           fontSize: "10px",
           color: textColor,
+          ...helperstyle,
         }}
       >
         {helperText}

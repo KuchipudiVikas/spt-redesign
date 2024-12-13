@@ -18,6 +18,7 @@ import PageTitle from "@/components/Common/PageTitle";
 import Features from "@/lib/mw/Accounts/Features";
 import BGsvg from "@/public/assets/home/bg.svg";
 import Reviews from "@/components/Home/Reviews";
+import { StarIcon } from "lucide-react";
 
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -163,18 +164,15 @@ function MasterClassPage({ info, pageData, masterclassDetails }) {
             style={{
               background: "white",
             }}
-            className="pb-20 sp-container border light-border rounded-3xl mt-20 flex justify-center flex-col items-center from-pink-100 via-pink-200 to-pink-200"
+            className="pb-20 sp-container border-2 light-border rounded-3xl mt-20 flex justify-center flex-col items-center from-pink-100 via-pink-200 to-pink-200"
             id="masterclass"
           >
-            <h6
-              variant="h4"
-              textAlign={"center"}
-              className="my-5 text-[45px] font-bold md:my-10 "
-            >
+            <h6 className="my-5 flex items-center gap-4 text-[45px] font-bold md:my-10 ">
+              <StarIcon size={40} className="text-primary" />{" "}
               {currLangItem.trainingOptionsTitle}
             </h6>
 
-            <div className="grid grid-cols-1 md:grid-cols-1 mx-5 xl:mx-28 xl:px-10 gap-4 xl:max-w-[1200px] text-justify">
+            <div className="grid   grid-cols-1 md:grid-cols-1 mx-5 xl:mx-28 xl:px-10 gap-4 xl:max-w-[1200px] text-justify">
               {languageItemsIndex[`${currentLanguage}`].videoCardInfo.map(
                 (item, index) => {
                   // update masterclass price but checking if the title contains masterclass is not the best way to do it
@@ -233,7 +231,9 @@ function MasterClassPage({ info, pageData, masterclassDetails }) {
               )}
             </div>
           </section>
-          <FaqSection faq={currLangItem.faq} />
+          <div className="mt-20">
+            <FaqSection faq={currLangItem.faq} />
+          </div>
           <div className="min-h-[5vh] md:min-h-[10vh]"></div>
         </>
       }

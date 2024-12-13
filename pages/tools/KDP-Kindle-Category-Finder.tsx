@@ -296,12 +296,12 @@ function CategoryFinderPage({ info }) {
                           </div>
                         </div>
                         <div className="">
-                          <h6 className="font-Inter mb-4 font-bold text-xl">
+                          <h6 className="font-Inter mb-4 ml-5 font-bold text-xl">
                             Categories
                           </h6>
                         </div>
 
-                        <div className="list-none">
+                        <div className="list-none sp-container p-6 border light-border rounded-3xl">
                           {items.map((props) => (
                             <>
                               <ListItem

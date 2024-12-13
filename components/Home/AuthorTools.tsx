@@ -5,6 +5,14 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { CheckIcon } from "lucide-react";
 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
 interface AuthorToolCardProps {
   Icon: React.ReactNode;
   Title: string;
@@ -25,7 +33,7 @@ const AuthorToolCard: React.FC<AuthorToolCardProps> = ({
         borderRadius: "25px",
         width: "377px",
       }}
-      className=" "
+      className=" h-full "
     >
       <div className="">
         {Icon}
@@ -133,30 +141,82 @@ function NewAuthorTools() {
       Items: ["Get a Ready-to-Use Description", "Spot Trends and Patterns"],
       CtaLink: "/shop",
     },
-    // {
-    //   Icon: <Image src={BrandLogo} alt="Brand Logo" width={50} height={50} />,
-    //   Title: "Book Listing Tool",
-    //   Items: ["Get a Ready-to-Use Description", "Spot Trends and Patterns"],
-    //   CtaLink: "/shop",
-    // },
-    // {
-    //   Icon: <Image src={BrandLogo} alt="Brand Logo" width={50} height={50} />,
-    //   Title: "Title Generator Tool",
-    //   Items: ["Get a Ready-to-Use Description", "Spot Trends and Patterns"],
-    //   CtaLink: "/shop",
-    // },
-    // {
-    //   Icon: <Image src={BrandLogo} alt="Brand Logo" width={50} height={50} />,
-    //   Title: "Book Data Translator",
-    //   Items: ["Get a Ready-to-Use Description", "Spot Trends and Patterns"],
-    //   CtaLink: "/shop",
-    // },
-    // {
-    //   Icon: <Image src={BrandLogo} alt="Brand Logo" width={50} height={50} />,
-    //   Title: "Grammar Checking Tool",
-    //   Items: ["Get a Ready-to-Use Description", "Spot Trends and Patterns"],
-    //   CtaLink: "/shop",
-    // },
+    {
+      Icon: (
+        <Image
+          src={BrandLogo}
+          alt="Brand Logo"
+          width={72}
+          className=""
+          style={{
+            width: "72px",
+            height: "72px",
+            objectFit: "contain",
+          }}
+          height={72}
+        />
+      ),
+      Title: "Book Listing Tool",
+      Items: ["Get a Ready-to-Use Description", "Spot Trends and Patterns"],
+      CtaLink: "/shop",
+    },
+    {
+      Icon: (
+        <Image
+          src={BrandLogo}
+          alt="Brand Logo"
+          width={72}
+          className=""
+          style={{
+            width: "72px",
+            height: "72px",
+            objectFit: "contain",
+          }}
+          height={72}
+        />
+      ),
+      Title: "Title Generator Tool",
+      Items: ["Get a Ready-to-Use Description", "Spot Trends and Patterns"],
+      CtaLink: "/shop",
+    },
+    {
+      Icon: (
+        <Image
+          src={BrandLogo}
+          alt="Brand Logo"
+          width={72}
+          className=""
+          style={{
+            width: "72px",
+            height: "72px",
+            objectFit: "contain",
+          }}
+          height={72}
+        />
+      ),
+      Title: "Book Data Translator",
+      Items: ["Get a Ready-to-Use Description", "Spot Trends and Patterns"],
+      CtaLink: "/shop",
+    },
+    {
+      Icon: (
+        <Image
+          src={BrandLogo}
+          alt="Brand Logo"
+          width={72}
+          className=""
+          style={{
+            width: "72px",
+            height: "72px",
+            objectFit: "contain",
+          }}
+          height={72}
+        />
+      ),
+      Title: "Grammar Checking Tool",
+      Items: ["Get a Ready-to-Use Description", "Spot Trends and Patterns"],
+      CtaLink: "/shop",
+    },
   ];
 
   return (
@@ -164,7 +224,7 @@ function NewAuthorTools() {
       style={{
         paddingTop: "50px",
       }}
-      className="w-full  flex-col flex justify-between"
+      className="w-full  comp-container flex-col flex justify-between"
     >
       <div
         className="font-jsans mx-auto flex gap-3 font-extrabold"
@@ -175,22 +235,29 @@ function NewAuthorTools() {
         New <span className="gradient-text">Author</span>
         Tools
       </div>
-      <div
-        style={{
-          marginTop: "50px",
+      <Carousel
+        opts={{
+          align: "start",
         }}
-        className="flex justify-center gap-4 "
+        className="w-full mt-3"
       >
-        {ToolsData.map((tool, index) => (
-          <AuthorToolCard
-            Icon={tool.Icon}
-            Title={tool.Title}
-            Items={tool.Items}
-            CtaLink={tool.CtaLink}
-            key={index}
-          />
-        ))}
-      </div>
+        <CarouselContent>
+          {ToolsData.map((tool, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <div className="p-1 h-full">
+                <AuthorToolCard
+                  Icon={tool.Icon}
+                  Title={tool.Title}
+                  Items={tool.Items}
+                  CtaLink={tool.CtaLink}
+                />
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </div>
   );
 }

@@ -31,6 +31,7 @@ import { Label } from "@/components/ui/label";
 
 import ConfigSection from "@/components/BookListingTools/title-creator/Config";
 import { Separator } from "@/components/ui/separator";
+import CustomTextArea from "@/components/BookListingTools/customTextArea";
 
 interface IndexProps {
   token: string;
@@ -140,13 +141,15 @@ const Index: React.FC<IndexProps> = ({ token, isOwner, info }) => {
 
   return (
     <MainLayout
-      title="KDP Title Creator - Self Publishing Titans"
-      description="KDP Title Creator"
-      keywords="KDP Title Creator"
+      meta={{
+        title: "KDP Title Creator - Self Publishing Titans",
+        description: "KDP Title Creator",
+        keywords: "KDP Title Creator",
+      }}
       Title={<Hero />}
       info={info}
       Body={
-        <div className="min-h-[60vh] lg:max-w-[80vw] xl:max-w-[80vw] mx-auto mb-10 mt-10 px-5">
+        <div className="min-h-[60vh]  comp-container mx-auto mb-10 mt-10 px-5">
           <ConfigSection
             setMid={setMid}
             setHostname={setHostname}
@@ -159,7 +162,7 @@ const Index: React.FC<IndexProps> = ({ token, isOwner, info }) => {
 
           {true && (
             <div className="w-full flex justify-center">
-              <div className="flex mx-auto items-center">
+              <div className="samples-container">
                 <h6 className="text-sm mr-3">
                   Here are some free results to checkout:{" "}
                 </h6>
@@ -340,16 +343,17 @@ function TryOutFields() {
             }}
             className="flex justify-between items-center"
           >
-            <Textarea
-              className="w-full "
+            <CustomTextArea
               value={title1}
               rows={2}
+              helperText={`${title1.length}/${titleLengthLimit} characters used`}
+              onChange={(e) => setTitle1(e.target.value)}
               style={{
-                resize: "none",
                 border: "none",
               }}
-              // helperText={`${title1.length}/${titleLengthLimit} characters used`}
-              onChange={(e) => setTitle1(e.target.value)}
+              containerStyle={{
+                border: "none",
+              }}
             />
             <HintWrapper hint="Capitalized Title 1">
               <svg
@@ -358,7 +362,7 @@ function TryOutFields() {
                 height="30px"
                 viewBox="0 -960 960 960"
                 width="30px"
-                className="cursor-pointer"
+                className="cursor-pointer mr-1"
                 fill="#000"
               >
                 <path d="M440-200v-80h400v80H440Zm160-160v-248l-64 64-56-56 160-160 160 160-56 56-64-64v248h-80Zm-480 0 136-360h64l136 360h-62l-32-92H216l-32 92h-64Zm114-144h108l-52-150h-4l-52 150Z" />
@@ -384,7 +388,7 @@ function TryOutFields() {
             }}
             className="flex justify-between items-center"
           >
-            <Textarea
+            {/* <Textarea
               className="w-full"
               value={title2}
               style={{
@@ -392,7 +396,18 @@ function TryOutFields() {
                 border: "none",
               }}
               onChange={(e) => setTitle2(e.target.value)}
+            /> */}
+
+            <CustomTextArea
+              value={title2}
+              rows={2}
+              helperText={`${title2.length}/${titleLengthLimit} characters used`}
+              onChange={(e) => setTitle2(e.target.value)}
+              containerStyle={{
+                border: "none",
+              }}
             />
+
             <HintWrapper hint="Capitalized Title 2">
               <svg
                 onClick={() => setTitle2(capitalizeText(title2))}
@@ -400,7 +415,7 @@ function TryOutFields() {
                 height="30px"
                 viewBox="0 -960 960 960"
                 width="30px"
-                className="cursor-pointer"
+                className="cursor-pointer mr-1"
                 fill="#000"
               >
                 <path d="M440-200v-80h400v80H440Zm160-160v-248l-64 64-56-56 160-160 160 160-56 56-64-64v248h-80Zm-480 0 136-360h64l136 360h-62l-32-92H216l-32 92h-64Zm114-144h108l-52-150h-4l-52 150Z" />

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowDown01Icon } from "lucide-react";
+import { ChevronDownCircle, ChevronUpCircleIcon } from "lucide-react";
 const contentStyle = {
   overflow: "hidden",
   transition: "all 0.3s",
@@ -34,8 +35,8 @@ const Expander = ({ title, children }) => {
       >
         {title}
         <div className=" cursor-pointer transition-all">
-          <ArrowDown01Icon
-            className="transition-all"
+          <ChevronDownCircle
+            className={` ${expanded && "text-primary"} transition-all`}
             style={expanded ? { rotate: "180deg" } : {}}
           />
         </div>

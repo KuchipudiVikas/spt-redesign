@@ -20,9 +20,12 @@ import Image from "next/image";
 const Testimonials = () => {
   return (
     <MainLayout
-      title="Testimonials - Self Publishing Titans"
-      description=""
-      keywords=""
+      info={false}
+      meta={{
+        title: "Testimonials | Self Publishing Titans",
+        description: "Testimonials",
+        keywords: "Testimonials ",
+      }}
       Title={
         <div className="flex my-10 justify-center flex-col items-center">
           <h1 className="text-[60px]  mt-[20px] font-jsans flex justify-center items-center gap-3 mx-auto  font-extrabold text-center text-gray-900 ">
@@ -36,7 +39,7 @@ const Testimonials = () => {
           style={{
             paddingTop: "60px",
           }}
-          className="w-full"
+          className="w-full comp-container"
         >
           <h2
             style={{

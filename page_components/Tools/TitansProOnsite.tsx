@@ -9,7 +9,7 @@ import { useCustomDeviceSize, EScreenSize } from "@/utils/useDeviceSize";
 import { Fragment } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ArrowUpDownIcon } from "lucide-react";
+import { ArrowUpDownIcon, RotateCw } from "lucide-react";
 import Link from "next/link";
 import numberWithCommas from "@/utils/helper";
 import { useSearchParams } from "next/navigation";
@@ -17,6 +17,7 @@ import { useRouter } from "next/router";
 import { User } from "@/lib/ts/types/user";
 import { Search } from "lucide-react";
 import { DownloadCloudIcon } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const getResults = async ({
   searchedText,
@@ -67,6 +68,7 @@ interface TitansProOnsiteProps {
 const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { toast } = useToast();
 
   // check query params and set the state
   let hostnameQ = searchParams.get("domain");
@@ -204,12 +206,12 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
         // get free data
         return router.push("/titans-pro");
       }
-      const errorSnackBar: SnackBarState = {
-        isOpen: true,
-        title: "Error occurred!",
-        message: error.message || "Something went wrong!",
-        severity: "error",
-      };
+
+      toast({
+        title: "Error",
+        description: error.message,
+      });
+
       setError(error);
     }
     setLoading(false);
@@ -359,8 +361,6 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
     ? false
     : results.every((result) => result.opportunityScore === -1);
 
-  const { size } = useCustomDeviceSize();
-
   const textFieldRef = useRef<HTMLInputElement>(null);
 
   return (
@@ -393,8 +393,8 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                 })}
               </select>
               <Input
-                className="w-[88vw] md:w-full  border-2 borderRadiusRight text-xxs md:text-xl border-purple-600 "
-                placeholder="coloring books"
+                className="w-[88vw] md:w-full  border-2 borderRadiusRight text-xxs  border-purple-600 "
+                placeholder="Keywords"
                 type="text"
                 value={searchedText}
                 // ref={textFieldRef}
@@ -409,8 +409,8 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
               />
               {/* excludedWordsSentence */}
               <Input
-                className="w-[88vw] md:w-1/2  border-2 borderRadiusRight text-xxs md:text-xl border-purple-600 "
-                placeholder="coloring books"
+                className="w-[88vw] md:w-1/2  border-2 borderRadiusRight text-xxs  border-purple-600 "
+                placeholder="Exclude words"
                 type="text"
                 value={excludedWordsSentence}
                 onChange={(e) => {
@@ -424,8 +424,8 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
               />
               {/* includedWordsSentence */}
               <Input
-                className="w-[88vw] md:w-1/2  border-2 borderRadiusRight text-xxs md:text-xl border-purple-600 "
-                placeholder="coloring books"
+                className="w-[88vw] md:w-1/2  border-2 borderRadiusRight text-xxs  border-purple-600 "
+                placeholder="Include words"
                 type="text"
                 value={includedWordsSentence}
                 onChange={(e) => {
@@ -448,7 +448,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                     }
                   }}
                 >
-                  <Search />
+                  {loading ? <RotateCw /> : <Search />}
                 </button>
               </div>
             </div>
@@ -500,7 +500,12 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                     </th>
                     <th className={``}>
                       <div className="twa-th">
-                        <h6 className="text-xs md:text-xl">
+                        <h6
+                          style={{
+                            fontSize: "15px",
+                          }}
+                          className="text-xs md:text-xl"
+                        >
                           Est. Search Volume
                         </h6>
                         <button
@@ -522,7 +527,15 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
 
                     <th className={``}>
                       <div className="twa-th">
-                        <h6 className="text-xs md:text-xl"> Search Results</h6>
+                        <h6
+                          style={{
+                            fontSize: "15px",
+                          }}
+                          className="text-xs md:text-xl"
+                        >
+                          {" "}
+                          Search Results
+                        </h6>
                         <button
                           className={`hover:cursor-pointer ml-2`}
                           onClick={() => sortResults("searchResult")}
@@ -550,7 +563,14 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
 
                     <th className={``}>
                       <div className="twa-th">
-                        <h6 className="text-xs md:text-xl">Demand</h6>
+                        <h6
+                          style={{
+                            fontSize: "15px",
+                          }}
+                          className="text-xs md:text-xl"
+                        >
+                          Demand
+                        </h6>
                         <button
                           className={`hover:cursor-pointer ml-2`}
                           onClick={() => sortResults("demand")}
@@ -577,7 +597,15 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                     </th>
                     <th className={``}>
                       <div className="twa-th">
-                        <h6 className="text-xs md:text-xl"> Opportunity</h6>
+                        <h6
+                          style={{
+                            fontSize: "15px",
+                          }}
+                          className="text-xs md:text-xl"
+                        >
+                          {" "}
+                          Opportunity
+                        </h6>
                         <button
                           className={`hover:cursor-pointer ml-2`}
                           onClick={() => sortResults("opportunity")}
@@ -640,7 +668,9 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                                   result.keywordN
                                 )}`}
                               >
-                                <h6>{result.keywordN}</h6>
+                                <h6 className="font-semibold">
+                                  {result.keywordN}
+                                </h6>
                               </Link>
                             </div>
                           </td>
@@ -649,7 +679,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                               style={{
                                 color: "",
                               }}
-                              className="twa-td font-bold flex justify-center"
+                              className="twa-td font-semibold flex justify-center"
                             >
                               <h6
                                 style={{
@@ -668,7 +698,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                               style={{
                                 color: "",
                               }}
-                              className="twa-td font-bold flex justify-center"
+                              className="twa-td font-semibold flex justify-center"
                             >
                               <h6
                                 style={{
@@ -685,7 +715,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                           <td className="">
                             <div className="twa-td flex justify-center">
                               <p
-                                className={`rounded-full w-fit text-black px-2 `}
+                                className={`rounded-full w-7 h-7 flex items-center justify-center font-semibold text-black px-2 `}
                                 style={{
                                   backgroundColor: result.demandColor,
                                   filter:
@@ -710,7 +740,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                           <td className={``}>
                             <div className="twa-td font justify-center items-center">
                               <p
-                                className={`rounded-full mx-auto w-fit text-black px-3 py-1 text-center text-xxs md:text-xl `}
+                                className={`rounded-full mx-auto w-7 h-7 flex items-center justify-center font-semibold text-black px-3 py-1 text-center  `}
                                 style={{
                                   backgroundColor: result.opportunityColor,
                                   filter:

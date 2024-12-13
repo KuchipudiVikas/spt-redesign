@@ -1,10 +1,8 @@
 import React from "react";
-import DotImage from "@/public/assets/home/dot-svgrepo-com.svg";
 import Image from "next/image";
 import Link from "next/link";
 import BrandLogo from "@/public/favIcon.png";
 import LinkIndex from "@/lib/linkIndex";
-import { useState } from "react";
 
 const Footer = () => {
   type Links = {
@@ -124,7 +122,14 @@ const Footer = () => {
       <div className="max-w-[1300px]  mx-auto font-jsans">
         <div className="grid grid-cols-5 mt-[20px] w-full">
           <div className="col-span-2">
-            <Image src={BrandLogo} alt="Brand Logo" width={85} height={85} />
+            <img
+              src={
+                "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/favIcon.png"
+              }
+              alt="Brand Logo"
+              width={85}
+              height={85}
+            />
             <div className="mt-[40px]">
               <h6 className="font-bold text-[18px]">
                 Subscribe to Our Newsletter For Updates

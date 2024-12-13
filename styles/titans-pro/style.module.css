@@ -1,0 +1,378 @@
+.dBtn {
+  color: #fff;
+
+  font-weight: 500;
+  background-color: #906df5;
+  border-radius: 0.5em;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+.tableContent h1 {
+  color: #7e3af2;
+}
+
+.secondThead {
+  background-color: #fff !important;
+}
+
+.secondThead tr th {
+  border: 1px solid #ccc;
+}
+
+.theadInner {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-bottom: 0.75em;
+  height: 100%;
+}
+
+.theadInner h2 {
+  font-weight: 600;
+  color: #7e3af2;
+  /* line-height: 1.5; */
+}
+
+.theadInner p {
+  color: #000;
+
+  line-height: 1.5;
+}
+
+.theadInner .dBtn {
+}
+
+.theadInner span {
+  font-weight: 400;
+}
+
+.firstThead tr th {
+  text-align: center;
+
+  color: #7e3af2;
+}
+
+.secondThead tr th:nth-child(1) {
+  border-right: 2px solid #906df5;
+  text-align: start;
+
+  color: #7e3af2;
+  line-height: 1.5;
+}
+
+.secondThead tr th:nth-child(2) {
+  border: 2px solid #906df5;
+  border-bottom: 0;
+}
+
+.firstTbody tr:nth-child(1) {
+  background-color: #eadcf0;
+}
+
+.firstTbody tr:nth-child(1) th {
+  border: 1px solid #ccc;
+  border-right: 0;
+  text-align: start;
+
+  color: #7e3af2;
+  font-weight: 700;
+}
+
+.firstThead {
+  background-color: transparent !important;
+}
+
+.firstTbody tr:nth-child(1) td:nth-child(2) {
+  border: 2px solid #906df5;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.firstTbody tr:nth-child(1) td:last-child {
+  border-right: 1px solid #ccc;
+}
+
+.firstTbody tr th {
+  border: 1px solid #ccc;
+  text-align: start;
+
+  color: #7e3af2;
+  font-weight: 500;
+}
+
+.firstTbody tr td {
+  border: 1px solid #ccc;
+  text-align: start;
+
+  color: #d24dee;
+  font-weight: 400;
+  text-align: center;
+}
+
+.firstTbody tr td:nth-child(2) {
+  border: 2px solid #906df5;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.mostInner {
+  position: relative;
+}
+
+.popular {
+  position: absolute;
+  background-color: #906df5;
+
+  transform: rotate(316deg);
+  left: -3.75em;
+  top: 0.75em;
+}
+
+.popular h6 {
+  color: #fff;
+  font-weight: 500;
+}
+
+.toolContent h1 {
+  color: #7e3af2;
+  margin-bottom: 1em;
+}
+
+.toolContent p {
+  color: #485e75;
+}
+
+.tableContent .firstTbody:last-child tr:last-child td:nth-child(2) {
+  border-bottom: 2px solid #906df5;
+}
+
+.toolCol {
+  border: 1px solid #ccc;
+  border-radius: 0.35em;
+}
+
+.toolCol h1 {
+  color: #000;
+  font-weight: 500;
+}
+
+.toolCol span {
+  color: #7e3af2;
+}
+
+.toolCol h6 {
+  color: #7e3af2;
+}
+
+.toolCol .dBtn {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  background: linear-gradient(to right, #d84dee, #7349fb);
+}
+
+.planTable thead tr th {
+  color: #000;
+}
+
+.planTable thead tr th:nth-child(2) {
+  text-align: center;
+}
+
+.planTable tbody tr td {
+  font-weight: 500;
+  color: #000;
+}
+
+.planTable tbody tr td:nth-child(2) {
+  text-align: center;
+}
+
+.toolContent h5 {
+  color: #485e75;
+}
+
+.addOptionCol {
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  min-height: 19em;
+}
+
+.addOptionCol h1 {
+  color: #7e3af2;
+}
+
+.addOptionCol p {
+  color: #000;
+}
+
+.addOptionCol h6 {
+  color: #000;
+}
+
+.addOptionCol .dBtn {
+  margin-top: 1em;
+  background: linear-gradient(to right, #d84dee, #7349fb);
+}
+
+.sellerSec {
+  background-color: #7e3af1;
+}
+
+.sellerCol {
+  min-height: 12em;
+}
+
+.accordianInner h2 button {
+  border: 0;
+  background-color: #fff !important;
+  border-top: 1px solid #ccc;
+  border-radius: 0;
+  color: #7e3af2;
+}
+
+.accordianInner h2 button svg {
+  transform: rotate(180deg);
+}
+
+.quizSec {
+  background-color: #eadcf0;
+  border-bottom: 1px solid #ccc;
+}
+
+.quizInner h1 {
+  color: #7e3af2;
+}
+
+.firstThead tr th span {
+  display: inline-block;
+  color: #fff;
+  background: linear-gradient(to right, #d84dee, #7349fb);
+
+  border-radius: 0.5em;
+  width: 100%;
+}
+.firstThead tr th {
+  padding: 0;
+}
+.popular {
+  display: none;
+}
+.secondThead tr th:nth-child(2),
+.secondThead tr th:nth-child(1),
+.firstTbody tr:nth-child(1) td:nth-child(2),
+.firstTbody tr td:nth-child(2),
+.tableContent .firstTbody:last-child tr:last-child td:nth-child(2) {
+  border-color: #ccc;
+  border-width: 1px;
+}
+.theadInner h2 {
+  color: #000;
+}
+.theadInner .dBtn {
+  background-color: transparent;
+  color: #000;
+  border-color: #000;
+}
+
+.firstTbody tr:nth-child(1) {
+  background-color: #f5f5f5;
+}
+.firstTbody tr:nth-child(1) th,
+.firstTbody tr th,
+.firstTbody tr td:nth-child(2),
+.firstTbody tr td {
+  color: #000;
+}
+.theadInner .dBtn.dBtnBg {
+  background: linear-gradient(to right, #d84dee, #7349fb);
+  color: #fff;
+  border-color: #906df5;
+}
+
+.secondThead tr th:nth-child(5),
+.secondThead tr th:nth-child(6) {
+  background-color: #f5f5f5;
+}
+.firstTbody tr td .iconD {
+  margin: auto;
+}
+.firstTbody tr td .iconD1 {
+  margin: auto;
+}
+.checkBox {
+  transform: scale(2);
+}
+
+.innerTh .checkBox {
+  transform: scale(1.2);
+}
+
+.checkBox input[type="checkbox"] {
+  position: relative;
+  appearance: none;
+  width: calc(3em - 2px);
+  height: 1.5em;
+  background: #ccc;
+  border-radius: 50px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.checkBox input:checked[type="checkbox"] {
+  background: #7e3af2;
+}
+
+.checkBox input[type="checkbox"]::after {
+  position: absolute;
+  content: "";
+  width: calc(1.5em - 2px);
+  height: calc(1.5em - 2px);
+  top: 0;
+  left: 0;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+  transition: 0.4s;
+}
+
+.checkBox input:checked[type="checkbox"]::after {
+  left: 50%;
+}
+
+/* small checkbox */
+
+.planTable tbody tr td:last-child {
+  padding: 0;
+  text-align: center;
+}
+.planTable tbody tr td:last-child .checkBox {
+  display: inline-block;
+  transform: scale(1);
+  margin: auto;
+}
+
+@media (max-width: 1535px) {
+}
+@media (max-width: 1280px) {
+}
+@media (max-width: 1024px) {
+}
+@media (max-width: 767px) {
+  .footer-col {
+    justify-content: center !important;
+  }
+  .footer-inner1x {
+    margin-bottom: 1em;
+  }
+
+  .iconD {
+    margin: auto;
+    text-align: center;
+  }
+}

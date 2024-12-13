@@ -14,15 +14,22 @@ const Pricing: React.FC<PricingProps> = ({
   features,
   featuresOwned,
   tabQuery,
+  token,
 }) => {
   return (
     <MainLayout
-      title="Pricing - Self Publishing Titans"
-      description="Pricing for Self Publishing Titans"
+      meta={{
+        title: "Pricing - Self Publishing Titans",
+        description: "Pricing for Self Publishing Titans",
+        keywords: "pricing, self publishing titans",
+      }}
+      info={info}
       Title={
         <div className="flex my-10 justify-center flex-col items-center">
-          <div className="text-[18px]">Curated for your KDP business</div>
-          <h1 className="text-[45px] mt-[20px] font-jsans flex justify-center items-center gap-3 mx-auto  font-extrabold text-center text-gray-900 sm:text-4xl">
+          <div className="text-[18px] font-medium">
+            Curated for your KDP business
+          </div>
+          <h1 className="text-[45px] mt-[20px]  flex justify-center items-center gap-3 mx-auto  font-extrabold text-center text-gray-900 sm:text-4xl">
             Checkour Our{" "}
             <StarIcon strokeWidth={3} className="text-primary font-bold" />{" "}
             Premium Resources
@@ -35,9 +42,9 @@ const Pricing: React.FC<PricingProps> = ({
           features={features}
           featuresOwned={featuresOwned}
           tabQuery={tabQuery}
+          token={token}
         />
       }
-      keywords="pricing, self publishing titans"
     />
   );
 };

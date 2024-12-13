@@ -26,8 +26,6 @@ interface IRetroVisionData {
   opportunityColor: string;
   demandColor: string;
 }
-import { Checkbox } from "@/components/ui/checkbox";
-import { Button } from "@/components/ui/button";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -346,7 +344,7 @@ export default function EnhancedTable({
                       </TableCell>
                       <TableCell className="px-5" align="center">
                         <p
-                          className={`rounded-full mx-auto w-fit text-black px-2 py-1 text-center`}
+                          className={`rounded-full mx-auto w-7 h-7 text-black px-2 py-1 text-center`}
                           style={{
                             backgroundColor: colorIndex[row.demandScore],
                             borderRadius: "50%",
@@ -357,10 +355,9 @@ export default function EnhancedTable({
                       </TableCell>
                       <TableCell className="px-5" align="center">
                         <p
-                          className={`rounded-full mx-auto w-fit text-black px-2 py-1 text-center`}
+                          className={`rounded-full mx-auto w-7 h-7 text-black px-2 py-1 text-center`}
                           style={{
                             backgroundColor: colorIndex[row.opportunityScore],
-                            borderRadius: "50%",
                           }}
                         >
                           {row.opportunityScore}

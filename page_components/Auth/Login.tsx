@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import { useCookies } from "react-cookie";
 import { Input } from "@/components/ui/input";
 import ReCAPTCHA from "react-google-recaptcha";
-import { RotateCcw } from "lucide-react";
+import { RotateCcw, RotateCw } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import GoogleIcon from "@/public/assets/home/google.png";
 import AppleLogo from "@/public/assets/home/apple-logo.png";
@@ -284,7 +284,7 @@ const LoginPage = () => {
             borderRadius: "20px",
             padding: "20px 30px",
           }}
-          className="flex  font-jsans justify-center bg-[#f7f7f8] py-[20px] h-fit w-full items-center h-[100vh]"
+          className="flex  font-jsans justify-center  sp-container border-2 light-border  py-[20px] h-fit w-full items-center h-[100vh]"
         >
           <div
             className="g-recaptcha"
@@ -390,7 +390,7 @@ const LoginPage = () => {
 
                 <div className="flex text-[14px] mt-[25px] justify-between mt-2 px-4">
                   <div>
-                    <Link href="/auth/forgot" className="">
+                    <Link href="/forgot-password" className="">
                       Forgot password?
                     </Link>
                   </div>
@@ -402,10 +402,10 @@ const LoginPage = () => {
                     color: "white",
                   }}
                   disabled={loading}
-                  className="pButton mt-2 bg-[#7249fb] font-bold"
+                  className="pButton mt-2 bg-[#7249fb] flex items-center justify-center font-bold"
                   onClick={(e) => handleSubmit(e)}
                 >
-                  {!loading ? "Sign In" : <RotateCcw />}
+                  {!loading ? "Sign In" : <RotateCw className="animate-spin" />}
                 </button>
               </form>
 
@@ -498,16 +498,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
-function Copyright(props: any) {
-  return (
-    <h6 color="text.secondary" className="text-sm" align="center" {...props}>
-      {"Copyright © "}
-      <Link color="inherit" href="https://www.selfpublishingtitans.com/">
-        Self Publishing Titans
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </h6>
-  );
-}

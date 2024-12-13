@@ -10,8 +10,13 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "../ui/separator";
 import { Avatar, AvatarImage } from "../ui/avatar";
+import { Testimonial } from "@/lib/ts/interfaces/testimonials";
 
-const Reviews = () => {
+interface ReviewsProps {
+  testimonials: Testimonial[];
+}
+
+const Reviews: React.FC<ReviewsProps> = ({ testimonials }) => {
   return (
     <div
       style={{
@@ -36,12 +41,12 @@ const Reviews = () => {
           className="max-w-[1300px] mx-auto"
         >
           <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
-                <div className="p-1">
-                  <Card className="shadow-lg">
-                    <CardContent>
-                      <ReviewCard />
+            {testimonials.map((Testimonial, index) => (
+              <CarouselItem key={index} className="md:basis-1/3  lg:basis-1/3">
+                <div className="p-1 h-full">
+                  <Card className="shadow-lg h-full">
+                    <CardContent className="h-full">
+                      <ReviewCard testimonial={Testimonial} />
                     </CardContent>
                   </Card>
                 </div>
@@ -58,55 +63,56 @@ const Reviews = () => {
 
 export default Reviews;
 
-const ReviewCard: React.FC = ({}) => {
-  return (
-    <div className="pt-3 ">
-      <div className="flex items-center my-3 font-jsans font-semibold text-[18px]">
-        <StarIcon />
-        <StarIcon />
-        <StarIcon />
-        <StarIcon />
-        <StarIcon />
-        <div className="ml-2">5/5 Reviews</div>
-      </div>
-      <div className="">
-        <p
-          style={{
-            lineHeight: "25px",
-          }}
-        >
-          As a self-published author with limited resources, I was struggling to
-          make my book visible in such a competitive market. That’s when I found
-          these tools, and they have completely transformed my publishing
-          journey! The keyword research tool, in particular, is a game-changer.
-          It helped me discover terms that readers were actively searching for,
-          which I never would have thought of on my own. Within weeks of
-          implementing these insights.
-        </p>
+interface ReviewCardProps {
+  testimonial: Testimonial;
+}
 
-        <Separator className="mt-4" />
-        <div className="mt-4 flex items-center gap-2">
-          <Avatar className="w-[55px] h-[55px]">
-            <AvatarImage
-              src="https://github.com/shadcn.png"
-              className="w-[55px] h-[55px]"
-              alt="Avatar 1"
-            />
-          </Avatar>
-          <div className="flex flex-col">
-            <div className="font-semibold text-[18px]">
-              Name, Profession{" "}
-              <span className="text-[#ccc] text-[14px] font-normal">
-                (Location, Country)
-              </span>
-            </div>
-            <div
-              style={{
-                fontStyle: "italic",
-              }}
-              className="text-[14px] text-[#333333] "
-            >
-              Date
+const ReviewCard: React.FC<ReviewCardProps> = ({ testimonial }) => {
+  return (
+    <div className="pt-3 h-full">
+      <div className="flex flex-col h-full justify-between">
+        <div className="flex items-center my-3 font-jsans font-semibold text-[18px]">
+          <StarIcon />
+          <StarIcon />
+          <StarIcon />
+          <StarIcon />
+          <StarIcon />
+          <div className="ml-2">5/5 Review</div>
+        </div>
+        <div className="">
+          <p
+            style={{
+              lineHeight: "25px",
+            }}
+          >
+            {testimonial.message}
+          </p>
+        </div>
+        <div className="">
+          <Separator className="mt-4" />
+          <div className="mt-4 flex items-center gap-2">
+            <Avatar className="w-[55px] h-[55px]">
+              <AvatarImage
+                src={testimonial.image.url}
+                className="w-[55px] h-[55px]"
+                alt="Avatar 1"
+              />
+            </Avatar>
+            <div className="flex flex-col">
+              <div className="font-semibold text-[18px]">
+                {testimonial.name}{" "}
+                {/* <span className="text-[#ccc] text-[14px] font-normal">
+                (Location, Country) {testimonial.}
+              </span> */}
+              </div>
+              <div
+                style={{
+                  fontStyle: "italic",
+                }}
+                className="text-[14px] text-[#333333] "
+              >
+                {/* {testimonial.} */}
+              </div>
             </div>
           </div>
         </div>

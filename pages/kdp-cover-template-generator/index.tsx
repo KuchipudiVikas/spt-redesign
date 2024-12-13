@@ -91,7 +91,7 @@ export default function Index() {
         <PageTitle title="KDP Cover Template Generator" />
         // <></>
       }
-      info={{}}
+      info={false}
       Body={
         <main
           className={`flex  flex-col mb-10 items-center justify-between px-4 md:px-24 pt-10 ${inter.className}`}

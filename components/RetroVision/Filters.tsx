@@ -21,6 +21,7 @@ interface FiltersComponenetProps {
   domain: string;
   setIsLoading: any;
   setLoadingStatus: any;
+  getRankAndSetResults: any;
 }
 
 export default function FiltersComponenet({
@@ -33,6 +34,7 @@ export default function FiltersComponenet({
   domain,
   setIsLoading,
   setLoadingStatus,
+  getRankAndSetResults,
 }: FiltersComponenetProps) {
   function countWords(sentence: string) {
     const trimmedSentence = sentence.trim();

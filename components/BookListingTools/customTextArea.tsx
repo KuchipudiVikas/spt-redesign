@@ -10,6 +10,9 @@ interface CustomTextAreaProps {
   placeholder?: string;
   severity?: "red" | "orange" | "gray";
   rows: number;
+  helperstyle?: React.CSSProperties;
+  containerStyle?: React.CSSProperties;
+  style?: React.CSSProperties;
 }
 
 const CustomTextArea: React.FC<CustomTextAreaProps> = ({
@@ -21,6 +24,10 @@ const CustomTextArea: React.FC<CustomTextAreaProps> = ({
   placeholder,
   severity = "gray",
   rows = 4,
+  helperstyle = {},
+  containerStyle = {},
+
+  style,
 }) => {
   const borderColor = error ? (severity === "red" ? "red" : "orange") : "#ccc";
   const backgroundColor = error ? "#ffe6e6" : "white";
@@ -35,11 +42,13 @@ const CustomTextArea: React.FC<CustomTextAreaProps> = ({
         border: `1px solid ${borderColor}`,
         borderRadius: "20px",
         backgroundColor: backgroundColor,
+        ...containerStyle,
       }}
     >
       <Textarea
         type="text"
         value={value}
+        // @ts-ignore
         onChange={onChange}
         rows={rows}
         placeholder={placeholder}
@@ -48,8 +57,9 @@ const CustomTextArea: React.FC<CustomTextAreaProps> = ({
           boxShadow: "none",
           resize: "none",
           border: "none",
+          ...style,
         }}
-        className="rounded-full m"
+        className=" h-[96%] m"
       />
       <div
         style={{
@@ -61,6 +71,7 @@ const CustomTextArea: React.FC<CustomTextAreaProps> = ({
           display: "flex",
           justifyContent: "flex-end",
           paddingRight: "10px",
+          ...helperstyle,
         }}
       >
         {helperText}

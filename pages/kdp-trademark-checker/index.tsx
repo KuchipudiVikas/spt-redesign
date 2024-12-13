@@ -32,6 +32,8 @@ import CustomSelect from "@/components/BookListingTools/CustomSelect";
 import { Label } from "@/components/ui/label";
 import CustomInput from "@/components/BookListingTools/CustomInput";
 import CustomTextArea from "@/components/BookListingTools/customTextArea";
+import { Fragment } from "react";
+import UsptoTable from "@/components/BookListingTools/trademark/Usptotable";
 
 type TResponse = {
   isViolated: boolean;
@@ -116,6 +118,27 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
     TError[] | undefined
   >(undefined);
 
+  const [usptoData, setUsptoData] = useState<TTrademarkData[] | null>(null);
+
+  interface TTrademarkData {
+    case_file_id: number;
+    serial_number: string;
+    registration_number: string;
+    transaction_date: string;
+    mark_identification: string;
+    filing_date: string;
+    status_code: string;
+    international_code: string;
+    us_code1: string;
+    us_code2: string;
+    party_name: string;
+    legal_entity_type_code: string;
+    gs_text: string;
+    description_text: string;
+    event_date: string;
+    status_text: string;
+  }
+
   const currentDate = new Date();
   const nextResetDate = new Date(
     currentDate.getFullYear(),
@@ -168,29 +191,42 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
       UpdateUsage();
 
       // Parse and handle responses
-      const violations = result
-        .map((item) => {
-          const gpt4Response = JSON.parse(item);
+      if (result && result?.gpt_responses) {
+        try {
+          // Parse and handle responses
+          const violations = result.gpt_responses
+            .map((item) => {
+              const gpt4Response = JSON.parse(item);
 
-          // Create an array for errors
-          if (gpt4Response.isViolated) {
-            return gpt4Response.violations.map((violation) => ({
-              fieldName: violation.fieldname, // Use 'fieldname' from the violation
-              reason: violation.reason,
-              violatedPart: violation.violatedPart,
-              severity: violation.severity,
-              violation: violation.violation,
-            }));
+              console.log("gpt4Response", gpt4Response);
+
+              // Create an array for errors
+              if (gpt4Response.isViolated) {
+                return gpt4Response.violations.map((violation) => ({
+                  fieldName: violation.fieldname, // Use 'fieldname' from the violation
+                  reason: violation.reason,
+                  violatedPart: violation.violatedPart,
+                  severity: violation.severity,
+                  violation: violation.violation,
+                }));
+              }
+              return [];
+            })
+            .flat();
+
+          // Set errors
+          if (violations.length) {
+            setErrors(violations);
+          } else {
+            alert("No Trademark Violations Found");
           }
-          return [];
-        })
-        .flat();
+        } catch (error) {
+          console.error("Error handling check:", error);
+        }
+      }
 
-      // Set errors
-      if (violations.length) {
-        setErrors(violations);
-      } else {
-        alert("No Trademark Violations Found");
+      if (result && result?.uspto_database_res) {
+        setUsptoData(result?.uspto_database_res);
       }
 
       // console.log("violations", violations);
@@ -260,6 +296,8 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
     UpdateUsage();
   }, []);
 
+  console.log("errors", errors);
+
   return (
     <MainLayout
       meta={{
@@ -270,7 +308,7 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
       info={info}
       Title={<PageTitle title="KDP Trademark Checker" />}
       Body={
-        <div className="min-h-[60vh] max-w-[90vw] lg:max-w-[1400px] mx-auto mb-10 mt-10 md:px-24">
+        <div className="comp-container mx-auto mb-10 mt-10 md:px-24">
           <div className="flex flex-col gap-3">
             {/* <Typography className="mt-4" variant="h6">
               select test data
@@ -343,7 +381,7 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
                     helperText={
                       bookTypeErrors && bookTypeErrors.length > 0
                         ? bookTypeErrors
-                            .map((error) => `${error.type}`)
+                            .map((error) => `${error.reason}`)
                             .join(", ")
                         : undefined
                     }
@@ -363,7 +401,7 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
                               // @ts-ignore
                               (error) =>
                                 // @ts-ignore
-                                `${error.violatedPart} - ${error.type}`
+                                `${error.violatedPart} - ${error.reason}`
                             )
                             .join(", ")
                         : `${bookData.title.length}/${bookTitleLimit}` ||
@@ -579,6 +617,7 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
 
               <Note />
             </div>
+            {usptoData && <UsptoTable data={usptoData} />}
           </div>
         </div>
       }

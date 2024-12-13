@@ -4,11 +4,12 @@ import { Input } from "../ui/input";
 import HintWrapper from "@/utils/hint";
 import { keepaDomainMidDict } from "@/constants";
 import { StartProductTrackingAPI } from "@/lib/bsr-and-asin/api";
-import { CloudDownloadIcon } from "lucide-react";
+import { CloudDownloadIcon, RotateCw } from "lucide-react";
 import { RetroViewSampleData } from "@/data/sample/retroVision";
 import { SearchIcon } from "lucide-react";
 import { FilterIcon } from "lucide-react";
 import FiltersComponenet from "./Filters";
+import { ArrowRightIcon } from "lucide-react";
 
 interface ConfigProps {
   trackAsin: string;
@@ -22,6 +23,12 @@ interface ConfigProps {
   setDomain: (domain: string) => void;
   isLoading: boolean;
   setIsLoading: (isLoading: boolean) => void;
+
+  setFilteredResults: any;
+  results: any;
+  recordsPerPage: number;
+  setLoadingStatus: any;
+  getRankAndSetResults: any;
 }
 
 const Config: React.FC<ConfigProps> = ({
@@ -36,6 +43,11 @@ const Config: React.FC<ConfigProps> = ({
   setDomain,
   isLoading,
   setIsLoading,
+  setFilteredResults,
+  results,
+  recordsPerPage,
+  setLoadingStatus,
+  getRankAndSetResults,
 }) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -50,7 +62,12 @@ const Config: React.FC<ConfigProps> = ({
       <div className=" w-fit  mx-auto mb-10 mt-10  ">
         <div className="flex flex-col">
           <div className="flex justify-center items-center">
-            <div className="config-container">
+            <div
+              style={{
+                marginRight: `0px`,
+              }}
+              className="config-container"
+            >
               <select
                 className=""
                 value={domain}
@@ -69,10 +86,6 @@ const Config: React.FC<ConfigProps> = ({
               <Input
                 type="text"
                 value={trackAsin}
-                style={{
-                  borderTopRightRadius: "20px",
-                  borderBottomRightRadius: "20px",
-                }}
                 onChange={(e) => setTrackAsin(e.target.value.trim())}
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
@@ -107,7 +120,7 @@ const Config: React.FC<ConfigProps> = ({
               />
               <HintWrapper hint="Click to generate the results">
                 <Button
-                  className="ml-2 rounded-full  p-3"
+                  className="search-btn"
                   onClick={() => {
                     if (!trackAsin) {
                       inputRef?.current?.focus();
@@ -118,7 +131,11 @@ const Config: React.FC<ConfigProps> = ({
                     }
                   }}
                 >
-                  <SearchIcon size={30} />
+                  {isLoading ? (
+                    <RotateCw className="animate-spin" />
+                  ) : (
+                    <SearchIcon size={30} />
+                  )}
                 </Button>
               </HintWrapper>
             </div>
@@ -136,10 +153,21 @@ const Config: React.FC<ConfigProps> = ({
                 />
               </Button>
             </HintWrapper>
-            <FiltersComponenet />
+            <FiltersComponenet
+              setFilteredResults={setFilteredResults}
+              results={results}
+              recordsPerPage={recordsPerPage}
+              isOwner={isOwner}
+              token={token}
+              trackAsin={trackAsin}
+              domain={domain}
+              setIsLoading={setIsLoading}
+              setLoadingStatus={setLoadingStatus}
+              getRankAndSetResults={getRankAndSetResults}
+            />
           </div>
           {true && (
-            <div className="flex justify-center font-medium items-center  px-4 mt-8 ">
+            <div className="samples-container  px-4 mt-8 ">
               <h6>
                 {" "}
                 {!isOwner ? "Want to test and preview our tool?" : ""} Here are
@@ -151,6 +179,7 @@ const Config: React.FC<ConfigProps> = ({
                 onClick={() => setSampleData(RetroViewSampleData.sample_data1)}
               >
                 B0C91KFHH7
+                <ArrowRightIcon />
               </Button>
               <Button
                 variant={"ghost"}
@@ -158,6 +187,7 @@ const Config: React.FC<ConfigProps> = ({
                 onClick={() => setSampleData(RetroViewSampleData.sample_data2)}
               >
                 B096TW9C82
+                <ArrowRightIcon />
               </Button>
               <Button
                 variant={"ghost"}
@@ -165,6 +195,7 @@ const Config: React.FC<ConfigProps> = ({
                 onClick={() => setSampleData(RetroViewSampleData.sample_data3)}
               >
                 0593521900
+                <ArrowRightIcon />
               </Button>
             </div>
           )}

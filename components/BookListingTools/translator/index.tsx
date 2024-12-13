@@ -65,7 +65,7 @@ const TranslatedTextComp: React.FC<TranslatedTextCompProps> = ({
         }}
         className=" w-full h-full thin-scrollbar  p-2"
       >
-        <h6>{text}</h6>
+        <h6 className="text-[15px]">{text}</h6>
       </div>
       <div className="flex justify-end">
         <CopyIcon

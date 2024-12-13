@@ -4,6 +4,7 @@ import {
   Table,
   TableRow,
   TableBody,
+  TableHeader,
 } from "@/components/ui/table";
 import parse from "html-react-parser";
 
@@ -13,20 +14,19 @@ const removeHtmlAttributes = (html) => {
 
 const TableComp = ({ data, handleCopy, copiedIndex }) => {
   return (
-    <div className="">
+    <div className="sp-container border p-6 mt-10 rounded-3xl light-border">
       {data.length > 0 && (
-        <h6 className="font-bold text-center mt-10">
+        <h6 className="font-bold text-[25px] mb-5 text-center ">
           Top 5 Competitors Descriptions
         </h6>
       )}
       <div>
         <Table aria-label="simple table">
-          <TableHead>
+          {/* <TableHeader>
             <TableRow>
               <TableCell align="center">Description</TableCell>
-              {/* <TableCell align="right">Action</TableCell> */}
             </TableRow>
-          </TableHead>
+          </TableHeader> */}
           <TableBody>
             {data.map((item, index) => {
               const description = parse(
@@ -34,12 +34,19 @@ const TableComp = ({ data, handleCopy, copiedIndex }) => {
               );
               return (
                 <TableRow key={index}>
-                  <TableCell align="left">
+                  <TableCell
+                    style={{
+                      borderBottom: "2px solid #E5E7EB",
+                    }}
+                    align="left"
+                  >
                     {/*<div*/}
                     {/*    dangerouslySetInnerHTML={{ __html: item.description_html }}*/}
                     {/*    className="text-sm"*/}
                     {/*/>*/}
-                    <div className="text-sm px-4 py-2">{description}</div>
+                    <div className="text-sm px-4  leading-9 py-2">
+                      {description}
+                    </div>
                   </TableCell>
                   {/* <TableCell align="right">
                     <TableCell align="right">

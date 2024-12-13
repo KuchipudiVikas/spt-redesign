@@ -22,7 +22,7 @@ const OurBook = () => {
           fontSize: "45px",
         }}
       ></div>
-      <div className="mx-auto grid grid-cols-2 gap-[60px] max-w-[1300px]">
+      <div className="mx-auto grid grid-cols-2 gap-[60px] comp-container">
         <div className="">
           <Image
             src={SptBookImage}

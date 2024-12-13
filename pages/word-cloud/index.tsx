@@ -11,8 +11,9 @@ import { getSession } from "next-auth/react";
 import { User } from "@/lib/ts/types/user";
 import PageTitle from "@/components/Common/PageTitle";
 import { Button } from "@/components/ui/button";
-import { UploadIcon } from "lucide-react";
+import { ListIcon, UploadIcon } from "lucide-react";
 import { GetServerSidePropsContext } from "next";
+import { Columns3Icon, CloudIcon } from "lucide-react";
 
 export interface WordCloudItem {
   text: string;
@@ -98,15 +99,20 @@ export function WordCloudView({
       <div className="flex justify-center mb-5 mt-14 w-full">
         <div className="flex gap-10 br-16">
           <div
-            className={` bg-white mx-0 shadowAround  overflow-y  grid md:grid-cols-2 `}
+            style={{
+              padding: "6px",
+              borderRadius: "16px",
+            }}
+            className={` bg-white border rounded-xl  rounded-full mx-0 shadowAround  overflow-y  grid md:grid-cols-2 `}
           >
             <div
               onClick={() => setOrder("normal")}
               className={`${
                 order === "normal" ? "bg-[#8257fe] rounded-2xl text-white " : ""
-              } text-center cursor-pointer py-2 px-5
+              } text-center cursor-pointer flex items-center gap-2  py-2 px-5
                     `}
             >
+              <ListIcon size={16} />
               <h6>Text Count</h6>
             </div>
             <div
@@ -115,9 +121,11 @@ export function WordCloudView({
                 order === "reversed"
                   ? "bg-[#8257fe] rounded-2xl text-white "
                   : ""
-              } text-center cursor-pointer py-2 px-2
+              } text-center cursor-pointer flex items-center gap-2 py-2 px-2
                     `}
             >
+              <CloudIcon size={16} />
+
               <h6>Word Cloud</h6>
             </div>
           </div>
@@ -222,15 +230,15 @@ function App({ info }: AppProps) {
       info={info}
       Title={<PageTitle title="Word Cloud Generator" />}
       Body={
-        <div className="App">
+        <div className="comp-container ">
           <div className="flex flex-col items-center justify-center  mt-10">
-            <div className="  rounded-lg  w-full  max-w-[1000px]">
+            <div className="  rounded-lg  w-full">
               <div className="flex flex-row mb-2 items-center justify-between">
                 <h6 color={"black"} className=" font-medium mx-5 md:mx-0">
                   Enter text
                 </h6>
                 <div>
-                  <label className="flex font-sans items-center space-x-3 mx-2 md:mx-0 cursor-pointer ">
+                  <label className="flex w-full font-sans items-center space-x-3 mx-2 md:mx-0 cursor-pointer ">
                     <Button onClick={() => uploadButtonRef?.current?.click()}>
                       Upload Text file <UploadIcon size={16} />
                     </Button>
@@ -249,7 +257,7 @@ function App({ info }: AppProps) {
               </div>
               <div className="flex flex-row">
                 <textarea
-                  className="border shadowAround  border-gray-300 mx-5 md:mx-0 br-16 w-full xl:w-[1000px] p-3 text-[16px]  rounded-md h-40  resize-none   font-sans focus:outline-none focus:border-blue-500"
+                  className="border shadowAround  w-full border-gray-300 mx-5 md:mx-0 br-16 w-full  p-3 text-[16px]  rounded-md h-40  resize-none   font-sans focus:outline-none focus:border-blue-500"
                   placeholder="Type or paste your text here or upload a file to generate a word cloud"
                   maxLength={200000}
                   ref={inputRef}
@@ -311,24 +319,26 @@ function ResultStep({ wordCloudData, wordCountData, order }: any) {
       } gap-10 `}
     >
       <div className="col-span-1 pb-10  flex justify-center  ">
-        <div className="shadowAround w-full max-w-[1001px]  ">
-          {useDoc && Object.keys(wordCloudData).length > 0 && (
-            <WordCloud
-              data={wordCloudData}
-              width={500}
-              height={400}
-              font="Roboto"
-              fontSize={fontSize}
-              onWordMouseOver={(word, event) => {
-                console.log(word, word.value, event);
-              }}
-              // fontStyle="italic"
-              fontWeight="bold"
-              spiral="archimedean"
-              rotate={() => 0} // Always return 0
-              padding={5}
-            />
-          )}
+        <div className="shadowAround w-full   ">
+          <div className="sp-container p-6 border light-border rounded-3xl">
+            {useDoc && Object.keys(wordCloudData).length > 0 && (
+              <WordCloud
+                data={wordCloudData}
+                width={500}
+                height={400}
+                font="Roboto"
+                fontSize={fontSize}
+                onWordMouseOver={(word, event) => {
+                  console.log(word, word.value, event);
+                }}
+                // fontStyle="italic"
+                fontWeight="bold"
+                spiral="archimedean"
+                rotate={() => 0} // Always return 0
+                padding={5}
+              />
+            )}
+          </div>
           {Object.keys(wordCloudData).length === 0 && (
             <div className="flex w-full h-[400px] justify-center items-center  ">
               <h6 className="text-gray-500">No data to display</h6>
@@ -336,8 +346,8 @@ function ResultStep({ wordCloudData, wordCountData, order }: any) {
           )}
         </div>
       </div>
-      <div className="col-span-1 flex justify-center">
-        <div className="max-w-full ">
+      <div className="col-span-1 w-full flex justify-center">
+        <div className="max-w-full w-full ">
           <EnhancedTable data={wordCountData} orientation={"vertical"} />
         </div>
       </div>

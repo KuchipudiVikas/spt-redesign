@@ -420,7 +420,7 @@ const TextViewComp: React.FC<TextViewCompProps> = ({
   };
 
   return (
-    <div className="w-full my-2 h-[87%]">
+    <div className="w-full my-2 ">
       <div
         style={{
           border: "1px solid #ccc",
@@ -433,10 +433,12 @@ const TextViewComp: React.FC<TextViewCompProps> = ({
           style={{
             overflowY: "auto",
           }}
-          className=" w-full h-full thin-scrollbar  p-2"
+          className=" w-full h-[95%] thin-scrollbar  p-2"
         >
-          <h6>{text}</h6>
+          <h6 className="text-[16px]">{text}</h6>
         </div>
+        <div className=""></div>
+        <CopyIcon onClick={handleCopy} className="cursor-pointer ml-auto w-4" />
         <div className="flex justify-between">
           {!isChanged && (
             <div className="w-full text-left p-2 text-sm ">
@@ -446,7 +448,6 @@ const TextViewComp: React.FC<TextViewCompProps> = ({
             </div>
           )}
           <div className=""></div>
-          <CopyIcon onClick={handleCopy} className="cursor-pointer w-4" />
         </div>
       </div>
     </div>

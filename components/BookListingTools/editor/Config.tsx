@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { keepaDomainMidDict } from "@/constants";
 import { SearchIcon } from "lucide-react";
+import CustomInput from "../CustomInput";
 
 interface ConfigSectionProps {
   setMid: React.Dispatch<React.SetStateAction<string>>;
@@ -80,14 +81,12 @@ const ConfigSection: React.FC<ConfigSectionProps> = ({
     <section className=" flex flex-col justify-center items-center ">
       <div className="config-container">
         <select
-          variant="outlined"
           className="md:w-fit w-full"
           required
           onChange={(e: any) => {
             setMid(e.target.value);
             setHostname(e.target.options[e.target.selectedIndex].text);
           }}
-          native
         >
           {Object.keys(keepaDomainMidDict).map((key) => (
             <option key={key} value={keepaDomainMidDict[key]}>
@@ -97,37 +96,27 @@ const ConfigSection: React.FC<ConfigSectionProps> = ({
         </select>
         {/* mr */}
 
-        <Input
-          variant="outlined"
-          label="Keyword"
-          type="text"
-          className="lg:w-[250px]"
-          required
+        <CustomInput
           value={searchedText}
+          placeholder="Search Query"
           onChange={(e) => {
             setSearchedText(e.target.value);
           }}
           helperText={
             usage ? `${usage.remainingUsage}/${usage.totalUsage}` : ""
           }
-          FormHelperTextProps={{
-            sx: {
-              textAlign: "right",
-              width: "100%",
-              margin: 0,
-              paddingRight: "10px",
-            },
+          style={{
+            width: "220px",
+            fontSize: "14px",
           }}
         />
         {/* book type */}
         <select
-          variant="outlined"
           className="w-full sp-select"
           value={bookType}
           onChange={(e) => {
             setBookType(e.target.value);
           }}
-          native
         >
           {KDP_BOOK_TYPES.map((type) => (
             <option key={type} value={type}>

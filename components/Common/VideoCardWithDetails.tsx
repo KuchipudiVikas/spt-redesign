@@ -34,16 +34,14 @@ export default function VideoCardWithDetails({
           ></iframe>
         </div>
 
-        <h6 variant="h6" className={` font-semibold mt-6 mx-4`}>
-          {title}
-        </h6>
+        <h6 className={` font-semibold mt-6 mx-4 text-2xl`}>{title}</h6>
       </div>
 
       <div className="pl-4 md:ml-0">
         {contentList.map((item, i) => {
           return (
             <div key={i} className="flex flex-row  mt-2">
-              <CheckIcon color="primary" />
+              <CheckIcon strokeWidth={3} className="text-primary" />
               <h6 className={` ml-2`}>{item}</h6>
             </div>
           );

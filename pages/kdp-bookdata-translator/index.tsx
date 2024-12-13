@@ -207,7 +207,7 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
               className="sp-container flex flex-col gap-5 p-6 "
             >
               <div className="w-full flex-col flex gap-3 mt-3">
-                <Label className="text-label">Author Name</Label>
+                <Label className="text-label">Language</Label>
                 <div className="grid grid-cols-2 gap-2">
                   <select
                     className="h-14 px-4  m-0 border w-full border-gray-300 rounded-md"

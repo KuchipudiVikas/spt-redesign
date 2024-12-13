@@ -64,7 +64,7 @@ export default function BooksCategoryPage({
       }}
       Title={<PageTitle title={category} />}
       Body={
-        <div className="min-h-96 mt-12">
+        <div className="min-h-96 comp-container mt-12">
           <div className="m-2"></div>
           <ClientPage books={books && books} category={category} />
         </div>

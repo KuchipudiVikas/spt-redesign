@@ -28,6 +28,8 @@ import { Button } from "@/components/ui/button";
 import ConfigSection from "@/components/ResearchTools/asin-tracker/Config";
 import { BarChartIcon } from "lucide-react";
 import { TrashIcon } from "lucide-react";
+import { ArrowUpIcon, ArrowDown, EqualIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 function getCountryCodeFromDomain(domain: string): string {
   domain = domain.replace("www.", "");
@@ -138,10 +140,10 @@ function ProductTracking({
           <div
             style={{
               overflowX: "hidden",
-              width: isMobile ? "90vw" : "80vw",
+              // width: isMobile ? "90vw" : "80vw",
               alignItems: "flex-start",
             }}
-            className="mt-10 mx-auto"
+            className="mt-10 mx-auto comp-container"
           >
             <LoadingBar isLoading={isLoading} title="Loading..." />
             {/* show graph popup */}
@@ -206,12 +208,19 @@ function ProductTracking({
                         //   height={25}
                         //   className="m-0.5"
                         // />
-                        <img
-                          src={row.first_product_details.imageUrl}
-                          alt="item"
-                          width={52}
-                          className="object-contain my-4 m-0.5"
-                        />
+                        <div
+                          style={{
+                            height: "100px",
+                          }}
+                          className="h-full flex items-center"
+                        >
+                          <img
+                            src={row.first_product_details.imageUrl}
+                            alt="item"
+                            width={52}
+                            className="object-contain my-4 m-0.5"
+                          />
+                        </div>
                       ), // Adjust width and height as required
                       minWidth: "100px",
                       maxWidth: "110px",
@@ -330,25 +339,38 @@ function ProductTracking({
 
                             {row.last_product_details.price.toFixed(2) ==
                             row.first_product_details.price.toFixed(2) ? (
-                              <div className="ml-2 w-4">
-                                <FontAwesomeIcon
+                              <div className="ml-2 w-5">
+                                {/* <FontAwesomeIcon
                                   icon={["fas", "equals"]}
                                   color="blue"
+                                /> */}
+
+                                <EqualIcon
+                                  strokeWidth={2}
+                                  className="text-blue-500 "
                                 />
                               </div>
                             ) : row.last_product_details.price.toFixed(2) <
                               row.first_product_details.price.toFixed(2) ? (
-                              <div className="ml-2 w-4">
-                                <FontAwesomeIcon
+                              <div className="ml-2 w-5">
+                                {/* <FontAwesomeIcon
                                   icon={["fas", "arrow-up"]}
                                   color="green"
+                                /> */}
+                                <ArrowUpIcon
+                                  strokeWidth={2}
+                                  className="text-green-500"
                                 />
                               </div>
                             ) : (
-                              <div className="ml-2 w-4">
-                                <FontAwesomeIcon
+                              <div className="ml-2 w-5">
+                                {/* <FontAwesomeIcon
                                   icon={["fas", "arrow-down"]}
                                   color="red"
+                                /> */}
+                                <ArrowDown
+                                  strokeWidth={2}
+                                  className="text-red-500"
                                 />
                               </div>
                             )}
@@ -379,25 +401,39 @@ function ProductTracking({
 
                             {row.last_product_details.reviews ==
                             row.first_product_details.reviews ? (
-                              <div className="ml-2 w-4">
-                                <FontAwesomeIcon
+                              <div className="ml-2 w-5">
+                                {/* <FontAwesomeIcon
                                   icon={["fas", "equals"]}
                                   color="blue"
+                                /> */}
+
+                                <EqualIcon
+                                  strokeWidth={2}
+                                  className="text-blue-500"
                                 />
                               </div>
                             ) : row.last_product_details.reviews <
                               row.first_product_details.reviews ? (
-                              <div className="ml-2 w-4">
-                                <FontAwesomeIcon
+                              <div className="ml-2 w-5">
+                                {/* <FontAwesomeIcon
                                   icon={["fas", "arrow-up"]}
                                   color="green"
+                                /> */}
+                                <ArrowUpIcon
+                                  strokeWidth={2}
+                                  className="text-green-500"
                                 />
                               </div>
                             ) : (
                               <div className="ml-2 w-4">
-                                <FontAwesomeIcon
+                                {/* <FontAwesomeIcon
                                   icon={["fas", "arrow-down"]}
                                   color="red"
+                                /> */}
+
+                                <ArrowDown
+                                  strokeWidth={2}
+                                  className="text-red-500"
                                 />
                               </div>
                             )}
@@ -425,25 +461,37 @@ function ProductTracking({
 
                             {row.last_product_details.rating.toFixed(1) ==
                             row.first_product_details.rating.toFixed(1) ? (
-                              <div className="ml-2 w-4 flex items-center">
-                                <FontAwesomeIcon
+                              <div className="ml-2 w-5 flex items-center">
+                                {/* <FontAwesomeIcon
                                   icon={["fas", "equals"]}
                                   color="blue"
+                                /> */}
+                                <EqualIcon
+                                  strokeWidth={2}
+                                  className="text-blue-500"
                                 />
                               </div>
                             ) : row.last_product_details.rating.toFixed(1) <
                               row.first_product_details.rating.toFixed(1) ? (
-                              <div className="ml-2 w-4 flex items-center">
-                                <FontAwesomeIcon
+                              <div className="ml-2 w-5 flex items-center">
+                                {/* <FontAwesomeIcon
                                   icon={["fas", "arrow-up"]}
                                   color="green"
+                                /> */}
+                                <ArrowUpIcon
+                                  strokeWidth={2}
+                                  className="text-green-500"
                                 />
                               </div>
                             ) : (
-                              <div className="ml-2 w-4 flex items-center">
-                                <FontAwesomeIcon
+                              <div className="ml-2 w-5 flex items-center">
+                                {/* <FontAwesomeIcon
                                   icon={["fas", "arrow-down"]}
                                   color="red"
+                                /> */}
+                                <ArrowDown
+                                  strokeWidth={2}
+                                  className="text-red-500"
                                 />
                               </div>
                             )}
@@ -471,25 +519,37 @@ function ProductTracking({
 
                             {row.last_product_details.rank ==
                             row.first_product_details.rank ? (
-                              <div className="ml-2 w-4">
-                                <FontAwesomeIcon
+                              <div className="ml-2 w-5">
+                                {/* <FontAwesomeIcon
                                   icon={["fas", "equals"]}
                                   color="blue"
+                                /> */}
+                                <EqualIcon
+                                  strokeWidth={2}
+                                  className="text-blue-500"
                                 />
                               </div>
                             ) : row.last_product_details.rank <
                               row.first_product_details.rank ? (
-                              <div className="ml-2 w-4">
-                                <FontAwesomeIcon
+                              <div className="ml-2 w-5">
+                                {/* <FontAwesomeIcon
                                   icon={["fas", "arrow-up"]}
                                   color="green"
+                                /> */}
+                                <ArrowUpIcon
+                                  strokeWidth={2}
+                                  className="text-green-500"
                                 />
                               </div>
                             ) : (
-                              <div className="ml-2 w-4">
-                                <FontAwesomeIcon
+                              <div className="ml-2 w-5">
+                                {/* <FontAwesomeIcon
                                   icon={["fas", "arrow-down"]}
                                   color="red"
+                                /> */}
+                                <ArrowDown
+                                  strokeWidth={2}
+                                  className="text-red-500"
                                 />
                               </div>
                             )}
@@ -506,8 +566,7 @@ function ProductTracking({
                       sortable: true,
                       cell: (row) => (
                         <Button
-                          variant="text"
-                          color="primary"
+                          variant="ghost"
                           className="ml-1 md:ml-2 py-0.5 md:py-2 text-xxs md:text-sm px-1 md:px-2   font-bold rounded"
                           onClick={() => {
                             // setASIN(row.asin);
@@ -536,7 +595,7 @@ function ProductTracking({
                       sortable: true,
                       cell: (row) => (
                         <Button
-                          color="primary"
+                          variant={"ghost"}
                           className=" py-0.5 md:py-2 text-xxs md:text-sm  font-bold rounded"
                           onClick={() => {
                             if (!isOwner)

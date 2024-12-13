@@ -930,12 +930,15 @@ export default function SevenBackendKeyword({ token, info, pageData }) {
 
   return (
     <MainLayout
-      title="7 Backend Keywords Tool for KDP"
-      description="7 Backend Keywords Tool for KDP"
-      keywords="7 Backend Keywords Tool for KDP"
+      info={info}
+      meta={{
+        title: "7 Backend Keywords Tool for KDP",
+        description: "7 Backend Keywords Tool for KDP",
+        keywords: "7 Backend Keywords Tool for KDP",
+      }}
       Title={
         <>
-          <div className="flex my-10  flex-col items-center">
+          <div className="flex my-10   flex-col items-center">
             <h1 className="text-[45px] mt-[20px] font-jsans flex justify-center items-center gap-3 mx-auto  font-extrabold text-center text-gray-900 sm:text-4xl">
               7 Backend Keywords Tool for KDP{" "}
             </h1>
@@ -957,7 +960,7 @@ export default function SevenBackendKeyword({ token, info, pageData }) {
       }
       Body={
         <Fragment>
-          <main className="min-h-screen">
+          <main className="min-h-screen comp-container">
             <section className=" mt-10  mx-4">
               <Config
                 filters={filters}
@@ -971,6 +974,7 @@ export default function SevenBackendKeyword({ token, info, pageData }) {
                 setFilters={setFilters}
                 IsDuplicate={isDuplicate}
                 setIsDuplicate={setIsDuplicate}
+                loading={loading}
               />
             </section>
 
@@ -991,6 +995,7 @@ export default function SevenBackendKeyword({ token, info, pageData }) {
                 setSelectedKeyword6={setSelectedKeyword6}
                 setSelectedKeyword7={setSelectedKeyword7}
                 title="Selected Keywords"
+                reset={resetSelectedKeywords}
                 removeKeyword={removeKeyword}
               />
               <div className="h-2 " />

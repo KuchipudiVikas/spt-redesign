@@ -7,17 +7,27 @@ import Reviews from "@/components/Home/Reviews";
 import Image from "next/image";
 import DotImage from "@/public/assets/home/dot-svgrepo-com.svg";
 import Link from "next/link";
+import { Testimonial } from "@/lib/ts/interfaces/testimonials";
 
-const Home = () => {
+import { User } from "@/lib/ts/types/user";
+export interface HomeProps {
+  info: User;
+  token: string;
+  pageData: {
+    testimonials: Testimonial[];
+  };
+}
+
+const Home: React.FC<HomeProps> = ({ pageData }) => {
   return (
     <div className="">
       <NewAuthorTools />
       <ChromeExtensions />
       <AllTools />
       <OurBook />
-      <Reviews />
+      <Reviews testimonials={pageData.testimonials} />
 
-      <div className="bg-primary grid grid-cols-2 p-6 py-10 rounded-2xl w-full my-10 relative z-10">
+      <div className="bg-primary grid grid-cols-2 comp-container p-6 py-10 rounded-2xl w-full my-10 relative z-10">
         <div
           style={{
             lineHeight: "60px",

@@ -272,7 +272,7 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
       info={info}
       Title={<PageTitle title="KDP Guidelines Checker" />}
       Body={
-        <div className="min-h-[60vh] max-w-[90vw] lg:max-w-[1400px] mx-auto mb-10 mt-0 md:px-24">
+        <div className="min-h-[60vh] comp-container mx-auto mb-10 mt-0 md:px-24">
           <div className="flex flex-col gap-3">
             {!false && (
               <div className="samples-container">
@@ -344,6 +344,7 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                     onChange={(e) =>
                       handleBookDataChange("title", e.target.value)
                     }
+                    helperstyle={{ bottom: "-28px", color: "black" }}
                     helperText={
                       titleErrors && titleErrors.length > 0
                         ? titleErrors
@@ -379,6 +380,7 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                     onChange={(e) =>
                       handleBookDataChange("author", e.target.value)
                     }
+                    helperstyle={{ bottom: "-28px", color: "black" }}
                     helperText={
                       (authorErrors &&
                         authorErrors.length > 0 &&
@@ -447,6 +449,7 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                     onChange={(e) =>
                       handleBookDataChange("description", e.target.value)
                     }
+                    helperstyle={{ color: "black" }}
                     helperText={
                       descriptionErrors && descriptionErrors.length > 0
                         ? descriptionErrors
@@ -480,6 +483,7 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                   <CustomTextArea
                     value={bookData.apluscontent}
                     rows={4}
+                    helperstyle={{ color: "black" }}
                     onChange={(e) =>
                       handleBookDataChange("apluscontent", e.target.value)
                     }
@@ -520,6 +524,7 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                   onChange={(e) =>
                     handleBookDataChange("keywords", e.target.value)
                   }
+                  helperstyle={{ color: "black" }}
                   helperText={
                     keywordsErrorss && keywordsErrorss.length > 0
                       ? keywordsErrorss
@@ -548,7 +553,7 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                   }
                 />
               </div>
-              <div className="">
+              <div className="mt-5">
                 <Loader
                   loading={loading}
                   ButtonComp={

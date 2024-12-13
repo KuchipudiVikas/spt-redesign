@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ReCAPTCHA } from "react-google-recaptcha";
 import Link from "next/link";
-import { RotateCcw } from "lucide-react";
+import { RotateCcw, RotateCw } from "lucide-react";
 import Image from "next/image";
 import GoogleIcon from "@/public/assets/google.svg";
 import AppleLogo from "@/public/assets/apple.svg";
@@ -302,10 +302,10 @@ const RegisterPage = () => {
                     color: "white",
                   }}
                   disabled={loading}
-                  className="pButton mt-2 bg-[#7249fb] font-bold"
+                  className="pButton mt-2 bg-[#7249fb] flex justify-center items-center font-bold"
                   onClick={() => registerUser()}
                 >
-                  {!loading ? "Sign Up" : <RotateCcw />}
+                  {!loading ? "Sign Up" : <RotateCw className="animate-spin" />}
                 </button>
               </form>
 

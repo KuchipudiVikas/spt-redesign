@@ -23,9 +23,14 @@ const Index: React.FC<IndexProps> = ({ info, isOwner }) => {
   return (
     <MainLayout
       info={info}
-      title="Deep View - Self Publishing Titans"
-      description=""
-      keywords=""
+      // title="Deep View - Self Publishing Titans"
+      // description=""
+      // keywords=""
+      meta={{
+        title: "Deep View - Self Publishing Titans",
+        description: "Deep View - Self Publishing Titans",
+        keywords: "Deep View - Self Publishing Titans",
+      }}
       Title={
         <div className="flex my-10 mb-20 justify-center flex-col items-center">
           <h1 className="text-[45px] mt-[20px] font-jsans flex justify-center items-center gap-3 mx-auto  font-extrabold text-center text-gray-900 sm:text-4xl">

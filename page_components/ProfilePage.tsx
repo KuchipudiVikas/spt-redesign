@@ -124,13 +124,13 @@ const ProfilePage: React.FC<ProfileProps> = ({
       style={{
         marginTop: "80px",
       }}
-      className=""
+      className="comp-container"
     >
       <div
         style={{
           gap: "30px",
         }}
-        className="grid grid-cols-4"
+        className="grid grid-cols-5"
       >
         <div className="col-span-3">
           <div
@@ -144,7 +144,7 @@ const ProfilePage: React.FC<ProfileProps> = ({
               style={{
                 borderRadius: "20px",
               }}
-              className="flex relative gap-8  w-full  p-5 font-jsans "
+              className="flex relative gap-8  w-full  p-5  "
             >
               <Image
                 src={info.image || "/assets/onboarding/league.png"}
@@ -165,7 +165,7 @@ const ProfilePage: React.FC<ProfileProps> = ({
                     style={{
                       fontSize: "24px",
                     }}
-                    className="font-jsans font-bold "
+                    className=" font-bold "
                   >
                     {info.username}
                   </h1>
@@ -182,7 +182,7 @@ const ProfilePage: React.FC<ProfileProps> = ({
                       style={{
                         fontSize: "16px",
                       }}
-                      className="font-jsans font-normal text-gray-500"
+                      className=" font-normal text-gray-500"
                     >
                       {info.email}
                     </h1>
@@ -191,7 +191,7 @@ const ProfilePage: React.FC<ProfileProps> = ({
                         fontSize: "12px",
                         marginTop: "3px",
                       }}
-                      className="font-jsans font-normal text-gray-500"
+                      className=" font-normal text-gray-500"
                     >
                       ( Joined {formattedDate} )
                     </h5>
@@ -218,7 +218,7 @@ const ProfilePage: React.FC<ProfileProps> = ({
                 </div>
               </div>
               {view == "profile" && (
-                <Link href="/profile/edit">
+                <Link href="/profile/settings">
                   <Button
                     variant="outline"
                     className="flex absolute bg-primary text-white bottom-4 right-4"
@@ -230,7 +230,7 @@ const ProfilePage: React.FC<ProfileProps> = ({
               )}
             </div>
 
-            <div className="rounded-2xl p-5 pt-0 my-5 grid grid-cols-4 md:grid-cols-3 gap-10 font-jsans">
+            <div className="rounded-2xl p-5 pt-0 my-5 grid grid-cols-4 md:grid-cols-3 gap-10 ">
               <div
                 style={{
                   border: "1px solid #ccc",
@@ -307,7 +307,7 @@ const ProfilePage: React.FC<ProfileProps> = ({
             style={{
               gap: "30px",
             }}
-            className="rounded-2xl px-5 my-5 grid grid-cols-1 md:grid-cols-2 gap-5 font-jsans"
+            className="rounded-2xl px-5 col-span-2  grid grid-cols-1 gap-5 "
           >
             <StreakBoard info={info} user_id={info._id} token={token} />
             <LeaderBoard info={info} token={token} user_id={info._id} />

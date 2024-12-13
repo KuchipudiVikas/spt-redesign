@@ -1,29 +1,69 @@
 import localFont from "next/font/local";
 import Hero from "@/components/Home/Hero";
-import MainLayout from "@/components/Layout";
-import Home from "@/page_components/Home";
+import MainLayout, { getProfile } from "@/components/Layout";
+import Home, { HomeProps } from "@/page_components/Home";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import Accounts from "../lib/mw/Accounts";
+import { getSession } from "next-auth/react";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
-export default function Index() {
+export default function Index({ pageData, info, token }: HomeProps) {
+  console.log("token", token);
   return (
     <div className={` `}>
       <MainLayout
         Title={<Hero />}
-        Body={<Home />}
-        title="Home"
-        description="Home Page"
-        keywords="Home"
+        info={info}
+        Body={<Home pageData={pageData} info={info} token={token} />}
+        fullWidth={true}
+        meta={{
+          title: "Home - Self publishing titans",
+          description:
+            "Self publishing titans is a platform that provides tools and resources for authors to self publish their books.",
+          keywords:
+            "self publishing titans, self publish, self publishing, self publishing tools, self publishing resources, self publishing platform",
+        }}
       />
     </div>
   );
+}
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  try {
+    const content = await Accounts.content.home();
+    const feat = await Accounts.features.list({});
+
+    const session = await getSession(context);
+    if (!session) {
+      return {
+        redirect: {
+          destination: "/login",
+          permanent: false,
+        },
+      };
+    }
+
+    const token = session.token;
+
+    return getProfile(context, {
+      pageData: content.simple,
+      features: feat.simple,
+      token,
+    }).catch((error) => {
+      console.error("Error in getProfile: in pages/index.tsx:", error);
+      return {
+        redirect: {
+          destination: "/",
+          permanent: false,
+        },
+      };
+    });
+  } catch (e) {
+    console.error("Error in getServerSideProps in pages/index.tsx:", e);
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 }

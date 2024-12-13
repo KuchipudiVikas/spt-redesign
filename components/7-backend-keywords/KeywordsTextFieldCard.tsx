@@ -72,7 +72,9 @@ const KeywordsTextFieldCard = ({
                   });
                 }}
               >
-                <h6 className={`text-blue-500 underline text-xs text-start`}>
+                <h6
+                  className={`text-blue-500 mt-4 underline text-xs text-start`}
+                >
                   Copy All
                 </h6>
               </div>
@@ -84,7 +86,7 @@ const KeywordsTextFieldCard = ({
               }`}
             >
               <div
-                className={`cursor-pointer mt-4 flex justify-between items-center gap-1 text-[#7449fb] text-xs text-start`}
+                className={`cursor-pointer mt-2 flex justify-between items-center gap-1 text-[#7449fb] text-xs text-start`}
                 onClick={() => {
                   selectOrRemoveAll(optionIndex);
                 }}

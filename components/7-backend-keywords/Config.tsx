@@ -7,6 +7,7 @@ import { domainMidDict } from "@/constants";
 import { SearchIcon } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "../ui/label";
+import { RotateCw } from "lucide-react";
 
 interface IConfigProps {
   setHostname: (hostname: string) => void;
@@ -20,6 +21,7 @@ interface IConfigProps {
   setFilters: React.Dispatch<React.SetStateAction<string[]>>;
   IsDuplicate: boolean;
   setIsDuplicate: (isDuplicate: boolean) => void;
+  loading: boolean;
 }
 
 const Config: React.FC<IConfigProps> = ({
@@ -34,9 +36,9 @@ const Config: React.FC<IConfigProps> = ({
   setFilters,
   IsDuplicate,
   setIsDuplicate,
+  loading,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  console.log("filters are", filters);
 
   return (
     <div
@@ -93,7 +95,11 @@ const Config: React.FC<IConfigProps> = ({
                 }
               }}
             >
-              <SearchIcon size={30} />
+              {loading ? (
+                <RotateCw size={30} className="animate-spin" />
+              ) : (
+                <SearchIcon size={30} />
+              )}
             </button>
           </HintWrapper>
         </div>
