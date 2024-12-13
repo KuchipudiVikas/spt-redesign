@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { debounce } from "lodash";
-import api from "@/api";
-import { TApiRes } from "@/api/images";
+import api from "@/lib/api";
+import { TApiRes } from "@/lib/api/images";
 import { TImage } from "@/lib/contexts/coverApp";
 import ImageContainer from "../imageContainer";
 

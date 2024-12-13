@@ -5,7 +5,7 @@ import ga from "../../lib/ga";
 import { getSession } from "next-auth/react";
 import { CloudDownloadIcon } from "lucide-react";
 import MainLayout, { getProfile } from "@/components/Layout";
-import { UpdateUsage as UpdateToolUsage } from "@/api/usage";
+import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import { GetServerSidePropsContext } from "next";
 import { User } from "@/lib/ts/types/user";
 import PageTitle from "@/components/Common/PageTitle";

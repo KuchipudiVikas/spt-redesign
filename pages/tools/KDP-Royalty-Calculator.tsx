@@ -14,7 +14,7 @@ import {
   trim_sizes,
   typeList,
 } from "@/data/kdpRoyality";
-import { UpdateUsage as UpdateToolUsage } from "@/api/usage";
+import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import MainLayout from "@/components/Layout";
 import { GetServerSidePropsContext } from "next";
 import PageTitle from "@/components/Common/PageTitle";

@@ -4,7 +4,7 @@ import { EnhancedTable } from "@/components/Tools/wordCloudTable";
 
 import { useCallback } from "react";
 import * as XLSX from "xlsx";
-import { UpdateUsage as UpdateToolUsage, UpdateUsage } from "@/api/usage";
+import { UpdateUsage as UpdateToolUsage, UpdateUsage } from "@/lib/api/usage";
 import MainLayout, { getProfile } from "@/components/Layout";
 
 import { getSession } from "next-auth/react";

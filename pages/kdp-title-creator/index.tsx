@@ -9,13 +9,13 @@ import { GetServerSidePropsContext } from "next";
 import axios from "axios";
 import Loader from "@/components/Common/Loader/Loading";
 
-import GetUsage from "@/api/usage/index";
+import GetUsage from "@/lib/api/usage/index";
 import { shopIds } from "@/data/shopData";
 import Hero from "@/components/BookListingTools/title-creator/Hero";
 
 import Accounts from "@/lib/mw/Accounts";
 import { AccountUtils } from "@/utils/retroVision";
-import { UpdateUsage as UpdateToolUsage } from "@/api/usage";
+import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import { User } from "@/lib/ts/types/user";
 import { Button } from "@/components/ui/button";
 import { Usage } from "@/lib/models/interfaces/authortools";

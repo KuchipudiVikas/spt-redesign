@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { useState, useEffect, useCallback, useRef, useContext } from "react";
 import { CanvasContext } from "@/lib/contexts/canvas";
-import api from "@/api";
+import api from "@/lib/api";
 import { FaSearch } from "react-icons/fa";
 import { nanoid } from "nanoid";
 import { CustomImage } from "@/components/DesignTools/Canvas/customClasses/image";
-import { ImageType } from "@/api/images";
+import { ImageType } from "@/lib/api/images";
 import { useRouter } from "next/router";
 
 export default function ExternalImagesTab() {

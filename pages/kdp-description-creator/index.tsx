@@ -14,10 +14,10 @@ import { stateToHTML } from "draft-js-export-html";
 // import WordCloud, {WordCloudItem, WordCloudView, WordCountData} from "../word-cloud";
 import Loader from "@/components/Common/Loader/Loading";
 
-import GetUsage from "@/api/usage/index";
+import GetUsage from "@/lib/api/usage/index";
 import { shopIds } from "@/data/shopData";
 import { Usage } from "@/lib/models/interfaces/authortools";
-import { UpdateUsage as UpdateToolUsage } from "@/api/usage";
+import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import PageTitle from "@/components/Common/PageTitle";
 
 import Accounts from "@/lib/mw/Accounts";

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { User } from "@/lib/ts/types/user";
-import profile from "@/api/profile";
+import profile from "@/lib/api/profile";
 import { Button } from "@/components/ui/button";
 
 export interface TPreferences {

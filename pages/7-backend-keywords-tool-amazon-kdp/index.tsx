@@ -12,7 +12,7 @@ import SelectedKeywords from "@/components/7-backend-keywords/SelectedKeywords";
 import { EKeywordType } from "@/lib/models/enums/7-backend-keyword";
 import { IKeyword } from "@/lib/models/interfaces/7-backend-keywords";
 import { useRouter } from "next/router";
-import { UpdateUsage } from "@/api/usage";
+import { UpdateUsage } from "@/lib/api/usage";
 import { shopIds } from "@/data/shopData";
 import { useToast } from "@/hooks/use-toast";
 import { GetServerSidePropsContext } from "next";

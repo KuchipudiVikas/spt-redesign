@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import * as XLSX from "xlsx";
-import { UpdateUsage } from "@/api/usage";
+import { UpdateUsage } from "@/lib/api/usage";
 import { shopIds } from "@/data/shopData";
 import { domainMidDict, languages } from "@/constants";
 import { useDispatch } from "react-redux";

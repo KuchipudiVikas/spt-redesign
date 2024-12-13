@@ -1,5 +1,5 @@
 import React from "react";
-import request from "@/api/interface";
+import request from "@/lib/api/interface";
 import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";

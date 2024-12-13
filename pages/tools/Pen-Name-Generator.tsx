@@ -3,7 +3,7 @@ import Account from "../../lib/mw/Accounts";
 //useSWR allows the use of SWR inside function components
 import useSWR from "swr";
 import { getSession } from "next-auth/react";
-import { UpdateUsage } from "@/api/usage";
+import { UpdateUsage } from "@/lib/api/usage";
 import MainLayout, { getProfile } from "@/components/Layout";
 import PageTitle from "@/components/Common/PageTitle";
 import { Button } from "@/components/ui/button";

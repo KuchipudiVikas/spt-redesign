@@ -1,6 +1,6 @@
 import React from "react";
 import { keepaDomainMidDict } from "@/constants";
-import { UpdateUsage as UpdateToolUsage } from "@/api/usage";
+import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import HintWrapper from "@/utils/hint";
 import { toast, useToast } from "@/hooks/use-toast";
 import { shopIds } from "@/data/shopData";

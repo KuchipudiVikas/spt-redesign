@@ -8,13 +8,13 @@ import {
   bookTitleLimit,
   eachKeywordLimit,
 } from "@/constants/guidelines";
-import GetUsage from "@/api/usage/index";
+import GetUsage from "@/lib/api/usage/index";
 import { shopIds } from "@/data/shopData";
 import { User } from "@/lib/ts/types/user";
 import { Usage } from "@/lib/models/interfaces/authortools";
 import Accounts from "@/lib/mw/Accounts";
 import { AccountUtils } from "@/utils/retroVision";
-import { UpdateUsage as UpdateToolUsage } from "@/api/usage";
+import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import { Button } from "@/components/ui/button";
 import CustomTextArea from "@/components/BookListingTools/customTextArea";
 import CustomInput from "@/components/BookListingTools/CustomInput";

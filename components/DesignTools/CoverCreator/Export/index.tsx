@@ -17,7 +17,7 @@ import {
 } from "@/components/DesignTools/Canvas/customClasses/shapes";
 import { CustomText } from "@/components/DesignTools/Canvas/customClasses/text";
 import { classRegistry } from "fabric";
-import { UpdateUsage as UpdateToolUsage } from "@/api/usage";
+import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { CloudDownloadIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";

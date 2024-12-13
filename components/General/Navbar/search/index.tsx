@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import ToolSearchData, { SectionItem } from "./searchData";
-import { getRequest } from "@/api/interface";
+import { getRequest } from "@/lib/api/interface";
 import Link from "next/link";
 import { ApiResponse } from "@/lib/models/interfaces/community";
 import BlogPost from "@/lib/models/interfaces/blog";

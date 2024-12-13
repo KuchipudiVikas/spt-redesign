@@ -13,13 +13,13 @@ import { BSR_INDEX } from "@/data/kdpRoyality";
 import { useRouter } from "next/router";
 import Loader from "@/components/Common/Loader/Loading";
 
-import GetUsage from "@/api/usage/index";
+import GetUsage from "@/lib/api/usage/index";
 import { shopIds } from "@/data/shopData";
 import { Usage } from "@/lib/models/interfaces/authortools";
 import Accounts from "@/lib/mw/Accounts";
 import { AccountUtils } from "@/utils/retroVision";
 import { BookPriceSampleData, SampleData } from "@/data/sample/book_price";
-import { UpdateUsage as UpdateToolUsage } from "@/api/usage";
+import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import { TError } from "@/lib/ts/types/booklisting";
 import { Button } from "@/components/ui/button";
 import { GetServerSidePropsContext } from "next";

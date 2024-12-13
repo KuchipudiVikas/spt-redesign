@@ -17,7 +17,7 @@ import { deepViewSameple } from "@/data/sample/deep_view";
 import { BSR_INDEX, getEstSales } from "@/data/kdpRoyality";
 
 import { numberFormat } from "@/utils/common";
-import usage from "@/api/usage";
+import usage from "@/lib/api/usage";
 import { shopIds } from "@/data/shopData";
 import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";

@@ -1,5 +1,5 @@
 import * as fabric from "fabric";
-import api from "@/api";
+import api from "@/lib/api";
 
 export class CustomImage extends fabric.Image {
   constructor(element: HTMLImageElement, options: any) {

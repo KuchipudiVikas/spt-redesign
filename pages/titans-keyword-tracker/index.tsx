@@ -17,7 +17,7 @@ import Link from "next/link";
 import Image from "next/image";
 import * as React from "react";
 import HintWrapper from "@/utils/hint";
-import { UpdateUsage as UpdateToolUsage } from "@/api/usage";
+import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import { User } from "@/lib/ts/types/user";
 import { shopIds } from "@/data/shopData";
 import { Button } from "@/components/ui/button";

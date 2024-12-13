@@ -9,7 +9,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import Profile from "@/components/Profile/settings/Profile";
 import Social from "@/components/Profile/settings/Social";
 import Preferences from "@/components/Profile/settings/Preferences";
-import profile from "@/api/profile";
+import profile from "@/lib/api/profile";
 import { GetServerSidePropsContext } from "next";
 import { TPreferences } from "@/components/Profile/settings/Preferences";
 import { UserIcon, LinkIcon, ListCheck } from "lucide-react";

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import usage from "@/api/usage";
+import usage from "@/lib/api/usage";
 
 import FireIcon from "@/public/assets/onboarding/fire.png";
 import Image from "next/image";
 import { StreakRank } from "@/lib/models/profile";
 import { User } from "@/lib/ts/types/user";
-import { getRequest } from "@/api/interface";
+import { getRequest } from "@/lib/api/interface";
 
 import {
   Table,

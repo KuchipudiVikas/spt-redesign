@@ -1,9 +1,9 @@
 import { TImage } from "@/lib/contexts/coverApp";
 import React from "react";
 import { useEffect, useState, useRef, useCallback } from "react";
-import api from "@/api";
+import api from "@/lib/api";
 import Image from "next/image";
-import { TApiRes } from "@/api/images";
+import { TApiRes } from "@/lib/api/images";
 import ImageContainer from "../imageContainer";
 
 interface SearchProps {

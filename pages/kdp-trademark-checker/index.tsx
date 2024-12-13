@@ -16,10 +16,10 @@ import { TViolationDetail, trademarkSampleData } from "@/constants/guidelines";
 import { useEffect } from "react";
 import { getSession } from "next-auth/react";
 
-import GetUsage from "@/api/usage/index";
+import GetUsage from "@/lib/api/usage/index";
 import { shopIds } from "@/data/shopData";
 import { Usage } from "@/lib/models/interfaces/authortools";
-import { UpdateUsage as UpdateToolUsage } from "@/api/usage";
+import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import Note from "@/components/BookListingTools/Note";
 import PageTitle from "@/components/Common/PageTitle";
 import { GetServerSidePropsContext } from "next";

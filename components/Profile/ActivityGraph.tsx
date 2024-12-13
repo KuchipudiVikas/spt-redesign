@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
-import usage from "@/api/usage";
+import usage from "@/lib/api/usage";
 import { User } from "@/lib/ts/types/user";
 
 export interface Activity {

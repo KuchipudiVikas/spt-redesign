@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import usage from "@/api/usage";
+import usage from "@/lib/api/usage";
 
 import Image from "next/image";
 import Trophyicon from "@/public/assets/onboarding/trophy.png";
-import { getRequest } from "@/api/interface";
+import { getRequest } from "@/lib/api/interface";
 import { User } from "@/lib/ts/types/user";
 import { encryptString } from "@/utils/crypto";
 import { useRouter } from "next/router";

@@ -14,7 +14,7 @@ import MainLayout, { getProfile } from "@/components/Layout";
 
 import Onboarding from "@/components/Home/onboarding";
 import WelcomePageHeader from "@/components/Misc/WelcomePageHeader";
-import request from "@/api/interface";
+import request from "@/lib/api/interface";
 
 import { User } from "@/lib/ts/types/user";
 import { StarIcon } from "lucide-react";

@@ -16,7 +16,7 @@ import Accounts from "@/lib/mw/Accounts";
 import * as React from "react";
 import { RetroViewSampleData } from "@/data/sample/retroVision";
 
-import { UpdateUsage } from "@/api/usage";
+import { UpdateUsage } from "@/lib/api/usage";
 import { shopIds } from "@/data/shopData";
 import Hero from "@/components/RetroVision/Hero";
 import FiltersComponenet from "@/components/RetroVision/Filters";

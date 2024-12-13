@@ -19,10 +19,10 @@ import YoutubeIcon from "@/public/assets/social/youtube.png";
 import InstagramIcon from "@/public/assets/social/instagram.png";
 import TwitterIcon from "@/public/assets/social/twitter.png";
 import WebsiteIcon from "@/public/assets/onboarding/internet.png";
-import profile from "@/api/profile";
+import profile from "@/lib/api/profile";
 import { PenIcon } from "lucide-react";
 
-import usage from "@/api/usage";
+import usage from "@/lib/api/usage";
 
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 

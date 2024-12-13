@@ -8,7 +8,7 @@ import Link from "next/link";
 import ga from "../../lib/ga";
 // import AuthPopupComponent from "../../components/Auth/AuthPopup";
 import { getSession } from "next-auth/react";
-import { UpdateUsage as UpdateToolUsage } from "@/api/usage";
+import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { shopIds } from "@/data/shopData";

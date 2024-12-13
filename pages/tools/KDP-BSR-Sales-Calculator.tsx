@@ -13,7 +13,7 @@ import numberWithCommas from "@/utils/helper";
 import axios from "axios";
 import { domainMidDict } from "@/constants";
 import { useDispatch } from "react-redux";
-import { UpdateUsage as UpdateToolUsage } from "@/api/usage";
+import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import { User } from "@/lib/ts/types/user";
 import { shopIds } from "@/data/shopData";
 import PageTitle from "@/components/Common/PageTitle";

@@ -12,7 +12,7 @@ import Loader from "@/components/Common/Loader/Loading";
 import { CopyIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import GetUsage from "@/api/usage/index";
+import GetUsage from "@/lib/api/usage/index";
 import { shopIds } from "@/data/shopData";
 import { User } from "@/lib/ts/types/user";
 import { Usage } from "@/lib/models/interfaces/authortools";
@@ -24,7 +24,7 @@ import {
   GrammerCheckSampleData,
   SampleData,
 } from "@/data/sample/grammer_check";
-import { UpdateUsage as UpdateToolUsage } from "@/api/usage";
+import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import { GetServerSidePropsContext } from "next";
 import CustomTextArea from "@/components/BookListingTools/customTextArea";
 import { Label } from "@/components/ui/label";

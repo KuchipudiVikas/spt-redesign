@@ -9,8 +9,8 @@ import { CanvasContext } from "@/lib/contexts/canvas";
 import { CustomImage } from "@/components/Canvas/customClasses/image";
 import Image from "next/image";
 import { nanoid } from "nanoid";
-import { TApiRes } from "@/api/images";
-import api from "@/api";
+import { TApiRes } from "@/lib/api/images";
+import api from "@/lib/api";
 
 const BackgroundsPanel = () => {
   const Canvas = useContext(CanvasContext);

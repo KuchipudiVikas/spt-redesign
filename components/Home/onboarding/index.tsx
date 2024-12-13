@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Question, { TQuestion, ResponseType } from "./question";
 import { FaHandSparkles } from "react-icons/fa";
 import TUser from "@/models/user";
-import request from "@/api/interface";
+import request from "@/lib/api/interface";
 import GetStarted from "./GetStarted";
 
 // icons
@@ -244,7 +244,9 @@ const Index: React.FC<IndexProps> = ({ info }) => {
       className="fixed  inset-0 flex items-center p-4 justify-center bg-black bg-opacity-50"
     >
       <div
-        className={`w-[850px] ${isOnboardingSkippable && !onboardingDone && "relative"} rounded-xl p-6 bg-white grid grid-cols-8 h-fit`}
+        className={`w-[850px] ${
+          isOnboardingSkippable && !onboardingDone && "relative"
+        } rounded-xl p-6 bg-white grid grid-cols-8 h-fit`}
       >
         {onboardingDone ? (
           <GetStarted handleClose={closeModal} />

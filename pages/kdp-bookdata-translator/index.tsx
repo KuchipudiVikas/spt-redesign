@@ -17,12 +17,12 @@ import TranslatedTextComp, {
 } from "@/components/BookListingTools/translator";
 import { getSession } from "next-auth/react";
 
-import GetUsage from "@/api/usage/index";
+import GetUsage from "@/lib/api/usage/index";
 import { shopIds } from "@/data/shopData";
 import { Usage } from "@/lib/models/interfaces/authortools";
 import Accounts from "@/lib/mw/Accounts";
 import { AccountUtils } from "@/utils/retroVision";
-import { UpdateUsage as UpdateToolUsage } from "@/api/usage";
+import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import { User } from "@/lib/ts/types/user";
 import PageTitle from "@/components/Common/PageTitle";
 import { Button } from "@/components/ui/button";

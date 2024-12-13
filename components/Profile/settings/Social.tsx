@@ -1,13 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import request from "@/api/interface";
+import request from "@/lib/api/interface";
 import FacebookIcon from "@/public/assets/social/facebook.png";
 import YoutubeIcon from "@/public/assets/social/youtube.png";
 import InstagramIcon from "@/public/assets/social/instagram.png";
 import TwitterIcon from "@/public/assets/social/twitter.png";
 import WebsiteIcon from "@/public/assets/onboarding/internet.png";
 import Image from "next/image";
-import profile from "@/api/profile";
+import profile from "@/lib/api/profile";
 import { User } from "@/lib/ts/types/user";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
