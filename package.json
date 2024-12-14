@@ -3,10 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "rm -rf .next; next dev -p 3000",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "rm -rf .next;NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3000",
+    "build": "NEXT_PRIVATE_LOCAL_WEBPACK=true npx prisma generate && next build",
+    "start": "next start -H 0.0.0.0 -p ${PORT:-8080}",
+    "dev:srv": "node server.ts",
+    "build:srv": "next build",
+    "start:srv": "NODE_ENV=production node server.ts -p ${PORT:-8080}",
+    "lint": "next lint",
+    "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run",
+    "e2e": "start-server-and-test dev http://localhost:3000 cypress",
+    "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless",
+    "test": "vitest"
   },
   "dependencies": {
     "@amcharts/amcharts5": "^5.10.8",
