@@ -62,7 +62,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         <meta name="description" content={meta.description} />
         <meta name="keywords" content={meta.keywords} />
       </Head>
-
+      {/* @ts-ignore */}
       <Header logout={logut} token={token} info={info}>
         {Title}
       </Header>
