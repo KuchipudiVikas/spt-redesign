@@ -42,7 +42,7 @@ const Index: React.FC<IndexProps> = ({ info, isOwner }) => {
         </div>
       }
       Body={
-        <div className="mt-5 md:mt-20">
+        <div className="mt-5 comp-container md:mt-20">
           <SearchApiCardInfo
             asin={ASIN}
             onClick={function (): void {

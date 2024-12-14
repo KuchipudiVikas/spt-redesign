@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-// import Header from "./Header";
+import Header from "./Header";
 import Head from "next/head";
-// import Footer from "./Footer";
+import Footer from "./Footer";
 import { GetServerSidePropsContext } from "next";
 import { getSession, useSession } from "next-auth/react";
 import Account from "../../lib/mw/Accounts";
 import { User } from "@/lib/ts/types/user";
-import { Footer, Header } from "spt-react";
+// import { Footer, Header } from "spt-react";
 import { signOut } from "next-auth/react";
 
 // import { Footer, Navbar } from "spt-core";

@@ -58,7 +58,13 @@ const Solutions = () => {
         </div>
         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[600px] ">
           {flattenedItems.map((item) => (
-            <ListItem key={item.heading} title={item.heading} href={item.link}>
+            <ListItem
+              key={item.heading}
+              title={item.heading}
+              // @ts-ignore
+              newTab={item.newTab}
+              href={item.link}
+            >
               {item.tag}
             </ListItem>
           ))}
