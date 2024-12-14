@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "rm -rf .next;NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3000",
-    "build": "NEXT_PRIVATE_LOCAL_WEBPACK=true npx prisma generate -y && next build",
+    "build": "NEXT_PRIVATE_LOCAL_WEBPACK=true npx prisma generate && next build",
     "start": "next start -H 0.0.0.0 -p ${PORT:-8080}",
     "dev:srv": "node server.ts",
     "build:srv": "next build",
