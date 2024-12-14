@@ -452,3 +452,51 @@ select {
 .videoRatioStandard {
   aspect-ratio: 16/9;
 }
+
+.tab-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-direction: column;
+  width: fit-content;
+  position: sticky;
+  top: 100px;
+
+  .tab {
+    padding: 10px 20px;
+    border-radius: 14px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #000;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: none;
+    border-color: hsl(var(--primary));
+    display: flex;
+    gap: 10px;
+
+    svg {
+      color: hsl(var(--primary));
+    }
+
+    &:hover {
+      border-color: hsl(var(--light-border));
+      color: white;
+      background-color: hsl(var(--primary));
+
+      svg {
+        color: white;
+      }
+    }
+  }
+
+  .active {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    font-weight: 900;
+  }
+
+  .active svg {
+    color: hsl(var(--primary-foreground));
+  }
+}

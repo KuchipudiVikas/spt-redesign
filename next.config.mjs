@@ -4,7 +4,7 @@ import { NextFederationPlugin } from "@module-federation/nextjs-mf";
 
 const nextConfig = {
   /* config options here */
-  reactStrictMode: true,
+  reactStrictMode: false,
   typescript: {
     // Ignore TypeScript build errors
     ignoreBuildErrors: true,

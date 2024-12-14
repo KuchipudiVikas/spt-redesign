@@ -98,7 +98,7 @@ const Account: React.FC<AccountProps> = ({ info, logout }) => {
               </span>
             </Link>
             <Link
-              href={"/auth/me"}
+              href={"/me"}
               className="flex gap-4 items-center sp-container rounded-md p-3"
             >
               <ListIcon className="w-5" fontSize={5} />
