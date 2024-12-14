@@ -25,7 +25,7 @@ const ResourcesData: TResourcesData[] = [
           {
             heading: "KDP Masterclass ",
             tag: "A structured and systematic step by step course with 80 videos, lots of resources, and more",
-            link: "https://selfpublishingtitans.com/masterclass",
+            link: "/masterclass",
           },
         ],
       },
@@ -35,7 +35,7 @@ const ResourcesData: TResourcesData[] = [
             heading: "Free Resources",
             tag: "Free resources to kick start your KDP journey.",
             newTab: true,
-            link: "https://selfpublishingtitans.com/free-resources",
+            link: "/free-resources",
           },
 
           // {
@@ -52,7 +52,7 @@ const ResourcesData: TResourcesData[] = [
             heading: "Support",
             tag: "Get help with any of our tools, request feature updates, report bugs. Tell us everything. We want to hear from you.",
             newTab: true,
-            link: "https://selfpublishingtitans.com/support",
+            link: "/support",
           },
           // {
           //   heading: "Community",
@@ -72,7 +72,7 @@ const ResourcesData: TResourcesData[] = [
           {
             heading: "Blog",
             tag: "Lots of different articles about all sorts of topics. Self-publishing, Amazon KDP, cover design, Amazon Ads, etc.",
-            link: "https://selfpublishingtitans.com/blog",
+            link: "/en/blog",
           },
         ],
       },
