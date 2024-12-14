@@ -1,0 +1,191 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("NEXT_PUBLIC_DATABASE_URL")
+}
+
+model User {
+    id        Int       @id @default(autoincrement())
+    username  String    @unique
+    email     String    @unique
+    password  String
+    products  Product[]
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+
+    ProductDownloaded ProductDownloaded[]
+
+    @@index([username])
+    Tag Tag[]
+}
+
+model Product {
+    id             Int      @id @default(autoincrement())
+    title          String
+    description    String
+    recommendedUse String?
+    imageUrl       String
+    fileUrl        String
+    addedBy        User     @relation(fields: [addedById], references: [id])
+    addedById      Int
+    createdAt      DateTime @default(now())
+    updatedAt      DateTime @updatedAt
+
+    ProductDownloaded ProductDownloaded[]
+    ProductTag        ProductTag[]  // Relation with Tag
+
+    @@index([addedById])
+}
+
+model ProductDownloaded {
+    id        Int      @id @default(autoincrement())
+    product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+    productId Int
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId    Int
+    createdAt DateTime @default(now())
+
+    @@index([productId, userId])
+}
+
+model Tag {
+    id      Int      @id @default(autoincrement())
+    name    String   @unique
+    slug    String   @unique
+    description String?
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    ProductTag ProductTag[]  // Relation with Product
+    addedBy        User     @relation(fields: [addedById], references: [id])
+    addedById      Int
+
+    @@index([slug, addedById])
+}
+
+model ProductTag {
+    product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+    productId Int
+    tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+    tagId     Int
+
+    @@id([productId, tagId]) // Composite key for many-to-many relation
+}
+
+
+model BestSellerBook {
+    id              Int       @id @default(autoincrement())
+    rank            Int?
+    previousRank    Int?      @map("previous_rank")
+    rankDuration    Int       @default(0) @map("rank_duration")
+    timesInTop100   Int       @default(0) @map("times_in_top_100")
+    firstAppearedAt DateTime? @map("first_appeared_at")
+    lastAppearedAt  DateTime? @map("last_appeared_at")
+    daysInTop100    Int       @default(0) @map("days_in_top_100")
+    title           String?
+    author          String?
+    price           String?
+    imageLink       String?   @map("image_link")
+    bookLink        String?   @unique @map("book_link")
+    ratings         Float?
+    createdAt       DateTime  @default(now()) @map("created_at")
+    updatedAt       DateTime  @updatedAt @map("updated_at")
+
+    @@map("best_seller_books")
+}
+
+model SnapshotHistory {
+    id              Int                      @id @default(autoincrement())
+    snapshotTakenAt DateTime                 @default(now()) @map("snapshot_taken_at")
+    snapshots       BestSellerBookSnapshot[]
+
+    @@map("snapshot_history")
+}
+
+model BestSellerBookSnapshot {
+    id              Int       @id @default(autoincrement())
+    rank            Int?
+    previousRank    Int?      @map("previous_rank")
+    rankDuration    Int       @default(0) @map("rank_duration")
+    timesInTop100   Int       @default(0) @map("times_in_top_100")
+    firstAppearedAt DateTime? @map("first_appeared_at")
+    lastAppearedAt  DateTime? @map("last_appeared_at")
+    daysInTop100    Int       @default(0) @map("days_in_top_100")
+    title           String?
+    author          String?
+    price           String?
+    imageLink       String?   @map("image_link")
+    bookLink        String?   @map("book_link")
+    ratings         Float?
+    snapshotTakenAt DateTime  @default(now()) @map("snapshot_taken_at")
+
+    snapshotHistoryId Int?             @map("snapshot_history_id") // Optional foreign key
+    snapshotHistory   SnapshotHistory? @relation(fields: [snapshotHistoryId], references: [id])
+
+    @@map("best_seller_book_snapshots")
+}
+
+model Book {
+    id                 Int     @id @default(autoincrement())
+    origin             String?
+    coverUrl           String?
+    reviewRating       Float?
+    numberOfRatings    Int?
+    description        String?
+    metaDescription    String?
+    introduction       String?
+    keyTakeaways       String?
+    inDepthDescription String?
+    standoutFeatures   String?
+
+    details   BookDetails? @relation(fields: [detailsId], references: [id])
+    detailsId Int?         @unique
+
+    topReviews TopReview[]
+    category   Category?   @relation(fields: [categoryId], references: [id])
+    categoryId Int?
+}
+
+model BookDetails {
+    id              Int     @id @default(autoincrement())
+    title           String?
+    authors         String?
+    publisher       String?
+    publicationDate String?
+    pages           String?
+    language        String?
+    isbn10          String?
+    isbn13          String?
+    dimensions      String?
+    weight          String?
+    kindlePrice     String?
+    hardcoverPrice  String?
+    paperbackPrice  String?
+    audiobookPrice  String?
+    audiocdPrice    String?
+
+    book Book?
+}
+
+model TopReview {
+    id                Int      @id @default(autoincrement())
+    reviewerName      String?
+    reviewerRatings   String?
+    reviewTitle       String?
+    verifiedPurchase  Boolean?
+    reviewDate        String?
+    reviewDescription String?
+
+    book   Book? @relation(fields: [bookId], references: [id])
+    bookId Int?
+}
+
+model Category {
+    id    Int    @id @default(autoincrement())
+    name  String @unique
+    books Book[]
+}
+

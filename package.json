@@ -3,10 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "rm -rf .next; next dev -p 3000",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "rm -rf .next;NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3000",
+    "build": "NEXT_PRIVATE_LOCAL_WEBPACK=true npx prisma generate && next build",
+    "start": "next start -H 0.0.0.0 -p ${PORT:-8080}",
+    "dev:srv": "node server.ts",
+    "build:srv": "next build",
+    "start:srv": "NODE_ENV=production node server.ts -p ${PORT:-8080}",
+    "lint": "next lint",
+    "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run",
+    "e2e": "start-server-and-test dev http://localhost:3000 cypress",
+    "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless",
+    "test": "vitest"
   },
   "dependencies": {
     "@amcharts/amcharts5": "^5.10.8",
@@ -14,7 +23,9 @@
     "@cyntler/react-doc-viewer": "^1.17.0",
     "@fortawesome/fontawesome-svg-core": "^6.7.1",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@module-federation/nextjs-mf": "^8.8.7",
     "@paypal/react-paypal-js": "^8.7.0",
+    "@prisma/client": "^6.0.1",
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-checkbox": "^1.1.2",
     "@radix-ui/react-dialog": "^1.1.2",
@@ -95,6 +106,15 @@
     "eslint-config-next": "15.0.3",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.15",
-    "typescript": "^5"
+    "typescript": "^5",
+    "webpack": "^5.97.1"
+  },
+  "_moduleAliases": {
+    "@root": "."
+  },
+  "engines": {
+    "node": "22.x",
+    "npm": "10.x",
+    "yarn": ">=1.22.19 <2"
   }
 }
