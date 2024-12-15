@@ -44,7 +44,7 @@ const Reviews: React.FC<ReviewsProps> = ({ testimonials }) => {
             {testimonials.map((Testimonial, index) => (
               <CarouselItem key={index} className="md:basis-1/3  lg:basis-1/3">
                 <div className="p-1 h-full">
-                  <Card className="shadow-lg h-full">
+                  <Card className=" h-full">
                     <CardContent className="h-full">
                       <ReviewCard testimonial={Testimonial} />
                     </CardContent>

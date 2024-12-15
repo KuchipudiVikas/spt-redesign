@@ -9,6 +9,7 @@ import DotImage from "@/public/assets/home/dot-svgrepo-com.svg";
 import Link from "next/link";
 import { Testimonial } from "@/lib/ts/interfaces/testimonials";
 import BottomBanner from "@/components/Common/BottomBanner";
+import ComprehensiveTools from "@/components/Home/ComprehensiveTools";
 
 import { User } from "@/lib/ts/types/user";
 export interface HomeProps {
@@ -22,6 +23,7 @@ export interface HomeProps {
 const Home: React.FC<HomeProps> = ({ pageData }) => {
   return (
     <div className="">
+      <ComprehensiveTools />
       <NewAuthorTools />
       <ChromeExtensions />
       <AllTools />

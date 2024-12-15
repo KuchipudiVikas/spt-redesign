@@ -118,7 +118,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="bg-[#f7f7f8] pt-5 pb-20">
+    <div className="bg-[#f7f7f8] pt-5 mt-20 pb-20">
       <div className="max-w-[1300px]  mx-auto font-jsans">
         <div className="grid grid-cols-5 mt-[20px] w-full">
           <div className="col-span-2">

@@ -1,9 +1,47 @@
+import { icon } from "@fortawesome/fontawesome-svg-core";
+import {
+  BlocksIcon,
+  BookAIcon,
+  BookHeartIcon,
+  BookIcon,
+  BookImageIcon,
+  BookTextIcon,
+  BrushIcon,
+  ChartLineIcon,
+  CheckIcon,
+  ClipboardTypeIcon,
+  CloudIcon,
+  CopyrightIcon,
+  DollarSignIcon,
+  FileStackIcon,
+  GraduationCap,
+  GroupIcon,
+  ImageIcon,
+  LanguagesIcon,
+  LayoutListIcon,
+  ListCheckIcon,
+  ListEndIcon,
+  NotebookPen,
+  PenIcon,
+  Percent,
+  PuzzleIcon,
+  QrCode,
+  SearchIcon,
+  TablePropertiesIcon,
+  TextIcon,
+  TextSearchIcon,
+  TrendingUpDownIcon,
+  TriangleAlert,
+  VideoIcon,
+} from "lucide-react";
+
 export type Item = {
   heading: string;
   tag: string;
   link: string;
   newTab?: boolean;
   flair?: string;
+  icon: React.ElementType;
 };
 
 export type TCategory = {
@@ -14,11 +52,13 @@ export type TCategory = {
 export type TSolutionsData = {
   Title: String;
   Categories: TCategory[];
+  icon: React.ElementType;
 };
 
 const SolutionsData: TSolutionsData[] = [
   {
     Title: "Research Tools",
+    icon: SearchIcon,
     Categories: [
       {
         Items: [
@@ -27,18 +67,21 @@ const SolutionsData: TSolutionsData[] = [
             tag: "Search suggestions, search volume & more",
             newTab: true,
             link: "/titans-pro/on-site",
+            icon: SearchIcon,
           },
           {
             heading: "Titans Pro Chrome Extension",
             tag: "Chrome Extension for search suggestions, search volume & more",
             newTab: true,
             link: "https://chromewebstore.google.com/detail/titans-pro-amazon-kdp-key/mmdamlknnafgffhlobhlmiljonijdnid",
+            icon: BlocksIcon,
           },
           {
             heading: "Titans Quick View",
             tag: "Chrome Extension for niche analysis, BSR data, top keywords, search volume & more.",
             newTab: true,
             link: "https://chromewebstore.google.com/detail/titans-quick-view-amazon/eefljgmhgaidffapnppcmmafobefjece",
+            icon: TextIcon,
           },
           {
             flair: "New",
@@ -46,16 +89,19 @@ const SolutionsData: TSolutionsData[] = [
             tag: "Booklisting SEO tool",
             newTab: false,
             link: "/7-backend-keywords-tool-amazon-kdp",
+            icon: ListEndIcon,
           },
           {
             heading: "Titans Deep View",
             tag: "Analyze 100 products at once",
             link: "/titans-deep-view",
+            icon: LayoutListIcon,
           },
           {
             heading: "Titans Retro View",
             tag: "Find competetiors top keywords",
             link: "/titans-retro-vision",
+            icon: TablePropertiesIcon,
           },
         ],
       },
@@ -63,6 +109,7 @@ const SolutionsData: TSolutionsData[] = [
   },
   {
     Title: "Book Creation Tools",
+    icon: BookIcon,
     Categories: [
       {
         Items: [
@@ -70,26 +117,31 @@ const SolutionsData: TSolutionsData[] = [
             heading: "Book Writer",
             tag: "Start writing a children’s book, novel, joke book or anything else you want.",
             link: "https://author.selfpublishingtitans.com",
+            icon: PenIcon,
           },
           {
             heading: "Puzzle & Activity Tools",
             tag: "Create 30+ different puzzles and activities. sudoku, wordsearch, mazes etc.  ",
             link: "https://books.selfpublishingtitans.com/tools",
+            icon: PuzzleIcon,
           },
           {
             heading: "Coloring Books",
             tag: "Create coloring books with over 9,250 hand drawn illustrations.",
             link: "https://selfpublishingtitans.com/coloring-book-maker",
+            icon: BrushIcon,
           },
           {
             heading: "Digital Titans Designer",
             tag: "Create awesome letters and text designs",
             link: "https://design.selfpublishingtitans.com/",
+            icon: BookAIcon,
           },
           {
             heading: "Low Content Books",
             tag: "Create notebooks, journals, and more.",
             link: "https://books.selfpublishingtitans.com/FREE-No-Content-Book-Creator-Software",
+            icon: FileStackIcon,
           },
         ],
       },
@@ -97,6 +149,7 @@ const SolutionsData: TSolutionsData[] = [
   },
   {
     Title: "Book Listing Tools",
+    icon: ListCheckIcon,
     Categories: [
       {
         Items: [
@@ -104,36 +157,43 @@ const SolutionsData: TSolutionsData[] = [
             heading: "KDP Title Creator",
             tag: "Generate the perfect title for your book effortlessly.",
             link: "/kdp-title-creator",
+            icon: ClipboardTypeIcon,
           },
           {
             heading: "KDP Description Generator",
             tag: "Create a compelling description for your book.",
             link: "/kdp-description-creator",
+            icon: TextIcon,
           },
           {
             heading: "KDP Trademark Violation Checker",
             tag: "Check if your book title violates any trademarks.",
             link: "/kdp-trademark-checker",
+            icon: CopyrightIcon,
           },
           {
             heading: "KDP Guidelines Checker",
             tag: "Check if your book meets KDP guidelines.",
             link: "/kdp-guidelines-checker",
+            icon: TextIcon,
           },
           {
             heading: "KDP Book Data Translator",
             tag: "Translate your book data into any language with a click.",
             link: "/kdp-bookdata-translator",
+            icon: LanguagesIcon,
           },
           {
             heading: "Book Price Suggestion Tool",
             tag: "Get the perfect price for your book.",
             link: "/kdp-price-checker",
+            icon: DollarSignIcon,
           },
           {
             link: "/grammar-check",
             tag: "Check your book info for grammar and spelling mistakes.",
             heading: "Grammar Checker",
+            icon: ListCheckIcon,
           },
         ],
       },
@@ -141,6 +201,7 @@ const SolutionsData: TSolutionsData[] = [
   },
   {
     Title: "Design Tools",
+    icon: ImageIcon,
     Categories: [
       {
         Items: [
@@ -148,12 +209,14 @@ const SolutionsData: TSolutionsData[] = [
             heading: "Cover Designer",
             tag: "Create covers for your books in all formats and sizes",
             link: "/book-cover-creator",
+            icon: BookHeartIcon,
           },
           {
             heading: "A+ Content Maker",
             tag: " Create images for your book listing",
             link: "/A+-content-template-generator",
             flair: "New",
+            icon: BookImageIcon,
           },
         ],
       },
@@ -162,6 +225,7 @@ const SolutionsData: TSolutionsData[] = [
 
   {
     Title: "General KDP Tools",
+    icon: BlocksIcon,
     Categories: [
       {
         Items: [
@@ -169,46 +233,55 @@ const SolutionsData: TSolutionsData[] = [
             heading: "KDP BSR Sales Calculator",
             tag: "Estimate anyone's book sales",
             link: "/tools/KDP-BSR-Sales-Calculator",
+            icon: ChartLineIcon,
           },
           {
             heading: "ACOS Royalty Calculator",
             tag: "Calculate ad campaign profitability.",
             link: "/tools/KDP-Royalty-Calculator",
+            icon: Percent,
           },
           {
             heading: "Pen Name Generator",
             tag: "Generate pen names for your books",
             link: "/tools/Pen-Name-Generator",
+            icon: NotebookPen,
           },
           {
             heading: "QR Code Generator",
             tag: "Create QR codes for your books",
             link: "/tools/QR-Code-Generator-for-KDP-Books",
+            icon: QrCode,
           },
           {
             heading: "Word Cloud Generator",
             tag: "View most used words and keywords",
             link: "/word-cloud",
+            icon: CloudIcon,
           },
           {
             heading: "Keyword Tracker",
             tag: "Track Keyword ranking for any product",
             link: "/titans-keyword-tracker",
+            icon: TrendingUpDownIcon,
           },
           {
             heading: "ASIN Tracker",
             tag: "Monitor any products performance",
             link: "/titans-asin-tracker",
+            icon: ChartLineIcon,
           },
           {
             heading: "KDP Category Finder",
             tag: "Find the best categories for your book and improve your SEO.",
             link: "/tools/KDP-Kindle-Category-Finder",
+            icon: TextSearchIcon,
           },
           {
             heading: "KDP Cover Template Generator",
             tag: "Create KDP Cover Templates",
             link: "/kdp-cover-template-generator",
+            icon: BookTextIcon,
           },
         ],
       },
@@ -327,6 +400,7 @@ const SolutionsData: TSolutionsData[] = [
   // },
   {
     Title: "Training",
+    icon: GraduationCap,
     Categories: [
       // {
       //   item: "KDP Masterclass",
@@ -339,15 +413,18 @@ const SolutionsData: TSolutionsData[] = [
             heading: "KDP Masterclass",
             tag: "A structured and systematic step by step course with 80 videos, lots of resources, & more",
             link: "/masterclass",
+            icon: VideoIcon,
           },
         ],
       },
       {
         Items: [
           {
-            heading: "Support",
-            tag: "Get help with any of our tools, request feature updates, report bugs. Tell us everything. We want to hear from you.",
-            link: "/support",
+            heading: "Community Forum",
+            tag: " Join our community of like-minded people and ask any and all your questions, share your wins, learn from others.",
+            link: "https://community.selfpublishingtitans.com/",
+            newTab: true,
+            icon: GroupIcon,
           },
         ],
       },
@@ -359,6 +436,7 @@ const SolutionsData: TSolutionsData[] = [
             tag: "Available as print, Kindle ebook & audiobook. It teaches you all the basics about Amazon KDP. Perfect for beginners.",
             link: "https://www.amazon.com/Self-Publishing-Simplified-Publish-Amazon-Beginners/dp/B0CMZ92XLG/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1704220990&sr=8-1",
             newTab: true,
+            icon: BookIcon,
           },
         ],
       },

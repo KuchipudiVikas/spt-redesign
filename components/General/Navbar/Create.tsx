@@ -30,25 +30,25 @@ const ToolSection: React.FC<SectionProps> = ({
   return (
     <div>
       <h6 className="text-black mb-3 mt-4 font-bold">{title}</h6>
-      <div className={`w-full grid grid-cols-${gridCols} gap-3`}>
+      <div className={`w-full grid grid-cols-${gridCols} `}>
         {options.map((option, index) => (
           <a
             style={{
-              minHeight: "70px",
+              minHeight: "55px",
             }}
             key={index}
             href={option.link}
             target="__blank"
-            className="flex items-center  sp-container h-full p-3 rounded-lg py-1.5 text-sm text-gray-700 hover:bg-[#c3abff] px-3 hover:text-gray-900"
+            className="flex items-center h-full p-3 rounded-lg py-0 text-sm text-gray-700 hover:bg-gray-100 px-3 "
             role="menuitem"
             onClick={(e) => e.stopPropagation()}
           >
             <option.Icon
-              className="mr-3"
+              className="mr-3 text-primary"
               style={{ width: "20px", height: "20px" }}
             />
             <div>
-              <h6 className="font-medium text-black">{option.name}</h6>
+              <h6 className="font-semibold text-black">{option.name}</h6>
               {withTags && option.tag && (
                 <p className="line-clamp-2 text-[12px] leading-snug text-muted-foreground">
                   {option.tag}
@@ -78,36 +78,34 @@ const Create: React.FC = () => {
               aria-labelledby="options-menu"
             >
               <div className="grid grid-cols-1 w-full w-[500px]">
-                <div className="grid grid-cols-2 gap-5">
-                  <ToolSection title="Create" options={CreateOptions} />
-                  <ToolSection
-                    title="Book Listing"
-                    options={BookListingTools}
-                  />
-                </div>
-                <hr className="mt-7" />
-                <div className="grid grid-cols-6 gap-5">
-                  <ToolSection
-                    title="Learn"
-                    options={LearningTools}
-                    gridCols={1}
-                  />
-                  <div className="col-span-5">
-                    <ToolSection
-                      title="General"
-                      options={GeneralTools}
-                      gridCols={4}
-                    />
-                  </div>
-                </div>
-                <hr className="mt-8" />
                 <ToolSection
-                  title="Research"
-                  options={ResearchOptions}
-                  gridCols={6}
-                  withTags
+                  title="Create"
+                  options={CreateOptions}
+                  gridCols={5}
+                />
+                <ToolSection
+                  title="Book Listing"
+                  options={BookListingTools}
+                  gridCols={5}
+                />
+
+                <ToolSection
+                  title="Learn"
+                  options={LearningTools}
+                  gridCols={5}
+                />
+                <ToolSection
+                  title="General"
+                  options={GeneralTools}
+                  gridCols={5}
                 />
               </div>
+              <ToolSection
+                title="Research"
+                options={ResearchOptions}
+                gridCols={5}
+                withTags
+              />
             </div>
           </div>
         </div>

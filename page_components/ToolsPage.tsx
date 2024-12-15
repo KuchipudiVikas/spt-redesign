@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import Image from "next/image";
-import { ShoppingCartIcon, EyeIcon, Filter } from "lucide-react";
+import { ShoppingCartIcon, EyeIcon, Filter, ArrowRight } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { allProducts, Product, ProductCategory, Categories } from "@/data/shop";
 
@@ -11,32 +11,40 @@ interface ToolsPageProps {}
 
 type PriceRange = "low_to_high" | "high_to_low";
 
-const ToolsPage: React.FC<ToolsPageProps> = () => {
+const ToolsPage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>(allProducts);
-
   const [query, setQuery] = useState<string>("");
-
   const [priceRange, setPriceRange] = useState<PriceRange | null>(null);
-
   const [selectedCategories, setSelectedCategories] = useState<
     ProductCategory[]
   >([]);
+  const [toolType, setToolType] = useState<string>("all"); // New state for tool type
 
   useEffect(() => {
     let filteredProducts = allProducts;
 
+    // Filter by search query
     if (query) {
       filteredProducts = filteredProducts.filter((product) =>
         product.title.toLowerCase().includes(query.toLowerCase())
       );
     }
 
+    // Filter by categories
     if (selectedCategories.length > 0) {
       filteredProducts = filteredProducts.filter((product) =>
         selectedCategories.includes(product.category)
       );
     }
 
+    // Filter by tool type
+    if (toolType === "free") {
+      filteredProducts = filteredProducts.filter((product) => !product.isPaid);
+    } else if (toolType === "paid") {
+      filteredProducts = filteredProducts.filter((product) => product.isPaid);
+    }
+
+    // Sort by price range
     if (priceRange) {
       filteredProducts = filteredProducts.sort((a, b) => {
         if (priceRange === "low_to_high") {
@@ -49,7 +57,7 @@ const ToolsPage: React.FC<ToolsPageProps> = () => {
     }
 
     setProducts(filteredProducts);
-  }, [query, selectedCategories, priceRange]);
+  }, [query, selectedCategories, priceRange, toolType]);
 
   return (
     <div
@@ -59,38 +67,64 @@ const ToolsPage: React.FC<ToolsPageProps> = () => {
       }}
       className="grid grid-cols-4  p-5"
     >
-      <div className="">
+      <div>
         <Filters
-          priceRange={priceRange}
-          setPriceRange={setPriceRange}
           selectedCategories={selectedCategories}
           setSelectedCategories={setSelectedCategories}
+          setPriceRange={setPriceRange}
+          priceRange={priceRange}
         />
       </div>
       <div className="col-span-3 flex flex-col">
-        <div className="border mb-5 rounded-full">
-          <Input
-            placeholder="Enter keyword to search tool"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
+        <div className="flex gap-3">
+          {/* Search Input */}
+          <div
             style={{
-              border: "none",
-              padding: "29px",
+              border: "1px solid #ccc",
             }}
-            className="rounded-full"
-          />
+            className="w-full mb-5 rounded-full"
+          >
+            <Input
+              placeholder="Enter keyword to search tool"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              style={{
+                border: "none",
+                padding: "29px",
+              }}
+              className="rounded-full"
+            />
+          </div>
+
+          {/* Select Dropdown for Tool Type */}
+          <select
+            style={{
+              padding: "15px",
+              borderRadius: "40px",
+              height: "60px",
+              border: "1px solid #ccc",
+              width: "200px",
+            }}
+            value={toolType}
+            onChange={(e) => setToolType(e.target.value)}
+          >
+            <option value="all">All</option>
+            <option value="free">Free</option>
+            <option value="paid">Paid</option>
+          </select>
         </div>
+
+        {/* Product List */}
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
             gap: "1rem",
           }}
-          className=""
         >
-          {products.map((product, index) => {
-            return <SingleProduct key={index} product={product} />;
-          })}
+          {products.map((product, index) => (
+            <SingleProduct key={index} product={product} />
+          ))}
         </div>
       </div>
     </div>
@@ -139,7 +173,7 @@ const SingleProduct = ({ product }: { product: Product }) => {
             }}
             className="flex flex-col gap-2"
           >
-            <h6
+            {/* <h6
               style={{
                 marginTop: "20px",
                 fontSize: "20px",
@@ -158,15 +192,16 @@ const SingleProduct = ({ product }: { product: Product }) => {
               >
                 ${product.og_price}
               </span>{" "}
-            </h6>
-
+            </h6> */}
+            {/* 
             <Button className="rounded-full font-bold">
               <ShoppingCartIcon size={20} className="mr-2  " />
               Buy Now
-            </Button>
+            </Button> */}
             <Button variant={"outline"} className="rounded-full font-bold">
-              <EyeIcon size={20} className="mr-2 " />
+              {/* <EyeIcon size={20} className="mr-2 " /> */}
               Preview
+              <ArrowRight size={20} className="ml-2" />
             </Button>
           </div>
         </div>

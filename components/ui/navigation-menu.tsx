@@ -18,7 +18,8 @@ const NavigationMenu = React.forwardRef<
       menuValue === "create" ||
       menuValue === "help" ||
       menuValue === "notifications" ||
-      menuValue === "account"
+      menuValue === "account" ||
+      menuValue === "chrome"
     ) {
       setIsRightAligned(true);
     } else if (menuValue == "") {
@@ -37,7 +38,7 @@ const NavigationMenu = React.forwardRef<
         console.log("Value changed:", value, typeof value);
         setMenuValue(value);
       }}
-      // value="tools"
+      // value="create"
     >
       {children}
       <NavigationMenuViewport rightAligned={isRightAligned} />

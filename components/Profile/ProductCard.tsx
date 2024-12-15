@@ -28,7 +28,7 @@ export default function ProductCard({
   console.log(links);
 
   return (
-    <div className="mx-auto sp-container border-2 light-border rounded-2xl w-full lg:w-[272px]  ">
+    <div className="mx-auto sp-container border-2 light-border rounded-2xl w-full  ">
       <div
         style={{
           minHeight: "160px",
@@ -46,7 +46,7 @@ export default function ProductCard({
                 Subscription will end on{" "}
                 {BrowserUtils.getLocalDate(subscription.cancel_at)}
               </div> */}
-          <div className="flex flex-row gap-3 justify-center items-center">
+          <div className="flex flex-col mt-5 gap-3 justify-center items-start">
             {links &&
               links.map((link, index) => (
                 <Button

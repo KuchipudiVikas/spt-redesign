@@ -31,7 +31,7 @@ const Canvas = ({
 CanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const bgColor = "#d996fe";
+  const bgColor = "#7c3aed";
   const lineColor = bgColor;
   const gColor = "#808080";
   const hinge = 0.394;

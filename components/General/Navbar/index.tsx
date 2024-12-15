@@ -11,9 +11,10 @@ import DotIcon from "@/public/assets/home/dot-svgrepo-com.svg";
 import Link from "next/link";
 import Resources from "./Resources";
 import Solutions from "./Solutions";
-import { User } from "@/lib/ts/types/user";
+import { User, UserData } from "@/lib/ts/types/user";
 import Notifications from "./Notifications";
 import Help from "./Help";
+import ChromeExtension from "./ChromeExtension";
 
 import {
   NavigationMenu,
@@ -29,9 +30,10 @@ import Account from "./Account";
 import { useSession } from "next-auth/react";
 import Search from "./search";
 import Create from "./Create";
+import { QuestionMarkIcon } from "@radix-ui/react-icons";
 
 interface NavbarProps {
-  info: User | undefined;
+  info: User | false;
   logout: () => void;
   token: string;
 }
@@ -110,32 +112,51 @@ const Navbar: React.FC<NavbarProps> = ({ info, logout, token }) => {
               </a>
             </NavigationMenuItem>
             <NavigationMenuItem className="bg-transparent">
-              <a href="/pricing" className="bg-transparent">
-                <NavigationMenuLink
-                  style={{
-                    background: "transparent",
-                    fontWeight: "bold",
-                  }}
-                  className={navigationMenuTriggerStyle()}
-                >
+              <NavigationMenuLink
+                style={{
+                  background: "transparent",
+                  fontWeight: "bold",
+                }}
+                className={navigationMenuTriggerStyle()}
+              >
+                <a href="/testimonials" className="bg-transparent">
                   Testimonials
-                </NavigationMenuLink>
-              </a>
+                </a>
+              </NavigationMenuLink>
             </NavigationMenuItem>
           </div>
 
           {info && token ? (
             <div className="flex items-center gap-2">
               <Search />
+              <NavigationMenuItem value="question">
+                <NavigationMenuLink
+                  style={{
+                    height: "35px",
+                  }}
+                  className="border rounded-3xl mr-2  px-3 flex font-medium items-center prim-outline-btn  text-[14px]"
+                >
+                  <QuestionMarkIcon className="mr-2" />
+                  Ask
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <ChromeExtension />
               <NavigationMenuItem value="create">
                 <NavigationMenuTrigger
                   style={{
                     fontWeight: "bold",
-                    background: "transparent",
+                    background: "#d2b2f2",
+                    padding: "0px 10px",
                   }}
+                  className="nav-menu-trigger    rounded-full"
                 >
-                  <div className="p-3 bg-primary rounded-full text-white px-4 font-bold">
-                    Create
+                  <div
+                    style={{
+                      height: "35px",
+                    }}
+                    className=" h-full flex items-center font-bold"
+                  >
+                    Start
                   </div>
                 </NavigationMenuTrigger>
                 <Create />
@@ -144,14 +165,17 @@ const Navbar: React.FC<NavbarProps> = ({ info, logout, token }) => {
                 <NavigationMenuTrigger
                   style={{
                     fontWeight: "bold",
-                    background: "transparent",
-                    width: "60px",
+                    background: "white",
+                    width: "70px",
                   }}
-                  className="flex items-center"
+                  className="flex rounded-full  items-center nav-menu-trigger"
                 >
-                  <button className="px-5 py-2 text-black bg-white font-normal rounded-full">
-                    <MessageCircleQuestionIcon className={` text-[16px] `} />
-                  </button>
+                  <MessageCircleQuestionIcon
+                    style={{
+                      height: "30px",
+                    }}
+                    className={`  `}
+                  />
                 </NavigationMenuTrigger>
                 <Help />
               </NavigationMenuItem>
@@ -161,8 +185,15 @@ const Navbar: React.FC<NavbarProps> = ({ info, logout, token }) => {
                     fontWeight: "bold",
                     background: "transparent",
                   }}
+                  className="nav-menu-trigger flex items-center"
                 >
-                  <BellIcon className="text-black" />
+                  <BellIcon
+                    style={{
+                      height: "38px",
+                    }}
+                    width={22}
+                    className=""
+                  />
                 </NavigationMenuTrigger>
                 {/* @ts-ignore */}
                 <Notifications info={info} token={token} />

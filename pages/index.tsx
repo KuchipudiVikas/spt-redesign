@@ -33,16 +33,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     const feat = await Accounts.features.list({});
 
     const session = await getSession(context);
-    if (!session) {
-      return {
-        redirect: {
-          destination: "/login",
-          permanent: false,
-        },
-      };
-    }
 
-    const token = session.token;
+    let token = "";
+
+    if (session) {
+      token = session?.token;
+    }
 
     return getProfile(context, {
       pageData: content.simple,

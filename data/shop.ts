@@ -1,3 +1,7 @@
+import { ImageIndex } from "@/lib/imageindex";
+import { ToolIndex } from "@/lib/ToolIndex";
+import { ToolLinkIndex } from "@/lib/linkIndex";
+
 export type Product = {
   title: string;
   price: number;
@@ -6,6 +10,7 @@ export type Product = {
   description: string;
   buy_url: string;
   preview_url: string;
+  isPaid: boolean;
   thumb_url: string;
 };
 
@@ -27,6 +32,7 @@ export const allProducts: Product[] = [
     category: "Research Tools",
     description: "Amazon suggestions, search volume, search results & more",
     buy_url: "https://google.com",
+    isPaid: true,
     preview_url: "https://google.com",
     thumb_url:
       "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/titans%20pro%20web%20app%20.png",
@@ -39,31 +45,21 @@ export const allProducts: Product[] = [
     description:
       "Analyze 100 Products At Once, Niche Metrics, Sales Est., Key Metrics, Excel Download All Data",
     buy_url: "https://google.com",
+    isPaid: true,
     preview_url: "https://google.com",
     thumb_url:
       "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/deep%20view.png",
   },
   {
-    title: "7 backend keywords",
+    title: ToolIndex.SEVEN_BACKEND_KEYWORDS,
     price: 199,
     og_price: 200,
     category: "Research Tools",
     description: "Keyword research tool. The fast and easy way",
     buy_url: "https://google.com",
-    preview_url: "https://google.com",
-    thumb_url:
-      "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/7%20backend%20keywords.png",
-  },
-  {
-    title: "Basic Plus Bundle",
-    price: 298,
-    og_price: 400,
-    category: "Research Tools",
-    description: "Titans Pro + Titans Deep View",
-    buy_url: "https://google.com",
-    preview_url: "https://google.com",
-    thumb_url:
-      "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/7%20backend%20keywords.png",
+    isPaid: true,
+    preview_url: ToolLinkIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
   },
   {
     title: "Puzzle Tools",
@@ -74,20 +70,10 @@ export const allProducts: Product[] = [
 
 Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, Number Search, Word Scramble, Pontoon Grid, Kakuro, Cryptogram, Link Janitor, Hidato, Wordoku, Drawgrid, Letter Tracing, Bingo Card, Equation Solver, Cryptomaths, Cross Sums`,
     buy_url: "https://google.com",
+    isPaid: true,
     preview_url: "https://google.com",
     thumb_url:
       "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/puzzle3.png",
-  },
-  {
-    title: "Creative Bundle",
-    price: 547,
-    og_price: 700,
-    category: "Book Creation Tools",
-    description: "Coloring Book Maker + All Puzzle Tools Bundle",
-    buy_url: "https://google.com",
-    preview_url: "https://google.com",
-    thumb_url:
-      "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/7%20backend%20keywords.png",
   },
   {
     title: "Titans Retro view",
@@ -96,42 +82,10 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
     category: "Research Tools",
     description: "This is a description",
     buy_url: "https://google.com",
+    isPaid: true,
     preview_url: "https://google.com",
     thumb_url:
       "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/retro%20view.png",
-  },
-  {
-    title: "Mega Bundle",
-    price: 1810,
-    og_price: 2000,
-    category: "Research Tools",
-    description: "This is a description",
-    buy_url: "https://google.com",
-    preview_url: "https://google.com",
-    thumb_url:
-      "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/7%20backend%20keywords.png",
-  },
-  {
-    title: "Book Listing Tools",
-    price: 1029,
-    og_price: 1200,
-    category: "Research Tools",
-    description: "The 7 New Author Tools Bundle Tool. The fast and easy way.",
-    buy_url: "https://google.com",
-    preview_url: "https://google.com",
-    thumb_url:
-      "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/7%20backend%20keywords.png",
-  },
-  {
-    title: "Mega Max Bundle",
-    price: 3620,
-    og_price: 4000,
-    category: "Research Tools",
-    description: "This is a description",
-    buy_url: "https://google.com",
-    preview_url: "https://google.com",
-    thumb_url:
-      "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/7%20backend%20keywords.png",
   },
   {
     title: "KDP Title Creator",
@@ -140,6 +94,7 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
     category: "Book Listing Tools",
     description: "KDP Title Creator Tool. The fast and easy way.",
     buy_url: "https://google.com",
+    isPaid: true,
     preview_url: "https://google.com",
     thumb_url:
       "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/title%20creator.png",
@@ -151,6 +106,7 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
     category: "Book Listing Tools",
     description: "KDP Book Description Generator Tool. The fast and easy way.",
     buy_url: "https://google.com",
+    isPaid: true,
     preview_url: "https://google.com",
     thumb_url:
       "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/7%20backend%20keywords.png",
@@ -162,6 +118,7 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
     category: "Book Listing Tools",
     description: "Book Price Suggestion Tool. The fast and easy way.",
     buy_url: "https://google.com",
+    isPaid: true,
     preview_url: "https://google.com",
     thumb_url:
       "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/price%20checker.png",
@@ -173,6 +130,7 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
     category: "Book Listing Tools",
     description: "KDP Trademark Checker Tool. The fast and easy way.",
     buy_url: "https://google.com",
+    isPaid: true,
     preview_url: "https://google.com",
     thumb_url:
       "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/trademark%20checker.png",
@@ -184,6 +142,7 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
     category: "Book Listing Tools",
     description: "KDP Guidelines Checker Tool. The fast and easy way.",
     buy_url: "https://google.com",
+    isPaid: true,
     preview_url: "https://google.com",
     thumb_url:
       "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/7%20backend%20keywords.png",
@@ -195,6 +154,7 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
     category: "Book Listing Tools",
     description: "KDP Book Data Translator Tool. The fast and easy way.",
     buy_url: "https://google.com",
+    isPaid: true,
     preview_url: "https://google.com",
     thumb_url:
       "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/7%20backend%20keywords.png",
@@ -206,9 +166,175 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
     category: "Book Listing Tools",
     description: "Grammar and Spell Checker Tool. The fast and easy way.",
     buy_url: "https://google.com",
+    isPaid: true,
     preview_url: "https://google.com",
     thumb_url:
       "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/7%20backend%20keywords.png",
+  },
+  {
+    title: ToolIndex.KDP_COVER_TEMPLATE_GENERATOR,
+    price: 0,
+    og_price: 0,
+    category: "General KDP Tools",
+    description: "KDP Cover Template Generator Tool. The fast and easy way.",
+    isPaid: false,
+    preview_url: ToolLinkIndex[ToolIndex.KDP_COVER_TEMPLATE_GENERATOR],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    buy_url: "",
+  },
+  {
+    title: ToolIndex.KDP_BSR_Sales_CALCULATOR,
+    price: 0,
+    og_price: 0,
+    category: "General KDP Tools",
+    description: "KDP BSR Sales Calculator Tool. The fast and easy way.",
+    isPaid: false,
+    preview_url: ToolLinkIndex[ToolIndex.KDP_BSR_Sales_CALCULATOR],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    buy_url: "",
+  },
+  {
+    title: ToolIndex.ACOS_Royalty_Calculator,
+    price: 0,
+    og_price: 0,
+    category: "General KDP Tools",
+    description: "ACOS Royalty Calculator Tool. The fast and easy way.",
+    isPaid: false,
+    preview_url: ToolLinkIndex[ToolIndex.ACOS_Royalty_Calculator],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    buy_url: "",
+  },
+  {
+    title: ToolIndex.QR_GEN,
+    price: 0,
+    og_price: 0,
+    category: "General KDP Tools",
+    description: "QR Code Generator for KDP Books Tool. The fast and easy way.",
+    isPaid: false,
+    preview_url: ToolLinkIndex[ToolIndex.QR_GEN],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    buy_url: "",
+  },
+  {
+    title: ToolIndex.WORD_CLOUD,
+    price: 0,
+    og_price: 0,
+    category: "General KDP Tools",
+    description: "Word Cloud Tool. The fast and easy way.",
+    isPaid: false,
+    preview_url: ToolLinkIndex[ToolIndex.WORD_CLOUD],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    buy_url: "",
+  },
+  {
+    title: ToolIndex.KEYWORD_TRACKER,
+    price: 0,
+    og_price: 0,
+    category: "General KDP Tools",
+    description: "Titans Keyword Tracker Tool. The fast and easy way.",
+    isPaid: true,
+    preview_url: ToolLinkIndex[ToolIndex.KEYWORD_TRACKER],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    buy_url: "",
+  },
+  {
+    title: ToolIndex.ASIN_TRACKER,
+    price: 0,
+    og_price: 0,
+    category: "General KDP Tools",
+    description: "Titans ASIN Tracker Tool. The fast and easy way.",
+    isPaid: true,
+    preview_url: ToolLinkIndex[ToolIndex.ASIN_TRACKER],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    buy_url: "",
+  },
+  {
+    title: ToolIndex.KDP_CATEGORY_FINDER,
+    price: 0,
+    og_price: 0,
+    category: "General KDP Tools",
+    description: "KDP Kindle Category Finder Tool. The fast and easy way.",
+    isPaid: true,
+    preview_url: ToolLinkIndex[ToolIndex.KDP_CATEGORY_FINDER],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    buy_url: "",
+  },
+  {
+    title: ToolIndex.BOOK_COVER_DESIGNER,
+    price: 0,
+    og_price: 0,
+    category: "Design Tools",
+    description: "Book Cover Designer Tool. The fast and easy way.",
+    isPaid: false,
+    preview_url: ToolLinkIndex[ToolIndex.BOOK_COVER_DESIGNER],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    buy_url: "",
+  },
+  {
+    title: ToolIndex.A_PLUS_CONTENT,
+    price: 0,
+    og_price: 0,
+    category: "Design Tools",
+    description: "A+ Template Generator Tool. The fast and easy way.",
+    isPaid: false,
+    preview_url: ToolLinkIndex[ToolIndex.A_PLUS_CONTENT],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    buy_url: "",
+  },
+  {
+    title: ToolIndex.LOW_CONTENT_BOOK_GENERATOR,
+    price: 0,
+    og_price: 0,
+    category: "Design Tools",
+    description: "Low Content Books Tool. The fast and easy way.",
+    isPaid: false,
+    preview_url: ToolLinkIndex[ToolIndex.LOW_CONTENT_BOOK_GENERATOR],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    buy_url: "",
+  },
+  {
+    title: ToolIndex.BOOK_WRITER,
+    price: 0,
+    og_price: 0,
+    category: "Design Tools",
+    description: "Book Writer Tool. The fast and easy way.",
+    isPaid: false,
+    preview_url: ToolLinkIndex[ToolIndex.BOOK_WRITER],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    buy_url: "",
+  },
+  {
+    title: ToolIndex.PUZZLE_MAKER,
+    price: 0,
+    og_price: 0,
+    category: "Design Tools",
+    description: "Puzzle & Activity Tools. The fast and easy way.",
+    isPaid: true,
+    preview_url: ToolLinkIndex[ToolIndex.PUZZLE_MAKER],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    buy_url: "",
+  },
+  {
+    title: ToolIndex.COLORING_BOOKS,
+    price: 0,
+    og_price: 0,
+    category: "Design Tools",
+    description: "Coloring Books. The fast and easy way.",
+    isPaid: true,
+    preview_url: ToolLinkIndex[ToolIndex.COLORING_BOOKS],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    buy_url: "",
+  },
+  {
+    title: ToolIndex.DIGITAL_TITANS_DESIGNER,
+    price: 0,
+    og_price: 0,
+    category: "Design Tools",
+    description: "Digital Titans Designer. The fast and easy way.",
+    isPaid: false,
+    preview_url: ToolLinkIndex[ToolIndex.DIGITAL_TITANS_DESIGNER],
+    thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    buy_url: "",
   },
 ];
 

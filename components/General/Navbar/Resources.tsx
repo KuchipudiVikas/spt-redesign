@@ -20,10 +20,6 @@ const Resources = () => {
     ResourcesData[0]
   );
 
-  const handleCategoryClick = (category: TResourcesData) => {
-    setSelectedCategory(category);
-  };
-
   const flattenedItems = selectedCategory.Categories.flatMap(
     (category) => category.Items
   );
@@ -31,11 +27,21 @@ const Resources = () => {
   return (
     <NavigationMenuContent>
       <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-        {flattenedItems.map((item) => (
-          <ListItem key={item.heading} title={item.heading} href={item.link}>
-            {item.tag}
-          </ListItem>
-        ))}
+        {flattenedItems.map((item) => {
+          console.log("item is", item);
+          return (
+            // @ts-ignore
+            <ListItem
+              key={item.heading}
+              // @ts-ignore
+              Icon={item.icon}
+              title={item.heading}
+              href={item.link}
+            >
+              {item.tag}
+            </ListItem>
+          );
+        })}
       </ul>
     </NavigationMenuContent>
   );

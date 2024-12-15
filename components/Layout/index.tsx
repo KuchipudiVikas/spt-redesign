@@ -49,6 +49,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({
 
   const { data: session, status } = useSession();
 
+  console.log("session", session);
+
   useEffect(() => {
     if (session) {
       setToken(session?.token);

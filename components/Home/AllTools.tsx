@@ -24,8 +24,6 @@ const AllTools = () => {
     setExpandedItem(expandedItem === index ? null : index);
   };
 
-  console.log("selected data is", selectedData);
-
   return (
     <div
       style={{
@@ -42,6 +40,14 @@ const AllTools = () => {
         Our Comprehensive Tools
       </div>
       <div className="flex mx-auto mb-10">
+        <div
+          onClick={() => setSelectedTab("rt")}
+          className={`${
+            selectedTab === "rt" ? "border-b-2" : "bg-white text-black"
+          } flex items-center px-[40px] gap-3 py-[24px] cursor-pointer`}
+        >
+          Research Tools
+        </div>
         <div
           onClick={() => setSelectedTab("ft")}
           className={`${
@@ -65,14 +71,6 @@ const AllTools = () => {
           } flex items-center px-[40px] gap-3 py-[24px] cursor-pointer`}
         >
           Creative Tools
-        </div>
-        <div
-          onClick={() => setSelectedTab("rt")}
-          className={`${
-            selectedTab === "rt" ? "border-b-2" : "bg-white text-black"
-          } flex items-center px-[40px] gap-3 py-[24px] cursor-pointer`}
-        >
-          Research Tools
         </div>
       </div>
       <div className="border  bg-[#f7f7f8] ">

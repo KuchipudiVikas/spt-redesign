@@ -1,3 +1,5 @@
+import { ToolIndex } from "./ToolIndex";
+
 enum LinkIndex {
   MASTERCLASS = "/masterclass",
   BLOG = "/blog",
@@ -22,6 +24,48 @@ enum LinkIndex {
   TRADEMARK = "/trademark",
   FEATURES = "/features",
   PRICING = "/pricing",
+
+  TITANS_PRO = "/titans-pro/on-site",
+  BOOK_WRITER = "https://author.selfpublishingtitans.com",
+  KDP_COVER_TEMPLATE_GENERATOR = "/kdp-cover-template-generator",
+  A_PLUS_CONTENT_TEMPLATE = "/A+-content-template-generator",
+  LOW_CONTENT_BOOK_GENERATOR = "https://books.selfpublishingtitans.com/FREE-No-Content-Book-Creator-Software",
+  PUZZLE_MAKER = "https://books.selfpublishingtitans.com/Puzzle-Maker-Software",
+  COLORING_BOOKS = "https://editor.selfpublishingtitans.com/",
+  BOOK_TITLE_CREATOR = "https://selfpublishingtitans.com/kdp-title-creator",
+  BOOK_DESCRIPTION_CREATOR = "https://selfpublishingtitans.com/kdp-description-creator",
+  SEVEN_BACKEND_KEYWORDS = "/7-backend-keywords-tool-amazon-kdp",
+  KDP_BSR_ROYALITY_CALCULATOR = "/tools/KDP-BSR-Sales-Calculator",
+  ACOS_Royalty_Calculator = "/tools/KDP-Royalty-Calculator",
+  PEN_NAME_GENERATOR = "/tools/Pen-Name-Generator",
+  QR_GEN = "/tools/QR-Code-Generator-for-KDP-Books",
+  WORD_CLOUD = "/word-cloud",
+  KEYWORD_TRACKER = "/titans-keyword-tracker",
+  ASIN_TRACKER = "/titans-asin-tracker",
+  BOOK_COVER_CREATOR = "/book-cover-creator",
+  KDP_CATEGORY_FINDER = "/tools/KDP-Kindle-Category-Finder",
+  DIGITAL_TITANS_DESIGNER = "https://design.selfpublishingtitans.com/",
 }
+
+export const ToolLinkIndex = {
+  [ToolIndex.SEVEN_BACKEND_KEYWORDS]: LinkIndex.SEVEN_BACKEND_KEYWORDS,
+  [ToolIndex.KDP_BSR_Sales_CALCULATOR]: LinkIndex.KDP_BSR_ROYALITY_CALCULATOR,
+  [ToolIndex.ACOS_Royalty_Calculator]: LinkIndex.ACOS_Royalty_Calculator,
+  [ToolIndex.PEN_NAME_GENERATOR]: LinkIndex.PEN_NAME_GENERATOR,
+  [ToolIndex.QR_GEN]: LinkIndex.QR_GEN,
+  [ToolIndex.WORD_CLOUD]: LinkIndex.WORD_CLOUD,
+  [ToolIndex.KEYWORD_TRACKER]: LinkIndex.KEYWORD_TRACKER,
+  [ToolIndex.ASIN_TRACKER]: LinkIndex.ASIN_TRACKER,
+  [ToolIndex.KDP_CATEGORY_FINDER]: LinkIndex.KDP_CATEGORY_FINDER,
+  [ToolIndex.KDP_COVER_TEMPLATE_GENERATOR]:
+    LinkIndex.KDP_COVER_TEMPLATE_GENERATOR,
+  [ToolIndex.A_PLUS_CONTENT]: LinkIndex.A_PLUS_CONTENT_TEMPLATE,
+  [ToolIndex.BOOK_COVER_DESIGNER]: LinkIndex.BOOK_COVER_CREATOR,
+  [ToolIndex.LOW_CONTENT_BOOK_GENERATOR]: LinkIndex.LOW_CONTENT_BOOK_GENERATOR,
+  [ToolIndex.BOOK_WRITER]: LinkIndex.BOOK_WRITER,
+  [ToolIndex.PUZZLE_MAKER]: LinkIndex.PUZZLE_MAKER,
+  [ToolIndex.COLORING_BOOKS]: LinkIndex.COLORING_BOOKS,
+  [ToolIndex.DIGITAL_TITANS_DESIGNER]: LinkIndex.DIGITAL_TITANS_DESIGNER,
+};
 
 export default LinkIndex;

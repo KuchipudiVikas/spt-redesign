@@ -68,7 +68,7 @@ const Create: React.FC<ICreateProps> = ({}) => {
                   e.stopPropagation();
                   window.open(
                     "https://www.youtube.com/@SelfPublishingTitans",
-                    "__blank"
+                    "_blank"
                   );
                 }}
                 className="hover:bg-[#c3abff] my-1 sp-container p-2 rounded-md flex items-center hover:text-gray-900 font-sans font-medium text-md text-[14.6px]"

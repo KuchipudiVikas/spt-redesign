@@ -27,12 +27,13 @@ import {
   lifetimeBundlePackages,
 } from "@/constants/new/pricing-lifetime";
 import { featuresMobile, packages } from "@/constants/new/pricing";
-import { CheckIcon, XIcon } from "lucide-react";
+import { CheckIcon, HeartIcon, XIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TabsList, Tabs, TabsContent, TabsTrigger } from "@/components/ui/tabs";
 import DesktopTableHeader from "./DesktopHead";
 import DesktopBody from "./DesktopBody";
 import TimePeriodToggle from "./PeriodToggle";
+import Summary from "../Summary";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -260,6 +261,13 @@ export default function PricingTableTabs({
 
   return (
     <div className="">
+      <Summary selectedPeriod={paymentPeriod} />
+
+      <h6 className="font-medium text-[16px] flex justify-center gap-1 text-primary">
+        <HeartIcon /> Trusted by <span className="font-extrabold">150,000</span>{" "}
+        Authors Worldwide
+      </h6>
+
       <TimePeriodToggle
         paymentPeriod={paymentPeriod}
         setPaymentPeriod={setPaymentPeriod}

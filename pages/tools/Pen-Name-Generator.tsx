@@ -175,7 +175,7 @@ function BSRSalesCalculatorPage({ info }) {
 
               <div className="flex flex-col justify-center   md:flex-row">
                 <div className="flex w-[500px] justify-center flex-col ">
-                  <h6 className="text-[34px] font-extrabold text-center">
+                  <h6 className="text-[24px] mb-4 font-extrabold text-center">
                     Select KDP region you want a name for:{" "}
                   </h6>
                   <Label className="text-label mt-5">Country</Label>

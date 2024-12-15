@@ -48,7 +48,7 @@ const Testimonials = () => {
             }}
             className="mx-auto text-center  font-jsans font-extrabold"
           >
-            Over <span className="text-primary"> 130,000 </span> Authors have
+            Over <span className="text-primary"> 150,000 </span> Authors have
             chosen Self Publishing Titans
           </h2>
           <div className="pt-8 w-full">

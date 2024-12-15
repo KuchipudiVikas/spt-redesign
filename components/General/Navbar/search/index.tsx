@@ -148,7 +148,7 @@ const Index: React.FC = () => {
           background: "white",
           outline: "none",
         }}
-        className="relative flex items-center px-3 py-0.5"
+        className="relative mr-2 flex items-center px-3 py-0.5"
       >
         <SearchIcon
           className="  w-4 transform  text-gray-400"

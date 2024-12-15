@@ -18,6 +18,7 @@ import { User } from "@/lib/ts/types/user";
 import { Search } from "lucide-react";
 import { DownloadCloudIcon } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { darkenColor, lightenColor } from "@/utils/common";
 
 const getResults = async ({
   searchedText,
@@ -448,7 +449,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                     }
                   }}
                 >
-                  {loading ? <RotateCw /> : <Search />}
+                  {loading ? <RotateCw className="animate-spin" /> : <Search />}
                 </button>
               </div>
             </div>
@@ -459,12 +460,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
               <DownloadCloudIcon />
             </button>
           </section>
-          <section
-            style={{
-              marginTop: "70px",
-            }}
-            className="flex  justify-center  max-w-[100vw]"
-          >
+          <section className="flex  justify-center  max-w-[100vw]">
             <div className="flex mt-10  overflow-auto w-full justify-center">
               <table className="table-auto my-12">
                 <thead className="sticky top-16">
@@ -713,11 +709,24 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                             </div>
                           </td>
                           <td className="">
-                            <div className="twa-td flex justify-center">
+                            <div
+                              style={{
+                                backgroundColor: lightenColor(
+                                  result.demandColor,
+                                  85
+                                ),
+                                color: darkenColor(result.demandColor, 40),
+                                border: `1px solid ${darkenColor(
+                                  result.demandColor,
+                                  40
+                                )}`,
+                              }}
+                              className="twa-td flex justify-center"
+                            >
                               <p
-                                className={`rounded-full w-7 h-7 flex items-center justify-center font-semibold text-black px-2 `}
+                                className={`rounded-full w-7 h-7 flex items-center justify-center font-bold  px-2 `}
                                 style={{
-                                  backgroundColor: result.demandColor,
+                                  // backgroundColor: result.demandColor,
                                   filter:
                                     result.demandScore === -1
                                       ? "blur(3px)"
@@ -738,11 +747,23 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                             </div>
                           </td>
                           <td className={``}>
-                            <div className="twa-td font justify-center items-center">
+                            <div
+                              style={{
+                                backgroundColor: lightenColor(
+                                  result.opportunityColor,
+                                  85
+                                ),
+                                color: darkenColor(result.opportunityColor, 40),
+                                border: `1px solid ${darkenColor(
+                                  result.opportunityColor,
+                                  40
+                                )}`,
+                              }}
+                              className="twa-td font justify-center items-center"
+                            >
                               <p
-                                className={`rounded-full mx-auto w-7 h-7 flex items-center justify-center font-semibold text-black px-3 py-1 text-center  `}
+                                className={`rounded-full mx-auto w-7 h-7 flex items-center justify-center font-semibold  px-3 py-1 text-center  `}
                                 style={{
-                                  backgroundColor: result.opportunityColor,
                                   filter:
                                     result.opportunityScore === -1
                                       ? "blur(3px)"
@@ -757,7 +778,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                       );
                     })
                   ) : (
-                    <tr>
+                    <tr className="">
                       <td className="border px-2 md:px-4 py-1 md:py-2 text-xxs md:text-xl">
                         <h6>No Data</h6>
                       </td>

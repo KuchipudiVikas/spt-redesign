@@ -1,9 +1,20 @@
+import {
+  GraduationCap,
+  HandshakeIcon,
+  LetterTextIcon,
+  MessageSquareIcon,
+  ShapesIcon,
+  UserIcon,
+  UsersIcon,
+} from "lucide-react";
+
 export type Item = {
   heading: string;
   tag: string;
   link: string;
   newTab?: boolean;
   flair?: string;
+  icon: React.ElementType;
 };
 
 export type TCategory = {
@@ -26,6 +37,7 @@ const ResourcesData: TResourcesData[] = [
             heading: "KDP Masterclass ",
             tag: "A structured and systematic step by step course with 80 videos, lots of resources, and more",
             link: "/masterclass",
+            icon: GraduationCap,
           },
         ],
       },
@@ -36,6 +48,7 @@ const ResourcesData: TResourcesData[] = [
             tag: "Free resources to kick start your KDP journey.",
             newTab: true,
             link: "/free-resources",
+            icon: ShapesIcon,
           },
 
           // {
@@ -53,6 +66,7 @@ const ResourcesData: TResourcesData[] = [
             tag: "Get help with any of our tools, request feature updates, report bugs. Tell us everything. We want to hear from you.",
             newTab: true,
             link: "/support",
+            icon: MessageSquareIcon,
           },
           // {
           //   heading: "Community",
@@ -73,6 +87,7 @@ const ResourcesData: TResourcesData[] = [
             heading: "Blog",
             tag: "Lots of different articles about all sorts of topics. Self-publishing, Amazon KDP, cover design, Amazon Ads, etc.",
             link: "/en/blog",
+            icon: LetterTextIcon,
           },
         ],
       },
@@ -87,6 +102,7 @@ const ResourcesData: TResourcesData[] = [
             heading: "Affiliates",
             tag: "If you are a big fan of our tools, we would love for you to promote our tools with your friends, family and audience.",
             link: "https://affiliates.selfpublishingtitans.com/home",
+            icon: HandshakeIcon,
           },
         ],
       },
@@ -102,6 +118,7 @@ const ResourcesData: TResourcesData[] = [
             tag: "Ask any and all questions and get them answered. We are here to help.",
             link: "https://community.selfpublishingtitans.com",
             newTab: true,
+            icon: UsersIcon,
           },
         ],
       },

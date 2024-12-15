@@ -1,0 +1,21 @@
+export enum ToolIndex {
+  SEVEN_BACKEND_KEYWORDS = "7 Backend Keywords",
+  KDP_BSR_Sales_CALCULATOR = "KDP BSR Sales Calculator",
+  ACOS_Royalty_Calculator = "ACOS Royalty Calculator",
+  ACOS_ROYALITY_CALCULATOR = "ACOS Royalty Calculator",
+  PEN_NAME_GENERATOR = "Pen Name Generator",
+  QR_GEN = "QR Code Generator for KDP Books",
+  WORD_CLOUD = "Word Cloud",
+  KEYWORD_TRACKER = "Titans Keyword Tracker",
+  ASIN_TRACKER = "Titans ASIN Tracker",
+  KDP_CATEGORY_FINDER = "KDP Kindle Category Finder",
+  KDP_COVER_TEMPLATE_GENERATOR = "KDP Cover Template Generator",
+  BOOK_COVER_DESIGNER = "Book Cover Designer",
+  A_PLUS_CONTENT = "A+ Template Generator",
+
+  LOW_CONTENT_BOOK_GENERATOR = "Low Content Books",
+  BOOK_WRITER = "Book Writer",
+  PUZZLE_MAKER = "Puzzle & Activity Tools",
+  COLORING_BOOKS = "Coloring Books",
+  DIGITAL_TITANS_DESIGNER = "Digital Titans Designer",
+}

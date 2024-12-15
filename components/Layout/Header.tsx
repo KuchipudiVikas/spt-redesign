@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../General/Navbar/index";
 import BGsvg from "@/public/assets/home/bg.svg";
-import { User } from "@/lib/ts/types/user";
+import { User, UserData } from "@/lib/ts/types/user";
 // const Navbar = dynamic(() => import("spt-core"), {
 //   ssr: false, // Optionally disable server-side rendering for this component
 // });
@@ -10,7 +10,7 @@ import { User } from "@/lib/ts/types/user";
 
 interface HeaderProps {
   children: React.ReactNode;
-  info: User | undefined;
+  info: User | false | undefined;
   token: string;
   logout: () => void;
 }

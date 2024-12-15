@@ -14,6 +14,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { ChevronRight } from "lucide-react";
+import { HeightIcon } from "@radix-ui/react-icons";
 
 const Solutions = () => {
   const [selectedCategory, setSelectedCategory] = useState<TSolutionsData>(
@@ -33,42 +34,70 @@ const Solutions = () => {
       <div className="flex p-5">
         <div className="">
           {" "}
-          <div className="flex flex-col w-[200px]">
+          <div className="flex flex-col w-[220px]">
             {SolutionsData.map((category: TSolutionsData, index: number) => (
               <div
                 key={index}
-                className={`flex rounded-xl py-4 px-4 my-1 justify-between items-center text-black cursor-pointer ${
+                className={`flex rounded-xl py-4 px-2 my-1 justify-between items-center text-black cursor-pointer ${
                   selectedCategory.Title === category.Title
                     ? "bg-[#690ecd] text-white"
-                    : "bg-white"
+                    : "bg-[#f7f6f8]"
                 } category-`}
                 onMouseEnter={() => handleCategoryClick(category)}
               >
-                <h6>{category.Title}</h6>
-                <ChevronRight
-                  className={`${
-                    selectedCategory.Title === category.Title
-                      ? "text-white"
-                      : "text-black"
-                  }`}
-                />
+                <div className="flex gap-3 w-full items-center">
+                  <div
+                    style={{
+                      color:
+                        selectedCategory.Title === category.Title
+                          ? "#6902cd"
+                          : "black",
+                      backgroundColor:
+                        selectedCategory.Title === category.Title
+                          ? "#fff"
+                          : "#f5f5f5",
+                    }}
+                    className="p-2 rounded-full"
+                  >
+                    <category.icon
+                      style={{
+                        width: "14px",
+                        height: "14px",
+                      }}
+                    />
+                  </div>
+                  <div className="flex justify-between w-full">
+                    <h6>{category.Title}</h6>
+                    <ChevronRight
+                      className={`w-4 ${
+                        selectedCategory.Title === category.Title
+                          ? "text-white"
+                          : "text-black"
+                      }`}
+                    />
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
-        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[600px] ">
-          {flattenedItems.map((item) => (
-            <ListItem
-              key={item.heading}
-              title={item.heading}
-              // @ts-ignore
-              newTab={item.newTab}
-              href={item.link}
-            >
-              {item.tag}
-            </ListItem>
-          ))}
-        </ul>
+        <div className="w-[400px] ml-4 md:w-[500px] lg:w-[600px]">
+          <h6 className="font-bold  pl-4">{selectedCategory.Title}</h6>
+          <ul className="grid   gap-3 p-4 md:grid-cols-2  w-full">
+            {flattenedItems.map((item) => (
+              <ListItem
+                key={item.heading}
+                title={item.heading}
+                // @ts-ignore
+                newTab={item.newTab}
+                href={item.link}
+                Icon={item.icon}
+              >
+                {item.tag}
+              </ListItem>
+            ))}
+          </ul>
+        </div>
       </div>
     </NavigationMenuContent>
   );

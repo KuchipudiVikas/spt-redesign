@@ -138,13 +138,13 @@ const ProfilePage: React.FC<ProfileProps> = ({
               border: "2px solid #d5c5e4",
               borderRadius: "20px",
             }}
-            className="bg-[#f7f6f8]"
+            className="bg-[#f7f6f8] relative"
           >
             <div
               style={{
                 borderRadius: "20px",
               }}
-              className="flex relative gap-8  w-full  p-5  "
+              className="flex  gap-4  w-full  p-5  "
             >
               <Image
                 src={info.image || "/assets/onboarding/league.png"}
@@ -156,7 +156,7 @@ const ProfilePage: React.FC<ProfileProps> = ({
 
               <div
                 style={{
-                  marginLeft: "20px",
+                  marginLeft: "0px",
                 }}
                 className="flex  justify-center flex-col"
               >
@@ -221,7 +221,12 @@ const ProfilePage: React.FC<ProfileProps> = ({
                 <Link href="/profile/settings">
                   <Button
                     variant="outline"
-                    className="flex absolute bg-primary text-white bottom-4 right-4"
+                    style={{
+                      position: "absolute",
+                      right: "10px",
+                      bottom: "10px",
+                    }}
+                    className="flex rounded-full absolute bg-primary text-white "
                   >
                     <PenIcon className="w-5 h-5" />
                     Edit Profile
@@ -230,7 +235,7 @@ const ProfilePage: React.FC<ProfileProps> = ({
               )}
             </div>
 
-            <div className="rounded-2xl p-5 pt-0 my-5 grid grid-cols-4 md:grid-cols-3 gap-10 ">
+            <div className="rounded-2xl p-5 pt-0 my-5 grid grid-cols-4 md:grid-cols-3 gap-5 ">
               <div
                 style={{
                   border: "1px solid #ccc",

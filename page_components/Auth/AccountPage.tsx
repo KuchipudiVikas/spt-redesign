@@ -19,6 +19,7 @@ import $ from "jquery";
 import DownloadableTab from "@/components/Profile/Account/Downloadable";
 import { StorageTab } from "@/components/Profile/Account/Storage";
 import AccountTab from "@/components/Profile/Account/Settings";
+import { CircleDollarSign, ReceiptText } from "lucide-react";
 
 export interface AccountPageProps {
   info: User;
@@ -29,7 +30,14 @@ export interface AccountPageProps {
   purchaseList: any;
 }
 
-type Tabs = "Tools" | "Courses" | "Downloadable" | "Storage" | "Settings";
+type Tabs =
+  | "Tools"
+  | "Courses"
+  | "Downloadable"
+  | "Storage"
+  | "Settings"
+  | "Subscriptions"
+  | "Invoices";
 
 const AccountPageComp: React.FC<AccountPageProps> = ({
   info,
@@ -159,6 +167,8 @@ const AccountPageComp: React.FC<AccountPageProps> = ({
     setUnsubscribeID(subs_id);
   };
 
+  const hasSubscriptions = purchaseList?.subscriptions?.length > 0;
+
   return (
     <div>
       <div
@@ -203,6 +213,22 @@ const AccountPageComp: React.FC<AccountPageProps> = ({
           >
             <SettingsIcon size={24} />
             Settings
+          </div>
+          <div
+            className={`tab ${
+              selecetedTab === "Subscriptions" ? "active" : ""
+            }`}
+            onClick={() => setSelectedTab("Subscriptions")}
+          >
+            <CircleDollarSign size={24} />
+            Manage Subscriptions
+          </div>
+          <div
+            className={`tab ${selecetedTab === "Invoices" ? "active" : ""}`}
+            onClick={() => setSelectedTab("Invoices")}
+          >
+            <ReceiptText size={24} />
+            Invoices
           </div>
         </div>
         <div className="tab-content w-full">

@@ -96,12 +96,12 @@ export function WordCloudView({
 
   return (
     <div className={"w-full"}>
-      <div className="flex justify-center mb-5 mt-14 w-full">
+      <div className="flex justify-center  mt-14 w-full">
         <div className="flex gap-10 br-16">
           <div
             style={{
               padding: "6px",
-              borderRadius: "16px",
+              borderRadius: "20px",
             }}
             className={` bg-white border rounded-xl  rounded-full mx-0 shadowAround  overflow-y  grid md:grid-cols-2 `}
           >
@@ -145,7 +145,6 @@ interface AppProps {
 }
 
 function App({ info }: AppProps) {
-  const [uploadedText, setUploadedText] = useState("");
   const [processCompleted, setProcessCompleted] = useState(false);
   const [wordCloudData, setWordCloudData] = useState<WordCloudItem[]>([]);
   const [wordCountData, setWordCountData] = useState<WordCountData>({});
@@ -234,50 +233,55 @@ function App({ info }: AppProps) {
           <div className="flex flex-col items-center justify-center  mt-10">
             <div className="  rounded-lg  w-full">
               <div className="flex flex-row mb-2 items-center justify-between">
-                <h6 color={"black"} className=" font-medium mx-5 md:mx-0">
-                  Enter text
-                </h6>
-                <div>
-                  <label className="flex w-full font-sans items-center space-x-3 mx-2 md:mx-0 cursor-pointer ">
-                    <Button onClick={() => uploadButtonRef?.current?.click()}>
-                      Upload Text file <UploadIcon size={16} />
-                    </Button>
-
-                    <input
-                      id="file-to-upload"
-                      type="file"
-                      accept=".xlsx,.csv,.txt"
-                      className="hidden"
-                      name="file-to-upload"
-                      onChange={handleFileUpload}
-                      ref={uploadButtonRef}
-                    />
-                  </label>
-                </div>
+                <div></div>
               </div>
-              <div className="flex flex-row">
+              <div className="flex flex-col sp-container p-6 border-2 light-border rounded-3xl">
                 <textarea
                   className="border shadowAround  w-full border-gray-300 mx-5 md:mx-0 br-16 w-full  p-3 text-[16px]  rounded-md h-40  resize-none   font-sans focus:outline-none focus:border-blue-500"
                   placeholder="Type or paste your text here or upload a file to generate a word cloud"
                   maxLength={200000}
                   ref={inputRef}
                 />
-              </div>
-              <div className="flex justify-center w-full">
-                <Button
-                  className="inline-flex items-center justify-center mt-2.5 py-2.5 px-4  mx-5 md:mx-0 font-medium text-center"
-                  onClick={() => handleGenerateCloud()}
-                >
-                  Generate
-                </Button>
+                <label className="flex ml-auto  mt-2 font-sans items-center  ">
+                  <Button
+                    variant="outline"
+                    onClick={() => uploadButtonRef?.current?.click()}
+                  >
+                    Upload Text file <UploadIcon size={16} />
+                  </Button>
+
+                  <input
+                    id="file-to-upload"
+                    type="file"
+                    accept=".xlsx,.csv,.txt"
+                    className="hidden"
+                    name="file-to-upload"
+                    onChange={handleFileUpload}
+                    ref={uploadButtonRef}
+                  />
+                </label>
+                <div className="flex justify-center w-full">
+                  <Button
+                    size="lg"
+                    className="inline-flex text-[20px] items-center justify-center mt-2.5 py-2.5 px-4  rounded-full mx-5 md:mx-0 font-medium text-center"
+                    onClick={() => handleGenerateCloud()}
+                  >
+                    Generate
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
-          {/*{WorkCLoudView(wordCloudData, wordCountData)}*/}
-          <WordCloudView
-            wordCloudData={wordCloudData}
-            wordCountData={wordCountData}
-          />
+
+          {
+            // Display the word cloud and word count data if the processing is completed
+            processCompleted && (
+              <WordCloudView
+                wordCloudData={wordCloudData}
+                wordCountData={wordCountData}
+              />
+            )
+          }
         </div>
       }
     />
@@ -320,7 +324,7 @@ function ResultStep({ wordCloudData, wordCountData, order }: any) {
     >
       <div className="col-span-1 pb-10  flex justify-center  ">
         <div className="shadowAround w-full   ">
-          <div className="sp-container p-6 border light-border rounded-3xl">
+          <div className="sp-container p-6 mt-6 border light-border rounded-3xl">
             {useDoc && Object.keys(wordCloudData).length > 0 && (
               <WordCloud
                 data={wordCloudData}
@@ -348,7 +352,7 @@ function ResultStep({ wordCloudData, wordCountData, order }: any) {
       </div>
       <div className="col-span-1 w-full flex justify-center">
         <div className="max-w-full w-full ">
-          <EnhancedTable data={wordCountData} orientation={"vertical"} />
+          <EnhancedTable data={wordCountData} />
         </div>
       </div>
     </div>

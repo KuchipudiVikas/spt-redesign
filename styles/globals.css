@@ -81,6 +81,7 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --theme-gray: 0, 0%, 97%;
+    --lavender: "#E6E6FA";
 
     --light-border: #e7daf3;
   }
@@ -273,6 +274,10 @@ body {
     border-color: hsl(var(--primary-foreground));
     color: white;
   }
+}
+
+.prim-outline-btn {
+  border-color: hsl(var(--primary));
 }
 
 .sp-container {
@@ -499,4 +504,36 @@ select {
   .active svg {
     color: hsl(var(--primary-foreground));
   }
+}
+
+.purple-box-shadow {
+  box-shadow: 0 0px 20px -10px #6902cd;
+}
+
+.nav-menu-trigger {
+  margin: 0 6px;
+  padding: 0;
+  height: 35px;
+}
+
+.pulsing-glow-text {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8),
+    0 0 16px rgba(255, 255, 255, 0.6), 0 0 24px rgba(255, 255, 255, 0.4);
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8),
+      0 0 16px rgba(255, 255, 255, 0.6), 0 0 24px rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1),
+      0 0 24px rgba(255, 255, 255, 0.8), 0 0 36px rgba(255, 255, 255, 0.6);
+  }
+}
+
+.lav-bg {
+  background: var(--lavender) !important;
 }
