@@ -2,7 +2,6 @@ export enum ToolIndex {
   SEVEN_BACKEND_KEYWORDS = "7 Backend Keywords",
   KDP_BSR_Sales_CALCULATOR = "KDP BSR Sales Calculator",
   ACOS_Royalty_Calculator = "ACOS Royalty Calculator",
-  ACOS_ROYALITY_CALCULATOR = "ACOS Royalty Calculator",
   PEN_NAME_GENERATOR = "Pen Name Generator",
   QR_GEN = "QR Code Generator for KDP Books",
   WORD_CLOUD = "Word Cloud",
