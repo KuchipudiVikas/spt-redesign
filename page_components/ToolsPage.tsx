@@ -3,15 +3,19 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import Image from "next/image";
-import { ShoppingCartIcon, EyeIcon, Filter, ArrowRight } from "lucide-react";
+import { ArrowRight, CheckIcon } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { allProducts, Product, ProductCategory, Categories } from "@/data/shop";
+import { User } from "@/lib/ts/types/user";
+import { isOwned } from "@/utils/common";
 
-interface ToolsPageProps {}
+interface ToolsPageProps {
+  info: User | false;
+}
 
 type PriceRange = "low_to_high" | "high_to_low";
 
-const ToolsPage: React.FC = () => {
+const ToolsPage: React.FC<ToolsPageProps> = ({ info }) => {
   const [products, setProducts] = useState<Product[]>(allProducts);
   const [query, setQuery] = useState<string>("");
   const [priceRange, setPriceRange] = useState<PriceRange | null>(null);
@@ -19,6 +23,8 @@ const ToolsPage: React.FC = () => {
     ProductCategory[]
   >([]);
   const [toolType, setToolType] = useState<string>("all"); // New state for tool type
+
+  const [showPurchased, setShowPurchased] = useState<boolean>(false); // New state for purchased filter
 
   useEffect(() => {
     let filteredProducts = allProducts;
@@ -44,6 +50,13 @@ const ToolsPage: React.FC = () => {
       filteredProducts = filteredProducts.filter((product) => product.isPaid);
     }
 
+    // Filter by purchased tools
+    if (showPurchased && info) {
+      filteredProducts = filteredProducts.filter((product) =>
+        isOwned(info.features.simple, product.id)
+      );
+    }
+
     // Sort by price range
     if (priceRange) {
       filteredProducts = filteredProducts.sort((a, b) => {
@@ -57,7 +70,7 @@ const ToolsPage: React.FC = () => {
     }
 
     setProducts(filteredProducts);
-  }, [query, selectedCategories, priceRange, toolType]);
+  }, [query, selectedCategories, priceRange, toolType, showPurchased, info]);
 
   return (
     <div
@@ -65,7 +78,7 @@ const ToolsPage: React.FC = () => {
         gap: "2rem",
         paddingTop: "60px",
       }}
-      className="grid grid-cols-4  p-5"
+      className="grid grid-cols-4 comp-container  p-5"
     >
       <div>
         <Filters
@@ -73,11 +86,12 @@ const ToolsPage: React.FC = () => {
           setSelectedCategories={setSelectedCategories}
           setPriceRange={setPriceRange}
           priceRange={priceRange}
+          showPurchased={showPurchased}
+          setShowPurchased={setShowPurchased}
         />
       </div>
       <div className="col-span-3 flex flex-col">
         <div className="flex gap-3">
-          {/* Search Input */}
           <div
             style={{
               border: "1px solid #ccc",
@@ -85,7 +99,7 @@ const ToolsPage: React.FC = () => {
             className="w-full mb-5 rounded-full"
           >
             <Input
-              placeholder="Enter keyword to search tool"
+              placeholder="Search for tool"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               style={{
@@ -96,7 +110,6 @@ const ToolsPage: React.FC = () => {
             />
           </div>
 
-          {/* Select Dropdown for Tool Type */}
           <select
             style={{
               padding: "15px",
@@ -123,7 +136,7 @@ const ToolsPage: React.FC = () => {
           }}
         >
           {products.map((product, index) => (
-            <SingleProduct key={index} product={product} />
+            <SingleProduct key={index} product={product} user={info} />
           ))}
         </div>
       </div>
@@ -133,7 +146,27 @@ const ToolsPage: React.FC = () => {
 
 export default ToolsPage;
 
-const SingleProduct = ({ product }: { product: Product }) => {
+const SingleProduct = ({
+  product,
+  user,
+}: {
+  product: Product;
+  user: User | false;
+}) => {
+  // Determine the button text and action based on user status and product type
+  const isFree = !product.isPaid; // Free products
+
+  let hasAccess = false;
+
+  // @ts-ignore
+  hasAccess = isOwned(user.features.simple, product.id); // User has purchased this product
+
+  const buttonText = isFree || hasAccess ? "Access" : "Preview";
+  const buttonAction =
+    isFree || hasAccess ? product.preview_url : product.buy_url;
+
+  hasAccess = isFree || hasAccess;
+
   return (
     <div
       style={{
@@ -150,7 +183,7 @@ const SingleProduct = ({ product }: { product: Product }) => {
             borderRadius: "1rem",
             height: "200px",
           }}
-          className="rounded-lg "
+          className="rounded-lg"
           height={400}
         />
         <div className="flex px-3 justify-between h-full flex-col">
@@ -161,7 +194,7 @@ const SingleProduct = ({ product }: { product: Product }) => {
                 fontSize: "15px",
                 marginTop: "15px",
               }}
-              className=""
+              className="line-clamp-3"
             >
               {product.description}
             </p>
@@ -173,34 +206,44 @@ const SingleProduct = ({ product }: { product: Product }) => {
             }}
             className="flex flex-col gap-2"
           >
-            {/* <h6
-              style={{
-                marginTop: "20px",
-                fontSize: "20px",
-              }}
-              className=" flex items-center text-primary font-bold"
-            >
-              ${product.price.toFixed(2)}{" "}
-              <span
+            {/* Show price details only for paid products */}
+            {/* {product.isPaid && (
+              <h6
                 style={{
-                  color: "#ccc",
-                  fontSize: "12px",
-                  fontWeight: "normal",
-                  textDecoration: "line-through",
+                  marginTop: "20px",
+                  fontSize: "20px",
                 }}
-                className="ml-2"
+                className="flex items-center text-primary font-bold"
               >
-                ${product.og_price}
-              </span>{" "}
-            </h6> */}
-            {/* 
-            <Button className="rounded-full font-bold">
-              <ShoppingCartIcon size={20} className="mr-2  " />
-              Buy Now
-            </Button> */}
-            <Button variant={"outline"} className="rounded-full font-bold">
-              {/* <EyeIcon size={20} className="mr-2 " /> */}
-              Preview
+                ${product.price.toFixed(2)}{" "}
+                <span
+                  style={{
+                    color: "#ccc",
+                    fontSize: "12px",
+                    fontWeight: "normal",
+                    textDecoration: "line-through",
+                  }}
+                  className="ml-2"
+                >
+                  ${product.og_price}
+                </span>{" "}
+              </h6>
+            )} */}
+
+            <Button
+              variant={"outline"}
+              className="rounded-full font-bold"
+              onClick={() => {
+                window.open(buttonAction, "_blank");
+              }}
+            >
+              {hasAccess && (
+                <CheckIcon
+                  size={20}
+                  className="mr-2 text-white bg-green-500 rounded-full p-0.5 "
+                />
+              )}
+              {buttonText}
               <ArrowRight size={20} className="ml-2" />
             </Button>
           </div>
@@ -217,17 +260,27 @@ interface FiltersProps {
   >;
   setPriceRange: React.Dispatch<React.SetStateAction<PriceRange | null>>;
   priceRange: PriceRange | null;
+  showPurchased: boolean;
+  setShowPurchased: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Filters: React.FC<FiltersProps> = ({
+const Filters: React.FC<
+  FiltersProps & {
+    showPurchased: boolean;
+    setShowPurchased: React.Dispatch<React.SetStateAction<boolean>>;
+  }
+> = ({
   selectedCategories,
   setSelectedCategories,
   setPriceRange,
   priceRange,
+  showPurchased,
+  setShowPurchased,
 }) => {
   const ClearFilters = () => {
     setSelectedCategories([]);
     setPriceRange(null);
+    setShowPurchased(false);
   };
 
   return (
@@ -367,6 +420,19 @@ const Filters: React.FC<FiltersProps> = ({
               </div>
             );
           })}
+        </div>
+        <div
+          onClick={() => setShowPurchased((prev) => !prev)}
+          className="flex items-center cursor-pointer gap-2 mt-6"
+        >
+          <Checkbox checked={showPurchased} style={{ borderRadius: "20%" }} />
+          <span
+            style={{
+              fontSize: "18px",
+            }}
+          >
+            Purchased Tools
+          </span>
         </div>
       </div>
     </div>

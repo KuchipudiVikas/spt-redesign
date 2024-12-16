@@ -34,7 +34,7 @@ const Solutions = () => {
       <div className="flex p-5">
         <div className="">
           {" "}
-          <div className="flex flex-col w-[220px]">
+          <div className="flex flex-col w-[240px]">
             {SolutionsData.map((category: TSolutionsData, index: number) => (
               <div
                 key={index}

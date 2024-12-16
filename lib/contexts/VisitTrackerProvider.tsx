@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useSession } from "next-auth/react";
-import { checkCountry } from "@/components/Shop/Paypal";
+import { checkCountry } from "@/components/checkout/Paypal";
 import { createAffiliate } from "@/pages/user/affiliate";
 import { useDispatch } from "react-redux";
 import {
@@ -57,6 +57,8 @@ export const VisitTrackerProvider = ({ children }) => {
 
       dispatch(setAffiliateIsLoading(true));
 
+      console.log("v121 Affiliate data:", affiliateData);
+
       if (!affiliateData) {
         checkCountry()
           .then(async (data) => {
@@ -68,13 +70,13 @@ export const VisitTrackerProvider = ({ children }) => {
               ) {
                 const res = await createAffiliate(session.token);
                 dispatch(setAffiliateData(res));
-                console.log("Affiliate data:", res);
+                console.log("v123 Affiliate data:", res);
               }
             }
           })
           .catch((error) => {
             setAffiliateError(error);
-            console.error("Error checking country:", error);
+            console.error("v123 Error checking country:", error);
           })
           .finally(() => {
             dispatch(setAffiliateIsLoading(false));

@@ -33,6 +33,7 @@ import {
 import { NavigationMenuContent } from "@radix-ui/react-navigation-menu";
 import usage from "@/lib/api/usage";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 interface AccountProps {
   info: User;
@@ -45,6 +46,12 @@ const Account: React.FC<AccountProps> = ({ info, logout }) => {
   const handleLogOutAll = () => {
     logout();
   };
+
+  const affiliateData = useSelector(
+    (state: RootState) => state.affiliate.affiliateData
+  );
+
+  console.log("affiliateData", affiliateData);
 
   console.log("info", info);
 
@@ -148,35 +155,86 @@ const Account: React.FC<AccountProps> = ({ info, logout }) => {
             <h6 className="font-bold text-black">General </h6>
             <Link
               href={"/profile"}
-              className="flex gap-4 items-center sp-container rounded-md p-3"
+              className="flex gap-4 items-center justify-between sp-container rounded-md p-3"
             >
-              <UserIcon className="w-5" fontSize={5} />
-              <span className="text-black text-gray-500 text-[15px]">
-                Profile
-              </span>
+              <div className="flex gap-4  items-center">
+                <UserIcon className="w-5" fontSize={5} />
+                <span className="text-black text-gray-500 text-[15px]">
+                  Profile
+                </span>
+              </div>
+              <ArrowRight className="w-4" />
             </Link>
             <Link
               href={"/me"}
-              className="flex gap-4 items-center sp-container rounded-md p-3"
+              className="flex gap-4 items-center justify-between sp-container rounded-md p-3"
             >
-              <ListIcon className="w-5" fontSize={5} />
-              <span className="text-black text-gray-500 text-[15px]">
-                Account
-              </span>
+              <div className="flex gap-4  items-center">
+                <ListIcon className="w-5" fontSize={5} />
+                <span className="text-black text-gray-500 text-[15px]">
+                  Account
+                </span>
+              </div>
+
+              <ArrowRight className="w-4" />
             </Link>
             <Link
               href={"/book-planner"}
-              className="flex gap-4 items-center sp-container rounded-md p-3"
+              className="flex gap-4 items-center justify-between sp-container rounded-md p-3"
             >
-              <BookIcon className="w-5" style={{ fontSize: "16px" }} />
-              <span className="text-black text-gray-500 text-[15px]">
-                Notes & Planning
-              </span>
+              <div className="flex gap-4  items-center">
+                <BookIcon className="w-5" style={{ fontSize: "16px" }} />
+                <span className="text-black text-gray-500 text-[15px]">
+                  Notes & Planning
+                </span>
+              </div>
+              <ArrowRight className="w-4" />
             </Link>
           </div>
         </div>
         <UpgradeButton info={info} />
         <Separator className="mt-3" />
+
+        <div className="flex-col gap-3 flex justify-start p-3 text-black text-gray-500 font-sans">
+          <h6 className="text-black text-gray-500">Your Affiliate Dashboard</h6>
+
+          <Link href={"/user/affiliate"} className="flex gap-4 items-center">
+            <DollarSignIcon className="" style={{ fontSize: "16px" }} />
+            <span className="text-black text-gray-500 text-[15px]">
+              Affiliate Program
+            </span>
+          </Link>
+
+          {affiliateData && (
+            <Button
+              variant="ghost"
+              className="flex gap-4 justify-start items-center p-0 m-0"
+              onClick={() => {
+                window.navigator.clipboard.writeText(
+                  `https://affiliates.selfpublishingtitans.com/${affiliateData.affiliate_id}.html`
+                );
+              }}
+            >
+              <CopyIcon className="" style={{ fontSize: "16px" }} />
+              <span className="text-black text-gray-500 text-[15px] font-normal">
+                Copy My Link
+              </span>
+            </Button>
+          )}
+
+          {affiliateData && (
+            <Link
+              href={`https://affiliates.selfpublishingtitans.com/${affiliateData.affiliate_id}.html`}
+              className="flex gap-4 items-center"
+            >
+              {/* <ContentCopyIcon className="" style={{ fontSize: "16px" }} /> */}
+              <h6 className="text-xxs">
+                https://affiliates.selfpublishingtitans.com/
+                {affiliateData.affiliate_id}.html
+              </h6>
+            </Link>
+          )}
+        </div>
         <div className="p-3">
           <div
             onClick={() => handleLogOutAll()}

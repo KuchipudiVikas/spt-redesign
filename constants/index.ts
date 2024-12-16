@@ -148,3 +148,8 @@ export const domainToCountryCode = {
   "amazon.com.mx": "MX",
   "amazon.com.au": "AU",
 };
+
+export const domains = {
+  books: process.env.NEXT_PUBLIC_BOOKS_SUBDOMAIN,
+  coloring_book: process.env.NEXT_PUBLIC_COLORING_BOOK_SUBDOMAIN,
+};

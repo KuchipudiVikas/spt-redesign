@@ -169,11 +169,11 @@ const Index: React.FC = () => {
         />
       </div>
       {showDropdown && query && (
-        <div className="absolute left-0 right-0 mt-2 bg-white text-black border border-gray-300 w-[350px] rounded-md shadow-lg z-10">
+        <div className="absolute left-0 right-0 mt-2 bg-white text-black  w-[350px] rounded-md  z-10">
           <div className="p-2">
             {searchLoading.tools && (
               <div className="flex items-center justify-center">
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-900"></div>
+                <div className="animate-spin rounded-full h-5 w-5  border-gray-900"></div>
               </div>
             )}
             {!searchLoading.tools && (
@@ -201,7 +201,7 @@ const Index: React.FC = () => {
             <div className="">
               {toolResults.map((item, index) => (
                 <Link href={item.productLink} target="__blank" key={index}>
-                  <div className="p-2 border-b border-gray-300 hover:bg-gray-200 rounded-lg cursor-pointer">
+                  <div className="p-2  border-gray-300 hover:bg-gray-200 rounded-lg cursor-pointer">
                     <div className="text-gray-800 font-semibold">
                       {item.item}
                     </div>
@@ -245,8 +245,8 @@ const Index: React.FC = () => {
                   target="__blank"
                   key={index}
                 >
-                  <div className="p-2 border-b border-gray-300 hover:bg-gray-200 rounded-lg cursor-pointer">
-                    <div className="text-gray-800 font-semibold truncate-text-2">
+                  <div className="p-2  border-gray-300 hover:bg-gray-200 rounded-lg cursor-pointer">
+                    <div className="text-gray-800 font-semibold text-[16px] line-clamp-2">
                       {item.object_type == "question"
                         ? item.object.title
                         : item.object.excerpt}
@@ -296,7 +296,7 @@ const Index: React.FC = () => {
             <div className="">
               {blogs.map((item, index) => (
                 <Link href={item.link} target="__blank" key={index}>
-                  <div className="p-2 border-b border-gray-300 hover:bg-gray-200 rounded-lg cursor-pointer">
+                  <div className="p-2  border-gray-300 hover:bg-gray-200 rounded-lg cursor-pointer">
                     <div className="text-gray-800 font-semibold">
                       {item.title}
                     </div>

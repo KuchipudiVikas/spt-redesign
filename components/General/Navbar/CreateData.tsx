@@ -25,6 +25,7 @@ import {
   PlusIcon,
   ChartAreaIcon,
   TriangleIcon,
+  BookAIcon,
 } from "lucide-react";
 
 import { FaAmilia } from "react-icons/fa6";
@@ -37,16 +38,19 @@ type TOption = {
 
   //   link:string
 };
+
+const booksDomain = process.env.NEXT_PUBLIC_BOOKS_SUBDOMAIN;
+
 const CreateOptions: TOption[] = [
   {
     name: "Book Cover",
     Icon: ImageIcon,
-    link: "https://selfpublishingtitans.com/book-cover-creator",
+    link: "/book-cover-creator",
   },
   {
     name: "A+ Content",
     Icon: ImageIcon,
-    link: "https://selfpublishingtitans.com/A+-content-template-generator",
+    link: "/A+-content-template-generator",
   },
   {
     name: "Write Book",
@@ -56,12 +60,14 @@ const CreateOptions: TOption[] = [
   {
     name: "Puzzle Pages",
     Icon: BookOpenText,
-    link: "https://books.selfpublishingtitans.com/Puzzle-Maker-Software",
+    link: booksDomain + "/Puzzle-Maker-Software",
   },
   {
     name: "Low Content Pages",
     Icon: BookCopy,
-    link: "https://books.selfpublishingtitans.com/FREE-No-Content-Book-Creator-Software/start-now?simple=true",
+    link:
+      booksDomain +
+      "/FREE-No-Content-Book-Creator-Software/start-now?simple=true",
   },
   {
     name: "Coloring Book",
@@ -70,7 +76,7 @@ const CreateOptions: TOption[] = [
   },
   {
     name: "Digital Titans Designer",
-    Icon: FaAmilia,
+    Icon: BookAIcon,
     link: "https://design.selfpublishingtitans.com/",
   },
 ];
@@ -86,19 +92,19 @@ const ResearchOptions: TOption[] = [
     name: "Deep View",
     tag: "Niche Analysis",
     Icon: TextSearch,
-    link: "https://selfpublishingtitans.com/titans-deep-view",
+    link: "/titans-deep-view",
   },
   {
     name: "7 Backend Keywords",
     tag: "Book Listing SEO",
     Icon: ListCheck,
-    link: "https://selfpublishingtitans.com/7-backend-keywords-tool-amazon-kdp",
+    link: "/7-backend-keywords-tool-amazon-kdp",
   },
   {
     name: "Retro View",
     tag: "Competetior Analysis",
     Icon: SearchCheck,
-    link: "https://selfpublishingtitans.com/titans-retro-vision",
+    link: "/titans-retro-vision",
   },
   {
     name: "Quick View",
@@ -112,55 +118,55 @@ const GeneralTools: TOption[] = [
   {
     name: "KDP BSR Sales Calculator",
     tag: "Estimate anyone's book sales",
-    link: "https://selfpublishingtitans.com/tools/KDP-BSR-Sales-Calculator",
+    link: "/tools/KDP-BSR-Sales-Calculator",
     Icon: HandCoins,
   },
   {
     name: "ACOS Royalty Calculator",
     tag: "Calculate ad campaign profitability.",
-    link: "https://selfpublishingtitans.com/tools/KDP-Royalty-Calculator",
+    link: "/tools/KDP-Royalty-Calculator",
     Icon: Banknote,
   },
   {
     name: "KDP Category Finder",
     tag: "Find the best categories for your book and improve your SEO.",
-    link: "https://selfpublishingtitans.com/tools/KDP-Kindle-Category-Finder",
+    link: "/tools/KDP-Kindle-Category-Finder",
     Icon: LogsIcon,
   },
   {
     name: "QR Code Generator",
     tag: "Create QR codes for your books",
-    link: "https://selfpublishingtitans.com/tools/QR-Code-Generator-for-KDP-Books",
+    link: "/tools/QR-Code-Generator-for-KDP-Books",
     Icon: QrCodeIcon,
   },
   {
     name: "Pen Name Generator",
     tag: "Create pen names for your books",
-    link: "https://selfpublishingtitans.com/tools/Pen-Name-Generator",
+    link: "/tools/Pen-Name-Generator",
     Icon: PencilIcon,
   },
   {
     name: "Word Cloud Generator",
     tag: "View most used words and keywords",
-    link: "https://selfpublishingtitans.com/word-cloud",
+    link: "/word-cloud",
     Icon: CloudIcon,
   },
   {
     name: "Keyword Tracker",
     tag: "Track Keyword ranking for any product",
-    link: "https://selfpublishingtitans.com/titans-keyword-tracker",
+    link: "/titans-keyword-tracker",
     Icon: ChartAreaIcon,
   },
   {
     name: "ASIN Tracker",
     tag: "Monitor any products performance",
-    link: "https://selfpublishingtitans.com/titans-asin-tracker",
+    link: "/titans-asin-tracker",
     Icon: GitCompareArrows,
   },
   {
     name: "KDP Cover Template Generator",
     tag: "Create KDP Cover Templates",
-    link: "https://selfpublishingtitans.com/kdp-cover-template-generator",
+    link: "/kdp-cover-template-generator",
     Icon: BookIcon,
   },
 ];
@@ -182,27 +188,27 @@ const BookListingTools: TOption[] = [
   {
     name: "KDP Title Creator",
     Icon: TvMinimalPlay,
-    link: "https://selfpublishingtitans.com/kdp-title-creator",
+    link: "/kdp-title-creator",
   },
   {
     name: "KDP Description Generator",
     Icon: ArrowUpNarrowWideIcon,
-    link: "https://selfpublishingtitans.com/kdp-description-creator",
+    link: "/kdp-description-creator",
   },
   {
     name: "KDP Trademark Violation Checker",
     Icon: TriangleIcon,
-    link: "https://selfpublishingtitans.com/kdp-trademark-checker",
+    link: "/kdp-trademark-checker",
   },
   {
     name: "KDP Guidelines Checker",
     Icon: ListTodoIcon,
-    link: "https://selfpublishingtitans.com/kdp-guidelines-checker",
+    link: "/kdp-guidelines-checker",
   },
   {
     name: "KDP Book Data Translator",
     Icon: Languages,
-    link: "https://selfpublishingtitans.com/kdp-bookdata-translator",
+    link: "/kdp-bookdata-translator",
   },
   {
     name: "Book Price Suggestion Tool",

@@ -30,7 +30,7 @@ const ToolSection: React.FC<SectionProps> = ({
   return (
     <div>
       <h6 className="text-black mb-3 mt-4 font-bold">{title}</h6>
-      <div className={`w-full grid grid-cols-${gridCols} `}>
+      <div className={`w-full grid grid-cols-${gridCols} gap-2`}>
         {options.map((option, index) => (
           <a
             style={{
@@ -39,7 +39,7 @@ const ToolSection: React.FC<SectionProps> = ({
             key={index}
             href={option.link}
             target="__blank"
-            className="flex items-center h-full p-3 rounded-lg py-0 text-sm text-gray-700 hover:bg-gray-100 px-3 "
+            className="flex items-center border h-full p-3  rounded-lg py-0 text-sm text-gray-700 hover:bg-gray-100 px-3 "
             role="menuitem"
             onClick={(e) => e.stopPropagation()}
           >
@@ -83,23 +83,26 @@ const Create: React.FC = () => {
                   options={CreateOptions}
                   gridCols={5}
                 />
+                <hr className="mt-6" />
                 <ToolSection
                   title="Book Listing"
                   options={BookListingTools}
                   gridCols={5}
                 />
-
+                <hr className="mt-6" />
                 <ToolSection
                   title="Learn"
                   options={LearningTools}
                   gridCols={5}
                 />
+                <hr className="mt-6" />
                 <ToolSection
                   title="General"
                   options={GeneralTools}
                   gridCols={5}
                 />
               </div>
+              <hr className="mt-6" />
               <ToolSection
                 title="Research"
                 options={ResearchOptions}

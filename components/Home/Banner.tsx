@@ -81,7 +81,7 @@ export const Banner = (): JSX.Element => {
                     />
                   </div>
 
-                  <div className="text-wrapper-8">Description Creator</div>
+                  <div className="text-wrapper-8">Low Content Books</div>
                 </div>
               </div>
 
@@ -95,7 +95,7 @@ export const Banner = (): JSX.Element => {
                     />
                   </div>
 
-                  <div className="text-wrapper-8">Price Checker</div>
+                  <div className="text-wrapper-8">Cover Designer</div>
                 </div>
               </div>
 
@@ -109,7 +109,7 @@ export const Banner = (): JSX.Element => {
                     />
                   </div>
 
-                  <div className="text-wrapper-9">KDP Tools</div>
+                  <div className="text-wrapper-9">Puzzle Tools</div>
                 </div>
               </div>
 
@@ -123,7 +123,7 @@ export const Banner = (): JSX.Element => {
                     />
                   </div>
 
-                  <div className="text-wrapper-8">Guideline Checker</div>
+                  <div className="text-wrapper-8">Reverse ASIN</div>
                 </div>
               </div>
             </div>
@@ -139,7 +139,7 @@ export const Banner = (): JSX.Element => {
                 />
               </div>
 
-              <div className="text-wrapper-8">Trademark Checker</div>
+              <div className="text-wrapper-8">7 Backend Keywords</div>
             </div>
           </div>
 
@@ -153,7 +153,7 @@ export const Banner = (): JSX.Element => {
                 />
               </div>
 
-              <div className="text-wrapper-8">Title Creator</div>
+              <div className="text-wrapper-8">Niche Finder</div>
             </div>
           </div>
         </div>

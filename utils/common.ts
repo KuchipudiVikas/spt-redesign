@@ -200,5 +200,6 @@ function adjustHslShade(hslColor: string, amount: number): string {
 }
 
 export const isOwned = (featuresOwned, id) => {
+  console.log("featuresOwned", featuresOwned, id);
   return featuresOwned?.find((item) => item.feature_id._id === id);
 };

@@ -47,11 +47,11 @@ const Navbar: React.FC<NavbarProps> = ({ info, logout, token }) => {
         backdropFilter: "blur(10px)", // Blur effect
         WebkitBackdropFilter: "blur(10px)", // For Safari support
       }}
-      className="fixed top-0 left-0 w-full px-24 py-3 flex items-center justify-between z-50"
+      className="fixed top-0 left-0 w-full px-[4vw] py-3 flex items-center justify-between z-50"
     >
       <NavigationMenu
         style={{
-          width: "99vw",
+          width: "100vw",
         }}
         className="w-full"
       >
@@ -59,8 +59,10 @@ const Navbar: React.FC<NavbarProps> = ({ info, logout, token }) => {
           style={{
             display: "flex",
             justifyContent: "space-between",
+            width: "92vw",
+            // padding: "0 24px",
           }}
-          className="w-[86vw]"
+          className=""
         >
           <div className="flex items-center">
             <NavigationMenuItem className="mr-3">
@@ -136,8 +138,8 @@ const Navbar: React.FC<NavbarProps> = ({ info, logout, token }) => {
                   }}
                   className="border rounded-3xl mr-2  px-3 flex font-medium items-center prim-outline-btn  text-[14px]"
                 >
-                  <QuestionMarkIcon className="mr-2" />
                   Ask
+                  <QuestionMarkIcon className="ml-2" />
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <ChromeExtension />

@@ -1,3 +1,5 @@
+import { domains } from "@/constants/index";
+
 export type SectionItem = {
   item: string;
   tag: string;

@@ -12,6 +12,7 @@ export type Product = {
   preview_url: string;
   isPaid: boolean;
   thumb_url: string;
+  id?: string;
 };
 
 export const Categories = [
@@ -29,6 +30,7 @@ export const allProducts: Product[] = [
     title: "Titans Pro Amazon",
     price: 149,
     og_price: 200,
+    id: "64562b9ae2210da37f2bdb2c",
     category: "Research Tools",
     description: "Amazon suggestions, search volume, search results & more",
     buy_url: "https://google.com",
@@ -46,6 +48,7 @@ export const allProducts: Product[] = [
       "Analyze 100 Products At Once, Niche Metrics, Sales Est., Key Metrics, Excel Download All Data",
     buy_url: "https://google.com",
     isPaid: true,
+    id: "655ed9e21727b2465e130795",
     preview_url: "https://google.com",
     thumb_url:
       "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/deep%20view.png",
@@ -60,15 +63,14 @@ export const allProducts: Product[] = [
     isPaid: true,
     preview_url: ToolLinkIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
     thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    id: "66585bdf7fa69298ee51aa7b",
   },
   {
     title: "Puzzle Tools",
     price: 89,
     og_price: 200,
     category: "Book Creation Tools",
-    description: `The following tools are included with lifetime access and unlimited use:
-
-Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, Number Search, Word Scramble, Pontoon Grid, Kakuro, Cryptogram, Link Janitor, Hidato, Wordoku, Drawgrid, Letter Tracing, Bingo Card, Equation Solver, Cryptomaths, Cross Sums`,
+    description: `The following tools are included with lifetime access and unlimited use: Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, Number Search, Word Scramble, Pontoon Grid, Kakuro, Cryptogram, Link Janitor, Hidato, Wordoku, Drawgrid, Letter Tracing, Bingo Card, Equation Solver, Cryptomaths, Cross Sums`,
     buy_url: "https://google.com",
     isPaid: true,
     preview_url: "https://google.com",
@@ -77,8 +79,10 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
   },
   {
     title: "Titans Retro view",
+
     price: 299,
     og_price: 350,
+    id: "655eda781727b2465e130798",
     category: "Research Tools",
     description: "This is a description",
     buy_url: "https://google.com",
@@ -93,6 +97,7 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
     og_price: 200,
     category: "Book Listing Tools",
     description: "KDP Title Creator Tool. The fast and easy way.",
+    id: "66f11ec860a7f1a8e8afc35f",
     buy_url: "https://google.com",
     isPaid: true,
     preview_url: "https://google.com",
@@ -101,6 +106,7 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
   },
   {
     title: "Book Description Generator",
+    id: "66f11df160a7f1a8e8afc357",
     price: 100,
     og_price: 200,
     category: "Book Listing Tools",
@@ -113,6 +119,7 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
   },
   {
     title: "Book Price Suggestion tool",
+    id: "66f11df160a7f1a8e8afc358",
     price: 100,
     og_price: 200,
     category: "Book Listing Tools",
@@ -132,11 +139,13 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
     buy_url: "https://google.com",
     isPaid: true,
     preview_url: "https://google.com",
+    id: "66f11df160a7f1a8e8afc35a",
     thumb_url:
       "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/Screenshots/trademark%20checker.png",
   },
   {
     title: "KDP Guidelines Checker",
+    id: "66f11df160a7f1a8e8afc35b",
     price: 100,
     og_price: 200,
     category: "Book Listing Tools",
@@ -149,6 +158,7 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
   },
   {
     title: "Book Data Translator",
+    id: "66f11df160a7f1a8e8afc35c",
     price: 100,
     og_price: 200,
     category: "Book Listing Tools",
@@ -235,6 +245,7 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
     isPaid: true,
     preview_url: ToolLinkIndex[ToolIndex.KEYWORD_TRACKER],
     thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
+    id: "655eda181727b2465e130796",
     buy_url: "",
   },
   {
@@ -242,6 +253,7 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
     price: 0,
     og_price: 0,
     category: "General KDP Tools",
+    id: "655eda4d1727b2465e130797",
     description: "Titans ASIN Tracker Tool. The fast and easy way.",
     isPaid: true,
     preview_url: ToolLinkIndex[ToolIndex.ASIN_TRACKER],
@@ -254,7 +266,7 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
     og_price: 0,
     category: "General KDP Tools",
     description: "KDP Kindle Category Finder Tool. The fast and easy way.",
-    isPaid: true,
+    isPaid: false,
     preview_url: ToolLinkIndex[ToolIndex.KDP_CATEGORY_FINDER],
     thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
     buy_url: "",
@@ -320,6 +332,7 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
     og_price: 0,
     category: "Design Tools",
     description: "Coloring Books. The fast and easy way.",
+    id: "63d6701a1ee1322b4efc1bb7",
     isPaid: true,
     preview_url: ToolLinkIndex[ToolIndex.COLORING_BOOKS],
     thumb_url: ImageIndex[ToolIndex.SEVEN_BACKEND_KEYWORDS],
@@ -328,6 +341,7 @@ Sudoku, Word Search, Crossword, Letter Maze, Shape Maze, Nonogram, Word Snake, N
   {
     title: ToolIndex.DIGITAL_TITANS_DESIGNER,
     price: 0,
+    id: "655edad41727b2465e130799",
     og_price: 0,
     category: "Design Tools",
     description: "Digital Titans Designer. The fast and easy way.",

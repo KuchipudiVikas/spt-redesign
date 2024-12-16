@@ -47,7 +47,7 @@ const ListItem = React.forwardRef<
             )}
             <div className="">
               <div className="text-sm font-medium leading-none">{title}</div>
-              <p className="text-sm line-clamp-2 leading-snug text-muted-foreground">
+              <p className="text-sm line-clamp-2 mt-1 leading-snug text-muted-foreground">
                 {children}
               </p>
             </div>

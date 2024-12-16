@@ -7,20 +7,26 @@ import { Toaster } from "@/components/ui/toaster";
 import { SessionProvider } from "next-auth/react";
 import { store } from "../store";
 import { Provider } from "react-redux";
+import { VisitTrackerProvider } from "@/lib/contexts/VisitTrackerProvider";
+import { TimeTrackingProvider } from "@/lib/contexts/TimeTrackingProvider";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <SessionProvider>
         <Provider store={store}>
-          <NextNProgress
-            color="#29D"
-            startPosition={0.3}
-            stopDelayMs={200}
-            height={3}
-          />
-          <Component {...pageProps} />
-          <Toaster />
+          <TimeTrackingProvider>
+            <VisitTrackerProvider>
+              <NextNProgress
+                color="#29D"
+                startPosition={0.3}
+                stopDelayMs={200}
+                height={3}
+              />
+              <Component {...pageProps} />
+              <Toaster />
+            </VisitTrackerProvider>
+          </TimeTrackingProvider>
         </Provider>
       </SessionProvider>
     </>

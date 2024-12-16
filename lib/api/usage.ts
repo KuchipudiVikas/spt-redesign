@@ -1,4 +1,3 @@
-import { duration } from "@mui/material";
 import request from "./interface";
 import { StreakRank } from "@/models/profile";
 
