@@ -214,7 +214,7 @@ const AccountPageComp: React.FC<AccountPageProps> = ({
             <SettingsIcon size={24} />
             Settings
           </div>
-          <div
+          {/* <div
             className={`tab ${
               selecetedTab === "Subscriptions" ? "active" : ""
             }`}
@@ -229,7 +229,7 @@ const AccountPageComp: React.FC<AccountPageProps> = ({
           >
             <ReceiptText size={24} />
             Invoices
-          </div>
+          </div> */}
         </div>
         <div className="tab-content w-full">
           {selecetedTab === "Tools" && (

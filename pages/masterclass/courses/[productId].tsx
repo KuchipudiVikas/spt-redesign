@@ -150,7 +150,7 @@ const CourseContentComponent = ({
           />
 
           {sectionIdx === courseData.sections.length - 1 ? (
-            <div className="w-full mt-2 px-4 flex flex-col cursor-pointer justify-center it  p-6  min-w-full bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <div className="w-full mt-2 px-4 flex flex-col cursor-pointer justify-center it  p-6  min-w-full bg-white rounded-lg border border-gray-200  hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
               <Link
                 href="https://affiliates.selfpublishingtitans.com/signup.php"
                 target="_blank"
@@ -172,7 +172,7 @@ const Expander = ({ title, content, isOverallSectionDone, sectionIdx }) => {
   };
   return (
     <div
-      className={`flex flex-col cursor-pointer justify-center it block p-6  min-w-full bg-white rounded-lg border border-gray-200 shadow-md  dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700`}
+      className={`flex flex-col cursor-pointer border light-border justify-center it block p-6  min-w-full bg-white rounded-lg border border-gray-200   dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700`}
     >
       <div
         onClick={handleHeaderClick}
@@ -182,7 +182,7 @@ const Expander = ({ title, content, isOverallSectionDone, sectionIdx }) => {
           {title}
         </h5>
 
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex gap-2 flex-row-reverse justify-center items-center">
           <div className={`${expanded ? "rotate-180" : ""}`}>
             <Image
               src={DownArrow.src}
@@ -444,6 +444,7 @@ function CoursePage({ info, token, productInfo, comments, purchased }) {
         keywords: `Course: ${courseData.course_name}`,
       }}
       Title={<></>}
+      fullWidth={true}
       Body={
         <div>
           {isTabletOrMobile && isPortrait ? (
@@ -471,7 +472,7 @@ function CoursePage({ info, token, productInfo, comments, purchased }) {
                             }`}
                           >
                             <iframe
-                              className=" pt-10  shadow-lg rounded-lg"
+                              className=" pt-10   rounded-lg"
                               src={`${content.data}?autoplay=false`}
                               onLoad={onDataLoaded}
                               width="100%"
@@ -582,10 +583,11 @@ function CoursePage({ info, token, productInfo, comments, purchased }) {
                         top-0
                         pr-2
                         pb-36
-                        scrollbar scrollbar-thumb-secCol1-500  scrollbar-track-secCol1-200"
+                        scrollbar scrollbar-thumb-secCol1-500   scrollbar-track-secCol1-200"
                   style={{
                     // height: "calc(100vh - 3.5rem)",
                     overflowY: "auto",
+                    background: "#f7f6f8",
                   }}
                 >
                   {courseData && (
@@ -627,7 +629,7 @@ function CoursePage({ info, token, productInfo, comments, purchased }) {
                           }`}
                         >
                           <iframe
-                            className="object-cover shadow-lg w-full videoRatioStandard  rounded-lg"
+                            className="object-cover  w-full videoRatioStandard  rounded-lg"
                             src={`${content.data}?autoplay=false`}
                             onLoad={onDataLoaded}
                             frameBorder="0"
