@@ -6,21 +6,19 @@ import { GetServerSidePropsContext } from "next";
 import { getSession, useSession } from "next-auth/react";
 import Account from "../../lib/mw/Accounts";
 import { User } from "@/lib/ts/types/user";
-// import { Footer, Header } from "spt-react";
 import { signOut } from "next-auth/react";
-
-// import { Footer, Navbar } from "spt-core";
 
 interface Meta {
   title: string;
   description: string;
   keywords: string;
+  ogImage?: string;
 }
 interface MainLayoutProps {
   Title: React.ReactNode;
   Body: React.ReactNode;
   showFooter?: boolean;
-  info: User | undefined | false; // Allow `info` to be `false`
+  info: User | undefined | false;
   meta: Meta;
   fullWidth?: boolean;
 }
@@ -39,7 +37,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
 }) => {
   const isBookCoverPage = meta.title === "Book Cover Creator for KDP";
 
-  const logut = () => {
+  const logout = () => {
     signOut().then(() => {
       window.location.href = "/";
     });
@@ -48,8 +46,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   const [token, setToken] = React.useState("");
 
   const { data: session, status } = useSession();
-
-  console.log("session", session);
 
   useEffect(() => {
     if (session) {
@@ -60,18 +56,27 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   return (
     <div>
       <Head>
-        <title> {meta.title} </title>
+        <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
         <meta name="keywords" content={meta.keywords} />
+        {meta.ogImage && (
+          <>
+            <meta property="og:title" content={meta.title} />
+            <meta property="og:description" content={meta.description} />
+            <meta property="og:image" content={meta.ogImage} />
+            <meta property="og:type" content="website" />
+          </>
+        )}
       </Head>
       {/* @ts-ignore */}
-      <Header logout={logut} token={token} info={info}>
+      <Header logout={logout} token={token} info={info}>
         {Title}
       </Header>
-      <div className={`min-h-[60vh] mx-auto ${false && "max-w-[1300px]"}`}>
+      <div
+        className={`min-h-[60vh] mx-auto ${fullWidth ? "" : "max-w-[1300px]"}`}
+      >
         {Body}
       </div>
-
       {showFooter && <Footer />}
     </div>
   );
@@ -119,7 +124,7 @@ export const getProfile = async (
 };
 
 export const getProfileWithToken = async (
-  context,
+  context: GetServerSidePropsContext,
   otherRetVal: any = {
     redirect: false,
   },

@@ -112,13 +112,18 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "../ui/separator";
 import { Avatar, AvatarImage } from "../ui/avatar";
 
-const Reviews = () => {
+interface ReviewsProps {
+  testimonials: any;
+}
+
+const Reviews: React.FC<ReviewsProps> = ({ testimonials }) => {
+  console.log("Testimonials", testimonials);
   return (
     <div
       style={{
         marginTop: "50px",
         // paddingTop: "50px",
-        background: "#fef6ff",
+        // background: "#fef6ff",
       }}
       className="w-full p-10 rounded-3xl flex flex-col font-jsans justify-center  "
     >
@@ -138,12 +143,18 @@ const Reviews = () => {
           className="max-w-[1300px] mx-auto"
         >
           <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
-                <div className="p-1">
-                  <Card className="shadow-lg">
+            {testimonials.map((testimonial, index) => (
+              <CarouselItem
+                key={index}
+                className="md:basis-1/2 h-full lg:basis-1/2"
+              >
+                <div className="p-1 h-full">
+                  <Card className="">
                     <CardContent>
-                      <ReviewCard />
+                      <ReviewCard
+                        name={testimonial.name}
+                        message={testimonial.message}
+                      />
                     </CardContent>
                   </Card>
                 </div>
@@ -160,16 +171,21 @@ const Reviews = () => {
 
 export default Reviews;
 
-const ReviewCard: React.FC = ({}) => {
+interface Testimonial {
+  name: string;
+  message: string;
+}
+
+const ReviewCard: React.FC<Testimonial> = ({ name, message }) => {
   return (
-    <div className="pt-3 ">
+    <div className="pt-3 h-full">
       <div className="flex items-center my-3 font-jsans font-semibold text-[18px]">
         <StarIcon />
         <StarIcon />
         <StarIcon />
         <StarIcon />
         <StarIcon />
-        <div className="ml-2">5/5 Reviews</div>
+        <div className="ml-2">5/5 Review</div>
       </div>
       <div className="">
         <p
@@ -177,13 +193,7 @@ const ReviewCard: React.FC = ({}) => {
             lineHeight: "25px",
           }}
         >
-          As a self-published author with limited resources, I was struggling to
-          make my book visible in such a competitive market. That’s when I found
-          these tools, and they have completely transformed my publishing
-          journey! The keyword research tool, in particular, is a game-changer.
-          It helped me discover terms that readers were actively searching for,
-          which I never would have thought of on my own. Within weeks of
-          implementing these insights.
+          {message}
         </p>
 
         <Separator className="mt-4" />
@@ -197,19 +207,19 @@ const ReviewCard: React.FC = ({}) => {
           </Avatar>
           <div className="flex flex-col">
             <div className="font-semibold text-[18px]">
-              Name, Profession{" "}
-              <span className="text-[#ccc] text-[14px] font-normal">
+              {/* Name, Profession{" "} */} {name}
+              {/* <span className="text-[#ccc] text-[14px] font-normal">
                 (Location, Country)
-              </span>
+              </span> */}
             </div>
-            <div
+            {/* <div
               style={{
                 fontStyle: "italic",
               }}
               className="text-[14px] text-[#333333] "
             >
               Date
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

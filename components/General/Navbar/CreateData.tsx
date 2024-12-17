@@ -1,3 +1,4 @@
+import { QuestionMarkIcon } from "@radix-ui/react-icons";
 import {
   ImageIcon,
   BookIcon,
@@ -26,9 +27,8 @@ import {
   ChartAreaIcon,
   TriangleIcon,
   BookAIcon,
+  TextIcon,
 } from "lucide-react";
-
-import { FaAmilia } from "react-icons/fa6";
 
 type TOption = {
   name: string;
@@ -173,14 +173,29 @@ const GeneralTools: TOption[] = [
 
 const LearningTools: TOption[] = [
   {
-    name: "Youtube Tutorials",
-    Icon: Youtube,
-    link: "https://www.youtube.com/@SelfPublishingTitans",
+    name: "Ask Question In Forum",
+    Icon: QuestionMarkIcon,
+    link: "https://community.selfpublishingtitans.com/questions/ask",
   },
   {
     name: "KDP Masterclass",
     Icon: TvMinimalPlay,
     link: "https://www.selfpublishingtitans.com/masterclass",
+  },
+  {
+    name: "Youtube Tutorials",
+    Icon: Youtube,
+    link: "https://www.youtube.com/@SelfPublishingTitans",
+  },
+  {
+    name: "Self Publishing Simplified",
+    Icon: BookIcon,
+    link: "https://amzn.in/d/fyBNU9g",
+  },
+  {
+    name: "Blog",
+    Icon: TextIcon,
+    link: "/en/blog",
   },
 ];
 

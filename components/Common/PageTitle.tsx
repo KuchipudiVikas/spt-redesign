@@ -12,7 +12,7 @@ const PageTitle: React.FC<PageTitleProps> = ({
 }) => {
   return (
     <div className="title-container">
-      <h1 className="title">{title}</h1>
+      <h1 className="title text-center">{title}</h1>
       {showBySptButton && <BySptButton />}
     </div>
   );

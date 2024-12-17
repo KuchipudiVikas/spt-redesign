@@ -159,7 +159,21 @@ function MasterClassPage({ info, pageData, masterclassDetails }) {
 
           {/* <NoFakePromisesILS /> */}
 
-          <ReviewSection />
+          {/* <ReviewSection testimonials={currLangItem.testimonials} /> */}
+          <div
+            style={{
+              marginTop: "50px",
+            }}
+            className="w-full p-10 rounded-3xl lavbg  flex flex-col font-jsans justify-center  "
+          >
+            <Reviews
+              testimonials={pageData.testimonials}
+              containerStyle={{
+                paddingTop: "0px",
+                marginTop: "0px",
+              }}
+            />
+          </div>
           <section
             style={{
               background: "white",
@@ -346,7 +360,7 @@ const TabSection = ({
                 } text-center cursor-pointer py-2
                     `}
               >
-                <h6 fontWeight={500}>{item.language}</h6>
+                <h6>{item.language}</h6>
               </div>
             );
           })}

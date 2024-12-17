@@ -9,6 +9,7 @@ import { store } from "../store";
 import { Provider } from "react-redux";
 import { VisitTrackerProvider } from "@/lib/contexts/VisitTrackerProvider";
 import { TimeTrackingProvider } from "@/lib/contexts/TimeTrackingProvider";
+import GlobalCommand from "@/components/Misc/QuickCommand";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -25,6 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
               />
               <Component {...pageProps} />
               <Toaster />
+              <GlobalCommand />
             </VisitTrackerProvider>
           </TimeTrackingProvider>
         </Provider>

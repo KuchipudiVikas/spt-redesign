@@ -27,7 +27,6 @@ import {
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import Account from "./Account";
-import { useSession } from "next-auth/react";
 import Search from "./search";
 import Create from "./Create";
 import { QuestionMarkIcon } from "@radix-ui/react-icons";
@@ -130,18 +129,20 @@ const Navbar: React.FC<NavbarProps> = ({ info, logout, token }) => {
 
           {info && token ? (
             <div className="flex items-center gap-2">
-              <Search />
-              <NavigationMenuItem value="question">
+              {/* <NavigationMenuItem value="question">
                 <NavigationMenuLink
                   style={{
                     height: "35px",
                   }}
+                  // className="border rounded-3xl mr-2  px-3 flex font-medium items-center prim-outline-btn  text-[14px]"
                   className="border rounded-3xl mr-2  px-3 flex font-medium items-center prim-outline-btn  text-[14px]"
                 >
                   Ask
                   <QuestionMarkIcon className="ml-2" />
                 </NavigationMenuLink>
-              </NavigationMenuItem>
+              </NavigationMenuItem> */}
+              <Search />
+
               <ChromeExtension />
               <NavigationMenuItem value="create">
                 <NavigationMenuTrigger

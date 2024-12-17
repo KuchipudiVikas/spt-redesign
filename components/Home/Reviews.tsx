@@ -14,14 +14,16 @@ import { Testimonial } from "@/lib/ts/interfaces/testimonials";
 
 interface ReviewsProps {
   testimonials: Testimonial[];
+  containerStyle?: React.CSSProperties;
 }
 
-const Reviews: React.FC<ReviewsProps> = ({ testimonials }) => {
+const Reviews: React.FC<ReviewsProps> = ({ testimonials, containerStyle }) => {
   return (
     <div
       style={{
         marginTop: "50px",
         paddingTop: "50px",
+        ...containerStyle,
       }}
       className="w-full  flex flex-col font-jsans justify-center  "
     >

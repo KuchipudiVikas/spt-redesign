@@ -69,7 +69,7 @@ const Create: React.FC = () => {
       className="right-aligned"
     >
       <div className="text-black mr-2 inline-block text-left">
-        <div className="p-5 w-full">
+        <div className="p-5 pt-0 w-full">
           <div style={{ background: "white" }}>
             <div
               className="py-1 p-3"
@@ -78,6 +78,14 @@ const Create: React.FC = () => {
               aria-labelledby="options-menu"
             >
               <div className="grid grid-cols-1 w-full w-[500px]">
+                <ToolSection
+                  title="Research"
+                  options={ResearchOptions}
+                  gridCols={5}
+                  withTags
+                />
+                <hr className="mt-6" />
+
                 <ToolSection
                   title="Create"
                   options={CreateOptions}
@@ -90,24 +98,19 @@ const Create: React.FC = () => {
                   gridCols={5}
                 />
                 <hr className="mt-6" />
-                <ToolSection
-                  title="Learn"
-                  options={LearningTools}
-                  gridCols={5}
-                />
-                <hr className="mt-6" />
+
                 <ToolSection
                   title="General"
                   options={GeneralTools}
                   gridCols={5}
                 />
               </div>
+
               <hr className="mt-6" />
               <ToolSection
-                title="Research"
-                options={ResearchOptions}
+                title="Education"
+                options={LearningTools}
                 gridCols={5}
-                withTags
               />
             </div>
           </div>

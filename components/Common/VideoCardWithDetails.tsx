@@ -3,7 +3,7 @@ import Link from "next/link";
 import { IVideoCardWithDetails } from "@/lib/models/interfaces/video_card";
 import checkMarkIcon from "../../public/assets/masterclass/checkMark.svg";
 import { useRouter } from "next/router";
-import { CheckIcon } from "lucide-react";
+import { ArrowRight, CheckIcon } from "lucide-react";
 import { Button } from "../ui/button";
 
 export default function VideoCardWithDetails({
@@ -18,7 +18,7 @@ export default function VideoCardWithDetails({
   return (
     <div
       style={{ border: "1px solid #cccccc" }}
-      className="flex flex-col justify-between w-full xl:w-[35vw] xl:max-w-[500px] h-full rounded-lg mx-auto  bg-white pb-4 my-4"
+      className="flex flex-col justify-between w-full  h-full rounded-lg mx-auto  bg-white pb-4 my-4"
     >
       <div>
         <div className=" w-full">
@@ -50,18 +50,18 @@ export default function VideoCardWithDetails({
 
       <div className="flex justify-center">
         {button.type === "FUNCTION" ? (
-          <button
+          <Button
             onClick={button.onClickButton}
-            className={`mt-2 twButton themeGradient w-full ${
+            className={`mt-2 twButton themeGradient w-fit  ${
               button.enabled ? "" : "opacity-30"
-            } cursor-pointer text-center mx-4 xl:mx-16`}
+            } cursor-pointer text-center rounded-full mx-4 xl:mx-16`}
           >
-            {button.text}
-          </button>
+            {button.text} <ArrowRight />
+          </Button>
         ) : (
           <Button
             style={{ textTransform: "none" }}
-            className="md:px-10 xl:mx-16"
+            className="md:px-10 xl:mx-16 rounded-full"
             onClick={() => {
               router.replace(button.link + "?email=" + info.email);
             }}
@@ -71,10 +71,11 @@ export default function VideoCardWithDetails({
               href={button.link + "?email=" + info.email}
               className={`  w-full ${
                 button.enabled ? "" : "opacity-30"
-              } cursor-pointer text-center `}
+              } cursor-pointer  text-center `}
             >
-              <p className="text-xl">{button.text}</p>
+              <p className="">{button.text} </p>
             </Link>
+            <ArrowRight />
           </Button>
         )}
       </div>

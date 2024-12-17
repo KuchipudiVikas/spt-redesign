@@ -6,7 +6,9 @@ import { ApiResponse } from "@/lib/models/interfaces/community";
 import BlogPost from "@/lib/models/interfaces/blog";
 import { blogs as Blogs } from "@/data/blogs";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import {
+  ArrowRight,
   BookTextIcon,
   CircleHelp,
   NewspaperIcon,
@@ -169,7 +171,13 @@ const Index: React.FC = () => {
         />
       </div>
       {showDropdown && query && (
-        <div className="absolute left-0 right-0 mt-2 bg-white text-black  w-[350px] rounded-md  z-10">
+        <div
+          style={{
+            maxHeight: "68vh",
+            overflow: "auto",
+          }}
+          className="absolute left-0 right-0 mt-2 bg-white text-black  w-[450px] rounded-md  z-10"
+        >
           <div className="p-2">
             {searchLoading.tools && (
               <div className="flex items-center justify-center">
@@ -202,10 +210,8 @@ const Index: React.FC = () => {
               {toolResults.map((item, index) => (
                 <Link href={item.productLink} target="__blank" key={index}>
                   <div className="p-2  border-gray-300 hover:bg-gray-200 rounded-lg cursor-pointer">
-                    <div className="text-gray-800 font-semibold">
-                      {item.item}
-                    </div>
-                    <div className="text-gray-500 truncate-text-1">
+                    <div className="text-gray-800 font-medium">{item.item}</div>
+                    <div className="text-gray-500 line-clamp-2 text-sm truncate-text-1">
                       {item.tag}
                     </div>
                   </div>
@@ -246,16 +252,16 @@ const Index: React.FC = () => {
                   key={index}
                 >
                   <div className="p-2  border-gray-300 hover:bg-gray-200 rounded-lg cursor-pointer">
-                    <div className="text-gray-800 font-semibold text-[16px] line-clamp-2">
+                    <div className="text-gray-800 font-medium text-[16px] line-clamp-2">
                       {item.object_type == "question"
                         ? item.object.title
                         : item.object.excerpt}
                     </div>
                     <div className="flex gap-2 pt-1">
-                      <div className="text-gray-500 font-medium">
+                      <div className="text-gray-500 text-sm font-medium">
                         Answers: {item.object.vote_count}
                       </div>
-                      <div className="text-gray-500 font-medium">
+                      <div className="text-gray-500 text-sm font-medium">
                         Votes: {item.object.answer_count}
                       </div>
                     </div>
@@ -268,6 +274,14 @@ const Index: React.FC = () => {
                   <div className="p-2 text-gray-500">No results found</div>
                 )}
               {searchLoading.community && <div className="p-2">loading...</div>}
+              <Link
+                className="flex text-primary px-3 font-bold items-center gap-2"
+                href={
+                  "https://community.selfpublishingtitans.com/questions/ask"
+                }
+              >
+                Ask Question in Forum <ArrowRight />
+              </Link>
             </div>
           </div>
           <div className="p-2">

@@ -4,12 +4,7 @@ function DescriptionWithTitle({ titleImage, title, svg, items }) {
   console.log(items);
 
   return (
-    <div
-      style={{
-        background: "#fef6ff",
-      }}
-      className="flex sp-container light-border border-2  flex-col items-center justify-start p-6 rounded-3xl"
-    >
+    <div className="flex sp-container lavbg light-border border-2  flex-col items-center justify-start p-6 rounded-3xl">
       <div className="bg-white p-10 rounded-3xl w-full">
         <img
           src={titleImage.src}

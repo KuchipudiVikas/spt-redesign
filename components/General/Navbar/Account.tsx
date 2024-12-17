@@ -8,6 +8,7 @@ import {
 import { User } from "@/lib/ts/types/user";
 import { Button } from "@/components/ui/button";
 import { isOwned } from "@/utils/common";
+
 import Link from "next/link";
 import {
   UserIcon,
@@ -103,9 +104,9 @@ const Account: React.FC<AccountProps> = ({ info, logout }) => {
         <div className="flex items-center bg-white pl-4 p-1 rounded-full">
           <div className="flex mr-2 items-center">
             <StarIcon className="w-5 mr-1" />
-            {totalXp}
+            {totalXp || 0}
             <FlameIcon className="w-5 ml-1 mr-1" />
-            {streak}
+            {streak || 0}
           </div>
           <Avatar
             style={{
