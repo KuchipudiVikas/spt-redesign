@@ -20,6 +20,56 @@ export interface IPackage {
   salePrice: number;
 }
 
+export type ProductDetails = {
+  isSale: boolean;
+  video_url: string;
+  features: {
+    _id: string;
+  }[];
+  isMultiShop: boolean;
+  featureShops: any[]; // Replace `any` with the specific type if known
+  isOnShop: boolean;
+  index: number;
+  mode: "both" | "monthly" | "yearly"; // Extend with other possible values if necessary
+  trial_period_days: number;
+  monthly_price: number;
+  yearly_price: number;
+  buy_page: string;
+  subscription_shops: any[]; // Replace `any` with the specific type if known
+  cross_sale_price: number;
+  feature_type: string;
+  related: any[]; // Replace `any` with the specific type if known
+  _id: string;
+  Description: string;
+  Title: string;
+  sale_price: number;
+  price: number;
+  published_at: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+  created_by: string;
+  displayImage: {
+    _id: string;
+    url: string;
+  };
+  updated_by: string;
+  price_id: string;
+  monthly_price_id: string;
+  yearly_price_id: string;
+  s_product_id: string;
+  links: {
+    text: string;
+    url: string;
+  }[];
+  subscription_package_name: string;
+  monthly_sale_price: number;
+  is_monthly_sale: boolean;
+  isLifetimeOwned: boolean;
+  id: string;
+  buttonType: "SUBSCRIBED" | "UNSUBSCRIBED"; // Add other possible values if necessary
+};
+
 export type SingleFeature = {
   title: string;
   subtitle?: string;

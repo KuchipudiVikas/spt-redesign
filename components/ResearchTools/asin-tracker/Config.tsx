@@ -153,7 +153,7 @@ export default function ConfigComponent({
               </Button>
             </HintWrapper>
           </div>
-          {true && (
+          {/* {true && (
             <div className="samples-container ">
               <h6>
                 {" "}
@@ -187,7 +187,7 @@ export default function ConfigComponent({
                 </Button>
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </section>

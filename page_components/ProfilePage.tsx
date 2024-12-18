@@ -117,8 +117,6 @@ const ProfilePage: React.FC<ProfileProps> = ({
     GetXpPoints();
   }, []);
 
-  console.log("info image is", info.image);
-
   return (
     <div
       style={{
@@ -128,43 +126,47 @@ const ProfilePage: React.FC<ProfileProps> = ({
     >
       <div
         style={{
-          gap: "30px",
+          gap: "37px",
+          display: "grid",
+          gridTemplateColumns: "repeat(12, 1fr)",
         }}
-        className="grid grid-cols-5"
+        className=""
       >
-        <div className="col-span-3">
+        <div className="col-span-4">
           <div
             style={{
-              border: "2px solid #d5c5e4",
+              border: "1px solid #d5c5e4",
               borderRadius: "20px",
             }}
-            className="bg-[#f7f6f8] relative"
+            className="bg-[#f7f6f8] h-full  p-5 relative"
           >
             <div
               style={{
                 borderRadius: "20px",
               }}
-              className="flex  gap-4  w-full  p-5  "
+              className="flex  gap-4  w-full  p-0 pt-0 "
             >
               <Image
                 src={info.image || "/assets/onboarding/league.png"}
                 alt=""
-                width={150}
-                height={150}
-                className="rounded-full"
+                width={100}
+                height={100}
+                className="rounded-lg "
               />
 
               <div
                 style={{
                   marginLeft: "0px",
                 }}
-                className="flex  justify-center flex-col"
+                className="flex  justify-start flex-col"
               >
                 <div>
                   <h1
-                    style={{
-                      fontSize: "24px",
-                    }}
+                    style={
+                      {
+                        // fontSize: "22px",
+                      }
+                    }
                     className=" font-bold "
                   >
                     {info.username}
@@ -172,15 +174,15 @@ const ProfilePage: React.FC<ProfileProps> = ({
                   <div
                     style={{
                       display: "flex",
-                      alignItems: "center",
-                      gap: "10px",
+                      alignItems: "start",
+                      gap: "4px",
                       marginTop: "5px",
                     }}
-                    className="flex  items-center"
+                    className="flex flex-col items-start"
                   >
                     <h1
                       style={{
-                        fontSize: "16px",
+                        fontSize: "14px",
                       }}
                       className=" font-normal text-gray-500"
                     >
@@ -189,7 +191,7 @@ const ProfilePage: React.FC<ProfileProps> = ({
                     <h5
                       style={{
                         fontSize: "12px",
-                        marginTop: "3px",
+                        // marginTop: "3px",
                       }}
                       className=" font-normal text-gray-500"
                     >
@@ -217,30 +219,14 @@ const ProfilePage: React.FC<ProfileProps> = ({
                   })}
                 </div>
               </div>
-              {view == "profile" && (
-                <Link href="/profile/settings">
-                  <Button
-                    variant="outline"
-                    style={{
-                      position: "absolute",
-                      right: "10px",
-                      bottom: "10px",
-                    }}
-                    className="flex rounded-full absolute bg-primary text-white "
-                  >
-                    <PenIcon className="w-5 h-5" />
-                    Edit Profile
-                  </Button>
-                </Link>
-              )}
             </div>
 
-            <div className="rounded-2xl p-5 pt-0 my-5 grid grid-cols-4 md:grid-cols-3 gap-5 ">
+            <div className="rounded-2xl pt-3 pt-0 my-5 grid grid-cols-2 md:grid-cols-2 gap-2 ">
               <div
                 style={{
                   border: "1px solid #ccc",
                 }}
-                className="flex gap-3 p-4 rounded-2xl bg-white  items-center"
+                className="flex gap-3 p-4 rounded-2xl bg-white h-fit  items-center"
               >
                 <Image
                   src={FireIcon.src}
@@ -257,29 +243,12 @@ const ProfilePage: React.FC<ProfileProps> = ({
                   </div>
                 </div>
               </div>
+
               <div
                 style={{
                   border: "1px solid #ccc",
                 }}
-                className="flex gap-3 p-4 rounded-2xl  bg-white items-center"
-              >
-                <Image
-                  src={GrowthIcon.src}
-                  alt=""
-                  width={50}
-                  height={50}
-                  className="my-auto w-[40px] h-auto"
-                />{" "}
-                <div className="flex flex-col">
-                  <div className="text-[16px] font-bold">{SkillLevel}</div>
-                  <div className="text-[11px] text-gray-500">Skill level</div>
-                </div>
-              </div>
-              <div
-                style={{
-                  border: "1px solid #ccc",
-                }}
-                className="flex gap-3 p-4 rounded-2xl bg-white  items-center"
+                className="flex gap-3 p-4 h-fit rounded-2xl bg-white  items-center"
               >
                 <Image
                   src={StarIcon.src}
@@ -293,31 +262,63 @@ const ProfilePage: React.FC<ProfileProps> = ({
                   <div className="text-[11px] text-gray-500">Total XP</div>
                 </div>
               </div>
+              <div
+                style={{
+                  border: "1px solid #ccc",
+                }}
+                className="flex gap-3 p-4 rounded-2xl h-fit  bg-white items-center"
+              >
+                <Image
+                  src={GrowthIcon.src}
+                  alt=""
+                  width={50}
+                  height={50}
+                  className="my-auto w-[40px] h-auto"
+                />{" "}
+                <div className="flex flex-col">
+                  <div className="text-[16px] font-bold">{SkillLevel}</div>
+                  <div className="text-[11px] text-gray-500">Skill level</div>
+                </div>
+              </div>
               <HowToModal />
             </div>
-          </div>
-
-          <div
-            style={{
-              marginTop: "25px",
-            }}
-            className=""
-          >
-            <ActivityDisplay info={info} />
+            {view == "profile" && (
+              <Link href="/profile/settings">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  style={{
+                    marginTop: "50px",
+                  }}
+                  className="flex mb-2 rounded-full ml-auto   bg-primary text-white "
+                >
+                  <PenIcon className="w-5 h-5" />
+                  Edit Profile
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
 
         {view == "profile" && (
           <div
             style={{
-              gap: "30px",
+              gap: "37px",
             }}
-            className="rounded-2xl px-5 col-span-2  grid grid-cols-1 gap-5 "
+            className="rounded-2xl px- col-span-8  grid grid-cols-2 gap-2"
           >
             <StreakBoard info={info} user_id={info._id} token={token} />
             <LeaderBoard info={info} token={token} user_id={info._id} />
           </div>
         )}
+      </div>
+      <div
+        style={{
+          marginTop: "37px",
+        }}
+        className=""
+      >
+        <ActivityDisplay info={info} />
       </div>
     </div>
   );

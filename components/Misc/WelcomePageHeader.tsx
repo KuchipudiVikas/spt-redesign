@@ -1,6 +1,7 @@
 import React from "react";
 import { freeItemsWithoutTitle } from "@/data/FreeKDPTools/constants";
 import Link from "next/link";
+import { Banner } from "../Home/Banner";
 
 const WelcomePageHeader = () => {
   return (
@@ -17,10 +18,11 @@ const WelcomePageHeader = () => {
         style={{
           padding: "20px",
           borderRadius: "28px",
+          marginBottom: "500px",
         }}
-        className="white-shadow-container "
+        className=" "
       >
-        <div className="flex flex-col items-center">
+        {/* <div className="flex flex-col items-center">
           <h6 className="text-[28px] font-bold">Acess free resources</h6>
           <div className="mt-1">🎉 included with your account 🎉 </div>
 
@@ -39,7 +41,8 @@ const WelcomePageHeader = () => {
               );
             })}
           </div>
-        </div>
+        </div> */}
+        <Banner />
       </div>
     </div>
   );

@@ -67,7 +67,7 @@ const getMonthLabels = () => {
 };
 
 interface ActivityDisplayProps {
-  info: TUser;
+  info: User;
 }
 
 const ActivityDisplay: React.FC<ActivityDisplayProps> = ({ info }) => {
@@ -91,7 +91,7 @@ const ActivityDisplay: React.FC<ActivityDisplayProps> = ({ info }) => {
 
   return (
     <>
-      <div className=" rounded-lg max-w-[96vw] " style={styles.container}>
+      <div className=" rounded-lg  " style={styles.container}>
         <h3 style={styles.header} className="font-jsans font-bold pb-3">
           Activity Tracker
         </h3>
@@ -149,7 +149,7 @@ const ActivityDisplay: React.FC<ActivityDisplayProps> = ({ info }) => {
       <div className="w-full mt-2 flex gap-2 items-center font-jsans justify-end pr-5">
         Less
         <div className="flex gap-2">
-          {[1, 2, 3, 5, 10].map((item, index) => {
+          {[2, 3, 5, 10].map((item, index) => {
             const color = getColor(item);
             return (
               <div
@@ -174,7 +174,8 @@ const styles = {
   container: {
     padding: "20px",
     fontFamily: "Arial, sans-serif",
-    border: "2px solid #e1e4e8",
+    width: "100%",
+    border: "1px solid #e1e4e8",
   },
   header: {
     marginBottom: "10px",
@@ -183,14 +184,14 @@ const styles = {
   },
   monthsRow: {
     display: "grid",
-    gridTemplateColumns: "repeat(52, 18.8px)",
+    gridTemplateColumns: "repeat(52, 22.9px)",
     marginBottom: "10px",
     paddingLeft: "22px",
-    paddingRight: "22px",
+    // paddingRight: "22px",
   },
   monthLabel: {
     textAlign: "center",
-    fontSize: "12px",
+    fontSize: "11px",
     marginRight: "5px",
     color: "#666",
   },
@@ -201,12 +202,12 @@ const styles = {
   weekColumn: {
     display: "grid",
     gridTemplateRows: "repeat(7, 16px)",
-    gridGap: "3px",
-    marginRight: "3px",
+    gridGap: "5px",
+    marginRight: "5px",
   },
   daySquare: {
-    width: "15.2px",
-    height: "15.2px",
+    width: "17.3px",
+    height: "17.3px",
     borderRadius: "2px",
     cursor: "pointer",
     transition: "background-color 0.3s",

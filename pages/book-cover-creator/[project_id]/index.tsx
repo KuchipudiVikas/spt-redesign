@@ -27,6 +27,7 @@ export default function Project({
       <div className="">
         <MainLayout
           showFooter={false}
+          fullWidth={true}
           info={info}
           Title={""}
           meta={{

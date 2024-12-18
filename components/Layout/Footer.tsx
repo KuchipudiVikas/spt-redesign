@@ -118,10 +118,10 @@ const Footer = () => {
   ];
 
   return (
-    <div className="bg-[#f7f7f8] pt-5 mt-20 pb-20">
+    <div className="bg-[#f7f7f8] pt-5 px-5 md:mt-20 md:pb-20">
       <div className="max-w-[1300px]  mx-auto font-jsans">
-        <div className="grid grid-cols-5 mt-[20px] w-full">
-          <div className="col-span-2">
+        <div className="grid md:grid-cols-5 md:mt-[20px] w-full">
+          <div className="col-span-2 md:block  flex items-center mb-10 md:mb-0 ">
             <img
               src={
                 "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/favIcon.png"
@@ -151,7 +151,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-3 px-10 flex">
+          <div className="col-span-3 px-10 w-full flex gap-5 md:gap-0">
             {LinkData.map((item, index) => (
               <div key={index} className="w-full">
                 <h6 className="font-bold text-primary text-[18px]">

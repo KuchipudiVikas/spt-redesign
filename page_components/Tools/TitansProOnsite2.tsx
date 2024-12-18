@@ -19,6 +19,14 @@ import { Search } from "lucide-react";
 import { DownloadCloudIcon } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { darkenColor, lightenColor } from "@/utils/common";
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableRow,
+  TableCell,
+  TableHead,
+} from "@/components/ui/table";
 
 const getResults = async ({
   searchedText,
@@ -461,12 +469,12 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
             </button>
           </section>
           <section className="flex  justify-center  max-w-[100vw]">
-            <div className="flex   overflow-auto w-full justify-center">
-              <table className="table-auto w-full my-12">
-                <thead className="sticky w-full top-16">
-                  <tr className={` `}>
-                    <th className={``}>
-                      <div className="twa-th">
+            <div className="flex mt-10  overflow-auto w-full justify-center">
+              <Table className="table-auto kwt-table my-12">
+                <TableHeader className="sticky top-16">
+                  <TableRow className={` `}>
+                    <TableHead className={``}>
+                      <div className="w-full flex justify-between">
                         <h6
                           style={{
                             border: "none",
@@ -493,9 +501,9 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                           />
                         </button>
                       </div>
-                    </th>
-                    <th className={``}>
-                      <div className="twa-th">
+                    </TableHead>
+                    <TableHead className={``}>
+                      <div className="w-full flex justify-between">
                         <h6
                           style={{
                             fontSize: "15px",
@@ -505,7 +513,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                           Est. Search Volume
                         </h6>
                         <button
-                          className={`hover:cursor-pointer ml-2 bg-white`}
+                          className={`hover:cursor-pointer ml-2 `}
                           style={{ border: "none" }}
                           onClick={() => sortResults("searchVolume")}
                         >
@@ -519,10 +527,10 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                           />
                         </button>
                       </div>
-                    </th>
+                    </TableHead>
 
-                    <th className={``}>
-                      <div className="twa-th">
+                    <TableHead className={``}>
+                      <div className="w-full flex justify-between">
                         <h6
                           style={{
                             fontSize: "15px",
@@ -547,18 +555,18 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                             <ArrowUpDownIcon
                               style={{
                                 border: "none",
-                                width: "20px",
-                                height: "20px",
+                                width: "15px",
+                                height: "15px",
                               }}
                               className={`inline-block   `}
                             />
                           </span>
                         </button>
                       </div>
-                    </th>
+                    </TableHead>
 
-                    <th className={``}>
-                      <div className="twa-th">
+                    <TableHead className={``}>
+                      <div className="flex w-full  justify-between">
                         <h6
                           style={{
                             fontSize: "15px",
@@ -582,17 +590,17 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                             <ArrowUpDownIcon
                               style={{
                                 border: "none",
-                                width: "20px",
-                                height: "20px",
+                                width: "15px",
+                                height: "15px",
                               }}
                               className={`inline-block   `}
                             />
                           </span>
                         </button>
                       </div>
-                    </th>
-                    <th className={``}>
-                      <div className="twa-th">
+                    </TableHead>
+                    <TableHead className={``}>
+                      <div className="flex w-full justify-between">
                         <h6
                           style={{
                             fontSize: "15px",
@@ -617,17 +625,17 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                             <ArrowUpDownIcon
                               style={{
                                 border: "none",
-                                width: "20px",
-                                height: "20px",
+                                width: "15px",
+                                height: "15px",
                               }}
                               className={`inline-block   `}
                             />
                           </span>
                         </button>
                       </div>
-                    </th>
-                  </tr>
-                </thead>
+                    </TableHead>
+                  </TableRow>
+                </TableHeader>
 
                 <tbody>
                   {isFreeUser && results.length ? (
@@ -650,12 +658,12 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                     getFilteredResults().map((result, idx) => {
                       return (
                         <tr key={idx}>
-                          <td className="">
+                          <TableCell className="">
                             <div
                               style={{
                                 color: "#0073ff",
                               }}
-                              className="twa-td"
+                              className=""
                             >
                               <Link
                                 className={`text-blue-500 hover:text-blue-800`}
@@ -669,13 +677,13 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                                 </h6>
                               </Link>
                             </div>
-                          </td>
-                          <td className="">
+                          </TableCell>
+                          <TableCell className="">
                             <div
                               style={{
                                 color: "",
                               }}
-                              className="twa-td font-semibold flex justify-center"
+                              className=" font-medium flex justify-center"
                             >
                               <h6
                                 style={{
@@ -688,13 +696,13 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                                 {numberWithCommas(result.searchVolume)}
                               </h6>
                             </div>
-                          </td>
-                          <td className="">
+                          </TableCell>
+                          <TableCell className="">
                             <div
                               style={{
                                 color: "",
                               }}
-                              className="twa-td font-semibold flex justify-center"
+                              className=" font-medium flex justify-center"
                             >
                               <h6
                                 style={{
@@ -707,24 +715,25 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                                 {numberWithCommas(result.searchResultT)}
                               </h6>
                             </div>
-                          </td>
-                          <td className="">
+                          </TableCell>
+                          <TableCell className="">
                             <div
                               style={{
-                                backgroundColor: lightenColor(
-                                  result.demandColor,
-                                  85
-                                ),
-                                color: darkenColor(result.demandColor, 40),
-                                border: `1px solid ${darkenColor(
-                                  result.demandColor,
-                                  40
-                                )}`,
+                                // backgroundColor: lightenColor(
+                                //   result.demandColor,
+                                //   85
+                                // ),
+                                // color: darkenColor(result.demandColor, 40),
+                                color: "black",
+                                // border: `1px solid ${darkenColor(
+                                //   result.demandColor,
+                                //   40
+                                // )}`,
                               }}
-                              className="twa-td flex justify-center"
+                              className=" flex justify-center"
                             >
                               <p
-                                className={`rounded-full w-7 h-7 flex items-center justify-center font-bold  px-2 `}
+                                className={`rounded-full w-7 h-7 flex items-center justify-center font-medium  px-2 `}
                                 style={{
                                   // backgroundColor: result.demandColor,
                                   filter:
@@ -745,24 +754,26 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                                 </h6>
                               </p>
                             </div>
-                          </td>
-                          <td className={``}>
+                          </TableCell>
+                          <TableCell className={``}>
                             <div
-                              style={{
-                                backgroundColor: lightenColor(
-                                  result.opportunityColor,
-                                  85
-                                ),
-                                color: darkenColor(result.opportunityColor, 40),
-                                border: `1px solid ${darkenColor(
-                                  result.opportunityColor,
-                                  40
-                                )}`,
-                              }}
-                              className="twa-td font justify-center items-center"
+                              style={
+                                {
+                                  // backgroundColor: lightenColor(
+                                  //   result.opportunityColor,
+                                  //   85
+                                  // ),
+                                  // color: darkenColor(result.opportunityColor, 10),
+                                  // border: `1px solid ${darkenColor(
+                                  //   result.opportunityColor,
+                                  //   40
+                                  // )}`,
+                                }
+                              }
+                              className=" font justify-center items-center"
                             >
                               <p
-                                className={`rounded-full mx-auto w-7 h-7 flex items-center justify-center font-semibold  px-3 py-1 text-center  `}
+                                className={`rounded-full mx-auto w-7 h-7 flex items-center justify-center font-medium  px-3 py-1 text-center  `}
                                 style={{
                                   filter:
                                     result.opportunityScore === -1
@@ -773,7 +784,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                                 <h6> {result.opportunityScore}</h6>
                               </p>
                             </div>
-                          </td>
+                          </TableCell>
                         </tr>
                       );
                     })
@@ -797,7 +808,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                     </tr>
                   )}
                 </tbody>
-              </table>
+              </Table>
             </div>
           </section>
         </main>

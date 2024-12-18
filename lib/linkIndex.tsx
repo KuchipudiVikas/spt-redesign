@@ -24,6 +24,7 @@ enum LinkIndex {
   TRADEMARK = "/trademark",
   FEATURES = "/features",
   PRICING = "/pricing",
+  TOOLS = "/tools",
 
   TITANS_PRO = "/titans-pro/on-site",
   BOOK_WRITER = "https://author.selfpublishingtitans.com",

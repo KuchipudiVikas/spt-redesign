@@ -48,29 +48,15 @@ function QrCodePage({ info }: QrCodePageProps) {
         Body={
           <div className="min-h-screen  ">
             <div className="flex justify-center">
-              <div className="md:m-12 min-h-[410px] border light-border sp-container  max-w-screen-lg mx-auto p-4 bg-white  rounded-2xl">
+              <div className="md:m-12  min border light-border sp-container  max-w-screen-lg mx-auto p-4 bg-white  rounded-2xl">
                 <div className="flex flex-col">
-                  <div className="flex-1 border rounded-lg p-3 md:min-w-[500px]">
-                    {value ? (
-                      <div className="w-fit  h-fit mx-auto">
-                        <QRCode
-                          id="qrDownload"
-                          value={value}
-                          size={Math.min(365, window.innerWidth * 0.5)}
-                          level={"H"}
-                          includeMargin={true}
-                        />
-                      </div>
-                    ) : (
-                      <div className="flex justify-center h-full py-4  items-center md:min-w-[400px]">
-                        <div className="w-[270px] h-[270px] bg-[#e3e3e3] flex justify-center items-center ">
-                          <h6>No Url Entered!</h6>
-                        </div>
-                      </div>
-                    )}
-                  </div>
                   <div className="flex-[2] flex-col">
-                    <div className="flex  mt-12 gap-5 flex-col">
+                    <div
+                      style={{
+                        minWidth: "500px",
+                      }}
+                      className="flex  mt-12 gap-5 flex-col"
+                    >
                       <Label className="text-label">Enter Website URL</Label>
                       <Textarea
                         value={value}
@@ -110,6 +96,19 @@ function QrCodePage({ info }: QrCodePageProps) {
                       </Button>
                     </div>
                   </div>
+                  {value && (
+                    <div className="flex-1 border mt-5 rounded-lg p-3 md:min-w-[500px]">
+                      <div className="w-fit  h-fit mx-auto">
+                        <QRCode
+                          id="qrDownload"
+                          value={value}
+                          size={Math.min(365, window.innerWidth * 0.5)}
+                          level={"H"}
+                          includeMargin={true}
+                        />
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

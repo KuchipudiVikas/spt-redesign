@@ -9,6 +9,7 @@ import {
   shop_bundle_description,
   isOpenNewTab,
 } from "@/data/shopData";
+import { ImageLinkIndex } from "@/data/ImageLinkIndex";
 
 export const IndividualShopItems = ({
   features,
@@ -32,7 +33,7 @@ export const IndividualShopItems = ({
                 <div key={`ft_${index2}`} className="flex my-3 h-full w-full">
                   <div
                     key={`ft_${index2}`}
-                    className="transform  scale-95 hover:scale-100 transition-transform  shadow-2xl rounded-lg flex flex-col justify-between  w-full h-full relative"
+                    className="sp-container p-3 border light-border   rounded-lg flex flex-col justify-between  w-full h-full relative"
                   >
                     {listing.isSale && listing.sale_price && (
                       <p className="w-fit text-xs themeGradient p-3 px-6 text-center text-white absolute top-0 right-0">
@@ -43,37 +44,44 @@ export const IndividualShopItems = ({
                       </p>
                     )}
 
-                    {listing.video_url !== "false" ? (
-                      <div className=" object-center object-cover ">
+                    <div className="relative w-full aspect-w-16 aspect-h-9">
+                      {ImageLinkIndex[listing.id] ? (
+                        <Image
+                          src={ImageLinkIndex[listing.id]}
+                          alt={listing.Title}
+                          className="w-full h-[206px] object-cover rounded-lg object-contain"
+                          width={1000}
+                          height={1000}
+                        />
+                      ) : listing.video_url !== "false" ? (
                         <iframe
                           src={listing.video_url}
-                          className="aspect-2  rounded-lg object-contain w-full"
+                          className=" w-full h-[206px] rounded-lg"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
                           sandbox="allow-scripts allow-same-origin"
                         ></iframe>
-                      </div>
-                    ) : (
-                      <div className="w-full videoRatioStandard flex items-start">
+                      ) : (
                         <Image
                           src={listing.displayImage.url}
                           alt={listing.Title}
-                          className=" w-full h-auto rounded-lg object-contain aspect-content "
+                          className="w-full h-full rounded-lg object-contain"
                           width={1000}
                           height={1000}
-                          // layout="fill"
                         />
-                      </div>
-                    )}
+                      )}
+                    </div>
 
-                    <h6 className="px-4 mt-2 ">{listing.Title}</h6>
+                    <h6 className="px-4 mt-2 font-semibold ">
+                      {listing.Title}
+                    </h6>
                     {/* {listing.id} */}
 
-                    <div className="px-4 pt-1.5 ml-1">
+                    <div className="px-3 pt-1.5 ml-1">
                       {listing.Description && (
                         <h6 className="text-gray-700">
                           <div
-                            className="leading-relaxed  font-sans text-md "
+                            className="leading-relaxed  font-sans text-sm "
                             dangerouslySetInnerHTML={{
                               __html: listing.Description,
                             }}
@@ -85,26 +93,31 @@ export const IndividualShopItems = ({
 
                     <div className="p-4 mt-auto flex justify-between items-center flex-wrap py-4">
                       <div className=" w-fit">
-                        {/* <Link passHref className="  "> */}
-                        {/* @ts-ignore */}
-                        <Button
-                          passHref
+                        <Link
                           href={
                             listing.buy_page === ""
                               ? `/shop/${listing.id}`
                               : listing.buy_page
                           }
-                          disabled={listing?.isLifetimeOwned}
-                          variant="contained"
-                          className={` mr-2 ${
-                            listing?.isLifetimeOwned
-                              ? "bg-gray-300 cursor-not-allowed"
-                              : "themeGradient"
-                          }`}
+                          passHref
+                          className="  "
                         >
-                          Buy
-                        </Button>
-                        {/* </Link> */}
+                          <Button
+                            disabled={listing?.isLifetimeOwned}
+                            style={{
+                              cursor: listing?.isLifetimeOwned
+                                ? "not-allowed"
+                                : "pointer",
+                            }}
+                            className={` mr-2 rounded-full ${
+                              listing?.isLifetimeOwned
+                                ? "bg-gray-500 "
+                                : "themeGradient"
+                            }`}
+                          >
+                            Buy
+                          </Button>
+                        </Link>
                         {productsWithPreview.includes(listing.id) && (
                           <Link
                             href={shopUrlIndex[listing.id]}
@@ -114,7 +127,7 @@ export const IndividualShopItems = ({
                             }
                             className=" rounded-md"
                           >
-                            <Button className="" variant="outline">
+                            <Button className="rounded-full" variant="outline">
                               Preview
                             </Button>
                           </Link>

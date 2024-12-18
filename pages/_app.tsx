@@ -23,6 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 startPosition={0.3}
                 stopDelayMs={200}
                 height={3}
+                showOnShallow={false}
               />
               <Component {...pageProps} />
               <Toaster />

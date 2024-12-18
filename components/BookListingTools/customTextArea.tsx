@@ -26,7 +26,6 @@ const CustomTextArea: React.FC<CustomTextAreaProps> = ({
   rows = 4,
   helperstyle = {},
   containerStyle = {},
-
   style,
 }) => {
   const borderColor = error ? (severity === "red" ? "red" : "orange") : "#ccc";

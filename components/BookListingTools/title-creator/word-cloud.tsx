@@ -34,11 +34,9 @@ const WordCloud: React.FC<IWordCloudProps> = ({ titles }) => {
         border: "1px solid #ccc",
         borderRadius: "10px",
       }}
-      className="overflow-y-auto p-3 max-h-[80vh] thin-scrollbar"
+      className="overflow-y-auto p-3 min-w-[170px] h-full w-full max-h-[80vh] thin-scrollbar"
     >
-      <h6 className="text-left font-bold pb-3">
-        Top Competitor Title Keywords
-      </h6>
+      <h6 className="text-left font-bold pb-3">Top Keywords</h6>
       <Separator className="mb-3" />
       <div className="max-h-[400px]">
         {wordEntries.slice(0, 31).map(([word, frequency], index) => (

@@ -50,7 +50,7 @@ const ConfigSection: React.FC<ConfigSectionProps> = ({
           </select>
           <Input
             type="text"
-            className="w-[90vw] hidden md:flex md:w-[35vw] lg:w-[450px]"
+            className="w-[90vw] flex md:w-[35vw] lg:w-[450px]"
             placeholder="Search for a product"
             value={searchedText}
             onChange={(e) => {
@@ -74,7 +74,6 @@ const ConfigSection: React.FC<ConfigSectionProps> = ({
             </Button>
           </HintWrapper>
         </div>
-        <div className=""></div>
       </div>
     </section>
   );

@@ -38,7 +38,7 @@ const NavigationMenu = React.forwardRef<
         console.log("Value changed:", value, typeof value);
         setMenuValue(value);
       }}
-      // value="create"
+      // value="tools"
     >
       {children}
       <NavigationMenuViewport rightAligned={isRightAligned} />

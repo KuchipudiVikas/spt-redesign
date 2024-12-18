@@ -274,7 +274,7 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
       Body={
         <div className="min-h-[60vh] comp-container mx-auto mb-10 mt-0 md:px-24">
           <div className="flex flex-col gap-3">
-            {!false && (
+            {/* {!false && (
               <div className="samples-container">
                 <h6>Here are some free results to checkout: </h6>
                 <div className="sample-btn-container">
@@ -313,8 +313,8 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                   </Button>
                 </div>
               </div>
-            )}
-            <div className="sp-container border-2 light-border p-6 rounded-lg">
+            )} */}
+            <div className="sp-container border-2 mt-20 light-border p-6 rounded-lg">
               <div className="grid grid-cols-5 gap-4">
                 <div className=" ">
                   <Label className="text-label ">Select Paper</Label>

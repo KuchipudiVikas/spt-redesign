@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useState, useRef } from "react";
 import MainLayout, { getProfile } from "@/components/Layout";
-
-import HintWrapper from "@/utils/hint";
+import { TryOutFields } from "@/components/BookListingTools/title-creator/Tables";
 import { getSession } from "next-auth/react";
 import WordCloud from "@/components/BookListingTools/title-creator/word-cloud";
 import { GetServerSidePropsContext } from "next";
@@ -17,21 +16,16 @@ import Accounts from "@/lib/mw/Accounts";
 import { AccountUtils } from "@/utils/retroVision";
 import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import { User } from "@/lib/ts/types/user";
-import { Button } from "@/components/ui/button";
 import { Usage } from "@/lib/models/interfaces/authortools";
-import { Input } from "@/components/ui/input";
-import { titleCreatorData } from "@/data/guidelines";
-import { ArrowRightIcon } from "lucide-react";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+
 import {
   TableComp,
   TableComp2,
 } from "@/components/BookListingTools/title-creator/Tables";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 
 import ConfigSection from "@/components/BookListingTools/title-creator/Config";
 import { Separator } from "@/components/ui/separator";
-import CustomTextArea from "@/components/BookListingTools/customTextArea";
 
 interface IndexProps {
   token: string;
@@ -139,6 +133,8 @@ const Index: React.FC<IndexProps> = ({ token, isOwner, info }) => {
     UpdateUsage();
   }, []);
 
+  const [colsNumber, setColsNumber] = useState(4);
+
   return (
     <MainLayout
       meta={{
@@ -159,7 +155,7 @@ const Index: React.FC<IndexProps> = ({ token, isOwner, info }) => {
             HandleSearch={HandleSearch}
             usage={usage as Usage}
           />
-
+          {/* 
           {true && (
             <div className="w-full flex justify-center">
               <div className="samples-container">
@@ -215,7 +211,7 @@ const Index: React.FC<IndexProps> = ({ token, isOwner, info }) => {
                 </div>
               </div>
             </div>
-          )}
+          )} */}
           {loading ? (
             <div
               className=" max-w-[50vw] mx-auto min-h-[50vh]"
@@ -231,10 +227,33 @@ const Index: React.FC<IndexProps> = ({ token, isOwner, info }) => {
             </div>
           ) : (
             <div className=" mt-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="">
                 <div className="col-span-2 flex  flex-col gap-5">
                   <TryOutFields />
-                  <div className="col-span-3">
+                </div>
+
+                <div className="flex mt-10 items-center gap-2">
+                  <span className="text-sm font-medium  flex">
+                    Columns Per Row:
+                  </span>
+                  <div className="">
+                    <ToggleGroup
+                      value={colsNumber.toString()}
+                      onValueChange={(value) => setColsNumber(parseInt(value))}
+                      type="single"
+                    >
+                      <ToggleGroupItem value="2">2</ToggleGroupItem>
+                      <ToggleGroupItem value="4">4</ToggleGroupItem>
+                    </ToggleGroup>
+                  </div>
+                </div>
+
+                <div
+                  className={`grid grid-cols-${
+                    colsNumber == 4 ? "10" : "2"
+                  } mt-2 gap-5`}
+                >
+                  <div className={`col-span-${colsNumber == 4 ? "3" : "1"}`}>
                     <TableComp2 titles={relatedTitles} />
                   </div>
                   <div
@@ -242,9 +261,8 @@ const Index: React.FC<IndexProps> = ({ token, isOwner, info }) => {
                       borderRadius: "16px",
                       border: "1px solid #ccc",
                       padding: "16px",
-                      background: "#f7f6f8",
                     }}
-                    className=""
+                    className={`col-span-${colsNumber == 4 ? "3" : "1"}`}
                   >
                     <h6 className="text-left font-bold pb-3">
                       100 Title Inspirations
@@ -252,33 +270,42 @@ const Index: React.FC<IndexProps> = ({ token, isOwner, info }) => {
                     <Separator className="mb-3" />
                     <TableComp
                       titles={titles}
+                      // @ts-ignore
                       handleCopy={handleCopy}
                       copiedIndex={copiedIndex}
                     />
                   </div>
-                </div>
-                <div className="col-span-1">
-                  {<WordCloud titles={relatedTitles} />}
                   <div
-                    style={{
-                      borderRadius: "16px",
-                      border: "1px solid #ccc",
-                      padding: "16px",
-                    }}
-                    className="col-span-2 mt-5 bg-[f7f6f8]  w-full"
+                    className={`col-span-${colsNumber == 4 ? "4" : "2"} flex ${
+                      colsNumber == 2 && "grid grid-cols-2"
+                    } gap-5 `}
                   >
-                    <h6 className="text-left font-bold pb-3">
-                      Related Search Suggestions
-                    </h6>
-                    <TableComp
-                      titles={suggestions}
-                      handleCopy={handleCopy}
-                      copiedIndex={copiedIndex}
-                    />
+                    <div
+                      style={{
+                        borderRadius: "16px",
+                        border: "1px solid #ccc",
+                        padding: "16px",
+                      }}
+                      className={`col-span-1    w-full`}
+                    >
+                      <h6 className="text-left font-bold pb-3">
+                        Related Search Suggestions
+                      </h6>
+                      <TableComp
+                        titles={suggestions}
+                        // @ts-ignore
+                        handleCopy={handleCopy}
+                        copiedIndex={copiedIndex}
+                      />
+                    </div>
+                    <div
+                      className={`h-full ${colsNumber == 2 && "col-span-1"} `}
+                    >
+                      <WordCloud titles={relatedTitles} />
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="grid md:grid-cols-8 mt-12 gap-3"></div>
             </div>
           )}
         </div>
@@ -319,116 +346,4 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     pageData: null,
     isOwner: false,
   });
-}
-
-function TryOutFields() {
-  const [title1, setTitle1] = useState("");
-  const [title2, setTitle2] = useState("");
-  const titleLengthLimit = 200;
-
-  const capitalizeText = (text: string): string => {
-    return text.replace(/\b\w/g, (char) => char.toUpperCase());
-  };
-  return (
-    <div className="flex w-full p-4 border rounded-lg bg-[#f7f6f8]  gap-1 flex-col">
-      <div className="flex items-start flex-col">
-        <div className="w-full">
-          <Label className="font-bold pl-4 pb-1 ">Enter Title #1</Label>
-          <div
-            style={{
-              borderColor: title2.length > titleLengthLimit ? "red" : "",
-              border: "1px solid #e2e8f0",
-              background: "white",
-              borderRadius: "16px",
-            }}
-            className="flex justify-between items-center"
-          >
-            <CustomTextArea
-              value={title1}
-              rows={2}
-              helperText={`${title1.length}/${titleLengthLimit} characters used`}
-              onChange={(e) => setTitle1(e.target.value)}
-              style={{
-                border: "none",
-              }}
-              containerStyle={{
-                border: "none",
-              }}
-            />
-            <HintWrapper hint="Capitalized Title 1">
-              <svg
-                onClick={() => setTitle1(capitalizeText(title1))}
-                xmlns="http://www.w3.org/2000/svg"
-                height="30px"
-                viewBox="0 -960 960 960"
-                width="30px"
-                className="cursor-pointer mr-1"
-                fill="#000"
-              >
-                <path d="M440-200v-80h400v80H440Zm160-160v-248l-64 64-56-56 160-160 160 160-56 56-64-64v248h-80Zm-480 0 136-360h64l136 360h-62l-32-92H216l-32 92h-64Zm114-144h108l-52-150h-4l-52 150Z" />
-              </svg>
-            </HintWrapper>
-          </div>
-        </div>
-        <div className="flex">
-          <span className="text-[10px]">
-            {title1.length}/{titleLengthLimit} characters used
-          </span>
-        </div>
-      </div>
-      <div className="flex mt-3 items-center">
-        <div className="w-full">
-          <Label className="font-bold pl-4 pb-1 ">Enter Title #2</Label>
-          <div
-            style={{
-              borderColor: title2.length > titleLengthLimit ? "red" : "",
-              border: "1px solid #e2e8f0",
-              background: "white",
-              borderRadius: "16px",
-            }}
-            className="flex justify-between items-center"
-          >
-            {/* <Textarea
-              className="w-full"
-              value={title2}
-              style={{
-                resize: "none",
-                border: "none",
-              }}
-              onChange={(e) => setTitle2(e.target.value)}
-            /> */}
-
-            <CustomTextArea
-              value={title2}
-              rows={2}
-              helperText={`${title2.length}/${titleLengthLimit} characters used`}
-              onChange={(e) => setTitle2(e.target.value)}
-              containerStyle={{
-                border: "none",
-              }}
-            />
-
-            <HintWrapper hint="Capitalized Title 2">
-              <svg
-                onClick={() => setTitle2(capitalizeText(title2))}
-                xmlns="http://www.w3.org/2000/svg"
-                height="30px"
-                viewBox="0 -960 960 960"
-                width="30px"
-                className="cursor-pointer mr-1"
-                fill="#000"
-              >
-                <path d="M440-200v-80h400v80H440Zm160-160v-248l-64 64-56-56 160-160 160 160-56 56-64-64v248h-80Zm-480 0 136-360h64l136 360h-62l-32-92H216l-32 92h-64Zm114-144h108l-52-150h-4l-52 150Z" />
-              </svg>
-            </HintWrapper>
-          </div>
-        </div>
-      </div>
-      <div className="text-">
-        <span className="text-[10px]">
-          {title2.length}/{titleLengthLimit} characters used
-        </span>
-      </div>
-    </div>
-  );
 }

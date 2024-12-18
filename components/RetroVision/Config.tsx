@@ -166,7 +166,7 @@ const Config: React.FC<ConfigProps> = ({
               getRankAndSetResults={getRankAndSetResults}
             />
           </div>
-          {true && (
+          {/* {true && (
             <div className="samples-container  px-4 mt-8 ">
               <h6>
                 {" "}
@@ -198,7 +198,7 @@ const Config: React.FC<ConfigProps> = ({
                 <ArrowRightIcon />
               </Button>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </section>

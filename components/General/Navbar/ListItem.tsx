@@ -22,13 +22,18 @@ const ListItem = React.forwardRef<
 
   return (
     <li>
-      <NavigationMenuLink asChild>
+      <NavigationMenuLink
+        style={{
+          height: "100%",
+        }}
+        asChild
+      >
         <Link
           href={props.href}
           ref={ref}
           target={newTab ? "_blank" : "_self"}
           className={cn(
-            "block select-none space-y-1 h-[100px] rounded-md p-3 sp-container light-border border leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent flex-wrap focus:text-accent-foreground",
+            "block select-none space-y-1 h-fit rounded-md p-3 sp-container light-border border leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent flex-wrap focus:text-accent-foreground",
             className
           )}
           {...props}

@@ -10,15 +10,16 @@ import checkIcon from "../../public/assets/masterclass/check.svg";
 import xCircleIcon from "../../public/assets/masterclass/x-circle.svg";
 import Link from "next/link";
 import AboutMasterclassItem from "../../components/Common/DescriptionWithTitle";
-import VideoCardWithDetails from "../../components/Common/VideoCardWithDetails";
 import NoFakePromisesILS from "@/components/Common/NoFakePromisesILS";
 import MainLayout, { getProfile } from "@/components/Layout";
-import { CheckIcon } from "lucide-react";
+import { ArrowRight, CheckIcon } from "lucide-react";
 import PageTitle from "@/components/Common/PageTitle";
 import Features from "@/lib/mw/Accounts/Features";
 import BGsvg from "@/public/assets/home/bg.svg";
 import Reviews from "@/components/Home/Reviews";
 import { StarIcon } from "lucide-react";
+import { IVideoCardWithDetails } from "@/lib/models/interfaces/video_card";
+import { useRouter } from "next/router";
 
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -385,3 +386,62 @@ const TabSection = ({
     </div>
   );
 };
+
+export function VideoCardWithDetails({
+  info,
+  url,
+  title,
+  contentList,
+  button,
+}: IVideoCardWithDetails) {
+  const router = useRouter();
+
+  return (
+    <section className="w-[95vw] md:max-w-[1200px]">
+      <div className="flex flex-col items-center">
+        <div className="relative w-full flex flex-col items-center justify-center mt-10 md:flex-row md:grid grid-cols-2 px-5 text-white ">
+          <iframe
+            className="videoRatioStandard  rounded-xl w-full"
+            src={url}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            sandbox="allow-scripts allow-same-origin"
+          ></iframe>
+
+          <div className="flex flex-col w-[90vw] md:w-full  h-full justify-between  px-5 text-black">
+            <div>
+              <h6 className={` font-extrabold text-[22px] mt-3`}>{title}</h6>
+            </div>
+            <div>
+              {contentList.map((text, index) => (
+                <div className="flex my-2 md:my-5" key={index}>
+                  <CheckIcon
+                    style={{
+                      strokeWidth: 3,
+                    }}
+                    className="mr-2 text-primary"
+                  />
+                  <h6 className="text-md font-medium">{text}</h6>
+                </div>
+              ))}
+              <div className="flex mt-5 md:mt-0 justify-start w-full ">
+                <Link
+                  data-cy="masterclass-get-it-now-1"
+                  href={button.link + "?email=" + info.email}
+                  className=" md:mt-0  text-center "
+                >
+                  <Button size="lg" className=" py-6 px-6 rounded-full">
+                    <ShoppingCartIcon />
+                    <p className="">Get it now</p>
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

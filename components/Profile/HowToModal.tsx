@@ -30,17 +30,17 @@ const HowToModal = () => {
           border: "1px solid #ccc",
         }}
         onClick={handleClickOpen}
-        className="flex gap-3 p-4 rounded-2xl bg-white cursor-pointer  items-center"
+        className="flex gap-3 p-3 py-4 h-fit rounded-2xl bg-white cursor-pointer  items-center"
       >
         <Image
           src={QuestionIcon.src}
           alt=""
           width={50}
           height={50}
-          className="my-auto w-[40px] h-auto"
+          className="my-auto w-[30px] h-auto"
         />{" "}
         <div className="flex flex-col">
-          <div className="text-[16px] font-bold">How it works? </div>
+          <div className="text-[15px] font-bold">How it works? </div>
           <div className="text-[11px] text-gray-500">What is this ?</div>
         </div>
       </div>

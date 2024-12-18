@@ -174,7 +174,7 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
       Body={
         <div className="min-h-[60vh] max-w-[1400px] mx-auto mb-10 mt-10 px-24">
           <div className="flex flex-col gap-3">
-            {!false && (
+            {/* {!false && (
               <div className="samples-container">
                 <h6>Here are some free results to checkout: </h6>
                 <div className="sample-btn-container">
@@ -198,7 +198,7 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
                   </Button>
                 </div>
               </div>
-            )}
+            )} */}
 
             <div
               style={{

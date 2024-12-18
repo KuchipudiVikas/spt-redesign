@@ -136,7 +136,7 @@ const DesktopBody: React.FC<DesktopBodyProps> = ({
                             {itemChild.status === AccessTypes.Limited ||
                             itemChild.status === AccessTypes.Max100Entries ||
                             itemChild.status === AccessTypes.Max200Entries ? (
-                              <h6 className="text-black capitalize font-bold">
+                              <h6 className="text-black capitalize text-[14px]">
                                 {itemChild.status}
                               </h6>
                             ) : (
@@ -165,9 +165,12 @@ const DesktopBody: React.FC<DesktopBodyProps> = ({
                                             // width: "35px",
                                             // height: "35px",
                                           }}
-                                          className="bg-green-700 rounded-full w-fit text-white p-2 "
+                                          className=" rounded-full w-fit text-green-500 p-2 "
                                         >
-                                          <CheckIcon size={24} />
+                                          <CheckIcon
+                                            size={24}
+                                            strokeWidth={3}
+                                          />
                                         </div>
                                       </div>
                                     )}
@@ -177,7 +180,7 @@ const DesktopBody: React.FC<DesktopBodyProps> = ({
                                     style={{
                                       strokeWidth: "3px",
                                     }}
-                                    className="bg-red-500 rounded-full w-fit text-white p-2 "
+                                    className=" rounded-full w-fit text-gray-500 p-2 "
                                   >
                                     <XIcon size={24} />
                                   </div>

@@ -121,13 +121,13 @@ const StreakBoard: React.FC<StreakBoardProps> = ({ user_id, token, info }) => {
     <div
       style={{
         border: "1px solid #ccc",
-        padding: "20px",
+        padding: "18px",
         borderRadius: "20px",
       }}
-      className="font-jsans"
+      className="h-full"
     >
       <div className="flex justify-between items-center">
-        <h6 className="text-xl flex items-center gap-3 font-semibold ">
+        <h6 className="text- flex items-center gap-3 font-semibold ">
           <Image
             src={FireIcon.src}
             alt=""
@@ -139,7 +139,7 @@ const StreakBoard: React.FC<StreakBoardProps> = ({ user_id, token, info }) => {
         </h6>
         <TimeToggle duration={duration} setDuration={setDuration} />
       </div>
-      <hr className="my-4" />
+      <hr className="my-2" />
 
       {loading ? (
         <h6 className="text-center mt-4">Loading...</h6>
@@ -151,7 +151,7 @@ const StreakBoard: React.FC<StreakBoardProps> = ({ user_id, token, info }) => {
                 <TableRow
                   key={entry.user_id}
                   style={{
-                    padding: "10px 0 ",
+                    padding: "4px 0 ",
                     backgroundColor:
                       entry.user_id === streakRank?.user_id
                         ? "#e0aaff"
@@ -160,30 +160,35 @@ const StreakBoard: React.FC<StreakBoardProps> = ({ user_id, token, info }) => {
                 >
                   <TableCell
                     style={{
-                      padding: "15px 0 ",
+                      padding: "2px 0 ",
                     }}
-                    className=""
+                    className="text-sm"
                     scope="row"
                   >
                     {entry.rank}
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="text-sm">
                     {entry.user_name || "user"}{" "}
                     {entry.user_id == user_id && "( You ) "}
                   </TableCell>
-                  <TableCell align="right">{entry.streak_days}</TableCell>
+                  <TableCell align="right" className="text-sm">
+                    {entry.streak_days}
+                  </TableCell>
                 </TableRow>
               ))}
               {streakRank &&
                 !data.some((entry) => entry.user_id === streakRank.user_id) && (
                   <>
                     <TableRow>
-                      <TableCell colSpan={3} style={{ height: "20px" }} />
+                      <TableCell colSpan={3} style={{ height: "1px" }} />
                     </TableRow>
                     <TableRow
-                      style={{
-                        backgroundColor: "#e0aaff",
-                      }}
+                      style={
+                        {
+                          // backgroundColor: "#e0aaff",
+                        }
+                      }
+                      className="lavbg"
                     >
                       <TableCell
                         style={{
@@ -242,7 +247,8 @@ function TimeToggle({ duration, setDuration }: TimeToggleProps) {
       style={{
         border: "1px solid #ccc",
       }}
-      onChange={(e) => setDuration(e.target.value)}
+      value={duration}
+      onChange={(e) => setDuration(e.target.value as TDurationTypes)}
       className="flex gap-4  p-1 w-fit rounded-lg"
     >
       {nameProxyIndex.map((d) => (

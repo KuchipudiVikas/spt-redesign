@@ -131,13 +131,13 @@ const LeaderBoard: React.FC<LeaderBoardProps> = ({ user_id, token, info }) => {
     <div
       style={{
         border: "1px solid #ccc",
-        padding: "20px",
+        padding: "18px",
         borderRadius: "20px",
       }}
       className="font-jsans"
     >
       <div className="flex justify-between items-center">
-        <h6 className="text-xl flex items-center gap-3 font-semibold ">
+        <h6 className="text flex items-center gap-3 font-semibold ">
           <Image
             src={Trophyicon.src}
             alt=""
@@ -150,7 +150,7 @@ const LeaderBoard: React.FC<LeaderBoardProps> = ({ user_id, token, info }) => {
         <TimeToggle duration={duration} setDuration={setDuration} />
       </div>
 
-      <hr className="my-4" />
+      <hr className="my-2" />
       {loading ? (
         <h6 className="text-center ">Loading...</h6>
       ) : (
@@ -169,20 +169,23 @@ const LeaderBoard: React.FC<LeaderBoardProps> = ({ user_id, token, info }) => {
                   >
                     <TableCell
                       style={{
-                        padding: "15px 0 ",
+                        padding: "4px 0 ",
                       }}
                       scope="row"
+                      className="text-sm"
                     >
                       {entry.rank}
                     </TableCell>
                     <TableCell
-                      className="cursor-pointer"
+                      className="cursor-pointer text-sm"
                       onClick={() => HandleViewProfile(entry.user_id)}
                     >
                       {entry.user_name || "user"}{" "}
                       {entry.user_id == user_id && " ( You )"}
                     </TableCell>
-                    <TableCell align="right">{entry.total_xp}</TableCell>
+                    <TableCell className="text-sm" align="right">
+                      {entry.total_xp}
+                    </TableCell>
                   </TableRow>
                 ))}
                 {userRank &&
@@ -192,7 +195,6 @@ const LeaderBoard: React.FC<LeaderBoardProps> = ({ user_id, token, info }) => {
                         style={{
                           border: "none",
                         }}
-                        className=""
                       >
                         <TableCell colSpan={3} style={{ height: "20px" }} />
                       </TableRow>
@@ -201,6 +203,7 @@ const LeaderBoard: React.FC<LeaderBoardProps> = ({ user_id, token, info }) => {
                           backgroundColor: "#e0aaff",
                           borderRadius: "10px",
                         }}
+                        className="lavbg"
                       >
                         <TableCell
                           style={{
@@ -218,6 +221,7 @@ const LeaderBoard: React.FC<LeaderBoardProps> = ({ user_id, token, info }) => {
                             borderBottomRightRadius: "14px",
                           }}
                           align="right"
+                          className="text-sm"
                         >
                           {userRank.total_xp}
                         </TableCell>
@@ -270,7 +274,7 @@ function TimeToggle({ duration, setDuration }: TimeToggleProps) {
       {nameProxyIndex.map((d) => (
         <option
           key={d.value}
-          className={`border rounded-lg p-2 ${
+          className={`border text-sm rounded-lg p-2 ${
             duration === d.value ? "bg-gray-300" : "border-gray-300"
           }`}
           value={d.value}

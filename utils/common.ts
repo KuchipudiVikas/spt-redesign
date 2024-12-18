@@ -106,6 +106,8 @@ export function stringToValidFilename(str: string): string {
  * @returns The adjusted color string in the same format as the input.
  */
 export function lightenColor(color: string, amount: number = 20): string {
+  console.log("color", color, "typeof", typeof color);
+
   return adjustColorShade(color, Math.abs(amount));
 }
 
@@ -200,6 +202,5 @@ function adjustHslShade(hslColor: string, amount: number): string {
 }
 
 export const isOwned = (featuresOwned, id) => {
-  console.log("featuresOwned", featuresOwned, id);
-  return featuresOwned?.find((item) => item.feature_id._id === id);
+  return featuresOwned?.find((item) => item.feature_id?._id === id);
 };

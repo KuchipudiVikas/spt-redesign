@@ -3,16 +3,13 @@ import { Button } from "../ui/button";
 import DotIcon from "@/public/assets/home/dot-svgrepo-com.svg";
 import Image from "next/image";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
-import { Separator } from "../ui/separator";
-import { StarIcon } from "lucide-react";
+import LinkIndex from "@/lib/linkIndex";
 
 import SteveImage from "@/public/images/testimonials/9.png";
 import PamImage from "@/public/images/testimonials/10.png";
-import ChrisImage from "@/public/images/testimonials/11.png";
 import LorenzoImage from "@/public/images/testimonials/1.png";
 import NuriaImage from "@/public/images/testimonials/2.png";
 import RachelImage from "@/public/images/testimonials/6.png";
-import dynamic from "next/dynamic";
 import { Banner } from "./Banner";
 import Link from "next/link";
 
@@ -46,16 +43,18 @@ const Hero = () => {
           publishing journey.
         </div>
         <div className="mt-8 flex gap-4">
-          <Button
-            className="font-bold flex text-[16px] rounded-full"
-            style={{
-              padding: "24px 40px",
-            }}
-          >
-            <Image src={DotIcon} alt="Brand Logo" width={5} height={5} />
-            Get Started
-          </Button>
-          <Link href={"/tools"}>
+          <Link href={LinkIndex.PRICING}>
+            <Button
+              className="font-bold flex text-[16px] rounded-full"
+              style={{
+                padding: "24px 40px",
+              }}
+            >
+              <Image src={DotIcon} alt="Brand Logo" width={5} height={5} />
+              Get Started
+            </Button>
+          </Link>
+          <Link href={LinkIndex.TOOLS}>
             <Button
               variant={"outline"}
               className="font-bold bg-transparent flex text-[16px] rounded-full"

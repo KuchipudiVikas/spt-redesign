@@ -12,7 +12,13 @@ import { UpdateUsage as UpdateToolUsage } from "@/lib/api/usage";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { shopIds } from "@/data/shopData";
-import { CopyIcon, ExternalLinkIcon } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronRight,
+  CopyIcon,
+  ExternalLinkIcon,
+  MinusIcon,
+} from "lucide-react";
 import { PlusIcon } from "lucide-react";
 import PageTitle from "@/components/Common/PageTitle";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
@@ -46,16 +52,16 @@ const ListItem = ({
   matchSearch,
   focused,
   searching,
+  link,
   ...props
 }: any) => {
   const [justCopied, setJustCopied] = useState(false);
+  const [copiedLabel, setCopiedLabel] = useState("");
+
   return (
     <div
-      {...props}
       style={{
-        paddingLeft: !searching
-          ? DEFAULT_PADDING + ICON_SIZE + level * LEVEL_SPACE
-          : DEFAULT_PADDING + ICON_SIZE + 2 * LEVEL_SPACE,
+        paddingLeft: !searching ? 16 + 8 + level * 16 : 16 + 8 + 2 * 16,
         cursor: "pointer",
         zIndex: focused ? 999 : "unset",
         position: "relative",
@@ -66,58 +72,56 @@ const ListItem = ({
       }}
       className="p-2 flex items-center border-b"
     >
-      <span className="font-medium ">
-        <h6 className="font-Inter text-[16px]">{props._label}</h6>
+      <span className="font-medium">
+        <h6 className="font-Inter gap-5 flex text-[16px]">
+          {hasNodes ? (
+            <div
+              className="mx select-none ml-auto mr"
+              onClick={(e) => {
+                hasNodes && toggleNode && toggleNode();
+                e.stopPropagation();
+              }}
+            >
+              {isOpen ? (
+                <ChevronDown className="w-4 h-4" />
+              ) : (
+                <ChevronRight className="w-4 h-4" />
+              )}
+            </div>
+          ) : (
+            <div className="inline-block mx-2">&nbsp;</div>
+          )}
+          {props._label}
+        </h6>
       </span>
       {searching && (
-        <span className="ml-2 text-xs  rounded-md p-0.5 ">
-          <h6 color={"primary"} className="font-medium">
-            {label}
-          </h6>
+        <span className="ml-2 text-xs rounded-md p-0.5">
+          <h6 className="font-medium">{label}</h6>
         </span>
-      )}
-      {hasNodes ? (
-        <div
-          style={{
-            display: "inline-block",
-            paddingRight:
-              (DEFAULT_PADDING + ICON_SIZE + level * LEVEL_SPACE) * 1.5,
-          }}
-          className="mx-4 select-none ml-auto mr-8"
-          onClick={(e) => {
-            hasNodes && toggleNode && toggleNode();
-            e.stopPropagation();
-          }}
-        >
-          <PlusIcon />
-        </div>
-      ) : (
-        <div className="inline-block mx-4">&nbsp;</div>
       )}
       {props.leaf && (
         <div className="ml-auto flex gap-1 items-center">
           {justCopied && (
-            <p className="text-xs text-gray-600 animate__animated animate__fadeIn">
-              Copied to Clipboard!
+            <p className="text-xs text-gray-600 mr-3 animate__animated animate__fadeIn">
+              {`Copied: ${copiedLabel}`}
             </p>
           )}
           <Button
-            onClick={() => {
+            onClick={(e) => {
               setJustCopied(true);
+              setCopiedLabel(label); // Save the copied label/path
               navigator.clipboard.writeText(label);
               setTimeout(() => {
                 setJustCopied(false);
               }, 2500);
             }}
-            className="   "
+            className=" "
           >
             Copy To Clipboard <CopyIcon />
           </Button>
-
-          <Link href={props.link} className="text-xs  rounded-md p-">
+          <Link href={link} className="text-xs rounded-md p-">
             <Button variant="outline">
-              Go To Site
-              <ExternalLinkIcon className="ml-1" />
+              Go To Site <ExternalLinkIcon className="ml-1" />
             </Button>
           </Link>
         </div>
@@ -125,7 +129,6 @@ const ListItem = ({
     </div>
   );
 };
-
 let debounceTimer: any = false;
 
 function CategoryFinderPage({ info }) {
@@ -224,7 +227,7 @@ function CategoryFinderPage({ info }) {
                     {({ search, items }) => (
                       <>
                         <div className="flex config-container shadowAround p-8 m-8">
-                          <h6 variant="h5" fontWeight={600} className="mx-5">
+                          <h6 fontWeight={600} className="mx-5">
                             KDP/Kindle Category Finder
                           </h6>
                           <div className="">

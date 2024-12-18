@@ -12,11 +12,9 @@ import { XIcon } from "lucide-react";
 function KeywordLengthText(keyword: string) {
   const helperText = useMemo(() => {
     // keyword length should be less than 50 ex: 10/50
+    // @ts-ignore
     return `${keyword?.keyword?.length ?? 0}/50`;
   }, [keyword]);
-
-  console.log("helperText", helperText, "keyword", keyword);
-
   return <div className="text-[10px]">{helperText}</div>;
 }
 
@@ -61,18 +59,21 @@ const SelectedKeywordInput = ({
           }}
           // endAdornment={KeywordLengthText(selectedKeyword?.keyword)}
         />
-        <KeywordLengthText keyword={selectedKeyword?.keyword} />
-        {selectedKeyword !== "" && (
-          <button
-            onClick={() => {
-              // remove keyword from selected keywords
-              setSelectedKeyword("");
-            }}
-            className="p-0"
-          >
-            <XIcon size={14} className="ml-2" />
-          </button>
-        )}
+        <div className="flex">
+          {/* @ts-ignore */}
+          <KeywordLengthText keyword={selectedKeyword?.keyword as string} />
+          {selectedKeyword !== "" && (
+            <button
+              onClick={() => {
+                // remove keyword from selected keywords
+                setSelectedKeyword("");
+              }}
+              className="p-0"
+            >
+              <XIcon size={14} className="ml-2" />
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -171,7 +172,7 @@ const SelectedKeywords = ({
         <Separator orientation="vertical" className="border-gray-400" />
 
         <div
-          className="grid grid-cols-1 md:grid-cols-4 w-full gap-2"
+          className="grid grid-cols-1 md:grid-cols-2 w-full gap-2"
           style={{
             flexBasis: "94%",
           }}

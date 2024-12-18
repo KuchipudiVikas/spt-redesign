@@ -306,7 +306,7 @@ const Index: React.FC<IndexProps> = ({ token, isOwner, info }) => {
             usage={usage}
           />
           <div></div>
-          {!false && (
+          {/* {!false && (
             <div className="samples-container">
               <h6>Here are some free results to checkout: </h6>
               <div className="sample-btn-container">
@@ -330,7 +330,7 @@ const Index: React.FC<IndexProps> = ({ token, isOwner, info }) => {
                 </Button>
               </div>
             </div>
-          )}
+          )} */}
 
           <div className="grid  grid-cols-1 xl:grid-cols-3 gap-3 mt-16">
             <div className="col-span-2 ">

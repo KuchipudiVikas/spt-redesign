@@ -16,7 +16,7 @@ const TimePeriodToggle: React.FC<TimePeriodToggleProps> = ({
       style={{
         margin: "30px 0px",
       }}
-      className=" font-jsans  pb-5 grid grid-cols-5"
+      className=" font-jsans  px-2 pb-5 grid grid-cols-5"
     >
       <div className="text-[40px] col-span-2 font-bold my-auto">
         Choose Payment Type

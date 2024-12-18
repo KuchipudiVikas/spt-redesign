@@ -327,7 +327,7 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
                 );
               })}
             </select> */}
-            {!isOwner && (
+            {/* {true && (
               <div className="samples-container">
                 <h6>Here are some free results to checkout: </h6>
                 <div className="">
@@ -363,7 +363,7 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
                   </Button>
                 </div>
               </div>
-            )}
+            )} */}
             <div className="sp-container border-2 light-border p-6 rounded-lg">
               <div className="grid grid-cols-5 gap-4">
                 <div className=" ">

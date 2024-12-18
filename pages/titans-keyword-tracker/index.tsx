@@ -484,7 +484,7 @@ function FeaturePage({ token, info, pageData, features, isOwner }) {
                     </HintWrapper>
                   </div>
                 </div>
-
+                {/* 
                 {true && (
                   <div className="samples-container">
                     <h6>
@@ -511,7 +511,7 @@ function FeaturePage({ token, info, pageData, features, isOwner }) {
                       <ArrowRightIcon />
                     </Button>
                   </div>
-                )}
+                )} */}
               </div>
 
               <div className="overflow-auto w-[90vw] md:w-fit max-w-[90vw] md:flex md:justfy-center ml-10 mt-10">
@@ -638,7 +638,7 @@ function FeaturePage({ token, info, pageData, features, isOwner }) {
                                           rankObj.tracked_list.length - 2
                                         ].rank
                                       : null;
-                                  let symbol: IconName = "equals";
+                                  let symbol = "equals";
                                   let symbolColor = "blue";
 
                                   if (previousRank !== null) {

@@ -389,10 +389,15 @@ function BookPrice({ token, info, isOwner }: BookPriceProps) {
   return (
     <MainLayout
       info={info}
-      title="Book Price Suggestion - Self Publishing Titans"
-      description="Book Price Suggestion Tool by Self Publishing Titans"
-      keywords="Book Price Suggestion Tool, Self Publishing Titans, Book Price Suggestion"
-      transparentNav={true}
+      // title="Book Price Suggestion - Self Publishing Titans"
+      // description="Book Price Suggestion Tool by Self Publishing Titans"
+      // keywords="Book Price Suggestion Tool, Self Publishing Titans, Book Price Suggestion"
+      meta={{
+        title: "Book Price Suggestion - Self Publishing Titans",
+        description: "Book Price Suggestion Tool by Self Publishing Titans",
+        keywords:
+          "Book Price Suggestion Tool, Self Publishing Titans, Book Price Suggestion",
+      }}
       Title={
         <div
           style={{
@@ -479,7 +484,7 @@ function BookPrice({ token, info, isOwner }: BookPriceProps) {
           <UsageDisplayComp Usage={usage} />
           } */}
 
-            {!isOwner && (
+            {/* {!isOwner && (
               <div className="samples-container ">
                 <h6>Here are some free results to checkout: </h6>
                 <div className="sample-btn-container">
@@ -506,7 +511,7 @@ function BookPrice({ token, info, isOwner }: BookPriceProps) {
                   </Button>
                 </div>
               </div>
-            )}
+            )} */}
             {isLoading ? (
               <div
                 className="min-h-[50vh]"

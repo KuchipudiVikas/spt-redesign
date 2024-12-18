@@ -6,6 +6,13 @@ import {
   TableRow,
   TableHeader,
 } from "@/components/ui/table";
+import { ArrowDownIcon, ArrowUpIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+} from "@/components/ui/collapsible";
 
 interface TTrademarkData {
   case_file_id: number;
@@ -31,23 +38,22 @@ function Row({ data }: { data: TTrademarkData }) {
 
   return (
     <Fragment>
-      <TableRow
-        sx={{ "& > *": { borderBottom: "unset" } }}
-        onClick={() => setOpen(!open)}
-        className="cursor-pointer"
-      >
+      <TableRow>
         <TableCell>
-          <IconButton
-            aria-label="expand row"
-            size="small"
-            onClick={() => setOpen(!open)}
-          >
-            {open ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
-          </IconButton>
+          <Collapsible open={open} onOpenChange={setOpen}>
+            <CollapsibleTrigger asChild>
+              <Button
+                aria-label="expand row"
+                size="sm"
+                variant="ghost"
+                onClick={() => setOpen(!open)}
+              >
+                {open ? <ArrowUpIcon /> : <ArrowDownIcon />}
+              </Button>
+            </CollapsibleTrigger>
+          </Collapsible>
         </TableCell>
-        <TableCell component="th" scope="row">
-          {data.mark_identification}
-        </TableCell>
+        <TableCell scope="row">{data.mark_identification}</TableCell>
         <TableCell align="center">
           {data.gs_text && data.gs_text.length > 50
             ? data.gs_text.slice(0, 50) + "..."
@@ -56,65 +62,64 @@ function Row({ data }: { data: TTrademarkData }) {
         <TableCell align="center">{data.status_text}</TableCell>
       </TableRow>
       <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ margin: 2 }}>
-              <h6 variant="h6" gutterBottom>
-                Details
-              </h6>
-              <div container spacing={2}>
-                {/* Party Name */}
-                <div item xs={12} sm={6}>
-                  <h6 variant="subtitle2" color="textSecondary">
-                    Party Name
-                  </h6>
-                  <h6 variant="body1">{data.party_name}</h6>
-                </div>
-                {/* Filing Date */}
-                <div item xs={12} sm={6}>
-                  <h6 variant="subtitle2" color="textSecondary">
-                    Filing Date
-                  </h6>
-                  <h6 variant="body1">{data.filing_date}</h6>
-                </div>
-                {/* Status Code */}
-                <div item xs={12} sm={6}>
-                  <h6 variant="subtitle2" color="textSecondary">
-                    Status Code
-                  </h6>
-                  <h6 variant="body1">{data.status_code}</h6>
-                </div>
-                {/* International Code */}
-                <div item xs={12} sm={6}>
-                  <h6 variant="subtitle2" color="textSecondary">
-                    International Code
-                  </h6>
-                  <h6 variant="body1">{data.international_code}</h6>
-                </div>
-                {/* Description */}
-                <div item xs={12} sm={12}>
-                  <h6 variant="subtitle2" color="textSecondary">
-                    Description
-                  </h6>
-                  <h6 variant="body1">{data.gs_text}</h6>
-                </div>
-                {/* Serial Number */}
-                <div item xs={12} sm={6}>
-                  <h6 variant="subtitle2" color="textSecondary">
-                    Serial Number
-                  </h6>
-                  <h6 variant="body1">{data.serial_number}</h6>
-                </div>
-                {/* Transaction Date */}
-                <div item xs={12} sm={6}>
-                  <h6 variant="subtitle2" color="textSecondary">
-                    Transaction Date
-                  </h6>
-                  <h6 variant="body1">{data.transaction_date}</h6>
+        <TableCell colSpan={4} style={{ padding: 0 }}>
+          <Collapsible open={open}>
+            <CollapsibleContent>
+              <div className="p-4 bg-gray-50">
+                <h6 className="font-medium text-gray-700">Details</h6>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                  <div>
+                    <h6 className="text-sm font-semibold text-gray-500">
+                      Party Name
+                    </h6>
+                    <p className="text-sm text-gray-700">{data.party_name}</p>
+                  </div>
+                  <div>
+                    <h6 className="text-sm font-semibold text-gray-500">
+                      Filing Date
+                    </h6>
+                    <p className="text-sm text-gray-700">{data.filing_date}</p>
+                  </div>
+                  <div>
+                    <h6 className="text-sm font-semibold text-gray-500">
+                      Status Code
+                    </h6>
+                    <p className="text-sm text-gray-700">{data.status_code}</p>
+                  </div>
+                  <div>
+                    <h6 className="text-sm font-semibold text-gray-500">
+                      International Code
+                    </h6>
+                    <p className="text-sm text-gray-700">
+                      {data.international_code}
+                    </p>
+                  </div>
+                  <div className="md:col-span-2">
+                    <h6 className="text-sm font-semibold text-gray-500">
+                      Description
+                    </h6>
+                    <p className="text-sm text-gray-700">{data.gs_text}</p>
+                  </div>
+                  <div>
+                    <h6 className="text-sm font-semibold text-gray-500">
+                      Serial Number
+                    </h6>
+                    <p className="text-sm text-gray-700">
+                      {data.serial_number}
+                    </p>
+                  </div>
+                  <div>
+                    <h6 className="text-sm font-semibold text-gray-500">
+                      Transaction Date
+                    </h6>
+                    <p className="text-sm text-gray-700">
+                      {data.transaction_date}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </Box>
-          </Collapse>
+            </CollapsibleContent>
+          </Collapsible>
         </TableCell>
       </TableRow>
     </Fragment>
@@ -123,7 +128,7 @@ function Row({ data }: { data: TTrademarkData }) {
 
 const UsptoTable: React.FC<{ data: TTrademarkData[] }> = ({ data }) => {
   return (
-    <div component={Paper}>
+    <div>
       <Table aria-label="collapsible table">
         <TableHeader>
           <TableRow>

@@ -101,4 +101,5 @@ export const shopIds = {
   TITANS_PRO_FOR_AMAZON_SHOP_ID,
   KWT_SHOP_ID,
   TITANS_PRO: "64562b9ae2210da37f2bdb2c",
+  COLORING_BOOK_MAKER: "63d6701a1ee1322b4efc1bb7",
 };

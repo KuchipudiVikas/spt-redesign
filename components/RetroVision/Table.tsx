@@ -14,6 +14,7 @@ import { colorIndex } from "@/components/utils/retroVision";
 import PaginationComponent from "./Table/Pagination";
 import { ArrowUpIcon, ArrowDownIcon } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { darkenColor, lightenColor } from "@/utils/common";
 
 interface IRetroVisionData {
   id: number;
@@ -141,37 +142,60 @@ interface EnhancedTableProps {
 
 function EnhancedTableHead(props: EnhancedTableProps) {
   const { order, orderBy, onRequestSort } = props;
+
   const createSortHandler =
     (property: string) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property as keyof IRetroVisionData);
     };
 
   return (
-    <TableHeader className="">
-      <TableRow className=" w-full">
+    <TableHeader
+      style={{
+        border: "none",
+      }}
+      className=""
+    >
+      <TableRow
+        style={{
+          border: "none",
+        }}
+        className="w-full"
+      >
         {HeaderRowCells.map((headCell) => {
+          const isActive = orderBy === headCell.id; // Check if this column is active
+
           return (
-            <TableHead className="" key={headCell.id}>
+            <th className="" key={headCell.id}>
               <div
                 style={{
                   padding: "0.5rem",
                 }}
-                className="flex cursor-pointer justify-center items-center gap-2"
+                className="flex  twa-th cursor-pointer justify-center items-center gap-2"
               >
                 <div onClick={createSortHandler(headCell.id)}>
-                  <h6> {headCell.label}</h6>
+                  <h6 className="ml-1">{headCell.label}</h6>
                 </div>
-                {orderBy === headCell.id ? (
-                  <span>
-                    {order === "desc" ? (
-                      <ArrowDownIcon size={16} />
-                    ) : (
-                      <ArrowUpIcon size={16} />
-                    )}
-                  </span>
-                ) : null}
+                {/* Always render both arrows, highlight the active one */}
+                <div className="flex items-center">
+                  <ArrowUpIcon
+                    size={16}
+                    className={`transition-colors ${
+                      isActive && order === "asc"
+                        ? "text-black"
+                        : "text-gray-400"
+                    }`}
+                  />
+                  <ArrowDownIcon
+                    size={16}
+                    className={`transition-colors ${
+                      isActive && order === "desc"
+                        ? "text-black"
+                        : "text-gray-400"
+                    }`}
+                  />
+                </div>
               </div>
-            </TableHead>
+            </th>
           );
         })}
       </TableRow>
@@ -254,7 +278,7 @@ export default function EnhancedTable({
   }, [visibleRows]);
 
   return (
-    <div style={{ maxWidth: "100vw", width: "100%", overflow: "auto" }}>
+    <div style={{ maxWidth: "100vw", width: "1300px", overflow: "auto" }}>
       <div>
         <div className="w-full">
           <Table aria-labelledby="">
@@ -265,7 +289,11 @@ export default function EnhancedTable({
               onRequestSort={handleRequestSort}
               rowCount={results.length}
             />
-            <TableBody>
+            <TableBody
+              style={{
+                border: "none",
+              }}
+            >
               {visibleRows.map(
                 (
                   row: {
@@ -317,53 +345,99 @@ export default function EnhancedTable({
                 ) => {
                   const labelId = `enhanced-table-checkbox-${index}`;
                   return (
-                    <TableRow role="checkbox" tabIndex={-1} key={row.id}>
-                      <TableCell id={labelId} scope="row" className="px-5">
-                        {row.keywordN}
-                      </TableCell>
-                      <TableCell className="px-5" align="center">
-                        {!isOwner &&
-                        (rankResults[`${row.keywordN}`] === undefined ||
-                          rankResults[`${row.keywordN}`] === null) ? (
-                          0
-                        ) : rankResults[`${row.keywordN}`] !== undefined &&
-                          rankResults[`${row.keywordN}`] !== null ? (
-                          rankResults[`${row.keywordN}`]
-                        ) : (
-                          <div className="flex justify-center">
-                            {/* <Skeleton className="" width={50} /> */}
-                            <Skeleton className="w-20 h-6" />
-                          </div>
-                        )}
-                      </TableCell>
-                      <TableCell className="px-5" align="center">
-                        {numberWithCommas(row.searchVolume)}
-                      </TableCell>
-                      <TableCell className="px-5" align="center">
-                        {numberWithCommas(row.searchResultT)}
-                      </TableCell>
-                      <TableCell className="px-5" align="center">
-                        <p
-                          className={`rounded-full mx-auto w-7 h-7 text-black px-2 py-1 text-center`}
+                    <tr
+                      role="checkbox"
+                      style={{
+                        border: "none",
+                      }}
+                      tabIndex={-1}
+                      key={row.id}
+                    >
+                      <td
+                        id={labelId}
+                        scope="row"
+                        style={{
+                          width: "32%",
+                        }}
+                        className="px-0"
+                      >
+                        <div className="twa-td">{row.keywordN}</div>
+                      </td>
+                      <td className="px-0 h-full" align="center">
+                        <div className="twa-td h-full center w-full">
+                          {!isOwner &&
+                          (rankResults[`${row.keywordN}`] === undefined ||
+                            rankResults[`${row.keywordN}`] === null) ? (
+                            0
+                          ) : rankResults[`${row.keywordN}`] !== undefined &&
+                            rankResults[`${row.keywordN}`] !== null ? (
+                            rankResults[`${row.keywordN}`]
+                          ) : (
+                            <div className="flex justify-center">
+                              {/* <Skeleton className="" width={50} /> */}
+                              <Skeleton className="w-20 h-6" />
+                            </div>
+                          )}
+                        </div>
+                      </td>
+                      <td className="px-2" align="center">
+                        <div className="twa-td center w-full">
+                          {numberWithCommas(row.searchVolume)}
+                        </div>
+                      </td>
+                      <td className="px-2" align="center">
+                        <div className="twa-td center w-full">
+                          {numberWithCommas(row.searchResultT)}
+                        </div>
+                      </td>
+                      <td className="px-2" align="center">
+                        <div
                           style={{
-                            backgroundColor: colorIndex[row.demandScore],
-                            borderRadius: "50%",
+                            color: colorIndex[row.demandScore],
+                            border: `1px solid ${colorIndex[row.demandScore]}`,
+                            background: darkenColor("#feea7a", 10),
                           }}
+                          className="twa-td center w-full "
                         >
-                          {row.demandScore}
-                        </p>
-                      </TableCell>
-                      <TableCell className="px-5" align="center">
-                        <p
-                          className={`rounded-full mx-auto w-7 h-7 text-black px-2 py-1 text-center`}
+                          <p
+                            className={` mx-auto w-7 h-7 text-black px-2 py-1 text-center`}
+                          >
+                            {row.demandScore}
+                          </p>
+                        </div>
+                      </td>
+                      <td className="px-2" align="center">
+                        <div
+                          // style={{
+                          //   backgroundColor: lightenColor(
+                          //     colorIndex[row.opportunityScore],
+                          //     85
+                          //   ),
+                          //   color: darkenColor(
+                          //     colorIndex[row.opportunityScore],
+                          //     40
+                          //   ),
+                          //   border: `1px solid ${darkenColor(
+                          //     colorIndex[row.opportunityScore],
+                          //     40
+                          //   )}`,
+                          // }}
                           style={{
-                            backgroundColor: colorIndex[row.opportunityScore],
+                            color: colorIndex[row.opportunityScore],
+                            border: `1px solid ${
+                              colorIndex[row.opportunityScore]
+                            }`,
                           }}
+                          className="twa-td font-bold w-full what"
                         >
-                          {row.opportunityScore}
-                        </p>
-                      </TableCell>
-                    </TableRow>
+                          <p
+                            className={`rounded-full mx-auto w-7 h-7  px-2 py-1 text-center`}
+                          >
+                            {row.opportunityScore}{" "}
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
                   );
                 }
               )}

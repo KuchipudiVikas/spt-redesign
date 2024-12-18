@@ -193,7 +193,7 @@ function GrammarCheck({ token, info, isOwner }: GrammarCheckProps) {
       Body={
         <div className="min-h-[60vh] max-w-[1400px] mx-auto mb-10 mt-0 px-24">
           <div className="flex flex-col gap-3">
-            {!false && (
+            {/* {!false && (
               <div className="samples-container">
                 <h6>Here are some free results to checkout: </h6>
                 <div className="sample-btn-container">
@@ -221,9 +221,9 @@ function GrammarCheck({ token, info, isOwner }: GrammarCheckProps) {
                   </Button>
                 </div>
               </div>
-            )}
+            )} */}
 
-            <div className="sp-container p-6 light-border border-2 rounded-2xl">
+            <div className="sp-container p-6 mt-10 light-border border-2 rounded-2xl">
               <div className="grid grid-cols-2 mb-8">
                 <h6 className="mt-2 text-[24px] font-bold w-full">Your Data</h6>
                 <h6 className="mt-2 text-[24px] font-bold w-full">

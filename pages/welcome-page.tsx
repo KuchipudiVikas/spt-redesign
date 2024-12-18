@@ -112,31 +112,6 @@ function Home({ info, token, features, featuresOwned, tabQuery }: HomeProps) {
           {/* premium tools section */}
           <section className="relative min-h-[30vh]   w-full  ">
             {/* add flex with 4 columns */}
-            <div className="flex items-center sp-container  w-full flex-col pt-10   px-3 md:px-8">
-              <div className=" flex flex-col items-center mx-auto">
-                <h6 className="text-[#545d6a] font-medium uppercase mb-2">
-                  Curated for your KDP business
-                </h6>
-
-                <h6 className="flex items-center text-[40px] font-extrabold  gap-3">
-                  Checkout Our <StarIcon className=" text-primary" /> Premium
-                  Resources
-                </h6>
-                <div
-                  style={{
-                    paddingLeft: "6px",
-                    paddingRight: "16px",
-                    paddingTop: "6px",
-                    paddingBottom: "6px",
-                    boxShadow:
-                      "0px 0px 2px 2px #fff, inset 0px 0px 18px 4px #fff",
-                  }}
-                  className="font-normal flex gap-2 mt-[30px] mb-5 bg-transparent w-fit flex text-[14px] items-center rounded-full"
-                >
-                  Scroll down to Explore
-                </div>
-              </div>
-            </div>
             <div className="comp-container">
               <div className="mt-20 "></div>
               <PricingTableTabs

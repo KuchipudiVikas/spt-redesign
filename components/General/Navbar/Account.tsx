@@ -229,7 +229,15 @@ const Account: React.FC<AccountProps> = ({ info, logout }) => {
               className="flex gap-4 items-center"
             >
               {/* <ContentCopyIcon className="" style={{ fontSize: "16px" }} /> */}
-              <h6 className="text-xxs">
+              <h6
+                style={{
+                  fontSize: "12px",
+                  color: "#5d5d5d",
+                  textWrap: "wrap",
+                  maxWidth: "200px",
+                }}
+                className=""
+              >
                 https://affiliates.selfpublishingtitans.com/
                 {affiliateData.affiliate_id}.html
               </h6>

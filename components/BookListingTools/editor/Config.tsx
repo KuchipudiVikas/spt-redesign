@@ -109,6 +109,9 @@ const ConfigSection: React.FC<ConfigSectionProps> = ({
             width: "220px",
             fontSize: "14px",
           }}
+          helperstyle={{
+            top: "47px",
+          }}
         />
         {/* book type */}
         <select
@@ -129,13 +132,11 @@ const ConfigSection: React.FC<ConfigSectionProps> = ({
         {isPhysicalBook(bookType) && (
           <select
             hidden={!isPhysicalBook(bookType)}
-            variant="outlined"
             className="w-full sp-select md:w-40"
             value={trimSize}
             onChange={(e) => {
               setTrimSize(e.target.value);
             }}
-            native
           >
             {paperbackTrimSizes.map((size) => (
               <option key={size} value={size}>

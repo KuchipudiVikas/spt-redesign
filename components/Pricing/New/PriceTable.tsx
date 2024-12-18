@@ -6,6 +6,7 @@ import checkMarkIcon from "@/public/assets/images/tick-svgrepo-com.svg";
 import router, { useRouter } from "next/router";
 import { openSnackBar, SnackBarState } from "@/slices/snackBarSlice";
 import { useDispatch, useSelector } from "react-redux";
+import VerifiedIcon from "@/public/assets/social/verified.png";
 import {
   AccessTypes,
   Availability,
@@ -261,11 +262,16 @@ export default function PricingTableTabs({
 
   return (
     <div className="">
-      <Summary selectedPeriod={paymentPeriod} />
+      <Summary
+        selectedPeriod={paymentPeriod}
+        packages={packages}
+        products={products}
+        token={token}
+      />
 
-      <h6 className="font-medium text-[16px] flex justify-center gap-1 text-primary">
-        <HeartIcon /> Trusted by <span className="font-extrabold">150,000</span>{" "}
-        Authors Worldwide
+      <h6 className="font-medium sp-container w-fit mb-20 mx-auto p-3 pr-6 py-2 rounded-2xl text-[16px] flex justify-center items-center gap-1 text-primary">
+        <Image src={VerifiedIcon.src} width={40} height={40} alt="" /> Trusted
+        by <span className="font-extrabold">150,000 Authors</span> Worldwide
       </h6>
 
       <TimePeriodToggle
@@ -275,7 +281,7 @@ export default function PricingTableTabs({
         setValue={setValue}
       />
 
-      <div className="">
+      <div className="mt-10">
         <PriceTable
           token={token}
           products={products}
@@ -329,7 +335,7 @@ export function PriceTable({
         await router.push(`/auth/register?next=${router.asPath}`);
         return;
       } else if (!token) {
-        await router.push(`/auth/login?next=${router.asPath}`);
+        await router.push(`/auth/login?next=${router.asPath}`, undefined);
         return;
       }
 
@@ -629,7 +635,7 @@ export function PriceTable({
         <section className="optional-sec md:pt-12 pt-6">
           <div className=" flex flex-wrap items-center justify-between mx-auto">
             <div className={`${styles.toolContent} text-center w-full`}>
-              <h1 className="font-bold text-xl md:text-4xl uppercase text-center">
+              <h1 className="font-bold text-xl md:text-4xl  text-center">
                 Individual Products With Lifetime access
               </h1>
             </div>
@@ -651,6 +657,9 @@ function getPrice(price: number, isSale: boolean, salePrice: number | null) {
       </div>
     );
   }
+
+  console.log("v121 price", price);
+
   return (
     <div className={`h-10 flex align-items-center justify-content-center`}>
       <p className="my-auto">${price}</p>
@@ -662,20 +671,28 @@ export function getPriceBasedOnPeriod(
   product: any,
   paymentPeriod: EPaymentPeriod
 ) {
+  console.log({ product, paymentPeriod });
+
   if (paymentPeriod === EPaymentPeriod.Monthly) {
+    console.log("monthly price", product.monthly_price);
     return getPrice(
       product.monthly_price,
       product.is_monthly_sale,
       product.monthly_sale_price
     );
   } else if (paymentPeriod === EPaymentPeriod.Yearly) {
+    console.log("yearly price", product.yearly_price);
     return getPrice(
       product.yearly_price,
       product.isYearlySale,
       product.yearly_sale_price
     );
   } else if (paymentPeriod === EPaymentPeriod.Lifetime) {
+    console.log("lifetime price", product.price);
     return getPrice(product.price, product.isSale, product.sale_price);
   }
+
+  console.log("Invalid payment period");
+
   return null;
 }

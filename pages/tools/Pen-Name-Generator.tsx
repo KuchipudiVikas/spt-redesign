@@ -193,7 +193,7 @@ function BSRSalesCalculatorPage({ info }) {
               <div className="flex w-full">
                 <div className="pt-4 w-full md:mt-4  rounded-full mx-auto">
                   <Button
-                    className="  py-5  font-bold w-full rounded-full "
+                    className="text-xl  py-5  font-bold w-full rounded-full "
                     onClick={generateNames}
                   >
                     Generate Names
@@ -203,7 +203,7 @@ function BSRSalesCalculatorPage({ info }) {
 
               <div className="bg-white p-2 rounded-3xl mt-12">
                 <h6 className="font-bold p-3 text-xl w-fit mx-auto text-primary mb-4">
-                  Pen Names{" "}
+                  Pen Name Ideas{" "}
                 </h6>
                 <div className="flex p-2 pt-0 justify-center gap-20 md:mt-0">
                   <div className="flex flex-col gap-2">

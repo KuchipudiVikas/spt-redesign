@@ -10,9 +10,6 @@ const Profile: React.FC<ProfileProps> = ({ info, token }) => {
 
   return (
     <MainLayout
-      // title="Profile - Self Publishing Titans"
-      // description="Profile page for Self Publishing Titans"
-      // keywords="profile"
       meta={{
         title: `${info?.username} - Self Publishing Titans`,
         description: `Profile page for ${info?.username}`,

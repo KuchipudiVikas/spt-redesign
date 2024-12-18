@@ -65,7 +65,6 @@ const SolutionsData: TSolutionsData[] = [
           {
             heading: "Titans Pro Web App",
             tag: "Search suggestions and volume insights.",
-            newTab: true,
             link: "/titans-pro/on-site",
             icon: SearchIcon,
           },

@@ -4,17 +4,8 @@ import { useState } from "react";
 import { TSolutionsData } from "@/data/solutionsData";
 import ListItem from "./ListItem";
 
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+import { NavigationMenuContent } from "@/components/ui/navigation-menu";
 import { ChevronRight } from "lucide-react";
-import { HeightIcon } from "@radix-ui/react-icons";
 
 const Solutions = () => {
   const [selectedCategory, setSelectedCategory] = useState<TSolutionsData>(
@@ -55,7 +46,7 @@ const Solutions = () => {
                       backgroundColor:
                         selectedCategory.Title === category.Title
                           ? "#fff"
-                          : "#f5f5f5",
+                          : "#fff",
                     }}
                     className="p-2 rounded-full"
                   >
@@ -67,9 +58,9 @@ const Solutions = () => {
                     />
                   </div>
                   <div className="flex justify-between w-full">
-                    <h6>{category.Title}</h6>
+                    <h6 className="font-bold">{category.Title}</h6>
                     <ChevronRight
-                      className={`w-4 ${
+                      className={`w-4 font-bold ${
                         selectedCategory.Title === category.Title
                           ? "text-white"
                           : "text-black"

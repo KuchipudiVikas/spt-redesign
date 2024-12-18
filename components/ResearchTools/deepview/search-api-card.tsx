@@ -498,7 +498,7 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
               <h6 className="my-3 mt-8 font-bold">First 100 Search Results</h6>
               <DataTable
                 // title="First 100 Search Results"
-                className="min-h-[50vh] dv-datatable border p-5 "
+                className="min-h-[50vh] dv-datatable border px-5 "
                 pagination={true}
                 paginationPerPage={100}
                 paginationRowsPerPageOptions={[10, 15, 20, 25, 30, 50, 100]}
@@ -720,7 +720,7 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
                 customStyles={{
                   headCells: {
                     style: {
-                      padding: "0px",
+                      padding: "10px 0px",
                       margin: "0px",
                     },
                   },
