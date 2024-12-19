@@ -258,14 +258,14 @@ function PaypalComponent({ token, productInfo }) {
     router.push(`/payment-failed`);
   }
 
-  useEffect(() => {
-    checkCountry().then((data) => {
-      setCfData(data);
-      if (data && data?.country && allowedCountries.includes(data.country)) {
-        setIsPaypalAvailable(true);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   checkCountry().then((data) => {
+  //     setCfData(data);
+  //     if (data && data?.country && allowedCountries.includes(data.country)) {
+  //       setIsPaypalAvailable(true);
+  //     }
+  //   });
+  // }, []);
 
   if (!isPaypalAvailable) {
     return null;

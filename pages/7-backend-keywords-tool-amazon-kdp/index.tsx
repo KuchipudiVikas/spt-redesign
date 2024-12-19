@@ -978,7 +978,7 @@ export default function SevenBackendKeyword({ token, info, pageData }) {
               />
             </section>
 
-            <section className="m-4 mt-16">
+            <section className="m-4  mt-16">
               <SelectedKeywords
                 selectedKeyword1={selectedKeyword1}
                 selectedKeyword2={selectedKeyword2}
@@ -1000,7 +1000,7 @@ export default function SevenBackendKeyword({ token, info, pageData }) {
               />
               <div className="h-2 " />
 
-              <div className="flex flex-col gap-2 mt-2">
+              <div className="flex flex-col gap-2 mt-10">
                 <KeywordsTextFieldCard
                   keywords={filteredOptions().chatGPTKeywords1}
                   subTitle={

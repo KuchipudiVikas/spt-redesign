@@ -33,34 +33,34 @@ const Create: React.FC<ICreateProps> = ({}) => {
               <a
                 href="https://selfpublishingtitans.com/support"
                 target="__blank"
-                className="hover:bg-[#c3abff] my-1 p-2 sp-container rounded-md flex items-center hover:text-gray-900 font-sans font-medium text-md text-[14.6px]"
+                className=" my-1  p-2 py-4 sp-container rounded-md flex items-center hover:text-gray-900 font-sans font-medium text-md text-[14.6px]"
               >
-                <MessageSquareIcon className="mr-3 w-4" />
+                <MessageSquareIcon className="mr-3 w-4 text-primary" />
                 Support
               </a>
               <a
                 href="https://selfpublishingtitans.com/support"
                 target="__blank"
-                className="hover:bg-[#c3abff] my-1 p-2 sp-container rounded-md flex items-center hover:text-gray-900 font-sans font-medium text-md text-[14.6px]"
+                className=" my-1  p-2 py-4 sp-container rounded-md flex items-center hover:text-gray-900 font-sans font-medium text-md text-[14.6px]"
               >
-                <GitPullRequestArrow className="mr-3 w-4" />
+                <GitPullRequestArrow className="mr-3 w-4 text-primary" />
                 Feature Request
               </a>
               <a
                 target="__blank"
                 href="https://selfpublishingtitans.com/support"
-                className="hover:bg-[#c3abff] my-1 p-2 rounded-md sp-container flex items-center hover:text-gray-900 font-sans font-medium text-md text-[14.6px]"
+                className=" my-1  p-2 py-4 rounded-md sp-container flex items-center hover:text-gray-900 font-sans font-medium text-md text-[14.6px]"
               >
-                <Bug className="mr-3 w-4" />
+                <Bug className="mr-3 w-4 text-primary" />
                 Bug Report
               </a>
 
               <a
                 href="https://community.selfpublishingtitans.com/"
                 target="__blank"
-                className="hover:bg-[#c3abff] my-1 p-2 sp-container rounded-md flex items-center hover:text-gray-900 font-sans font-medium text-md text-[14.6px]"
+                className=" my-1  p-2 py-4 sp-container rounded-md flex items-center hover:text-gray-900 font-sans font-medium text-md text-[14.6px]"
               >
-                <Group className="mr-3 w-4" />
+                <Group className="mr-3 w-4 text-primary" />
                 Community
               </a>
               <button
@@ -71,9 +71,9 @@ const Create: React.FC<ICreateProps> = ({}) => {
                     "_blank"
                   );
                 }}
-                className="hover:bg-[#c3abff] my-1 sp-container p-2 rounded-md flex items-center hover:text-gray-900 font-sans font-medium text-md text-[14.6px]"
+                className=" my-1 sp-container p-2 py-4 rounded-md flex items-center hover:text-gray-900 font-sans font-medium text-md text-[14.6px]"
               >
-                <Youtube className="mr-3 w-4" />
+                <Youtube className="mr-3 w-4 text-primary" />
                 Tutorials
               </button>
             </div>

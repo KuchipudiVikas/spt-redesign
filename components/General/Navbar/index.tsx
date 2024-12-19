@@ -100,17 +100,16 @@ const Navbar: React.FC<NavbarProps> = ({ info, logout, token }) => {
             </NavigationMenuItem>
 
             <NavigationMenuItem className="bg-transparent">
-              <a href="/pricing" className="bg-transparent">
-                <NavigationMenuLink
-                  style={{
-                    background: "transparent",
-                    fontWeight: "bold",
-                  }}
-                  className={navigationMenuTriggerStyle()}
-                >
-                  Pricing
-                </NavigationMenuLink>
-              </a>
+              <NavigationMenuLink
+                style={{
+                  background: "transparent",
+                  fontWeight: "bold",
+                }}
+                href="/pricing"
+                className={navigationMenuTriggerStyle()}
+              >
+                Pricing
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem className="bg-transparent">
               <NavigationMenuLink
@@ -118,11 +117,10 @@ const Navbar: React.FC<NavbarProps> = ({ info, logout, token }) => {
                   background: "transparent",
                   fontWeight: "bold",
                 }}
+                href="/testimonials"
                 className={navigationMenuTriggerStyle()}
               >
-                <a href="/testimonials" className="bg-transparent">
-                  Testimonials
-                </a>
+                Testimonials
               </NavigationMenuLink>
             </NavigationMenuItem>
           </div>

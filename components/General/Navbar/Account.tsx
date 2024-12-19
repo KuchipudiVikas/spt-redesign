@@ -116,7 +116,7 @@ const Account: React.FC<AccountProps> = ({ info, logout }) => {
             className="cursor-pointer"
           >
             <AvatarImage className="" src={src} alt={info.username} />
-            <AvatarFallback>{info.username.charAt(0)}</AvatarFallback>
+            <AvatarFallback>{info?.username?.charAt(0)}</AvatarFallback>
           </Avatar>
         </div>
       </NavigationMenuTrigger>
@@ -126,7 +126,7 @@ const Account: React.FC<AccountProps> = ({ info, logout }) => {
             <div className="flex gap-2 items-center">
               <Avatar className="cursor-pointer w-[70px] h-[70px]">
                 <AvatarImage src={info.image} alt={info.username} />
-                <AvatarFallback>{info.username.charAt(0)}</AvatarFallback>
+                <AvatarFallback>{info?.username?.charAt(0)}</AvatarFallback>
               </Avatar>
               <div className="flex flex-col">
                 <div className="font-semibold mb-1">{info.username}</div>

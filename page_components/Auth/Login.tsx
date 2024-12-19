@@ -284,7 +284,7 @@ const LoginPage = () => {
             borderRadius: "20px",
             padding: "20px 30px",
           }}
-          className="flex  font-jsans justify-center  sp-container border-2 light-border  py-[20px] h-fit w-full items-center h-[100vh]"
+          className="flex  font-jsans justify-center comp-container  sp-container border-2 light-border  py-[20px] h-fit w-full items-center h-[100vh]"
         >
           <div
             className="g-recaptcha"
@@ -339,11 +339,8 @@ const LoginPage = () => {
                   <Input
                     required
                     id="email"
-                    style={{
-                      width: "500px",
-                    }}
                     name="email"
-                    className="pInput h-[50px] mt-[16px] bg-white"
+                    className="pInput h-[50px] md:w-[500px] mt-[16px] bg-white"
                     placeholder="Email Address"
                     autoComplete="email"
                     onChange={(e: any) => setEmail(e.target.value)}
@@ -368,12 +365,9 @@ const LoginPage = () => {
                   <Input
                     required
                     id="password"
-                    style={{
-                      width: "500px",
-                    }}
                     name="password"
                     type="password"
-                    className="pInput h-[50px] mt-[16px] bg-white"
+                    className="pInput h-[50px] md:w-[500px] mt-[16px] bg-white"
                     placeholder="Password"
                     onChange={(e: any) => setPassword(e.target.value)}
                     autoFocus
@@ -423,7 +417,7 @@ const LoginPage = () => {
                 id="g_id_onload"
                 data-client_id={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}
               ></div>
-              <div className="flex gap-4">
+              <div className="flex justify-center mx-auto w-full gap-4">
                 <div
                   onClick={() => handleGoogleLogin()}
                   style={{
@@ -434,7 +428,7 @@ const LoginPage = () => {
                     boxShadow:
                       "0px 0px 2px 2px #fff, inset 0px 0px 18px 4px #fff",
                   }}
-                  className="font-normal mb-5 bg-transparent w-full flex text-[14px] items-center rounded-full"
+                  className="font-normal mb-5 bg-transparent w-fit flex text-[14px] items-center rounded-full"
                 >
                   <span
                     style={{
@@ -451,32 +445,6 @@ const LoginPage = () => {
                   </span>
                   Sign in with Google
                 </div>
-                <div
-                  style={{
-                    paddingLeft: "6px",
-                    paddingRight: "16px",
-                    paddingTop: "6px",
-                    paddingBottom: "6px",
-                    boxShadow:
-                      "0px 0px 2px 2px #fff, inset 0px 0px 18px 4px #fff",
-                  }}
-                  className="font-normal mb-5 bg-transparent w-full flex text-[14px] items-center rounded-full"
-                >
-                  <span
-                    style={{
-                      boxShadow: "0px 0px 8px 2px #ddd",
-                    }}
-                    className="font-mono w-[30px] p-2 mr-2 font-bold h-[30px] shadow bg-white text-[#c31fe4] p-1 rounded-full flex items-center justify-center"
-                  >
-                    <Image
-                      src={AppleLogo.src}
-                      alt="Brand Logo"
-                      width={26}
-                      height={26}
-                    />
-                  </span>
-                  Sign in with Apple
-                </div>
               </div>
             </div>
 
@@ -489,7 +457,6 @@ const LoginPage = () => {
                 {"Don't have an account? Sign Up"}
               </Link>
             </div>
-            {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
           </div>
         </div>
       </>

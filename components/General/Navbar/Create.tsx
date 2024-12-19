@@ -32,7 +32,7 @@ const ToolSection: React.FC<SectionProps> = ({
       <h6 className="text-black mb-3 mt-4 font-bold">{title}</h6>
       <div className={`w-full grid grid-cols-${gridCols} gap-2`}>
         {options.map((option, index) => (
-          <a
+          <div
             style={{
               minHeight: "55px",
             }}
@@ -55,7 +55,7 @@ const ToolSection: React.FC<SectionProps> = ({
                 </p>
               )}
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </div>

@@ -487,6 +487,12 @@ select {
   margin-right: auto;
 }
 
+@media (max-width: 768px) {
+  .comp-container {
+    margin: 0 20px;
+  }
+}
+
 .comp-container.full-width {
   max-width: 100%;
 }

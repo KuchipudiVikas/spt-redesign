@@ -577,6 +577,8 @@ function TitansRetroVision({
           return result.data.keywordN;
         });
 
+        console.log("suggestions", suggestions);
+
         // get ranks
         await getRankAndSetResults({
           token,

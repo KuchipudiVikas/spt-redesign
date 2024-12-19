@@ -59,29 +59,29 @@ export const VisitTrackerProvider = ({ children }) => {
 
       console.log("v121 Affiliate data:", affiliateData);
 
-      if (!affiliateData) {
-        checkCountry()
-          .then(async (data) => {
-            if (data) {
-              if (
-                data &&
-                data?.country &&
-                !excludedCounties.includes(data.country)
-              ) {
-                const res = await createAffiliate(session.token);
-                dispatch(setAffiliateData(res));
-                console.log("v123 Affiliate data:", res);
-              }
-            }
-          })
-          .catch((error) => {
-            setAffiliateError(error);
-            console.error("v123 Error checking country:", error);
-          })
-          .finally(() => {
-            dispatch(setAffiliateIsLoading(false));
-          });
-      }
+      // if (!affiliateData) {
+      //   checkCountry()
+      //     .then(async (data) => {
+      //       if (data) {
+      //         if (
+      //           data &&
+      //           data?.country &&
+      //           !excludedCounties.includes(data.country)
+      //         ) {
+      //           const res = await createAffiliate(session.token);
+      //           dispatch(setAffiliateData(res));
+      //           console.log("v123 Affiliate data:", res);
+      //         }
+      //       }
+      //     })
+      //     .catch((error) => {
+      //       setAffiliateError(error);
+      //       console.error("v123 Error checking country:", error);
+      //     })
+      //     .finally(() => {
+      //       dispatch(setAffiliateIsLoading(false));
+      //     });
+      // }
     }
   }, [status, session, hasTracked]);
 

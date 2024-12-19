@@ -277,6 +277,8 @@ export default function EnhancedTable({
     isOwner ? fetchRanksData() : () => {};
   }, [visibleRows]);
 
+  console.log("visibleRows", visibleRows);
+
   return (
     <div style={{ maxWidth: "100vw", width: "1300px", overflow: "auto" }}>
       <div>
@@ -393,9 +395,12 @@ export default function EnhancedTable({
                       <td className="px-2" align="center">
                         <div
                           style={{
-                            color: colorIndex[row.demandScore],
-                            border: `1px solid ${colorIndex[row.demandScore]}`,
-                            background: darkenColor("#feea7a", 10),
+                            backgroundColor: lightenColor(row.demandColor, 85),
+                            color: darkenColor(row.demandColor, 40),
+                            border: `1px solid ${darkenColor(
+                              row.demandColor,
+                              40
+                            )}`,
                           }}
                           className="twa-td center w-full "
                         >
@@ -423,10 +428,15 @@ export default function EnhancedTable({
                           //   )}`,
                           // }}
                           style={{
-                            color: colorIndex[row.opportunityScore],
-                            border: `1px solid ${
-                              colorIndex[row.opportunityScore]
-                            }`,
+                            backgroundColor: lightenColor(
+                              row.opportunityColor,
+                              85
+                            ),
+                            color: darkenColor(row.opportunityColor, 40),
+                            border: `1px solid ${darkenColor(
+                              row.opportunityColor,
+                              40
+                            )}`,
                           }}
                           className="twa-td font-bold w-full what"
                         >

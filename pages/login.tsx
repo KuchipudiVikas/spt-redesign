@@ -16,6 +16,7 @@ const Login = () => {
         keywords: "",
       }}
       info={undefined}
+      showFooter={false}
       Title={<></>}
       Body={<LoginPage />}
     />
