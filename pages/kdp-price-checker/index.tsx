@@ -411,7 +411,7 @@ function BookPrice({ token, info, isOwner }: BookPriceProps) {
       }
       Body={
         <div>
-          <div className=" comp-container mx-auto min-h-full mb-96">
+          <div className=" comp-container pb-10 mx-auto min-h-full mb-96">
             <div
               style={{
                 marginTop: "-50px",
@@ -448,6 +448,13 @@ function BookPrice({ token, info, isOwner }: BookPriceProps) {
                     usage ? `${usage.remainingUsage}/${usage.totalUsage}` : ""
                   }
                   placeholder="enter a keyword"
+                  inputClassName="w-full"
+                  containerStyle={{
+                    width: "100%",
+                  }}
+                  helperstyle={{
+                    top: "51px",
+                  }}
                   error={titleErrors && titleErrors.length > 0}
                   errorMessage={
                     titleErrors && titleErrors.length > 0
@@ -458,10 +465,13 @@ function BookPrice({ token, info, isOwner }: BookPriceProps) {
                   }
                 />
 
-                <div className="">
+                <div className="w-fit ml-auto">
                   <HintWrapper hint="Click to get the search results">
                     <Button
-                      className="search-btn "
+                      style={{
+                        padding: "20px 20px",
+                      }}
+                      className="search-btn w-fit ml-auto"
                       onClick={() => {
                         if (!searchedText) {
                           alert("Please enter a search term");
@@ -472,7 +482,7 @@ function BookPrice({ token, info, isOwner }: BookPriceProps) {
                         }
                       }}
                     >
-                      {}
+                      {}Search
                       <SearchIcon size={20} />
                     </Button>
                   </HintWrapper>
@@ -546,7 +556,7 @@ function BookPrice({ token, info, isOwner }: BookPriceProps) {
                     </h6>
                   </div>
 
-                  <div className={"grid gap-5 grid-cols-3"}>
+                  <div className={"grid gap-5  md:grid-cols-2 lg:grid-cols-3"}>
                     <PriceChip
                       title={"Most Popular"}
                       price={

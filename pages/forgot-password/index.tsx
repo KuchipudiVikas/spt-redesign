@@ -56,7 +56,7 @@ function Forgot({ baseUrl }) {
         <title>Forgot Password - Self Publishing Titans</title>
       </Head>
 
-      <main className="  relative w-screen h-screen flex flex-col items-center">
+      <main className="  relative w-screen h-screen p-3 flex flex-col items-center">
         <div className="relative flex flex-col rounded-xl bg-white sp-container border-2 light-border p-5 md:rounded-xl w-full sm:w-1/2 xl:w-1/3 my-auto py-10">
           <div className="text-center p-4 text-2xl flex flex-col items-center gap-5 font-bold mb-10">
             <Image src={BrandIcon} alt="Brand Icon" width={100} height={100} />

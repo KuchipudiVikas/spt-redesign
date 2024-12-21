@@ -63,45 +63,31 @@ export default function TopBestBooksClient({
               maxWidth: 320,
               border: 1,
               borderColor: "grey.300",
-              p: 2,
               transition: "all 0.3s",
-              "&:hover": { divShadow: 6 },
             }}
           >
-            <div mb={2}>
-              <div display="flex" alignItems="start" mb={1}>
-                <div
-                  sx={{
-                    backgroundColor: "amber.500",
-                    color: "white",
-                    py: 0.5,
-                    px: 2,
-                    clipPath: "polygon(0 0, 100% 0, 80% 100%, 0% 100%)",
-                  }}
-                >
-                  <h6 variant="h6" color="primary">
-                    #{book.rank}
-                  </h6>
+            <div>
+              <div>
+                <div>
+                  <h6 color="primary">#{book.rank}</h6>
                 </div>
                 <div>
                   {book.previousRank ? (
-                    <h6 variant="caption" color="textSecondary">
+                    <h6 color="textSecondary">
                       Previous Rank:&nbsp;
                       <span style={{ color: "red" }}>#{book.previousRank}</span>
                     </h6>
                   ) : (
-                    <h6 variant="caption" color="success.main">
-                      New Book
-                    </h6>
+                    <h6 color="success.main">New Book</h6>
                   )}
-                  <h6 variant="caption" color="textSecondary">
+                  <h6 color="textSecondary">
                     Days in Top 100:&nbsp;
                     <span style={{ color: "green" }}>
                       {book.daysInTop100 + 1}
                     </span>
                   </h6>
                   {/* <h6
-                    variant="caption"
+                  
                     color="textSecondary"
                     title={new Date(book.updatedAt).toISOString()}
                   >
@@ -111,14 +97,10 @@ export default function TopBestBooksClient({
                 </div>
               </div>
               <Link href={book.bookLink} target="_blank">
-                <h6 variant="body1" fontWeight="bold" color="primary">
-                  {book.title}
-                </h6>
+                <h6>{book.title}</h6>
               </Link>
-              <h6 variant="body2" color="primary">
-                &gt; {book.author}
-              </h6>
-              <div display="flex" alignItems="center" mt={1}>
+              <h6 color="primary">&gt; {book.author}</h6>
+              <div>
                 {/* <Rating
                   name="text-feedback"
                   value={book.ratings}
@@ -131,17 +113,15 @@ export default function TopBestBooksClient({
 
                 {/* TODO ADD THIS */}
               </div>
-              <h6 variant="h6" color="amber.700">
-                {book.price}
-              </h6>
+              <h6 color="amber.700">{book.price}</h6>
             </div>
             <div
-              position="relative"
-              width="100%"
-              height="100%"
-              overflow="hidden"
-              borderRadius={1}
-              mb={2}
+              style={{
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                overflow: "hidden",
+              }}
             >
               <Image
                 src={book.imageLink}

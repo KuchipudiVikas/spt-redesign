@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { domains } from "@/constants/index";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -275,4 +276,22 @@ export function camelCaseToTitle(camelCase) {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
   return title;
+}
+
+export type TToolDomain =
+  | "author"
+  | "books"
+  | "coloring_book"
+  | "design"
+  | "main";
+
+export function getLinkForTheTool(tool: string, Domain: TToolDomain) {
+  const domainIdex = {
+    author: "https://author.selfpublishingtitans.com",
+    books: domains.books,
+    coloring_book: domains.coloring_book,
+    design: "https://designer.selfpublishingtitans.com",
+    main: domains.main,
+  };
+  return domainIdex[Domain] + tool;
 }

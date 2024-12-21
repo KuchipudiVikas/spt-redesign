@@ -227,11 +227,10 @@ function CategoryFinderPage({ info }) {
                     {({ search, items }) => (
                       <>
                         <div className="flex config-container shadowAround p-8 m-8">
-                          <h6 fontWeight={600} className="mx-5">
-                            KDP/Kindle Category Finder
-                          </h6>
-                          <div className="">
+                          {/* <h6 className="mx-5">KDP/Kindle Category Finder</h6> */}
+                          <div className="w-full">
                             <select
+                              className="w-full"
                               value={inputs.country}
                               onChange={(e) =>
                                 changeValue("country")(e.target.value)
@@ -246,7 +245,7 @@ function CategoryFinderPage({ info }) {
                               <option value="it">Amazon IT</option>
                             </select>
                           </div>
-                          <div className="">
+                          <div className="w-full">
                             {/* <ComSelect
                               label="Paperback/Kindle eBooks"
                               options={[
@@ -273,7 +272,7 @@ function CategoryFinderPage({ info }) {
                               <option value="kindle">Kindle Books</option>
                             </select>
                           </div>
-                          <div className="">
+                          <div className="w-full">
                             <Input
                               onChange={(e) => {
                                 if (!info) {
@@ -304,7 +303,7 @@ function CategoryFinderPage({ info }) {
                           </h6>
                         </div>
 
-                        <div className="list-none sp-container p-6 border light-border rounded-3xl">
+                        <div className="list-none sp-container p-6 border light-border mx-5 rounded-3xl">
                           {items.map((props) => (
                             <>
                               <ListItem

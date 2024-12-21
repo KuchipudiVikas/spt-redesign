@@ -458,12 +458,14 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
         style={{
           overflowX: "hidden",
           alignItems: "flex-start",
+          marginTop: "-30px",
+          maxWidth: "90vw",
         }}
         className=" mx-auto"
       >
         <div className="text-base leading-normal my-8 mb-4">
           {/* stats */}
-          <div className="flex justify-center mx-auto flex-col md:flex-row">
+          <div className="flex justify-center mx-auto gap-3 flex-col md:flex-row">
             <div className=" statItem">
               <h6>Average Price: {avgPrice}</h6>
             </div>
@@ -557,9 +559,7 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
                             textOverflow: "ellipsis",
                           }}
                         >
-                          <h6 variant="body2" className="text-xxs md:text-base">
-                            {row.asin}
-                          </h6>
+                          <h6 className="text-xxs md:text-base">{row.asin}</h6>
                         </div>
                       </a>
                     ),
@@ -578,16 +578,10 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
                             ? "outline"
                             : "default"
                         }
-                        size="md"
                         color={
                           asinTrackingList.includes(row.asin)
                             ? "error"
                             : "primary"
-                        }
-                        endIcon={
-                          asinTrackingList.includes(row.asin) ? (
-                            <TrashIcon />
-                          ) : null
                         }
                         className={` px-3 py-1.5 ${
                           asinTrackingList.includes(row.asin)
@@ -629,7 +623,7 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
                             paddingRight: "10x",
                           }}
                         >
-                          <h6 variant="body2">{row.title}</h6>
+                          <h6>{row.title}</h6>
                         </div>
                       </a>
                     ),
@@ -662,7 +656,7 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
                           maxWidth: "100px", // You can adjust the width as needed
                         }}
                       >
-                        <h6 variant="body2">{row.categoryText}</h6>
+                        <h6>{row.categoryText}</h6>
                       </div>
                       // </a>
                     ),
@@ -673,9 +667,7 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
                     name: "Sales",
                     selector: (row) => row.salesData,
                     sortable: true,
-                    cell: (row) => (
-                      <h6 variant="body2">{numberFormat(row.salesData)}</h6>
-                    ),
+                    cell: (row) => <h6>{numberFormat(row.salesData)}</h6>,
                     minWidth: "100px",
                     maxWidth: "110px",
                   },
@@ -683,7 +675,7 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
                   {
                     name: "Price",
                     selector: (row) => row.price,
-                    cell: (row) => <h6 variant="body2">{row.price}</h6>,
+                    cell: (row) => <h6>{row.price}</h6>,
                     sortable: true,
                     minWidth: "70px",
                     maxWidth: "90px",
@@ -692,9 +684,7 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
                     name: "Reviews",
                     selector: (row) => row.review,
                     sortable: true,
-                    cell: (row) => (
-                      <h6 variant="body2">{numberFormat(row.review)}</h6>
-                    ),
+                    cell: (row) => <h6>{numberFormat(row.review)}</h6>,
                     minWidth: "100px",
                     maxWidth: "110px",
                   },
@@ -702,7 +692,7 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
                     name: "Rating",
                     selector: (row) => row.rating,
                     sortable: true,
-                    cell: (row) => <h6 variant="body2">{row.rating}</h6>,
+                    cell: (row) => <h6>{row.rating}</h6>,
                     minWidth: "100px",
                     maxWidth: "110px",
                   },
@@ -710,9 +700,7 @@ const SearchCardApiInfo: FC<ICardInfo> = (props) => {
                     name: "Rank",
                     selector: (row) => row.rank,
                     sortable: true,
-                    cell: (row) => (
-                      <h6 variant="body2">{numberFormat(row.rank)}</h6>
-                    ),
+                    cell: (row) => <h6>{numberFormat(row.rank)}</h6>,
                     minWidth: "100px",
                     maxWidth: "110px",
                   },

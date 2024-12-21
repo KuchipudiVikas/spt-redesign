@@ -1,14 +1,4 @@
-import React, { FC } from "react";
-import {
-  Button,
-  Typography,
-  Box,
-  List,
-  ListItem,
-  Menu,
-  MenuItem,
-} from "@mui/material";
-import { MdLabelOutline } from "react-icons/md";
+import React, { FC, useState } from "react";
 import { useDispatch } from "react-redux";
 
 type IProps = {
@@ -41,9 +31,9 @@ const cardLabels = [
 
 const CardLabel: FC<IProps> = ({ id, boardId }) => {
   const dispatch = useDispatch();
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick = async (label) => {
+  const handleClick = async (label: { type: string; bg: string }) => {
     const data = {
       _id: id,
       boardId,
@@ -51,56 +41,42 @@ const CardLabel: FC<IProps> = ({ id, boardId }) => {
     };
 
     // await dispatch(updateCard(data));
+    setIsOpen(false);
   };
 
-  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
   };
 
   return (
-    <Box marginTop="2rem" display="flex" flexDirection="column" width="20%">
-      <Typography variant="body2" component="samp" whiteSpace="nowrap">
-        ADD TO CARD
-      </Typography>
-      <List sx={{ padding: "5px" }}>
-        <ListItem>
-          <Button
-            variant="contained"
-            size="small"
-            startIcon={<MdLabelOutline />}
-            onClick={handleMenuOpen}
-          >
-            Labels
-          </Button>
-          <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleMenuClose}
-          >
+    <div className="space-y-2">
+      <h6 className="text-sm font-semibold text-gray-600">ADD TO CARD</h6>
+      <div className="relative">
+        <button
+          className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700"
+          onClick={toggleMenu}
+        >
+          Labels
+        </button>
+        {isOpen && (
+          <div className="absolute mt-2 w-40 bg-white shadow-lg rounded-md z-10">
             {cardLabels.map((item, index) => (
-              <MenuItem
+              <button
                 key={index}
-                onClick={() => {
-                  handleClick(item);
-                  handleMenuClose();
-                }}
-                sx={{
+                onClick={() => handleClick(item)}
+                className="w-full px-2 py-1 text-left text-sm font-medium text-white rounded"
+                style={{
                   backgroundColor: item.bg,
-                  marginBottom: "5px",
-                  minHeight: "20px",
+                  marginBottom: index === cardLabels.length - 1 ? 0 : "5px",
                 }}
               >
-                <Box minHeight="20px"></Box>
-              </MenuItem>
+                {item.type}
+              </button>
             ))}
-          </Menu>
-        </ListItem>
-      </List>
-    </Box>
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 

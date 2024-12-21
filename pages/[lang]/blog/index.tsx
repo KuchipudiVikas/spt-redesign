@@ -129,13 +129,7 @@ function BlogIndex({ info, lang }) {
           {meta?.pagination.start + meta?.pagination.limit <
             meta?.pagination.total && (
             <div className="flex justify-center my-8">
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={loadMorePosts}
-              >
-                Load More
-              </Button>
+              <Button onClick={loadMorePosts}>Load More</Button>
             </div>
           )}
         </div>

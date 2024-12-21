@@ -77,6 +77,7 @@ const ZoomSlider = () => {
         {/* @ts-ignore */}
         <button
           className=" flex gap-2 items-center"
+          // @ts-ignore
           onClick={() => Canvas.RecenterCanvas()}
         >
           <svg

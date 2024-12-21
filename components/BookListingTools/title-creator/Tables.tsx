@@ -88,8 +88,8 @@ export function TryOutFields() {
     return text.replace(/\b\w/g, (char) => char.toUpperCase());
   };
   return (
-    <div className="flex w-full p-4  border rounded-lg bg-[#f7f6f8]  gap-4 ">
-      <div className="flex items-start w-full flex-col">
+    <div className="flex w-full p-4 flex-col md:flex-row  border rounded-lg bg-[#f7f6f8]  gap-4 ">
+      <div className="flex flex-col items-start w-full ">
         <div className="w-full">
           <Label className="font-bold pl-4 pb-1 ">Enter Title #1</Label>
           <div

@@ -22,7 +22,6 @@ export default function ConfigComponent({
   setIsLoading,
   isOwner,
   token,
-  dispatch,
   router,
   setSampleData,
   info,
@@ -124,7 +123,7 @@ export default function ConfigComponent({
             </select>
 
             <Input
-              className="font-bold hidden md:block "
+              className="  md:block "
               ref={inputRef}
               value={trackAsin}
               placeholder="Enter ASIN to track"
@@ -136,7 +135,7 @@ export default function ConfigComponent({
 
             <HintWrapper hint="Click to track product">
               <Button
-                className="mt-5 md:mt-0 md:ml-0 w-full rounded-full md:w-fit"
+                className="mt-5 md:mt-0 ml-auto w-full rounded-full md:w-fit"
                 color="primary"
                 // disabled={trackAsin.length < 4}
                 onClick={() => {

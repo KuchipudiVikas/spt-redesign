@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { allProducts, Product, ProductCategory, Categories } from "@/data/shop";
 import { User } from "@/lib/ts/types/user";
 import { isOwned } from "@/utils/common";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 interface ToolsPageProps {
   info: User | false;
@@ -72,15 +73,53 @@ const ToolsPage: React.FC<ToolsPageProps> = ({ info }) => {
     setProducts(filteredProducts);
   }, [query, selectedCategories, priceRange, toolType, showPurchased, info]);
 
+  const isTablet = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 480px)");
+
   return (
     <div
       style={{
-        gap: "2rem",
+        gap: !isTablet ? "2rem" : isMobile ? "0rem" : "1rem",
         paddingTop: "60px",
       }}
-      className="grid grid-cols-4 comp-container  p-5"
+      className="grid grid-cols-1 md:grid-cols-4   comp-container  p-5"
     >
-      <div>
+      <div className="w-full">
+        <div className="flex block md:hidden gap-3">
+          <div
+            style={{
+              border: "1px solid #ccc",
+            }}
+            className="w-full   mb-5 rounded-full"
+          >
+            <Input
+              placeholder="Search for tool"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              style={{
+                border: "none",
+                padding: "29px",
+              }}
+              className="rounded-full"
+            />
+          </div>
+
+          <select
+            style={{
+              padding: "15px",
+              borderRadius: "40px",
+              height: "60px",
+              border: "1px solid #ccc",
+              width: "200px",
+            }}
+            value={toolType}
+            onChange={(e) => setToolType(e.target.value)}
+          >
+            <option value="all">All</option>
+            <option value="free">Free</option>
+            <option value="paid">Paid</option>
+          </select>
+        </div>
         <Filters
           selectedCategories={selectedCategories}
           setSelectedCategories={setSelectedCategories}
@@ -90,8 +129,8 @@ const ToolsPage: React.FC<ToolsPageProps> = ({ info }) => {
           setShowPurchased={setShowPurchased}
         />
       </div>
-      <div className="col-span-3 flex flex-col">
-        <div className="flex gap-3">
+      <div className="col-span-3 mt-5 md:mt-0 flex flex-col">
+        <div className="hidden md:flex gap-3">
           <div
             style={{
               border: "1px solid #ccc",
@@ -291,7 +330,7 @@ const Filters: React.FC<
         position: "sticky",
         top: "100px",
       }}
-      className="border "
+      className="border w-full"
     >
       <div className="flex items-center justify-between ">
         <h3

@@ -1,6 +1,18 @@
+import { useMediaQuery } from "@/hooks/use-media-query";
+import React from "react";
+
 export const Banner = (): JSX.Element => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isTablet = useMediaQuery("(max-width: 1024px)");
+  const isSmMobile = useMediaQuery("(max-width: 640px)");
+
   return (
-    <div className="banner">
+    <div
+      style={{
+        scale: isSmMobile ? "0.6" : isMobile ? "0.7" : isTablet ? "1" : "1",
+      }}
+      className="banner"
+    >
       <div className="overlap">
         <div className="overlap-group">
           <div className="overlap-wrapper">
@@ -126,34 +138,33 @@ export const Banner = (): JSX.Element => {
                   <div className="text-wrapper-8">Reverse ASIN</div>
                 </div>
               </div>
-            </div>
-          </div>
+              <div className="frame-19">
+                <div className="frame-14">
+                  <div className="group-13">
+                    <img
+                      className="trademark"
+                      alt="Trademark"
+                      src="https://c.animaapp.com/Gy5wEilT/img/trademark-1.svg"
+                    />
+                  </div>
 
-          <div className="frame-19">
-            <div className="frame-14">
-              <div className="group-13">
-                <img
-                  className="trademark"
-                  alt="Trademark"
-                  src="https://c.animaapp.com/Gy5wEilT/img/trademark-1.svg"
-                />
+                  <div className="text-wrapper-8">7 Backend Keywords</div>
+                </div>
               </div>
 
-              <div className="text-wrapper-8">7 Backend Keywords</div>
-            </div>
-          </div>
+              <div className="frame-20">
+                <div className="frame-14">
+                  <div className="group-13">
+                    <img
+                      className="t"
+                      alt="T"
+                      src="https://c.animaapp.com/Gy5wEilT/img/t-1.svg"
+                    />
+                  </div>
 
-          <div className="frame-20">
-            <div className="frame-14">
-              <div className="group-13">
-                <img
-                  className="t"
-                  alt="T"
-                  src="https://c.animaapp.com/Gy5wEilT/img/t-1.svg"
-                />
+                  <div className="text-wrapper-8">Niche Finder</div>
+                </div>
               </div>
-
-              <div className="text-wrapper-8">Niche Finder</div>
             </div>
           </div>
         </div>

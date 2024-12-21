@@ -127,6 +127,7 @@ function BSRSalesCalculatorPage({ info, token }) {
         // );
 
         toast({
+          variant: "destructive",
           title: "Error",
           description: err.response?.data?.error || "Something went wrong",
         });
@@ -254,7 +255,7 @@ function BSRSalesCalculatorPage({ info, token }) {
         Title={<PageTitle title="KDP BSR Sales Calculator" />}
         Body={
           <div className="min-h-screen ">
-            <div className=" mt-10 max-w-screen-lg mx-auto  py-4 px-2 ">
+            <div className=" mt-10 mx-2 max-w-screen-lg mx-auto  py-4 px-2 ">
               <div className="flex flex-col   md:flex-col">
                 <div className="flex flex-col config-container md:flex-row justify-center items-center">
                   <div className=" mx-auto  ">
@@ -288,7 +289,7 @@ function BSRSalesCalculatorPage({ info, token }) {
                       ))}
                     </select>
                   </div>
-                  <div className="">
+                  <div className="w-full">
                     {/* <ComInput
                       label="Enter BSR (Best Seller Rank)"
                       value={inputs.bsr}
@@ -312,10 +313,13 @@ function BSRSalesCalculatorPage({ info, token }) {
                         changeValue("bsr")(e.target.value);
                       }}
                       type="number"
-                      className="py-5 rounded-full"
+                      className="py-5 w-full rounded-full"
                     />
                   </div>
-                  <Button className="ml-2 rounded-full" onClick={calculateBSR}>
+                  <Button
+                    className="ml-2 ml-auto rounded-full"
+                    onClick={calculateBSR}
+                  >
                     Calculate Sales
                     {isFetching && (
                       <RotateCwIcon className="animate-spin ml-2" />
@@ -324,30 +328,32 @@ function BSRSalesCalculatorPage({ info, token }) {
                 </div>
               </div>
             </div>
-
-            <div className="rounded-md  sp-container flex flex-col light-border border justify-between md:flex-row max-w-screen-lg mx-auto px-4   mt-6 p-5">
-              <h6 className="text-xl ">
-                Estimated Sales per Month:{" "}
-                <strong className="ml-2 text-primary">
-                  {numberWithCommas(parseInt(result.possible_sales))}
-                </strong>
-              </h6>
-              <h6 className="text-xl ">
-                Estimated Sales per Day:{" "}
-                <strong className="ml-1 text-primary">
-                  {result.possible_sales &&
-                    (result.possible_sales / 30 > 1
-                      ? numberWithCommas(Math.floor(result.possible_sales / 30))
-                      : "< 1")}
-                </strong>
-              </h6>
-            </div>
-            <div className=" sp-container border light-border rounded-3xl flex flex-col md:flex-row max-w-screen-lg mx-auto p-4  px-5 border mt-6">
-              <div className="flex-1">
-                <h6 className="font-semibold text-[22px]  mb-4">
-                  Royalty Estimates
+            <div className="px-5">
+              <div className="rounded-md mx-4  sp-container flex flex-col light-border border justify-between md:flex-row max-w-screen-lg mx-auto px-4   mt-6 p-5">
+                <h6 className="text-xl ">
+                  Estimated Sales per Month:{" "}
+                  <strong className="ml-2 text-primary">
+                    {numberWithCommas(parseInt(result.possible_sales))}
+                  </strong>
                 </h6>
-                {/* <ComSelect
+                <h6 className="text-xl ">
+                  Estimated Sales per Day:{" "}
+                  <strong className="ml-1 text-primary">
+                    {result.possible_sales &&
+                      (result.possible_sales / 30 > 1
+                        ? numberWithCommas(
+                            Math.floor(result.possible_sales / 30)
+                          )
+                        : "< 1")}
+                  </strong>
+                </h6>
+              </div>
+              <div className=" sp-container border light-border rounded-3xl flex flex-col md:flex-row max-w-screen-lg mx-auto p-4  px-5 border mt-6">
+                <div className="flex-1">
+                  <h6 className="font-semibold text-[22px]  mb-4">
+                    Royalty Estimates
+                  </h6>
+                  {/* <ComSelect
                   label="Book Type"
                   options={[
                     { label: "Paperback", value: "paperback" },
@@ -357,269 +363,272 @@ function BSRSalesCalculatorPage({ info, token }) {
                   setValue={changeValue2("type")}
                 /> */}
 
-                <div className="mt-4">
-                  <Label className="ml-2">Book Type</Label>
-                  <select
-                    className="form-select mt-1 block w-full"
-                    value={inputs2.type}
-                    onChange={(e) => {
-                      changeValue2("type")(e.target.value);
-                    }}
-                  >
-                    {[
-                      { label: "Paperback", value: "paperback" },
-                      { label: "Hardcover", value: "hardcover" },
-                    ].map((item) => (
-                      <option key={item.value} value={item.value}>
-                        {item.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                  <div className="mt-4">
+                    <Label className="ml-2">Book Type</Label>
+                    <select
+                      className="form-select mt-1 block w-full"
+                      value={inputs2.type}
+                      onChange={(e) => {
+                        changeValue2("type")(e.target.value);
+                      }}
+                    >
+                      {[
+                        { label: "Paperback", value: "paperback" },
+                        { label: "Hardcover", value: "hardcover" },
+                      ].map((item) => (
+                        <option key={item.value} value={item.value}>
+                          {item.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
 
-                {/* <ComSelect
+                  {/* <ComSelect
                   label="Country"
                   options={countryList.filter((c) => c[inputs2.type])}
                   value={inputs2.distribution}
                   setValue={changeValue2("distribution")}
                 /> */}
-                <div className="mt-4">
-                  <Label className="ml-2">Distribution</Label>
-                  <select
-                    className="form-select mt-1 block w-full"
-                    value={inputs2.distribution}
-                    onChange={(e) => {
-                      changeValue2("distribution")(e.target.value);
-                    }}
-                  >
-                    {countryList
-                      .filter((c) => c[inputs2.type])
-                      .map((item) => (
-                        <option key={item.value} value={item.value}>
-                          {item.label}
-                        </option>
-                      ))}
-                  </select>
-                </div>
+                  <div className="mt-4">
+                    <Label className="ml-2">Distribution</Label>
+                    <select
+                      className="form-select mt-1 block w-full"
+                      value={inputs2.distribution}
+                      onChange={(e) => {
+                        changeValue2("distribution")(e.target.value);
+                      }}
+                    >
+                      {countryList
+                        .filter((c) => c[inputs2.type])
+                        .map((item) => (
+                          <option key={item.value} value={item.value}>
+                            {item.label}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
 
-                {/* <ComSelect
+                  {/* <ComSelect
                   label="Interior Type"
                   options={typeList.filter((item) => item[inputs2.type])}
                   value={inputs2.interior}
                   setValue={changeValue2("interior")}
                 /> */}
 
-                <div className="mt-4">
-                  <Label className="ml-2">Interior Type</Label>
-                  <select
-                    className="form-select mt-1 block w-full"
-                    value={inputs2.interior}
-                    onChange={(e) => {
-                      changeValue2("interior")(e.target.value);
-                    }}
-                  >
-                    {typeList
-                      .filter((item) => item[inputs2.type])
-                      .map((item) => (
-                        <option key={item.value} value={item.value}>
-                          {item.label}
-                        </option>
-                      ))}
-                  </select>
-                </div>
+                  <div className="mt-4">
+                    <Label className="ml-2">Interior Type</Label>
+                    <select
+                      className="form-select mt-1 block w-full"
+                      value={inputs2.interior}
+                      onChange={(e) => {
+                        changeValue2("interior")(e.target.value);
+                      }}
+                    >
+                      {typeList
+                        .filter((item) => item[inputs2.type])
+                        .map((item) => (
+                          <option key={item.value} value={item.value}>
+                            {item.label}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
 
-                <div className="mt-4">
-                  <Label className="ml-2">Interior Type</Label>
-                  <Input
-                    value={inputs2.pages}
-                    onChange={(e) => changeValue2("pages")(e.target.value)}
-                    type="number"
-                    className="mt-1 bg-white"
-                    min={42}
-                  />
+                  <div className="mt-4">
+                    <Label className="ml-2">Interior Type</Label>
+                    <Input
+                      value={inputs2.pages}
+                      onChange={(e) => changeValue2("pages")(e.target.value)}
+                      type="number"
+                      className="mt-1 bg-white"
+                      min={42}
+                    />
 
-                  <h6 className="text-xs ml-2 mb-5 text-gray-500">
-                    Min Pages: <b>{reference[inputs2.interior].min}</b> - Max
-                    Pages: <b>{reference[inputs2.interior].max}</b>
-                    {(inputs2.pages > reference[inputs2.interior].max ||
-                      inputs2.pages < reference[inputs2.interior].min) && (
-                      <span className="text-secCol1-700 ml-4 font-bold">
-                        Invalid Page Count
-                      </span>
-                    )}
-                  </h6>
-                </div>
+                    <h6 className="text-xs ml-2 mb-5 text-gray-500">
+                      Min Pages: <b>{reference[inputs2.interior].min}</b> - Max
+                      Pages: <b>{reference[inputs2.interior].max}</b>
+                      {(inputs2.pages > reference[inputs2.interior].max ||
+                        inputs2.pages < reference[inputs2.interior].min) && (
+                        <span className="text-secCol1-700 ml-4 font-bold">
+                          Invalid Page Count
+                        </span>
+                      )}
+                    </h6>
+                  </div>
 
-                {/* <ComInput
+                  {/* <ComInput
                   label="Book Price"
                   value={inputs2.prices}
                   setValue={changeValue2("prices")}
                   type="number"
                 /> */}
 
-                <div className="mt-4">
-                  <Label className="ml-2">Book Price</Label>
-                  <Input
-                    value={inputs2.prices}
-                    className="bg-white mt-1"
-                    onChange={(e) => changeValue2("prices")(e.target.value)}
-                    type="number"
-                  />
+                  <div className="mt-4">
+                    <Label className="ml-2">Book Price</Label>
+                    <Input
+                      value={inputs2.prices}
+                      className="bg-white mt-1"
+                      onChange={(e) => changeValue2("prices")(e.target.value)}
+                      type="number"
+                    />
+                  </div>
+
+                  <h6 className="text-xs ml-2 mb-5 text-gray-500">
+                    Min Price:{" "}
+                    <b>
+                      {result2.standard_minimum_price} {reference.currency}
+                    </b>{" "}
+                    - Max Price:{" "}
+                    <b>
+                      {reference.maxPrice} {reference.currency}
+                    </b>
+                    {inputs.prices > reference.maxPrice && (
+                      <span className="text-secCol1-700 ml-4 font-bold">
+                        Invalid Price
+                      </span>
+                    )}
+                  </h6>
                 </div>
 
-                <h6 className="text-xs ml-2 mb-5 text-gray-500">
-                  Min Price:{" "}
-                  <b>
-                    {result2.standard_minimum_price} {reference.currency}
-                  </b>{" "}
-                  - Max Price:{" "}
-                  <b>
-                    {reference.maxPrice} {reference.currency}
-                  </b>
-                  {inputs.prices > reference.maxPrice && (
-                    <span className="text-secCol1-700 ml-4 font-bold">
-                      Invalid Price
-                    </span>
-                  )}
-                </h6>
-              </div>
+                <div className="flex-1">
+                  <div className="w-full flex flex-col justify-between pb-24 h-full gap-5 p-4 mt-0 md:mt-12">
+                    <div className="">
+                      <div className="flex ">
+                        <h6 className="flex-[2] font-medium ">Book Royalty:</h6>
+                        <h6
+                          className={`flex-1 text-right ml-auto font-bold ${
+                            result2.standard_royalty >= 0
+                              ? " text-gray-500"
+                              : "text-secCol1-600"
+                          }`}
+                        >
+                          {result2.standard_royalty} {reference.currency}
+                        </h6>
+                      </div>
 
-              <div className="flex-1">
-                <div className="w-full flex flex-col justify-between pb-24 h-full p-4 mt-0 md:mt-12">
-                  <div className="">
-                    <div className="flex ">
-                      <h6 className="flex-[2] font-medium ">Book Royalty:</h6>
-                      <h6
-                        className={`flex-1 text-right ml-auto font-bold ${
-                          result2.standard_royalty >= 0
-                            ? " text-gray-500"
-                            : "text-secCol1-600"
-                        }`}
-                      >
-                        {result2.standard_royalty} {reference.currency}
+                      <h6 className="text-xs text-[#545d6a]">
+                        Standard Royalty Profit: 60%
                       </h6>
                     </div>
 
-                    <h6 className="text-xs text-[#545d6a]">
-                      Standard Royalty Profit: 60%
-                    </h6>
-                  </div>
-
-                  <div className="">
-                    <div className="flex ">
-                      <h6 className="flex-[2] font-medium ">Printing Cost: </h6>
-                      <h6 className="flex-1 text-right ml-auto font-medium ">
-                        {result2.print_cost} {reference.currency}
-                      </h6>{" "}
+                    <div className="">
+                      <div className="flex ">
+                        <h6 className="flex-[2] font-medium ">
+                          Printing Cost:{" "}
+                        </h6>
+                        <h6 className="flex-1 text-right ml-auto font-medium ">
+                          {result2.print_cost} {reference.currency}
+                        </h6>{" "}
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="">
-                    <div className="flex ">
-                      <h6 className="flex-[2] font-medium">
-                        Expanded Distribution Royalty:{" "}
+                    <div className="">
+                      <div className="flex ">
+                        <h6 className="flex-[2] font-medium">
+                          Expanded Distribution Royalty:{" "}
+                        </h6>
+                        <h6
+                          className={`flex-1 text-right ml-auto font-medium ${
+                            result2.expanded_royalty >= 0
+                              ? " text-gray-500"
+                              : "text-secCol1-600"
+                          }`}
+                        >
+                          {result2.expanded_royalty} {reference.currency}
+                        </h6>{" "}
+                      </div>
+                      <h6 className="text-xs text-[#545d6a]">
+                        Expanded Distribution Royalty Profit: 40%
                       </h6>
-                      <h6
-                        className={`flex-1 text-right ml-auto font-medium ${
-                          result2.expanded_royalty >= 0
-                            ? " text-gray-500"
-                            : "text-secCol1-600"
-                        }`}
-                      >
-                        {result2.expanded_royalty} {reference.currency}
-                      </h6>{" "}
                     </div>
-                    <h6 className="text-xs text-[#545d6a]">
-                      Expanded Distribution Royalty Profit: 40%
-                    </h6>
-                  </div>
 
-                  <div className="">
-                    <div className="flex ">
-                      <h6 className="flex-[2] font-medium ">
-                        Standard Minimum List price:{" "}
-                      </h6>
-                      <h6 className="flex-1 text-right ml-auto font-medium ">
-                        {result2.standard_minimum_price} {reference.currency}
-                      </h6>{" "}
+                    <div className="">
+                      <div className="flex ">
+                        <h6 className="flex-[2] font-medium ">
+                          Standard Minimum List price:{" "}
+                        </h6>
+                        <h6 className="flex-1 text-right ml-auto font-medium ">
+                          {result2.standard_minimum_price} {reference.currency}
+                        </h6>{" "}
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="">
-                    <div className="flex ">
-                      <h6 className="flex-[2]  font-medium ">
-                        Expanded Distribution Minimum List price:{" "}
-                      </h6>
-                      <h6 className="flex-1 text-right ml-auto font-medium ">
-                        {result2.expanded_minimum_price} {reference.currency}
-                      </h6>{" "}
+                    <div className="">
+                      <div className="flex ">
+                        <h6 className="flex-[2]  font-medium ">
+                          Expanded Distribution Minimum List price:{" "}
+                        </h6>
+                        <h6 className="flex-1 text-right ml-auto font-medium ">
+                          {result2.expanded_minimum_price} {reference.currency}
+                        </h6>{" "}
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="">
-                    <div className="flex ">
-                      <h6 className="flex-[2] font-medium ">
-                        ACOS Breakeven:{" "}
-                      </h6>
-                      <h6
-                        className={`flex-1 text-right ml-auto font-medium ${
-                          result2.standard_break_even >= 0
-                            ? " text-gray-500"
-                            : "text-secCol1-600"
-                        }`}
-                      >
-                        {result2.standard_break_even}%
-                      </h6>{" "}
+                    <div className="">
+                      <div className="flex ">
+                        <h6 className="flex-[2] font-medium ">
+                          ACOS Breakeven:{" "}
+                        </h6>
+                        <h6
+                          className={`flex-1 text-right ml-auto font-medium ${
+                            result2.standard_break_even >= 0
+                              ? " text-gray-500"
+                              : "text-secCol1-600"
+                          }`}
+                        >
+                          {result2.standard_break_even}%
+                        </h6>{" "}
+                      </div>
                     </div>
-                  </div>
-                  {/* <Button
+                    {/* <Button
                     variant="contained"
                     className="ml-auto mt-4"
                     onClick={calculateBSR}
                   >
                     Calculate
                   </Button> */}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="rounded-md sp-container light-border border flex flex-col justify-between md:flex-row max-w-screen-lg mx-auto px-4  border mt-6">
-              <div className="py-2 pt-4">
-                <div className="flex">
-                  <h6 className="flex-[2] font-medium ">
-                    Total Book Royalty as Sold:
-                  </h6>
-                  <h6
-                    className={`flex-1 text-right ml-auto font-medium ${
-                      result2.sold_royalty >= 0
-                        ? " text-gray-500"
-                        : "text-secCol1-600"
-                    }`}
-                  >
-                    {result2.sold_royalty} {reference.currency}
-                  </h6>{" "}
-                </div>
-                <h6 className="text-xs text-[#545d6a]">
-                  Standard Royalty Profit: 60%
-                </h6>
-              </div>
-              <div className="py-2 pb-4">
-                <div className="flex">
-                  <h6 className="flex-[2] font-medium ">
-                    Total Book Expanded Royalty as Sold:{" "}
-                  </h6>
-                  <h6
-                    className={`flex-1 text-right ml-auto font-medium  ${
-                      result.sold_expanded_royalty >= 0
-                        ? " text-gray-500"
-                        : "text-secCol1-600"
-                    }`}
-                  >
-                    {result2.sold_expanded_royalty} {reference.currency}
+              <div className="rounded-md sp-container light-border border flex flex-col justify-between md:flex-row max-w-screen-lg mx-auto px-4  border mt-6">
+                <div className="py-2 pt-4">
+                  <div className="flex">
+                    <h6 className="flex-[2] font-medium ">
+                      Total Book Royalty as Sold:
+                    </h6>
+                    <h6
+                      className={`flex-1 text-right ml-auto font-medium ${
+                        result2.sold_royalty >= 0
+                          ? " text-gray-500"
+                          : "text-secCol1-600"
+                      }`}
+                    >
+                      {result2.sold_royalty} {reference.currency}
+                    </h6>{" "}
+                  </div>
+                  <h6 className="text-xs text-[#545d6a]">
+                    Standard Royalty Profit: 60%
                   </h6>
                 </div>
-                <h6 variant="body2" className="text-[#545d6a] text-xs">
-                  Expanded Distribution Royalty Profit: 40%
-                </h6>
+                <div className="py-2 pb-4">
+                  <div className="flex">
+                    <h6 className="flex-[2] font-medium ">
+                      Total Book Expanded Royalty as Sold:{" "}
+                    </h6>
+                    <h6
+                      className={`flex-1 text-right ml-auto font-medium  ${
+                        result.sold_expanded_royalty >= 0
+                          ? " text-gray-500"
+                          : "text-secCol1-600"
+                      }`}
+                    >
+                      {result2.sold_expanded_royalty} {reference.currency}
+                    </h6>
+                  </div>
+                  <h6 className="text-[#545d6a] text-xs">
+                    Expanded Distribution Royalty Profit: 40%
+                  </h6>
+                </div>
               </div>
             </div>
           </div>

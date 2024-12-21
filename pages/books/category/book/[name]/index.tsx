@@ -140,6 +140,7 @@ export default function Book({ info, book }: { info: any; book: any }) {
 
   return (
     <MainLayout
+      Title={<></>}
       info={info}
       meta={{
         title: book.title,
@@ -154,19 +155,15 @@ export default function Book({ info, book }: { info: any; book: any }) {
               <h6 className="mt-2 text-3xl mb-4 font-bold">{book.title}</h6>
               <div className="pl-4">
                 {book.authors && (
-                  <h6 variant="subtitle1" className="text-gray-600 mt-2">
+                  <h6 className="text-gray-600 mt-2">
                     {book.authors.replace(/{|}|"/g, "").split(",").join(", ")}
                   </h6>
                 )}
                 {book.publisher && (
-                  <h6 variant="subtitle2" className="text-gray-600 mt-2">
-                    {book.publisher}
-                  </h6>
+                  <h6 className="text-gray-600 mt-2">{book.publisher}</h6>
                 )}
                 {book.publicationDate && (
-                  <h6 variant="subtitle2" className="text-gray-600 mt-2">
-                    {book.publicationDate}
-                  </h6>
+                  <h6 className="text-gray-600 mt-2">{book.publicationDate}</h6>
                 )}
               </div>
             </div>
@@ -174,10 +171,8 @@ export default function Book({ info, book }: { info: any; book: any }) {
 
           {book.book?.introduction && (
             <div className="max-w-4xl m-auto mt-3">
-              <h6 variant="h6" className="text-xl font-semibold">
-                Introduction
-              </h6>
-              <h6 variant="body2" className="text-gray-600 mt-2 pl-4">
+              <h6 className="text-xl font-semibold">Introduction</h6>
+              <h6 className="text-gray-600 mt-2 pl-4">
                 {book.book.introduction}
               </h6>
             </div>
@@ -185,16 +180,9 @@ export default function Book({ info, book }: { info: any; book: any }) {
 
           {keyTakeawaysArray.length > 0 && (
             <div className="max-w-4xl m-auto mt-3">
-              <h6 variant="h6" className="text-xl font-semibold">
-                Key Takeaways:
-              </h6>
+              <h6 className="text-xl font-semibold">Key Takeaways:</h6>
               {keyTakeawaysArray.map((keyTakeaway, index) => (
-                <h6
-                  component="ol"
-                  variant="body2"
-                  className="pl-4 text-gray-600 mt-2"
-                  key={index}
-                >
+                <h6 className="pl-4 text-gray-600 mt-2" key={index}>
                   {keyTakeaway}
                 </h6>
               ))}
@@ -202,15 +190,11 @@ export default function Book({ info, book }: { info: any; book: any }) {
           )}
 
           <div className="max-w-4xl m-auto mt-3">
-            <h6 variant="h6" className="text-xl font-semibold">
+            <h6 className="text-xl font-semibold">
               In Depth Book Description:
             </h6>
             {chunkedDescription.map((description, index) => (
-              <h6
-                key={index}
-                variant="body2"
-                className="text-gray-600 mt-2 pl-4"
-              >
+              <h6 key={index} className="text-gray-600 mt-2 pl-4">
                 {description}
               </h6>
             ))}
@@ -218,16 +202,9 @@ export default function Book({ info, book }: { info: any; book: any }) {
 
           {standoutFeaturesArray.length > 0 && (
             <div className="max-w-4xl m-auto mt-3">
-              <h6 variant="h6" className="text-xl font-semibold">
-                Standout Features:
-              </h6>
+              <h6 className="text-xl font-semibold">Standout Features:</h6>
               {standoutFeaturesArray.map((standoutFeature, index) => (
-                <h6
-                  component="ol"
-                  variant="body2"
-                  className="text-gray-600 mt-2 pl-4"
-                  key={index}
-                >
+                <h6 className="text-gray-600 mt-2 pl-4" key={index}>
                   {standoutFeature}
                 </h6>
               ))}
@@ -235,56 +212,56 @@ export default function Book({ info, book }: { info: any; book: any }) {
           )}
 
           <div className="book-details max-w-4xl m-auto mt-3">
-            <h6 variant="h6" className="text-xl font-semibold">
+            <h6 className="text-xl font-semibold">
               Book Details and Specifications
             </h6>
             <div className="pl-4">
-              <h6 variant="body2" className="text-gray-600 mt-2">
+              <h6 className="text-gray-600 mt-2">
                 <strong>Title:</strong> {book.title || "Not available"}
               </h6>
-              <h6 variant="body2">
+              <h6>
                 <strong>Publisher:</strong> {book.publisher || "Not available"}
               </h6>
-              <h6 variant="body2">
+              <h6>
                 <strong>Publication Date:</strong>{" "}
                 {book.publicationDate || "Not available"}
               </h6>
-              <h6 variant="body2">
+              <h6>
                 <strong>Pages:</strong> {book.pages || "Not available"}
               </h6>
-              <h6 variant="body2">
+              <h6>
                 <strong>Language:</strong> {book.language || "Not available"}
               </h6>
-              <h6 variant="body2">
+              <h6>
                 <strong>ISBN-10:</strong> {book.isbn10 || "Not available"}
               </h6>
-              <h6 variant="body2">
+              <h6>
                 <strong>ISBN-13:</strong> {book.isbn13 || "Not available"}
               </h6>
-              <h6 variant="body2">
+              <h6>
                 <strong>Dimensions:</strong>{" "}
                 {book.dimensions || "Not available"}
               </h6>
-              <h6 variant="body2">
+              <h6>
                 <strong>Weight:</strong> {book.weight || "Not available"}
               </h6>
-              <h6 variant="body2">
+              <h6>
                 <strong>Kindle Price:</strong>{" "}
                 {book.kindlePrice || "Not available"}
               </h6>
-              <h6 variant="body2">
+              <h6>
                 <strong>Hardcover Price:</strong>{" "}
                 {book.hardcoverPrice || "Not available"}
               </h6>
-              <h6 variant="body2">
+              <h6>
                 <strong>Paperback Price:</strong>{" "}
                 {book.paperbackPrice || "Not available"}
               </h6>
-              <h6 variant="body2">
+              <h6>
                 <strong>Audiobook Price:</strong>{" "}
                 {book.audiobookPrice || "Not available"}
               </h6>
-              <h6 variant="body2">
+              <h6>
                 <strong>Audiocd Price:</strong>{" "}
                 {book.audiocdPrice || "Not available"}
               </h6>
@@ -305,35 +282,23 @@ export default function Book({ info, book }: { info: any; book: any }) {
 
           {book.book?.description && (
             <div className="max-w-4xl m-auto mt-3">
-              <h6 variant="h6" className="text-xl font-semibold">
-                Description
-              </h6>
-              <h6 variant="body2" className="pl-4">
-                {book.book.description}
-              </h6>
+              <h6 className="text-xl font-semibold">Description</h6>
+              <h6 className="pl-4">{book.book.description}</h6>
             </div>
           )}
 
           {book.book?.topReviews && (
             <div className="max-w-4xl m-auto mt-3">
-              <h6 variant="h6" className="text-xl font-semibold">
-                Top Reviews:
-              </h6>
+              <h6 className="text-xl font-semibold">Top Reviews:</h6>
               {book.book.topReviews.map((review: Review, index: number) => (
                 <div key={index} className="mt-2 border rounded-xl p-2 pl-4">
-                  <h6 variant="h6" className="text-blue-700">
-                    {review.reviewerName}
-                  </h6>
-                  <h6 variant="body2" className="text-xl font-semibold">
+                  <h6 className="text-blue-700">{review.reviewerName}</h6>
+                  <h6 className="text-xl font-semibold">
                     <strong>Ratings:</strong> {review.reviewerRatings}
                   </h6>
-                  <h6 variant="subtitle1" className="italic">
-                    {review.reviewTitle}
-                  </h6>
-                  <h6 variant="caption" className="mb-2">
-                    {review.reviewDate}
-                  </h6>
-                  <h6 variant="body2">{review.reviewDescription}</h6>
+                  <h6 className="italic">{review.reviewTitle}</h6>
+                  <h6 className="mb-2">{review.reviewDate}</h6>
+                  <h6>{review.reviewDescription}</h6>
                 </div>
               ))}
             </div>

@@ -113,7 +113,7 @@ function BSRSalesCalculatorPage({ info }) {
             <div className="min-h-screen  mt-24">
               <div
                 style={{ border: "1px solid #808080" }}
-                className="m-12 max-w-screen-lg mx-auto  p-4 "
+                className="m-12  mx-auto  p-4 "
               >
                 <h1 className="text-3xl  mb-4 ">
                   <span>Pen Name Generator</span>
@@ -166,7 +166,7 @@ function BSRSalesCalculatorPage({ info }) {
         }}
         Title={<PageTitle title="Pen Name Generator" />}
         Body={
-          <div className="min-h-[60vh] my-auto mt-0 ">
+          <div className="min-h-[60vh] mx-4 my-auto mt-0 ">
             <div
               style={{ border: "1px solid #cccccc" }}
               className="m-12 rounded-lg px-5 w-fit max-w-screen-lg mx-auto p-4 sp-container"
@@ -174,7 +174,7 @@ function BSRSalesCalculatorPage({ info }) {
               <br />
 
               <div className="flex flex-col justify-center   md:flex-row">
-                <div className="flex w-[500px] justify-center flex-col ">
+                <div className="flex md:w-[500px] justify-center flex-col ">
                   <h6 className="text-[24px] mb-4 font-extrabold text-center">
                     Select KDP region you want a name for:{" "}
                   </h6>

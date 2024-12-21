@@ -514,7 +514,7 @@ function FeaturePage({ token, info, pageData, features, isOwner }) {
                 )} */}
               </div>
 
-              <div className="overflow-auto w-[90vw] md:w-fit max-w-[90vw] md:flex md:justfy-center ml-10 mt-10">
+              <div className="overflow-auto pr-10 w-[90vw] md:w-fit max-w-[90vw] md:flex md:justfy-center ml-10 mt-10">
                 <table className="h-full kwt-table ">
                   <thead className="">
                     <tr className="">

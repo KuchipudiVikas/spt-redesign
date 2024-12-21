@@ -21,14 +21,24 @@ export interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ pageData }) => {
+  // return null;
   return (
     <div className="">
       <ComprehensiveTools />
-      <NewAuthorTools />
+      {/* <NewAuthorTools /> */}
       <ChromeExtensions />
       <AllTools />
       <OurBook />
-      <Reviews testimonials={pageData.testimonials} />
+      <div className="w-full flex justify-center">
+        <Reviews
+          testimonials={pageData.testimonials}
+          containerStyle={{
+            maxWidth: "80%",
+            marginTop: "00px",
+            marginBottom: "40px",
+          }}
+        />
+      </div>
       <BottomBanner />
     </div>
   );

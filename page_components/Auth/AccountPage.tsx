@@ -173,10 +173,10 @@ const AccountPageComp: React.FC<AccountPageProps> = ({
     <div>
       <div
         style={{
-          padding: "60px",
+          // padding: "60px",
           position: "relative",
         }}
-        className="flex gap-10"
+        className="flex flex-col p-5 md:p-10  md:flex-row gap-5"
       >
         <div className="tab-container ">
           <div
@@ -214,22 +214,6 @@ const AccountPageComp: React.FC<AccountPageProps> = ({
             <SettingsIcon size={24} />
             Settings
           </div>
-          {/* <div
-            className={`tab ${
-              selecetedTab === "Subscriptions" ? "active" : ""
-            }`}
-            onClick={() => setSelectedTab("Subscriptions")}
-          >
-            <CircleDollarSign size={24} />
-            Manage Subscriptions
-          </div>
-          <div
-            className={`tab ${selecetedTab === "Invoices" ? "active" : ""}`}
-            onClick={() => setSelectedTab("Invoices")}
-          >
-            <ReceiptText size={24} />
-            Invoices
-          </div> */}
         </div>
         <div className="tab-content w-full">
           {selecetedTab === "Tools" && (

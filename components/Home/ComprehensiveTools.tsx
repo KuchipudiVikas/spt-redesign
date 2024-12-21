@@ -144,13 +144,8 @@ const items: item[] = [
 const ComprehensiveTools = () => {
   return (
     <div className="w-full">
-      <div
-        className="font-jsans flex justify-center mb-10 mt-[55px] mx-auto flex gap-3 font-extrabold"
-        style={{
-          fontSize: "45px",
-        }}
-      >
-        Our Comprehensive Tools
+      <div className="font-jsans flex text-[30px] md:text-[45px] justify-center mb-10 mt-[55px] text-center mx-auto flex gap-3 font-extrabold">
+        All In One Author Tools
       </div>
       <div className="flex flex-wrap justify-center gap-6 mt-4">
         {items.map((item, index) => {

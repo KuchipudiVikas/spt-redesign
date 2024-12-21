@@ -47,21 +47,19 @@ function QrCodePage({ info }: QrCodePageProps) {
         Title={<PageTitle title="QR Code Generator" />}
         Body={
           <div className="min-h-screen  ">
-            <div className="flex justify-center">
-              <div className="md:m-12  min border light-border sp-container  max-w-screen-lg mx-auto p-4 bg-white  rounded-2xl">
+            <div className="flex justify-center max-w-[600px] mx-auto px-4 mt-10">
+              <div className="md:m-12 max-w-[600px]  min border light-border sp-container  max-w-screen-lg w-full mx-auto p-4 bg-white  rounded-2xl">
                 <div className="flex flex-col">
                   <div className="flex-[2] flex-col">
                     <div
-                      style={{
-                        minWidth: "500px",
-                      }}
-                      className="flex  mt-12 gap-5 flex-col"
+                      style={{}}
+                      className="flex w-full  md:min-w-[500px] mt-12 gap-5 flex-col"
                     >
                       <Label className="text-label">Enter Website URL</Label>
                       <Textarea
                         value={value}
                         onChange={(e) => setValue(e.target.value)}
-                        className="mr-14"
+                        className="md:mr-14"
                         placeholder="Enter Website URL"
                         style={{
                           resize: "none",

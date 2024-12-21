@@ -4,6 +4,7 @@ import { TObject } from "@/lib/models/canvas";
 import { CreateBlankBg, CreateImage, CreateClipPath } from "@/data/page";
 import { trimSizes } from "@/data/kdp-helper/kdp-helper";
 import { Button } from "@/components/ui/button";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 interface CreateProps {
   userID: string;
@@ -15,6 +16,10 @@ type Template = "none" | "book-cover";
 export const Create = ({ userID, closeHandler = () => {} }: CreateProps) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const router = useRouter();
+
+  const isMobile = useMediaQuery("(max-width: 640px)");
+
+  const scaleFactor = isMobile ? 20 : 30;
 
   const togglePopup = () => setIsPopupVisible(!isPopupVisible);
 
@@ -77,10 +82,10 @@ export const Create = ({ userID, closeHandler = () => {} }: CreateProps) => {
   );
 
   return (
-    <div>
+    <div className="w-full">
       {true && (
-        <div className=" ">
-          <div className="w-[550px]">
+        <div className=" w-full ">
+          <div className="w-full md:w-[550px]">
             <span className="close" onClick={togglePopup}>
               &times;
             </span>
@@ -133,18 +138,18 @@ export const Create = ({ userID, closeHandler = () => {} }: CreateProps) => {
             </div>
             <div className="mt-2 flex justify-center">
               <div
-                className="relative ml-2 bg-white border rounded-lg border-gray-300"
+                className="relative md:w-[500px] w-full h-[200px] md:h-[200px] ml-2 bg-white border rounded-lg border-gray-300"
                 style={{
-                  width: "500px",
-                  height: "220px",
+                  // width: "500px",
+                  // height: "220px",
                   border: "1px solid #ccc",
                 }}
               >
                 <div
                   className="absolute flex items-center justify-center"
                   style={{
-                    width: `${(trimSize.width / 96) * 30}px`,
-                    height: `${(trimSize.height / 96) * 30}px`,
+                    width: `${(trimSize.width / 96) * scaleFactor}px`,
+                    height: `${(trimSize.height / 96) * scaleFactor}px`,
                     top: "50%",
                     left: "50%",
                     background: "#eee",

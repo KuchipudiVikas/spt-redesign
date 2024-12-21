@@ -280,7 +280,7 @@ export default function EnhancedTable({
   console.log("visibleRows", visibleRows);
 
   return (
-    <div style={{ maxWidth: "100vw", width: "1300px", overflow: "auto" }}>
+    <div style={{ maxWidth: "100vw", overflow: "auto" }}>
       <div>
         <div className="w-full">
           <Table aria-labelledby="">
@@ -395,9 +395,12 @@ export default function EnhancedTable({
                       <td className="px-2" align="center">
                         <div
                           style={{
+                            // @ts-ignore
                             backgroundColor: lightenColor(row.demandColor, 85),
+                            // @ts-ignore
                             color: darkenColor(row.demandColor, 40),
                             border: `1px solid ${darkenColor(
+                              // @ts-ignore
                               row.demandColor,
                               40
                             )}`,
@@ -429,11 +432,14 @@ export default function EnhancedTable({
                           // }}
                           style={{
                             backgroundColor: lightenColor(
+                              // @ts-ignore
                               row.opportunityColor,
                               85
                             ),
+                            // @ts-ignore
                             color: darkenColor(row.opportunityColor, 40),
                             border: `1px solid ${darkenColor(
+                              // @ts-ignore
                               row.opportunityColor,
                               40
                             )}`,

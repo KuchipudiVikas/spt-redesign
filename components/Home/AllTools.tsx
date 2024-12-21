@@ -3,16 +3,20 @@ import { useState } from "react";
 import { CheckIcon } from "lucide-react";
 import { ArrowRightIcon } from "lucide-react";
 import { CircleArrowDown, CircleArrowUp } from "lucide-react";
-import { Items, Item, SelectedTab } from "@/data/home";
+import { Items, Item, ListItem, SelectedTab } from "@/data/home";
 import Image from "next/image";
-import BrandLogo from "@/public/favIcon.png";
+import Link from "next/link";
 
 const AllTools = () => {
-  const [selectedTab, setSelectedTab] = useState<SelectedTab>("ft");
+  const [selectedTab, setSelectedTab] = useState<SelectedTab>("rt");
 
   const [selectedData, setSelectedData] = useState<Item>(Items[0]);
 
   const [expandedItem, setExpandedItem] = useState<number | null>(0);
+
+  const [selectedItem, setSelectedItem] = useState<ListItem>(
+    Items[0].products[0]
+  );
 
   useEffect(() => {
     const data = Items.find((item) => item.type === selectedTab);
@@ -22,6 +26,7 @@ const AllTools = () => {
 
   const toggleExpand = (index: number) => {
     setExpandedItem(expandedItem === index ? null : index);
+    setSelectedItem(selectedData.products[index]);
   };
 
   return (
@@ -31,12 +36,7 @@ const AllTools = () => {
       }}
       className="w-full flex flex-col  mx-auto  font-jsans justify-center"
     >
-      <div
-        className="font-jsans mx-auto flex gap-3 font-extrabold"
-        style={{
-          fontSize: "45px",
-        }}
-      >
+      <div className="font-jsans text-center text-[30px] md:text-[45px] mx-auto flex gap-3 font-extrabold">
         Our Comprehensive Tools
       </div>
       <div className="flex mx-auto mb-10">
@@ -44,7 +44,7 @@ const AllTools = () => {
           onClick={() => setSelectedTab("rt")}
           className={`${
             selectedTab === "rt" ? "border-b-2" : "bg-white text-black"
-          } flex items-center px-[40px] gap-3 py-[24px] cursor-pointer`}
+          } flex items-center px-2 text-sm md:text-md md:px-[40px] gap-3 py-[24px] cursor-pointer`}
         >
           Research Tools
         </div>
@@ -52,7 +52,7 @@ const AllTools = () => {
           onClick={() => setSelectedTab("ft")}
           className={`${
             selectedTab === "ft" ? "border-b-2" : "bg-white text-black"
-          } flex items-center px-[40px] gap-3 py-[24px] cursor-pointer`}
+          } flex items-center px-2 text-sm md:text-md md:px-[40px] gap-3 py-[24px] cursor-pointer`}
         >
           Free Tools
         </div>
@@ -60,21 +60,21 @@ const AllTools = () => {
           onClick={() => setSelectedTab("et")}
           className={`${
             selectedTab === "et" ? "border-b-2" : "bg-white text-black"
-          } flex items-center px-[40px] gap-3 py-[24px] cursor-pointer`}
+          } flex items-center px-2 text-sm md:text-md md:px-[40px] gap-3 py-[24px] cursor-pointer`}
         >
           Book Creation Tools
         </div>
         <div
-          onClick={() => setSelectedTab("ct")}
+          onClick={() => setSelectedTab("blt")}
           className={`${
-            selectedTab === "ct" ? "border-b-2" : "bg-white text-black"
-          } flex items-center px-[40px] gap-3 py-[24px] cursor-pointer`}
+            selectedTab === "blt" ? "border-b-2" : "bg-white text-black"
+          } flex items-center px-2 text-sm md:text-md md:px-[40px] gap-3 py-[24px] cursor-pointer`}
         >
-          Creative Tools
+          Book Listing Tools
         </div>
       </div>
       <div className="border  bg-[#f7f7f8] ">
-        <div className="grid grid-cols-2 p-5 comp-container gap-10 rounded-xl">
+        <div className="md:grid flex flex-col-reverse  md:grid-cols-2 p-5 comp-container gap-10 rounded-xl">
           <div className="">
             {selectedData.products.map((product, index) => {
               console.log(product);
@@ -95,7 +95,7 @@ const AllTools = () => {
                       expandedItem === index && "font-bold"
                     } `}
                   >
-                    {product.title}{" "}
+                    {product.name}{" "}
                     <div className="">
                       {expandedItem === index ? (
                         <CircleArrowUp
@@ -123,9 +123,11 @@ const AllTools = () => {
                         ))}
                       </div>
                       <div className="mt-[30px]">
-                        <button className=" flex items-center gap-3 font-bold px-5 py-2 rounded-full">
-                          Learn More <ArrowRightIcon size={20} />
-                        </button>
+                        <Link href={product.product_link}>
+                          <button className=" flex items-center gap-3 font-bold px-5 py-2 rounded-full">
+                            Learn More <ArrowRightIcon size={20} />
+                          </button>
+                        </Link>
                       </div>
                     </>
                   )}
@@ -135,7 +137,7 @@ const AllTools = () => {
           </div>
           <div className="my-auto">
             <Image
-              src={BrandLogo.src}
+              src={selectedItem.thumbnail_image}
               alt="Brand Logo"
               width={600}
               height={400}

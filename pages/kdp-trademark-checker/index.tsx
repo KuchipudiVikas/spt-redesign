@@ -308,8 +308,8 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
       info={info}
       Title={<PageTitle title="KDP Trademark Checker" />}
       Body={
-        <div className="comp-container mx-auto mb-10 mt-10 md:px-24">
-          <div className="flex flex-col gap-3">
+        <div className="comp-container mx-auto w-full mb-10 mt-10  lg:px-24">
+          <div className="  w-full flex mt-10 justify-center">
             {/* <Typography className="mt-4" variant="h6">
               select test data
             </Typography>
@@ -364,8 +364,8 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
                 </div>
               </div>
             )} */}
-            <div className="sp-container border-2 light-border p-6 rounded-lg">
-              <div className="grid grid-cols-5 gap-4">
+            <div className="sp-container mx-4 border-2 w-full light-border p-6 rounded-lg">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 <div className=" ">
                   <Label className="text-label ">Select Paper</Label>
                   <CustomSelect
@@ -373,6 +373,10 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
                     onChange={(e) =>
                       handleBookDataChange("bookType", e.target.value)
                     }
+                    style={{
+                      marginTop: "3px",
+                      borderRadius: "300px",
+                    }}
                     options={[
                       { value: "ebook", label: "Ebook" },
                       { value: "paperback", label: "Paperback" },
@@ -387,7 +391,7 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
                     }
                   />
                 </div>
-                <div className="col-span-2">
+                <div className="lg:col-span-2">
                   <Label className="text-label">Write Title</Label>
                   <CustomInput
                     value={bookData.title}
@@ -421,7 +425,7 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
                     }
                   />
                 </div>
-                <div className="w-fit">
+                <div className="lg:w-fit w-full">
                   <Label className="text-label">Author Name</Label>
 
                   <CustomInput

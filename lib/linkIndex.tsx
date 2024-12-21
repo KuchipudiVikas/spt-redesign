@@ -1,3 +1,4 @@
+import { ProductIdentifier } from "@/data/ProductEnum";
 import { ToolIndex } from "./ToolIndex";
 
 enum LinkIndex {
@@ -9,6 +10,10 @@ enum LinkIndex {
   COMMUNITY = "/community",
   MEDIA = "/media",
   AFFILIATEs = "/affiliates",
+  LOGIN = "/login",
+  TESTIMONIALS = "/testimonials",
+  MY_ACCOUNT = "/me",
+  REGISTER = "/register",
 
   RESEARCH_TOOLS = "/research-tools",
   BOOK_CREATION = "/book-creation",
@@ -46,27 +51,57 @@ enum LinkIndex {
   BOOK_COVER_CREATOR = "/book-cover-creator",
   KDP_CATEGORY_FINDER = "/tools/KDP-Kindle-Category-Finder",
   DIGITAL_TITANS_DESIGNER = "https://design.selfpublishingtitans.com/",
+  TITANS_QUICK_VIEW = "https://chromewebstore.google.com/detail/titans-quick-view-amazon/eefljgmhgaidffapnppcmmafobefjece",
+  DEEP_VIEW = "/titans-deep-view",
+  RETRO_VIEW = "/titans-retro-vision",
+
+  TITLE_CREATOR = "/kdp-title-creator",
+  DESCRIPTION_CREATOR = "/kdp-description-creator",
+  TRADEMARK_CHECKER = "/kdp-trademark-checker",
+  GUIDELINES_CHECKER = "/kdp-guidelines-checker",
+  BOOK_DATA_TRANSLATOR = "/kdp-bookdata-translator",
+  PRICE_CHECKER = "/kdp-price-checker",
+  GRAMMAR_CHECKER = "/grammar-check",
+
+  PROFILE = "/profile",
 }
 
-export const ToolLinkIndex = {
-  [ToolIndex.SEVEN_BACKEND_KEYWORDS]: LinkIndex.SEVEN_BACKEND_KEYWORDS,
-  [ToolIndex.KDP_BSR_Sales_CALCULATOR]: LinkIndex.KDP_BSR_ROYALITY_CALCULATOR,
-  [ToolIndex.ACOS_Royalty_Calculator]: LinkIndex.ACOS_Royalty_Calculator,
-  [ToolIndex.PEN_NAME_GENERATOR]: LinkIndex.PEN_NAME_GENERATOR,
-  [ToolIndex.QR_GEN]: LinkIndex.QR_GEN,
-  [ToolIndex.WORD_CLOUD]: LinkIndex.WORD_CLOUD,
-  [ToolIndex.KEYWORD_TRACKER]: LinkIndex.KEYWORD_TRACKER,
-  [ToolIndex.ASIN_TRACKER]: LinkIndex.ASIN_TRACKER,
-  [ToolIndex.KDP_CATEGORY_FINDER]: LinkIndex.KDP_CATEGORY_FINDER,
-  [ToolIndex.KDP_COVER_TEMPLATE_GENERATOR]:
+export const ToolLinkIndex: {
+  [key in ProductIdentifier]?: LinkIndex;
+} = {
+  [ProductIdentifier.SEVEN_BACKEND_KEYWORDS]: LinkIndex.SEVEN_BACKEND_KEYWORDS,
+  [ProductIdentifier.KDP_BSR_Sales_CALCULATOR]:
+    LinkIndex.KDP_BSR_ROYALITY_CALCULATOR,
+  [ProductIdentifier.ACOS_Royalty_Calculator]:
+    LinkIndex.ACOS_Royalty_Calculator,
+  [ProductIdentifier.PEN_NAME_GENERATOR]: LinkIndex.PEN_NAME_GENERATOR,
+  [ProductIdentifier.QR_GEN]: LinkIndex.QR_GEN,
+  [ProductIdentifier.WORD_CLOUD]: LinkIndex.WORD_CLOUD,
+  [ProductIdentifier.KEYWORD_TRACKER]: LinkIndex.KEYWORD_TRACKER,
+  [ProductIdentifier.ASIN_TRACKER]: LinkIndex.ASIN_TRACKER,
+  [ProductIdentifier.KDP_CATEGORY_FINDER]: LinkIndex.KDP_CATEGORY_FINDER,
+  [ProductIdentifier.KDP_COVER_TEMPLATE_GENERATOR]:
     LinkIndex.KDP_COVER_TEMPLATE_GENERATOR,
-  [ToolIndex.A_PLUS_CONTENT]: LinkIndex.A_PLUS_CONTENT_TEMPLATE,
-  [ToolIndex.BOOK_COVER_DESIGNER]: LinkIndex.BOOK_COVER_CREATOR,
-  [ToolIndex.LOW_CONTENT_BOOK_GENERATOR]: LinkIndex.LOW_CONTENT_BOOK_GENERATOR,
-  [ToolIndex.BOOK_WRITER]: LinkIndex.BOOK_WRITER,
-  [ToolIndex.PUZZLE_MAKER]: LinkIndex.PUZZLE_MAKER,
-  [ToolIndex.COLORING_BOOKS]: LinkIndex.COLORING_BOOKS,
-  [ToolIndex.DIGITAL_TITANS_DESIGNER]: LinkIndex.DIGITAL_TITANS_DESIGNER,
+  [ProductIdentifier.A_PLUS_CONTENT]: LinkIndex.A_PLUS_CONTENT_TEMPLATE,
+  [ProductIdentifier.BOOK_COVER_DESIGNER]: LinkIndex.BOOK_COVER_CREATOR,
+  [ProductIdentifier.LOW_CONTENT_BOOK_GENERATOR]:
+    LinkIndex.LOW_CONTENT_BOOK_GENERATOR,
+  [ProductIdentifier.BOOK_WRITER]: LinkIndex.BOOK_WRITER,
+  [ProductIdentifier.PUZZLE_MAKER]: LinkIndex.PUZZLE_MAKER,
+  [ProductIdentifier.COLORING_BOOKS]: LinkIndex.COLORING_BOOKS,
+  [ProductIdentifier.DIGITAL_TITANS_DESIGNER]:
+    LinkIndex.DIGITAL_TITANS_DESIGNER,
+  [ProductIdentifier.TITAN_PRO_WEB_APP]: LinkIndex.TITANS_PRO,
+  [ProductIdentifier.TITANS_QUICK_VIEW]: LinkIndex.TITANS_QUICK_VIEW,
+  [ProductIdentifier.DEEP_VIEW]: LinkIndex.DEEP_VIEW,
+  [ProductIdentifier.RETRO_VIEW]: LinkIndex.RETRO_VIEW,
+  [ProductIdentifier.TITLE_CREATOR]: LinkIndex.TITLE_CREATOR,
+  [ProductIdentifier.DESCRIPTION_CREATOR]: LinkIndex.DESCRIPTION_CREATOR,
+  [ProductIdentifier.TRADEMARK_CHECKER]: LinkIndex.TRADEMARK_CHECKER,
+  [ProductIdentifier.GUIDELINES_CHECKER]: LinkIndex.GUIDELINES_CHECKER,
+  [ProductIdentifier.PRICE_CHECKER]: LinkIndex.PRICE_CHECKER,
+  [ProductIdentifier.GRAMMAR_CHECKER]: LinkIndex.GRAMMAR_CHECKER,
+  [ProductIdentifier.BOOK_DATA_TRANSLATOR]: LinkIndex.BOOK_DATA_TRANSLATOR,
 };
 
 export default LinkIndex;

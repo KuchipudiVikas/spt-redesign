@@ -120,6 +120,7 @@ const CustomColorPicker = ({ onClose }: CustomColorPickerProps) => {
             color2: fill.colorStops[fill.colorStops.length - 2].color,
             // @ts-ignore
             center:
+              // @ts-ignore
               fill.colorStops.length > 2 ? fill.colorStops[1].offset : 0.5,
           };
           setGradient(gradient);

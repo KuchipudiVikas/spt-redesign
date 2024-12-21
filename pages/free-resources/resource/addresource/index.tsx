@@ -339,15 +339,15 @@ export function ProductForm({
   );
 }
 
-interface TagFieldsProps {
-  selectedTags: string[];
-  allTags: { id: string; name: string }[];
-  setSelectedTags: React.Dispatch<React.SetStateAction<string[]>>;
-  filteredTags: { id: string; name: string }[];
-  setFilteredTags: React.Dispatch<
-    React.SetStateAction<{ id: string; name: string }[]>
-  >;
-}
+// interface TagFieldsProps {
+//   selectedTags: string[];
+//   allTags: { id: string; name: string }[];
+//   setSelectedTags: React.Dispatch<React.SetStateAction<string[]>>;
+//   filteredTags: { id: string; name: string }[];
+//   setFilteredTags: React.Dispatch<
+//     React.SetStateAction<{ id: string; name: string }[]>
+//   >;
+// }
 
 const Tag = ({
   label,

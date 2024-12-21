@@ -255,18 +255,21 @@ export default function FiltersComponenet({
     <Popover>
       {" "}
       {/* desktop */}
-      <PopoverTrigger>
+      <PopoverTrigger className="w-full md:w-fit">
         {" "}
         <HintWrapper hint="Download the results as excel file">
-          <Button className="ml-2 p-9 py-8 rounded-full" variant={"outline"}>
+          <Button
+            className="ml-2  w-full md:w-fit p-4 md:p-9 md:py-8 rounded-full"
+            variant={"outline"}
+          >
             Data Filter
             <FilterIcon style={{}} className="" size={20} />
           </Button>
         </HintWrapper>
       </PopoverTrigger>
-      <PopoverContent>
-        <section className="hidden md:block">
-          <div className="flex flex-col">
+      <PopoverContent className="">
+        <section className="">
+          <div className="flex flex-col ">
             <div className="mx-4  grid grid-cols-1  md:grid-cols-1 gap-0">
               <h4 className="font-bold leading-none ">Filters</h4>
               <div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Question, { TQuestion, ResponseType } from "./question";
 import { FaHandSparkles } from "react-icons/fa";
-import TUser from "@/models/user";
+import { User } from "@/lib/ts/types/user";
 import request from "@/lib/api/interface";
 import GetStarted from "./GetStarted";
 
@@ -24,12 +24,10 @@ import EtsyIcon from "@/public/assets/onboarding/etsy.png";
 import FbaIcon from "@/public/assets/onboarding/fba.png";
 import KdpIcon from "@/public/assets/onboarding/kdp.png";
 import MerchIcon from "@/public/assets/onboarding/merchbyamazon.png";
-import CircularProgress from "@mui/material/CircularProgress";
-
-import { Close } from "@mui/icons-material";
+import { RotateCw, XIcon } from "lucide-react";
 
 interface IndexProps {
-  info: TUser;
+  info: User;
 }
 
 const Index: React.FC<IndexProps> = ({ info }) => {
@@ -268,7 +266,11 @@ const Index: React.FC<IndexProps> = ({ info }) => {
                       className="absolute top-3 right-3 bg-transparent border-none cursor-pointer"
                       onClick={() => SkipOnboarding()}
                     >
-                      {skipLoading ? <CircularProgress size={20} /> : <Close />}
+                      {skipLoading ? (
+                        <RotateCw size={20} className="animate-spin" />
+                      ) : (
+                        <XIcon />
+                      )}
                     </button>
                   )}
                 </div>

@@ -59,7 +59,7 @@ const ConfigSection: React.FC<ConfigSectionProps> = ({
           />
           <HintWrapper hint="Get results for the search query">
             <Button
-              className=" rounded-full py-5  w-fit"
+              className=" rounded-full ml-auto py-5  w-fit"
               onClick={() => {
                 if (!searchedText) {
                   inputRef?.current?.focus();
@@ -70,6 +70,7 @@ const ConfigSection: React.FC<ConfigSectionProps> = ({
                 }
               }}
             >
+              Search
               <SearchIcon size={24} />
             </Button>
           </HintWrapper>

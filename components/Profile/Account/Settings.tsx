@@ -108,7 +108,7 @@ export default function AccountTab({
 
   return (
     <div>
-      <div className=" bg-white mt-4 mb-2  border-2  light-border sp-container rounded-lg md:p-3 py-5 md:px-10 flex flex-col">
+      <div className=" bg-white mt-4 mb-2 p-3  border-2  light-border sp-container rounded-lg md:p-3 py-5 md:px-10 flex flex-col">
         <div className="flex flex-row items-center">
           <LoadingBar isLoading={loading} title="Loading..." />
           {/* <div className="h-full flex items-center"> */}

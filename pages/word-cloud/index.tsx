@@ -230,58 +230,60 @@ function App({ info }: AppProps) {
       Title={<PageTitle title="Word Cloud Generator" />}
       Body={
         <div className="comp-container ">
-          <div className="flex flex-col items-center justify-center  mt-10">
-            <div className="  rounded-lg  w-full">
-              <div className="flex flex-row mb-2 items-center justify-between">
-                <div></div>
-              </div>
-              <div className="flex flex-col sp-container p-6 border-2 light-border rounded-3xl">
-                <textarea
-                  className="border shadowAround  w-full border-gray-300 mx-5 md:mx-0 br-16 w-full  p-3 text-[16px]  rounded-md h-40  resize-none   font-sans focus:outline-none focus:border-blue-500"
-                  placeholder="Type or paste your text here or upload a file to generate a word cloud"
-                  maxLength={200000}
-                  ref={inputRef}
-                />
-                <label className="flex ml-auto  mt-2 font-sans items-center  ">
-                  <Button
-                    variant="outline"
-                    onClick={() => uploadButtonRef?.current?.click()}
-                  >
-                    Upload Text file <UploadIcon size={16} />
-                  </Button>
-
-                  <input
-                    id="file-to-upload"
-                    type="file"
-                    accept=".xlsx,.csv,.txt"
-                    className="hidden"
-                    name="file-to-upload"
-                    onChange={handleFileUpload}
-                    ref={uploadButtonRef}
+          <div className="px-4">
+            <div className="flex flex-col  items-center justify-center  mt-10">
+              <div className="  rounded-lg  w-full">
+                <div className="flex flex-row mb-2 items-center justify-between">
+                  <div></div>
+                </div>
+                <div className="flex flex-col sp-container  p-6 border-2 light-border rounded-3xl">
+                  <textarea
+                    className="border light-border shadowAround  w-full border-gray-300  br-16 w-full  p-3 text-[16px]  rounded-md h-40  resize-none   font-sans focus:outline-none focus:border-blue-500"
+                    placeholder="Type or paste your text here or upload a file to generate a word cloud"
+                    maxLength={200000}
+                    ref={inputRef}
                   />
-                </label>
-                <div className="flex justify-center w-full">
-                  <Button
-                    size="lg"
-                    className="inline-flex text-[20px] items-center justify-center mt-2.5 py-2.5 px-4  rounded-full mx-5 md:mx-0 font-medium text-center"
-                    onClick={() => handleGenerateCloud()}
-                  >
-                    Generate
-                  </Button>
+                  <label className="flex ml-auto  mt-2 font-sans items-center  ">
+                    <Button
+                      variant="outline"
+                      onClick={() => uploadButtonRef?.current?.click()}
+                    >
+                      Upload Text file <UploadIcon size={16} />
+                    </Button>
+
+                    <input
+                      id="file-to-upload"
+                      type="file"
+                      accept=".xlsx,.csv,.txt"
+                      className="hidden"
+                      name="file-to-upload"
+                      onChange={handleFileUpload}
+                      ref={uploadButtonRef}
+                    />
+                  </label>
+                  <div className="flex justify-center w-full">
+                    <Button
+                      size="lg"
+                      className="inline-flex  items-center justify-center mt-2.5 py-2.5 px-4  rounded-full mx-5 md:mx-0 font-medium text-center"
+                      onClick={() => handleGenerateCloud()}
+                    >
+                      Generate
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {
-            // Display the word cloud and word count data if the processing is completed
-            processCompleted && (
-              <WordCloudView
-                wordCloudData={wordCloudData}
-                wordCountData={wordCountData}
-              />
-            )
-          }
+            {
+              // Display the word cloud and word count data if the processing is completed
+              processCompleted && (
+                <WordCloudView
+                  wordCloudData={wordCloudData}
+                  wordCountData={wordCountData}
+                />
+              )
+            }
+          </div>
         </div>
       }
     />

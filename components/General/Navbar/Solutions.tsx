@@ -3,11 +3,24 @@ import SolutionsData from "@/data/solutionsData";
 import { useState } from "react";
 import { TSolutionsData } from "@/data/solutionsData";
 import ListItem from "./ListItem";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
 import { NavigationMenuContent } from "@/components/ui/navigation-menu";
-import { ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 
-const Solutions = () => {
+interface SolutionsProps {
+  isMobile?: boolean;
+}
+
+const Solutions: React.FC<SolutionsProps> = ({ isMobile }) => {
   const [selectedCategory, setSelectedCategory] = useState<TSolutionsData>(
     SolutionsData[0]
   );
@@ -19,6 +32,105 @@ const Solutions = () => {
   const flattenedItems = selectedCategory.Categories.flatMap(
     (category) => category.Items
   );
+
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+
+  const handleCategoryChange = (value: string) => {
+    // Toggle expansion if the same category is clicked again
+    setExpandedCategory((prev) => (prev === value ? null : value));
+  };
+
+  if (isMobile) {
+    return (
+      <div className="w-full">
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem
+            style={{
+              borderBottom: "none",
+            }}
+            value="tools"
+          >
+            <AccordionTrigger className="flex text-[16px] justify-between items-center w-full py-0 rounded-lg font-semibold text-black">
+              Tools
+            </AccordionTrigger>
+            <AccordionContent className="mt-2 space-y-2">
+              {SolutionsData.map((category: TSolutionsData, index) => (
+                <Accordion
+                  key={index}
+                  type="single"
+                  collapsible
+                  className="w-full"
+                  value={
+                    expandedCategory === category.Title ? category.Title : null
+                  }
+                  onValueChange={() => handleCategoryChange(category.Title)}
+                >
+                  <AccordionItem value={category.Title}>
+                    <AccordionTrigger className="flex justify-between items-center w-full py-3 px-4 rounded-lg font-medium text-black">
+                      {category.Title}
+                    </AccordionTrigger>
+                    <AccordionContent className="pl-4 mt-2 space-y-2">
+                      {category.Categories.flatMap((cat) =>
+                        cat.Items.map((item) => (
+                          <Link
+                            key={item.heading}
+                            href={item.link}
+                            target={item.newTab ? "_blank" : "_self"}
+                            className={cn(
+                              "block select-none space-y-1 h-fit rounded-md p-3 sp-container-nav-list-item light-border border leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent flex-wrap focus:text-accent-foreground"
+                            )}
+                          >
+                            <div className="flex gap-3">
+                              {item.icon && (
+                                <item.icon
+                                  style={{
+                                    width: "20px",
+                                    strokeWidth: "2",
+                                  }}
+                                  className="text-primary"
+                                />
+                              )}
+                              <div>
+                                <div className="text-sm font-medium leading-none">
+                                  {item.heading}
+                                </div>
+                                <p className="text-sm line-clamp-2 mt-1 leading-snug text-muted-foreground">
+                                  {item.tag}
+                                </p>
+                              </div>
+                            </div>
+                          </Link>
+                        ))
+                      )}
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              ))}
+              <Link
+                href={"/tools"}
+                target={true ? "_blank" : "_self"}
+                className={cn(
+                  "block select-none space-y-1 h-fit rounded-md p-3 sp-container-nav-list-item light-border border leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent flex-wrap focus:text-accent-foreground"
+                )}
+              >
+                <div className="flex gap-3">
+                  <div>
+                    <div className="text-sm font-medium leading-none">
+                      {"See & Compare All Tools"}
+                    </div>
+                    <p className="text-sm line-clamp-2 mt-1 leading-snug text-muted-foreground">
+                      {"See all we provide to find what you need."}
+                    </p>
+                  </div>
+                  <ArrowRight className="my-auto text-primary" />
+                </div>
+              </Link>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    );
+  }
 
   return (
     <NavigationMenuContent>
@@ -87,6 +199,26 @@ const Solutions = () => {
                 {item.tag}
               </ListItem>
             ))}
+            <Link
+              href={"/tools"}
+              target={true ? "_blank" : "_self"}
+              className={cn(
+                "block select-none space-y-1 h-fit rounded-md p-3 sp-container-nav-list-item light-border border leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent flex-wrap focus:text-accent-foreground",
+                "className"
+              )}
+            >
+              <div className="flex gap-3 ">
+                <div className="">
+                  <div className="text-sm font-medium leading-none">
+                    {"See & Compare All Tools"}
+                  </div>
+                  <p className="text-sm line-clamp-2 mt-1 leading-snug text-muted-foreground">
+                    {"See all we provide to find what you need."}
+                  </p>
+                </div>
+                <ArrowRight className="my-auto text-primary" />
+              </div>
+            </Link>
           </ul>
         </div>
       </div>

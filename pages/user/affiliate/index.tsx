@@ -52,36 +52,36 @@ function Affiliate({ info, token }) {
     "NG",
   ];
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   checkCountry()
-  //     .then(async (data) => {
-  //       if (data) {
-  //         if (
-  //           data &&
-  //           data?.country &&
-  //           excludedCounties.includes(data.country)
-  //         ) {
-  //           setIsRegionAllowed(false);
-  //         } else {
-  //           setIsRegionAllowed(true);
+  useEffect(() => {
+    setIsLoading(true);
+    checkCountry()
+      .then(async (data) => {
+        if (data) {
+          if (
+            data &&
+            data?.country &&
+            excludedCounties.includes(data.country)
+          ) {
+            setIsRegionAllowed(false);
+          } else {
+            setIsRegionAllowed(true);
 
-  //           setLoadingText("Creating Affiliate Account...");
-  //           const res = await createAffiliate(token);
-  //           setAffiliateData(res);
-  //           setIsLoading(false);
-  //         }
-  //       } else {
-  //         setIsRegionAllowed(false);
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       setError("Failed to check your region. Please try again later.");
-  //     })
-  //     .finally(() => {
-  //       setIsLoading(false);
-  //     });
-  // }, []);
+            setLoadingText("Creating Affiliate Account...");
+            const res = await createAffiliate(token);
+            setAffiliateData(res);
+            setIsLoading(false);
+          }
+        } else {
+          setIsRegionAllowed(false);
+        }
+      })
+      .catch((error) => {
+        setError("Failed to check your region. Please try again later.");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
 
   if (!affiliateData) {
     return (

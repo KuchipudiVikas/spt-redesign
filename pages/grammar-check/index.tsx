@@ -191,7 +191,7 @@ function GrammarCheck({ token, info, isOwner }: GrammarCheckProps) {
       }}
       Title={<PageTitle title="Grammar & Spell Checker" />}
       Body={
-        <div className="min-h-[60vh] max-w-[1400px] mx-auto mb-10 mt-0 px-24">
+        <div className="min-h-[60vh] max-w-[1400px] mx-auto mb-10 mt-0 px-5 kg:px-24">
           <div className="flex flex-col gap-3">
             {/* {!false && (
               <div className="samples-container">
@@ -223,10 +223,12 @@ function GrammarCheck({ token, info, isOwner }: GrammarCheckProps) {
               </div>
             )} */}
 
-            <div className="sp-container p-6 mt-10 light-border border-2 rounded-2xl">
+            <div className="sp-container p-3 lg:p-6 mt-10 light-border border-2 rounded-2xl">
               <div className="grid grid-cols-2 mb-8">
-                <h6 className="mt-2 text-[24px] font-bold w-full">Your Data</h6>
-                <h6 className="mt-2 text-[24px] font-bold w-full">
+                <h6 className="mt-2 text-[18px] md:text-[24px] font-bold w-full">
+                  Your Data
+                </h6>
+                <h6 className="mt-2 text-[18px] md:text-[24px] font-bold w-full">
                   Suggested Changes
                 </h6>
               </div>

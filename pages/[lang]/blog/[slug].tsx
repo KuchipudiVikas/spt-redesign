@@ -177,6 +177,7 @@ export default BlogPost;
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { slug, lang } = context.query;
 
+  // @ts-ignore
   const data = await getPostBySlug(slug, lang || "en");
 
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;

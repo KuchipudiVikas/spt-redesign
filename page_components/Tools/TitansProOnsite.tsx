@@ -4,8 +4,6 @@ import * as XLSX from "xlsx";
 import { UpdateUsage } from "@/lib/api/usage";
 import { shopIds } from "@/data/shopData";
 import { domainMidDict, languages } from "@/constants";
-import { useDispatch } from "react-redux";
-import { useCustomDeviceSize, EScreenSize } from "@/utils/useDeviceSize";
 import { Fragment } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -19,6 +17,7 @@ import { Search } from "lucide-react";
 import { DownloadCloudIcon } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { darkenColor, lightenColor } from "@/utils/common";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 const getResults = async ({
   searchedText,
@@ -364,6 +363,8 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
 
   const textFieldRef = useRef<HTMLInputElement>(null);
 
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+
   return (
     <div>
       {" "}
@@ -438,9 +439,19 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                   }
                 }}
               />
-              <div className="">
+              <div
+                className={` grid-cols-${isDesktop ? 1 : 2} grid w-full gap-2`}
+              >
+                {!isDesktop && (
+                  <button
+                    className="download-btn-custom border  "
+                    onClick={downloadCSV}
+                  >
+                    Download <DownloadCloudIcon />
+                  </button>
+                )}
                 <button
-                  className="rounded-full bg-primary text-white p-2"
+                  className="rounded-full search-btn bg-primary w-full text-white p-2"
                   onClick={() => {
                     if (!searchedText) {
                       textFieldRef.current?.focus();
@@ -449,35 +460,34 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                     }
                   }}
                 >
+                  Search
                   {loading ? <RotateCw className="animate-spin" /> : <Search />}
                 </button>
               </div>
             </div>
             <button
-              className="bg-primary p-4 text-white rounded-full ml-2 "
+              className="bg-primary hidden lg:block p-4 text-white rounded-full ml-2 "
               onClick={downloadCSV}
             >
               <DownloadCloudIcon />
             </button>
           </section>
-          <section className="flex  justify-center  max-w-[100vw]">
-            <div className="flex   overflow-auto w-full justify-center">
-              <table className="table-auto w-full my-12">
-                <thead className="sticky w-full top-16">
+          <section className=" mx-auto max-w-[90vw]">
+            <div className="flex    w-full justify-center">
+              <table className="table-auto overflow-auto w-full my-12">
+                <thead className="sticky overflow-auto w-full top-16">
                   <tr className={` `}>
                     <th className={``}>
                       <div className="twa-th">
                         <h6
                           style={{
                             border: "none",
-                            fontSize: "15px",
                           }}
-                          className="font-bold"
+                          className="font-bold text-xs md:text-base"
                         >
                           {" "}
                           Amazon Search Suggestions
                         </h6>
-                        {/*add sort by search volume*/}
                         <button
                           className={`hover:cursor-pointer ml-2 `}
                           style={{ border: "none" }}
@@ -496,12 +506,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                     </th>
                     <th className={``}>
                       <div className="twa-th">
-                        <h6
-                          style={{
-                            fontSize: "15px",
-                          }}
-                          className="text-xs md:text-xl"
-                        >
+                        <h6 className="text-xs md:text-base">
                           Est. Search Volume
                         </h6>
                         <button
@@ -523,12 +528,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
 
                     <th className={``}>
                       <div className="twa-th">
-                        <h6
-                          style={{
-                            fontSize: "15px",
-                          }}
-                          className="text-xs md:text-xl"
-                        >
+                        <h6 className="text-xs md:text-base">
                           {" "}
                           Search Results
                         </h6>
@@ -559,14 +559,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
 
                     <th className={``}>
                       <div className="twa-th">
-                        <h6
-                          style={{
-                            fontSize: "15px",
-                          }}
-                          className="text-xs md:text-xl"
-                        >
-                          Demand
-                        </h6>
+                        <h6 className="text-xs md:text-base">Demand</h6>
                         <button
                           className={`hover:cursor-pointer ml-2`}
                           onClick={() => sortResults("demand")}
@@ -593,15 +586,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                     </th>
                     <th className={``}>
                       <div className="twa-th">
-                        <h6
-                          style={{
-                            fontSize: "15px",
-                          }}
-                          className="text-xs md:text-xl"
-                        >
-                          {" "}
-                          Opportunity
-                        </h6>
+                        <h6 className="text-xs md:text-base"> Opportunity</h6>
                         <button
                           className={`hover:cursor-pointer ml-2`}
                           onClick={() => sortResults("opportunity")}
@@ -629,7 +614,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                   </tr>
                 </thead>
 
-                <tbody>
+                <tbody className="overflow-auto max-w-[50vw] w-full">
                   {isFreeUser && results.length ? (
                     <tr>
                       <td></td>

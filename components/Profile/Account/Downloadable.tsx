@@ -21,11 +21,19 @@ export default function DownloadableTab({ downloadList }) {
                     height={200}
                   />
                 </div> */}
-                <div className="flex-1 md:p-4">
+                <div className="flex-1  md:p-4">
                   <p>
                     From: <b>{ddl.product.title}</b>
                   </p>
-                  <h4 className="text-xl font-bold">{ddl.data.name}</h4>
+                  <h4
+                    style={{
+                      wordBreak: "break-all", // Breaks long words at any character
+                      maxWidth: "100%", // Ensures the container doesn't exceed its parent width
+                    }}
+                    className="text-xl font-bold"
+                  >
+                    {ddl.data.name}
+                  </h4>
                   <div
                     className="text-sm h-20 overflow-y-auto"
                     dangerouslySetInnerHTML={{

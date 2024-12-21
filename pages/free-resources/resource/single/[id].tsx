@@ -1,9 +1,12 @@
 import Image from "next/image";
 // import MainTemplate, { getProfile } from '@/components/MainPage/MainPage';
-// import { getResource } from '@/lib/free-resources/get-resource';
+import { getResource } from "@/lib/free-resources/get-resource";
 // import { useEffect, useState } from 'react';
 // import { Button, Chip } from '@mui/material';
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import MainLayout, { getProfile } from "@/components/Layout";
+import { Button } from "@/components/ui/button";
 
 interface SingleResourceProps {
   params: {
@@ -28,11 +31,15 @@ export default function SingleResource({ info, id }) {
 
   if (!resource) {
     return (
-      <MainTemplate
+      <MainLayout
         info={info}
-        transparentNav={false}
-        title={<div></div>}
-        body={
+        meta={{
+          title: "SPT",
+          description: "Loading resource...",
+          keywords: "Loading resource...",
+        }}
+        Title={<div></div>}
+        Body={
           <div className="max-w-6xl m-auto p-2 min-h-96">
             <h1 className="text-2xl font-bold text-gray-700">
               Loading resource...
@@ -44,11 +51,15 @@ export default function SingleResource({ info, id }) {
   }
 
   return (
-    <MainTemplate
+    <MainLayout
       info={info}
-      transparentNav={false}
-      title={<div></div>}
-      body={
+      Title={<div></div>}
+      meta={{
+        title: resource.title,
+        description: resource.description,
+        keywords: resource.ProductTag.map((tag) => tag.tag.name).join(", "),
+      }}
+      Body={
         <div className="min-h-screen">
           <div className="max-w-6xl m-auto p-2 flex flex-col items-center justify-center shadow-lg my-8 ">
             <div className="mb-3">
@@ -76,20 +87,18 @@ export default function SingleResource({ info, id }) {
             <div className="mt-3">
               {resource.ProductTag.map((tag, index) => (
                 <Link href={`/free-resources/tags/${tag.tag.slug}`} key={index}>
-                  <Chip label={tag.tag.name} color="primary" className="m-1" />
+                  <div color="primary" className="m-1">
+                    {" "}
+                    {tag.tag.name}{" "}
+                  </div>
                 </Link>
               ))}
             </div>
 
             <div className="w-fit m-auto">
-              <Button
-                href={resource.fileUrl}
-                download
-                variant="contained"
-                className="m-auto mt-5  p-2 mb-3 w-52"
-              >
-                Download
-              </Button>
+              <Link href={resource.fileUrl}>
+                <Button className="m-auto mt-5  p-2 mb-3 w-52">Download</Button>
+              </Link>
             </div>
           </div>
         </div>

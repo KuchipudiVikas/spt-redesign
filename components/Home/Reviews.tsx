@@ -25,17 +25,17 @@ const Reviews: React.FC<ReviewsProps> = ({ testimonials, containerStyle }) => {
         paddingTop: "50px",
         ...containerStyle,
       }}
-      className="w-full  flex flex-col font-jsans justify-center  "
+      className="w-full px-4 flex flex-col  font-jsans  justify-center  "
     >
       <div
-        className="font-jsans mx-auto flex gap-3 font-extrabold"
-        style={{
-          fontSize: "45px",
-        }}
+        className="text-[30px] md:text-[45px] flex-wrap justify-center mx-auto flex gap-3 font-extrabold"
+        // style={{
+        //   fontSize: "45px",
+        // }}
       >
         What our <span className="text-primary"> Authors </span> are Saying
       </div>
-      <div className="mt-[72px]">
+      <div className=" mt-5  md:mt-[72px]">
         <Carousel
           opts={{
             align: "start",

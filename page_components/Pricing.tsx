@@ -3,8 +3,7 @@ import { User } from "@/lib/ts/types/user";
 import { ProductData, PurchasedProduct } from "@/lib/ts/types/shop";
 import { useState } from "react";
 import { EPaymentPeriod } from "@/lib/ts/enums/payment";
-import PricingHeader from "@/components/Pricing/Header";
-import Table from "@/components/Pricing/Table";
+
 import PricingTableTabs from "@/components/Pricing/New/PriceTable";
 
 export interface PricingProps {

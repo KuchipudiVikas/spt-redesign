@@ -63,13 +63,13 @@ const Settings: React.FC<SettingsProps> = ({ info, token, preferences }) => {
         info={info}
         Title={<></>}
         Body={
-          <div className="px-24 comp-container font-sans w-full min-h-[80vh] my-10">
+          <div className="md:px-24 pt-10 comp-container font-sans w-full min-h-[80vh] my-10">
             <div className="font-semibold flex items-center text-3xl gap-2">
               <div className="sp-container w-full p-6 border rounded-2xl light-border">
                 <h5 className="text-primary font-bold mx-auto w-fit text-[45px]">
                   Profile Settings
                 </h5>
-                <div className="flex items-center w-fit mx-auto mt-10 gap-5  ">
+                <div className="flex md:flex-row flex-col items-center w-fit mx-auto mt-10 gap-5  ">
                   {tabs.map((t) => (
                     <div
                       style={{

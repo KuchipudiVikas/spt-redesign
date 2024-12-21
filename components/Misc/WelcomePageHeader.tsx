@@ -22,7 +22,7 @@ const WelcomePageHeader = () => {
         }}
         className=" "
       >
-        {/* <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center">
           <h6 className="text-[28px] font-bold">Acess free resources</h6>
           <div className="mt-1">🎉 included with your account 🎉 </div>
 
@@ -41,8 +41,8 @@ const WelcomePageHeader = () => {
               );
             })}
           </div>
-        </div> */}
-        <Banner />
+        </div>
+        {/* <Banner /> */}
       </div>
     </div>
   );

@@ -152,4 +152,5 @@ export const domainToCountryCode = {
 export const domains = {
   books: process.env.NEXT_PUBLIC_BOOKS_SUBDOMAIN,
   coloring_book: process.env.NEXT_PUBLIC_COLORING_BOOK_SUBDOMAIN,
+  main: process.env.NEXT_PUBLIC_CLIENT_URL,
 };

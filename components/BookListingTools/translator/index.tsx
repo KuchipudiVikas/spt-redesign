@@ -54,10 +54,9 @@ const TranslatedTextComp: React.FC<TranslatedTextCompProps> = ({
   return (
     <div
       style={{
-        border: "1px solid #ccc",
-        background: "#e5daf1",
+        background: "white",
       }}
-      className="w-full mt-2 mb-2  rounded-md"
+      className="w-full mt-2 mb-2   border light-border  rounded-md"
     >
       <div
         style={{

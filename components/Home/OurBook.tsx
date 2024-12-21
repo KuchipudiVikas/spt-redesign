@@ -16,13 +16,8 @@ const OurBook = () => {
 
   return (
     <div style={backgroundStyle}>
-      <div
-        className="font-jsans mx-auto flex gap-3 font-extrabold"
-        style={{
-          fontSize: "45px",
-        }}
-      ></div>
-      <div className="mx-auto grid grid-cols-2 gap-[60px] comp-container">
+      <div className="font-jsans mx-auto flex gap-3 text-[30px] md:text-[45px] font-extrabold"></div>
+      <div className="mx-auto grid md:grid-cols-2 gap-[60px] comp-container">
         <div className="">
           <Image
             src={SptBookImage}
@@ -33,12 +28,7 @@ const OurBook = () => {
           />
         </div>
         <div className="my-auto">
-          <div
-            className="font-jsans flex leading-3 items-center mx-auto flex gap-3 font-extrabold"
-            style={{
-              fontSize: "45px",
-            }}
-          >
+          <div className="font-jsans flex leading-3 text-[30px] md:text-[45px] items-center mx-auto flex gap-3 font-extrabold">
             Our Book on{" "}
             <Image
               className="object-contain mt-3"

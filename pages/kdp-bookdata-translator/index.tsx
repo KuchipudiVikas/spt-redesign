@@ -162,6 +162,12 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
     setResponse(bookData.translatedBookData);
   }
 
+  const handleLanguageSwap = () => {
+    const temp = bookData.fromLanguage;
+    handleBookDataChange("fromLanguage", bookData.toLanguage);
+    handleBookDataChange("toLanguage", temp);
+  };
+
   return (
     <MainLayout
       meta={{
@@ -172,7 +178,7 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
       info={info}
       Title={<PageTitle title="KDP Book Data Translator" />}
       Body={
-        <div className="min-h-[60vh] max-w-[1400px] mx-auto mb-10 mt-10 px-24">
+        <div className="min-h-[60vh] max-w-[1400px] mx-auto mb-10 mt-10 px-5 lg:px-24">
           <div className="flex flex-col gap-3">
             {/* {!false && (
               <div className="samples-container">
@@ -204,11 +210,27 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
               style={{
                 borderRadius: "20px",
               }}
-              className="sp-container flex flex-col gap-5 p-6 "
+              className="sp-container relative flex flex-col gap-5 p-2 lg:p-6 "
             >
-              <div className="w-full flex-col flex gap-3 mt-3">
+              <div
+                style={{
+                  position: "absolute",
+                  height: "1100px",
+                  top: "210px",
+                  left: "50%",
+                  borderLeft: "1px solid #e5e5e5",
+                }}
+                className=""
+              ></div>
+
+              <div className="w-full text-black  mt-2 mb-2 font-bold text-xl grid grid-cols-2 px-2 gap-3">
+                <h6 className="mx-auto">Input</h6>
+                <h6 className="mx-auto">Output</h6>
+              </div>
+
+              <div className="w-full flex-col flex gap-3 ">
                 <Label className="text-label">Language</Label>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="flex items-center gap-2">
                   <select
                     className="h-14 px-4  m-0 border w-full border-gray-300 rounded-md"
                     value={bookData.fromLanguage}
@@ -227,6 +249,10 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
                       );
                     })}
                   </select>
+                  <ArrowLeftRightIcon
+                    onClick={() => handleLanguageSwap()}
+                    className="h-10 w-10 mx-auto"
+                  />
                   <select
                     className="h-14 px-4  m-0 border w-full border-gray-300 rounded-md"
                     value={bookData.toLanguage}
@@ -249,15 +275,9 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
               </div>
               <div className="flex  flex-col items-cebter gap-3">
                 <Label className="text-label">Book Title</Label>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-8">
                   <CustomTextArea
-                    id="outlined-basic"
-                    label="Book Title"
-                    variant="outlined"
-                    className=""
-                    multiline
                     rows={2}
-                    fullWidth
                     value={bookData.title}
                     onChange={(e) =>
                       handleBookDataChange("title", e.target.value)
@@ -273,13 +293,8 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
               </div>
               <div className="flex  flex-col  gap-3">
                 <Label className="text-label">Author Name</Label>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-8">
                   <CustomTextArea
-                    id="outlined-basic"
-                    label="Author Name"
-                    variant="outlined"
-                    className="w-full"
-                    multiline
                     rows={2}
                     value={bookData.author}
                     onChange={(e) =>
@@ -294,13 +309,8 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
               </div>
               <div className="flex  flex-col  gap-3">
                 <Label className="text-label">Contributors</Label>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-8">
                   <CustomTextArea
-                    id="outlined-basic"
-                    label="Contributors"
-                    variant="outlined"
-                    className="w-full"
-                    multiline
                     rows={2}
                     value={bookData.contributors}
                     onChange={(e) =>
@@ -315,7 +325,7 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
               </div>
               <div className="flex  flex-col  gap-3">
                 <Label className="text-label">Book Description</Label>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-8">
                   <CustomTextArea
                     value={bookData.description}
                     rows={8}
@@ -333,7 +343,7 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
               </div>
               <div className="flex  flex-col  gap-3">
                 <Label className="text-label">A+ Content</Label>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-8">
                   <CustomTextArea
                     value={bookData.apluscontent}
                     rows={4}
@@ -351,7 +361,7 @@ const Index: React.FC<IndexProps> = ({ token, info, isOwner }) => {
               </div>
               <div className="flex  flex-col  gap-3">
                 <Label className="text-label">7 Backend Keywords</Label>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-8">
                   <CustomTextArea
                     rows={4}
                     value={bookData.keywords}

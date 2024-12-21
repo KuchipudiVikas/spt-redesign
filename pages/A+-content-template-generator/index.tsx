@@ -48,8 +48,8 @@ function Dashboard({ userID }: DashboardProps) {
   const [projects, setProjects] = useState<Project[]>([]);
 
   return (
-    <div className="w-fit mx-auto p-8 rounded-3xl sp-container mt-10">
-      <div className=" w-full flex justify-center  mb-10">
+    <div className="w-fit mx-auto p-6 md:p-8 w-[90%]  rounded-3xl sp-container mt-10">
+      <div className=" w-full flex justify-center mx-5  mb-10">
         <div className="">
           <button
             style={{ border: "1px solid #ccc" }}
@@ -71,7 +71,7 @@ function Dashboard({ userID }: DashboardProps) {
           </button>
         </div>
       </div>
-      <div className="flex  mb-10 justify-center">
+      <div className="flex w-full  mb-10 justify-center">
         {etab === "create" && <Create userID={userID} />}
         {etab === "projects" && (
           <ProjectsComponent

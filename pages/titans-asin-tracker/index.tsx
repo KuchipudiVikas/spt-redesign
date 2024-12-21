@@ -70,14 +70,19 @@ function ProductTracking({
   const { toast } = useToast();
 
   const setQueryData = async () => {
+    // @ts-ignore
     if (query.asin && query.domain) {
+      // @ts-ignore
       setTrackAsin(query.asin);
+      // @ts-ignore
       setDomain(query.domain);
       setIsLoading(true);
       try {
         const res = await StartProductTrackingAPI({
           token: token,
+          // @ts-ignore
           asins: [query.asin],
+          // @ts-ignore
           domain: query.domain.replace("www.", ""),
         });
         const jsonData = await res.json();
@@ -173,7 +178,7 @@ function ProductTracking({
                 <h1 className="text-2xl">No tracked products</h1>
               </div>
             ) : (
-              <div className="p-4 border mb-20 rounded-3xl ">
+              <div className="p-4 border mt-16 md:mx-5 mb-20 rounded-3xl ">
                 <DataTable
                   title="Tracked Products"
                   pagination={true}
@@ -246,9 +251,7 @@ function ProductTracking({
                               textOverflow: "ellipsis",
                             }}
                           >
-                            <h6 variant="body2">
-                              {row.first_product_details.asinString}
-                            </h6>
+                            <h6>{row.first_product_details.asinString}</h6>
                           </div>
                         </a>
                       ),
@@ -277,9 +280,7 @@ function ProductTracking({
                               // maxWidth: '100px'  // You can adjust the width as needed
                             }}
                           >
-                            <h6 variant="body2">
-                              {row.first_product_details.title}
-                            </h6>
+                            <h6>{row.first_product_details.title}</h6>
                           </div>
                         </a>
                       ),
@@ -293,9 +294,7 @@ function ProductTracking({
                       cell: (row) => {
                         return (
                           <div>
-                            <h6 variant="body2">
-                              {row.first_product_details.category}
-                            </h6>
+                            <h6>{row.first_product_details.category}</h6>
                           </div>
                         );
                       },
@@ -309,7 +308,7 @@ function ProductTracking({
                       cell: (row) => {
                         return (
                           <div>
-                            <h6 variant="body2">
+                            <h6>
                               {getCountryCodeFromDomain(
                                 row.first_product_details.domain
                               )}
@@ -328,11 +327,11 @@ function ProductTracking({
                         return (
                           <div className="flex w-full flex-row items-center ">
                             <div className="w-[40px]">
-                              <h6 variant="body2">
+                              <h6>
                                 {row.last_product_details.price.toFixed(2)}
                               </h6>
 
-                              <h6 variant="body2">
+                              <h6>
                                 {row.first_product_details.price.toFixed(2)}
                               </h6>
                             </div>
@@ -389,10 +388,10 @@ function ProductTracking({
                         return (
                           <div className="flex flex-row w-full items-center">
                             <div className="w-[50px] flex flex-col py-1">
-                              <h6 variant="body2">
+                              <h6>
                                 {numberFormat(row.last_product_details.reviews)}
                               </h6>
-                              <h6 variant="body2">
+                              <h6>
                                 {numberFormat(
                                   row.first_product_details.reviews
                                 )}
@@ -451,10 +450,10 @@ function ProductTracking({
                         return (
                           <div className="flex flex-row w-full items-center">
                             <div className="flex w-[25px] flex-col">
-                              <h6 variant="body2">
+                              <h6>
                                 {row.last_product_details.rating.toFixed(1)}
                               </h6>
-                              <h6 variant="body2">
+                              <h6>
                                 {row.first_product_details.rating.toFixed(1)}
                               </h6>
                             </div>
@@ -509,10 +508,10 @@ function ProductTracking({
                         return (
                           <div className="flex flex-row w-full items-center">
                             <div className="w-[50px] flex flex-col">
-                              <h6 variant="body2">
+                              <h6>
                                 {numberFormat(row.last_product_details.rank)}
                               </h6>
-                              <h6 variant="body2">
+                              <h6>
                                 {numberFormat(row.first_product_details.rank)}
                               </h6>
                             </div>

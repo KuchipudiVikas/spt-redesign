@@ -26,7 +26,7 @@ const Tools: React.FC<ToolsProps> = ({ info }) => {
       }}
       Title={
         <div className="flex my-10 justify-center flex-col items-center">
-          <h1 className="text-[45px] mt-[20px] font-jsans flex justify-center items-center gap-3 mx-auto  font-extrabold text-center text-gray-900 sm:text-4xl">
+          <h1 className="text-[30px] md:text-[45px] mt-[20px] font-jsans flex flex-wrap justify-center items-center gap-3 mx-auto  font-extrabold text-center text-gray-900 sm:text-4xl">
             Shop
             <StarIcon strokeWidth={3} className="text-primary font-bold" /> Self
             Publishing Titans

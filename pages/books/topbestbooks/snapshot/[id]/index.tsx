@@ -48,6 +48,7 @@ export default function SnapShot({ info, topBooks, snapHistory }) {
   console.log({ topBooks });
   return (
     <MainLayout
+      Title={<></>}
       info={info}
       meta={{
         title: "Top Best Books",

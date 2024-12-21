@@ -7,7 +7,7 @@ import { DotIcon } from "lucide-react";
 
 const BottomBanner = () => {
   return (
-    <div className="relative bg-[#7b28da] grid grid-cols-2 comp-container p-6 py-10 rounded-2xl w-full mt-10 overflow-hidden">
+    <div className="relative bg-[#7b28da] grid md:grid-cols-2 comp-container p-6 py-10 rounded-2xl w-full mt-10 overflow-hidden">
       {/* Background image */}
       <div
         style={{
@@ -22,12 +22,7 @@ const BottomBanner = () => {
       ></div>
 
       {/* Content */}
-      <div
-        style={{
-          lineHeight: "60px",
-        }}
-        className="w-full text-center text-white font-extrabold text-[45px] z-10"
-      >
+      <div className="w-full text-center mb-8 md:mb-0 text-white font-extrabold text-[30px] md:text-[45px] z-10">
         Transform Your Reach with Pro Tools!
       </div>
 

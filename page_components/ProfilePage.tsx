@@ -21,10 +21,9 @@ import TwitterIcon from "@/public/assets/social/twitter.png";
 import WebsiteIcon from "@/public/assets/onboarding/internet.png";
 import profile from "@/lib/api/profile";
 import { PenIcon } from "lucide-react";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 import usage from "@/lib/api/usage";
-
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 export function getIconForDomain(domain: string): string {
   const iconMap: { [key: string]: string } = {
@@ -73,7 +72,6 @@ const ProfilePage: React.FC<ProfileProps> = ({
   token,
   view = "profile",
 }) => {
-  const [loading, setLoading] = useState(false);
   const [socialLinks, setSocialLinks] = useState<SocialLink[]>([]);
   const [streakData, setStreakData] = useState<any>(null);
   const [totalXp, setTotalXp] = useState<number | null>(null);
@@ -128,11 +126,11 @@ const ProfilePage: React.FC<ProfileProps> = ({
         style={{
           gap: "37px",
           display: "grid",
-          gridTemplateColumns: "repeat(12, 1fr)",
+          // gridTemplateColumns: "repeat(12, 1fr)",
         }}
-        className=""
+        className="grid grid-cols-1 md:grid-cols-3"
       >
-        <div className="col-span-4">
+        <div className="col-span-1">
           <div
             style={{
               border: "1px solid #d5c5e4",
@@ -305,7 +303,7 @@ const ProfilePage: React.FC<ProfileProps> = ({
             style={{
               gap: "37px",
             }}
-            className="rounded-2xl px- col-span-8  grid grid-cols-2 gap-2"
+            className="rounded-2xl px- md:col-span-2  grid md:grid-cols-2 gap-2"
           >
             <StreakBoard info={info} user_id={info._id} token={token} />
             <LeaderBoard info={info} token={token} user_id={info._id} />

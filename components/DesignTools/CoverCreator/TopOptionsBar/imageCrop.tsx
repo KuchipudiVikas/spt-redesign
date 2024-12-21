@@ -137,6 +137,7 @@ const ImageCropper: React.FC = () => {
         scaleY: scaleY,
       });
 
+      // @ts-ignore
       const croppedImg = await CustomImage.FromURL(croppedImgOG.toDataURL(), {
         left: croppedImgOG.left,
         top: croppedImgOG.top,

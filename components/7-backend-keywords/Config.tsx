@@ -84,7 +84,7 @@ const Config: React.FC<IConfigProps> = ({
         <div className="">
           <HintWrapper hint="Click to get the search results">
             <button
-              className="rounded-full bg-primary text-white p-2"
+              className="rounded-full search-btn bg-primary text-white p-2"
               onClick={() => {
                 if (!searchedText) {
                   alert("Please enter a search term");
@@ -95,6 +95,7 @@ const Config: React.FC<IConfigProps> = ({
                 }
               }}
             >
+              Search
               {loading ? (
                 <RotateCw size={30} className="animate-spin" />
               ) : (
@@ -104,7 +105,7 @@ const Config: React.FC<IConfigProps> = ({
           </HintWrapper>
         </div>
       </div>
-      <div className="flex mt-7 gap-8">
+      <div className="md:flex grid grid-cols-2 mt-7 gap-8">
         <div className="flex items-center flex-row">
           <Switch
             checked={filters.includes("extended")}
@@ -162,37 +163,6 @@ const Config: React.FC<IConfigProps> = ({
         </div>
         {/* excluded_words filter switch */}
         <div className="flex flex-row items-center">
-          {/* <FormControlLabel
-                    control={
-                      <Switch
-                        checked={backendFilters.includes(
-                          BackendFilters.ExcludedList
-                        )}
-                        onChange={(e) => {
-                          if (
-                            backendFilters.includes(BackendFilters.ExcludedList)
-                          ) {
-                            setBackendFilters(
-                              backendFilters.filter(
-                                (f) => f !== BackendFilters.ExcludedList
-                              )
-                            );
-                          } else {
-                            setBackendFilters([
-                              ...backendFilters,
-                              BackendFilters.ExcludedList,
-                            ]);
-                          }
-                        }}
-                        inputProps={{
-                          "aria-label": "secondary checkbox",
-                        }}
-                      />
-                    }
-                    label="Excluded List"
-                    className="w-fit mx-0 px-0"
-                  /> */}
-
           <Switch
             checked={filters.includes("excluded_words")}
             onCheckedChange={(e) => {
@@ -208,22 +178,6 @@ const Config: React.FC<IConfigProps> = ({
 
         {/* remove duplicates */}
         <div className="flex items-center flex-row">
-          {/* <FormControlLabel
-                    control={
-                      <Switch
-                        checked={isDuplicate}
-                        onChange={(e) => {
-                          setIsDuplicate(e.target.checked);
-                        }}
-                        inputProps={{
-                          "aria-label": "secondary checkbox",
-                        }}
-                      />
-                    }
-                    label="Remove Duplicates"
-                    className="w-fit mx-0 px-0"
-                  /> */}
-
           <Switch checked={IsDuplicate} onCheckedChange={setIsDuplicate} />
 
           <Label className="mx-2">Remove Duplicates</Label>

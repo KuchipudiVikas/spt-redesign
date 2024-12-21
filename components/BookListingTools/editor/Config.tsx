@@ -78,7 +78,7 @@ const ConfigSection: React.FC<ConfigSectionProps> = ({
   usage,
 }) => {
   return (
-    <section className=" flex flex-col justify-center items-center ">
+    <section className=" flex flex-col md:mt-0 mt-10 justify-center items-center ">
       <div className="config-container">
         <select
           className="md:w-fit w-full"
@@ -106,12 +106,16 @@ const ConfigSection: React.FC<ConfigSectionProps> = ({
             usage ? `${usage.remainingUsage}/${usage.totalUsage}` : ""
           }
           style={{
-            width: "220px",
+            minWidth: "220px",
             fontSize: "14px",
+          }}
+          containerStyle={{
+            width: "100%",
           }}
           helperstyle={{
             top: "47px",
           }}
+          inputClassName="w-full "
         />
         {/* book type */}
         <select
@@ -148,19 +152,30 @@ const ConfigSection: React.FC<ConfigSectionProps> = ({
 
         {/* page count */}
         {isPhysicalBook(bookType) && (
-          <Input
-            label="Page Count"
+          <CustomInput
             type="number"
-            className="w-full md:w-24"
+            inputClassName="w-full md:w-24"
+            placeholder="Page Count"
             value={page}
             onChange={(e) => {
               setPage(parseInt(e.target.value));
+            }}
+            style={{
+              minWidth: "220px",
+              fontSize: "14px",
+            }}
+            containerStyle={{
+              width: "100%",
             }}
           />
         )}
         <HintWrapper hint="Get results for the search query">
           <Button
             className=" w-fit search-btn"
+            style={{
+              paddingTop: "20px",
+              paddingBottom: "20px",
+            }}
             onClick={() => {
               if (!searchedText) {
                 inputRef?.current?.focus();
@@ -171,6 +186,7 @@ const ConfigSection: React.FC<ConfigSectionProps> = ({
               }
             }}
           >
+            Search
             <SearchIcon size={24} />
           </Button>
         </HintWrapper>

@@ -39,7 +39,7 @@ function Dashboard({ userID }: DashboardProps) {
   const [projects, setProjects] = useState<Project[]>([]);
 
   return (
-    <div className="sp-container border-2 light-border mx-auto p-8 rounded-3xl w-fit mt-10">
+    <div className="sp-container border-2 light-border mx-auto p-3 md:p-8 rounded-3xl w-fit mt-10">
       <div className=" w-full flex justify-center mt-0 mb-10">
         <div
           style={{

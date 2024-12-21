@@ -307,12 +307,7 @@ const LoginPage = () => {
                   Log In To Self Publishing Titans
                 </h4>
 
-                <div
-                  style={{
-                    width: "400px",
-                  }}
-                  className="mt-[20px] text-center mx-auto"
-                >
+                <div className="mt-[20px] text-center mx-auto">
                   To stay connected with us, please log in using your personal
                   details.
                 </div>
@@ -340,7 +335,7 @@ const LoginPage = () => {
                     required
                     id="email"
                     name="email"
-                    className="pInput h-[50px] md:w-[500px] mt-[16px] bg-white"
+                    className="pInput h-[50px]  md:w-[500px] mt-[16px] bg-white"
                     placeholder="Email Address"
                     autoComplete="email"
                     onChange={(e: any) => setEmail(e.target.value)}

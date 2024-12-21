@@ -61,7 +61,7 @@ const Config: React.FC<ConfigProps> = ({
     >
       <div className=" w-fit  mx-auto mb-10 mt-10  ">
         <div className="flex flex-col">
-          <div className="flex justify-center items-center">
+          <div className="flex flex-col md:flex-row justify-center items-center">
             <div
               style={{
                 marginRight: `0px`,
@@ -87,6 +87,7 @@ const Config: React.FC<ConfigProps> = ({
                 type="text"
                 value={trackAsin}
                 onChange={(e) => setTrackAsin(e.target.value.trim())}
+                placeholder="Enter ASIN"
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
                     if (trackAsin.length < 4) {
@@ -118,53 +119,58 @@ const Config: React.FC<ConfigProps> = ({
                   }
                 }}
               />
-              <HintWrapper hint="Click to generate the results">
+              <div className="w-full">
+                <HintWrapper hint="Click to generate the results">
+                  <Button
+                    className="search-btn w-full "
+                    onClick={() => {
+                      if (!trackAsin) {
+                        inputRef?.current?.focus();
+                        alert("Please enter ASIN");
+                        return;
+                      } else {
+                        getResultsHandler(trackAsin, domain);
+                      }
+                    }}
+                  >
+                    Search
+                    {isLoading ? (
+                      <RotateCw className="animate-spin" />
+                    ) : (
+                      <SearchIcon size={30} />
+                    )}
+                  </Button>
+                </HintWrapper>
+              </div>
+            </div>
+            <div className="mt-5 md:mt-0 flex gap-2 w-full md:w-fit">
+              <HintWrapper hint="Download the results as excel file">
                 <Button
-                  className="search-btn"
-                  onClick={() => {
-                    if (!trackAsin) {
-                      inputRef?.current?.focus();
-                      alert("Please enter ASIN");
-                      return;
-                    } else {
-                      getResultsHandler(trackAsin, domain);
-                    }
-                  }}
+                  className="ml-2 w-full md:w-fit p-4 md:p-9 md:py-8 rounded-full"
+                  onClick={() => downloadCSV()}
                 >
-                  {isLoading ? (
-                    <RotateCw className="animate-spin" />
-                  ) : (
-                    <SearchIcon size={30} />
-                  )}
+                  Downoad
+                  <CloudDownloadIcon
+                    style={{}}
+                    onClick={() => downloadCSV()}
+                    className=""
+                    size={20}
+                  />
                 </Button>
               </HintWrapper>
+              <FiltersComponenet
+                setFilteredResults={setFilteredResults}
+                results={results}
+                recordsPerPage={recordsPerPage}
+                isOwner={isOwner}
+                token={token}
+                trackAsin={trackAsin}
+                domain={domain}
+                setIsLoading={setIsLoading}
+                setLoadingStatus={setLoadingStatus}
+                getRankAndSetResults={getRankAndSetResults}
+              />
             </div>
-            <HintWrapper hint="Download the results as excel file">
-              <Button
-                className="ml-2 p-9 py-8 rounded-full"
-                onClick={() => downloadCSV()}
-              >
-                Downoad
-                <CloudDownloadIcon
-                  style={{}}
-                  onClick={() => downloadCSV()}
-                  className=""
-                  size={20}
-                />
-              </Button>
-            </HintWrapper>
-            <FiltersComponenet
-              setFilteredResults={setFilteredResults}
-              results={results}
-              recordsPerPage={recordsPerPage}
-              isOwner={isOwner}
-              token={token}
-              trackAsin={trackAsin}
-              domain={domain}
-              setIsLoading={setIsLoading}
-              setLoadingStatus={setLoadingStatus}
-              getRankAndSetResults={getRankAndSetResults}
-            />
           </div>
           {/* {true && (
             <div className="samples-container  px-4 mt-8 ">

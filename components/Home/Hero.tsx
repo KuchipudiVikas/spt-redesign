@@ -12,26 +12,41 @@ import NuriaImage from "@/public/images/testimonials/2.png";
 import RachelImage from "@/public/images/testimonials/6.png";
 import { Banner } from "./Banner";
 import Link from "next/link";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 const Hero = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const isTablet = useMediaQuery("(max-width: 1024px)");
+
+  // return null;
   return (
     <div
       style={{
-        margin: "100px auto",
+        margin: isMobile
+          ? "0px auto 25px auto"
+          : isTablet
+          ? "100px auto"
+          : isDesktop
+          ? "100px auto"
+          : "00px auto",
         marginBottom: "130px",
       }}
-      className="text-black max-w-[1300px]   mx-auto grid grid-cols-2"
+      className="text-black comp-container lg:px-5  mx-auto flex flex-col-reverse lg:grid md:grid-cols-2"
     >
-      <div className="w-[585px]">
+      <div className="max md:mt-10 lg:mt-0 px-6 lg:px-0 ">
         <AllToolsButton />
-        <div className="text-[55px] flex gap-3 font-extrabold">
+        {/* <div className=""> */}
+        <div className="text-[35px] md:text-[55px] flex gap-3 gap-y-0 flex-wrap font-extrabold">
           Grow
           <span className="text-primary">Visibility</span>
           with
+          <span className=" block md:hidden">Powerful </span>
         </div>
-        <div className="text-[55px] flex gap-3 font-extrabold">
-          Powerful Author Tools
+        <div className="text-[35px] md:text-[55px] flex items-center flex-wrap gap-3 font-extrabold">
+          <span className=" hidden md:block">Powerful </span> Author Tools
         </div>
+        {/* </div> */}
         <div
           style={{
             lineHeight: "30px",
@@ -45,9 +60,10 @@ const Hero = () => {
         <div className="mt-8 flex gap-4">
           <Link href={LinkIndex.PRICING}>
             <Button
-              className="font-bold flex text-[16px] rounded-full"
+              className="font-bold px-5 py-6 md:py-[40px] md:px-[24px] flex text-[16px] rounded-full"
               style={{
-                padding: "24px 40px",
+                // padding: "24px 40px",
+                padding: isDesktop ? "30px 40px" : "16px 24px",
               }}
             >
               <Image src={DotIcon} alt="Brand Logo" width={5} height={5} />
@@ -57,9 +73,10 @@ const Hero = () => {
           <Link href={LinkIndex.TOOLS}>
             <Button
               variant={"outline"}
-              className="font-bold bg-transparent flex text-[16px] rounded-full"
+              className="font-bold  bg-transparent flex text-[16px] rounded-full"
               style={{
-                padding: "24px 40px",
+                padding: isDesktop ? "30px 40px" : "16px 24px",
+                // padding: "24px 40px",
                 border: "2px solid #000",
               }}
             >
@@ -72,8 +89,8 @@ const Hero = () => {
           <ReviewsHero />
         </div>
       </div>
-      <div className="">
-        <Banner />
+      <div className="relative  flex justify-center items-center">
+        <Banner />{" "}
       </div>
     </div>
   );
@@ -116,24 +133,26 @@ function ReviewsHero() {
   ];
 
   return (
-    <div className="mt-8 flex items-center gap-4 ">
-      <div className="flex -space-x-4">
-        {avatars.map((src, index) => (
-          <Avatar
-            key={index}
-            style={{
-              border: "0.5px solid #ccc",
-            }}
-            className="w-[50px]  bg-[#f7f6f8] h-[50px]"
-          >
-            <AvatarImage src={src} alt={`Avatar ${index + 1}`} />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-        ))}
+    <div className="mt-8 flex md:flex-row flex-col  items-center gap-4 ">
+      <div className="flex md:flex-row  items-center gap-4">
+        <div className="flex -space-x-4">
+          {avatars.map((src, index) => (
+            <Avatar
+              key={index}
+              style={{
+                border: "0.5px solid #ccc",
+              }}
+              className="w-[50px]  bg-[#f7f6f8] h-[50px]"
+            >
+              <AvatarImage src={src} alt={`Avatar ${index + 1}`} />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+          ))}
+        </div>
+        <span className="font-extrabold text-[40px]">5.0</span>
+        <div style={{ borderLeft: "1px solid #ccc", height: "40px" }}></div>
       </div>
-      <span className="font-extrabold text-[40px]">5.0</span>
-      <div style={{ borderLeft: "1px solid #ccc", height: "40px" }}></div>
-      <div className="flex flex-col justify-center gap-1">
+      <div className="flex flex-col items-center md:items-start  md:justify-center gap-1">
         <div className="flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -182,7 +201,7 @@ function ReviewsHero() {
           </svg>
         </div>
         <div className="text-[14px] font-medium">
-          Trusted by over 140,000 Users
+          Trusted by over 150,000 Users
         </div>
       </div>
     </div>

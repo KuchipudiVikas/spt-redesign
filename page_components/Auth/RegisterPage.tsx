@@ -190,12 +190,7 @@ const RegisterPage = () => {
                   Sign Up To Self Publishing Titans
                 </h4>
 
-                <div
-                  style={{
-                    width: "400px",
-                  }}
-                  className="mt-[20px] text-center mx-auto"
-                >
+                <div className="mt-[20px] text-center mx-auto">
                   To stay connected with us, please log in using your personal
                   details.
                 </div>
@@ -222,11 +217,8 @@ const RegisterPage = () => {
                   <Input
                     required
                     id="email"
-                    style={{
-                      width: "500px",
-                    }}
                     name="email"
-                    className="pInput h-[50px] mt-[16px] bg-white"
+                    className="pInput h-[50px] md:w-[500px] mt-[16px] bg-white"
                     placeholder="Email Address"
                     autoComplete="email"
                     onChange={(e: any) => setEmail(e.target.value)}
@@ -251,12 +243,9 @@ const RegisterPage = () => {
                   <Input
                     required
                     id="password"
-                    style={{
-                      width: "500px",
-                    }}
                     name="password"
                     type="password"
-                    className="pInput h-[50px] mt-[16px] bg-white"
+                    className="pInput h-[50px] md:w-[500px] mt-[16px] bg-white"
                     placeholder="Password"
                     onChange={(e: any) => setPassword(e.target.value)}
                     autoFocus
@@ -280,12 +269,9 @@ const RegisterPage = () => {
                   <Input
                     required
                     id="password"
-                    style={{
-                      width: "500px",
-                    }}
                     name="password"
                     type="password"
-                    className="pInput h-[50px] mt-[16px] bg-white"
+                    className="pInput h-[50px] md:w-[500px] mt-[16px] bg-white"
                     placeholder="Re-Enter Password"
                     onChange={(e: any) => setPasswordConf(e.target.value)}
                     autoFocus

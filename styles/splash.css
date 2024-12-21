@@ -74,9 +74,13 @@
 }
 
 .banner .overlap-group {
-  height: 474px;
+  /* height: 474px;
   position: absolute;
-  top: 183px;
+  top: 183px; */
+  /* display: flex; */
+  /* height: 100%; */
+  /* align-items: center; */
+  /* justify-content: center; */
 }
 
 .banner .frame-5 {
@@ -329,7 +333,7 @@
 .banner .overlap-wrapper {
   height: 361px;
 
-  position: absolute;
+  /* position: absolute; */
   top: 61px;
   width: 668px;
 }
@@ -669,7 +673,7 @@
   justify-content: center;
   padding: 5.83px 15.54px 5.83px 5.83px;
   position: absolute;
-  top: 122px;
+  top: 60px;
   left: 410px;
 }
 
@@ -695,7 +699,7 @@
   left: 60px;
   padding: 5.83px 15.54px 5.83px 5.83px;
   position: absolute;
-  top: 122px;
+  top: 60px;
 }
 
 .banner .t {

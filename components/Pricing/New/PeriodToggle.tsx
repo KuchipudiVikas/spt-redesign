@@ -14,17 +14,17 @@ const TimePeriodToggle: React.FC<TimePeriodToggleProps> = ({
   return (
     <div
       style={{
-        margin: "30px 0px",
+        margin: "px 0px",
       }}
-      className=" font-jsans  px-2 pb-5 grid grid-cols-5"
+      className=" font-jsans rounded-2xl  border light-border  h-full  px-10 pb-5 grid grid-cols-5"
     >
-      <div className="text-[40px] col-span-2 font-bold my-auto">
+      {/* <div className="text-[40px] col-span-2 font-bold my-auto">
         Choose Payment Type
-      </div>
-      <div className="flex col-span-3 items-end gap-2">
+      </div> */}
+      <div className="flex col-span-5 items-center gap-2">
         <button
           onClick={() => setValue(EPaymentPeriod.Monthly)}
-          className={`px-[24px] py-[15px] font-bold rounded-full w-full  ${
+          className={`px-[10px] text-[18px] py-[15px] mt-7 font-bold rounded-full w-full  ${
             value === EPaymentPeriod.Monthly
               ? "bg-primary text-white"
               : "bg-gray-200"
@@ -33,12 +33,12 @@ const TimePeriodToggle: React.FC<TimePeriodToggleProps> = ({
           Monthly
         </button>
         <div className="w-full">
-          <div className="mx-auto flex justify-center pulsing-glow-text mb-1  text-primary font-bold  rounded-full w-full">
+          <div className="mx-auto text-base font-extrabolc text-center flex justify-center pulsing-glow-text mb-1  text-primary font-bold  rounded-full w-full">
             Save upto 40%
           </div>
           <button
             onClick={() => setValue(EPaymentPeriod.Yearly)}
-            className={`px-[24px] py-[15px] h-full font-bold rounded-full w-full  ${
+            className={`px-[10px] text-[18px] py-[15px] h-full font-bold rounded-full w-full  ${
               value === EPaymentPeriod.Yearly
                 ? "bg-primary text-white"
                 : "bg-gray-200 border"
@@ -49,13 +49,13 @@ const TimePeriodToggle: React.FC<TimePeriodToggleProps> = ({
         </div>
         <button
           onClick={() => setValue(EPaymentPeriod.Lifetime)}
-          className={`px-[24px] py-[15px] font-bold rounded-full w-full  ${
+          className={`px-[10px] text-[18px] py-[15px] font-bold mt-7 rounded-full w-full  ${
             value === EPaymentPeriod.Lifetime
               ? "bg-primary text-white"
               : "bg-gray-200 border"
           }`}
         >
-          Lifetime Bundles
+          Lifetime
         </button>
       </div>
     </div>

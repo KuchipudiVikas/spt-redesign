@@ -19,15 +19,15 @@ const ChromeExtensions = () => {
       className="w-full bg-[#f7f7f8] flex flex-col font-jsans justify-center  "
     >
       <div
-        className="font-jsans mx-auto flex gap-3 font-extrabold"
-        style={{
-          fontSize: "45px",
-        }}
+        className="font-jsans text-[30px] md:text-[45px]  mx-auto flex-wrap justify-center text-center flex gap-3 font-extrabold"
+        // style={{
+        //   fontSize: "45px",
+        // }}
       >
         KDP Keyword Research <span className="text-primary"> Extensions </span>
       </div>
-      <div className="mt-[41px]">
-        <div className="flex border-2 mx-auto  rounded-full w-fit p-2 ">
+      <div className="mt-[41px] px-5">
+        <div className="flex md:flex-row flex-col border-2 mx-auto rounded-3xl mb-10 md:mb-0  md:rounded-full w-fit p-2 ">
           <div
             onClick={() => setSelectedTab("tp")}
             className={` ${
@@ -52,12 +52,12 @@ const ChromeExtensions = () => {
           </div>
         </div>
 
-        <div className="mt-[50px] max-w-[1200px] mx-auto ">
+        <div className="mt-[50px] comp-container mx-auto ">
           {selectedTab == "tp" ? (
-            <div className="grid grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               <div className="">
                 <iframe
-                  width="560"
+                  width="100%"
                   height="315"
                   src="https://www.youtube.com/embed/c4vouirX7xs?si=uOhwr9IJPwlfcHrM"
                   title="YouTube video player"
@@ -68,7 +68,7 @@ const ChromeExtensions = () => {
                 ></iframe>
               </div>
               <div className="">
-                <h3 className="text-[30px] font-bold">
+                <h3 className=" text-xl md:text-[30px] font-bold">
                   Titans Pro Chrome Extension
                 </h3>
                 <div className="mt-[30px]">
@@ -83,7 +83,7 @@ const ChromeExtensions = () => {
                   ].map((item, index) => (
                     <div
                       key={index}
-                      className="flex gap-2 my-[10px] items-center text-[18px] text-[#333333] font-semibold"
+                      className="flex gap-2 my-[10px] items-center md:text-[18px] text-[#333333] font-semibold"
                     >
                       <CheckIcon
                         style={{
@@ -116,10 +116,10 @@ const ChromeExtensions = () => {
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2  gap-10">
               <div className="">
                 <iframe
-                  width="560"
+                  width="100%"
                   height="315"
                   src="https://www.youtube.com/embed/llqi_Rs3dc4?si=AvRZQb0mXFdV5e-C"
                   title="YouTube video player"

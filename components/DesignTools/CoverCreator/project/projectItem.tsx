@@ -60,7 +60,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project, onDelete }) => {
   return (
     <div
       key={project.id}
-      className="border-2 w-[550px] flex justify-between hover:bg-gray-100 my-2 p-2 rounded-lg"
+      className="border-2 md:w-[550px] flex justify-between hover:bg-gray-100 my-2 p-2 rounded-lg"
     >
       <div
         onClick={() => {

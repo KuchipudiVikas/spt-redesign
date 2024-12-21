@@ -472,7 +472,7 @@ function CoursePage({ info, token, productInfo, comments, purchased }) {
                             }`}
                           >
                             <iframe
-                              className=" pt-10   rounded-lg"
+                              className=" pt-10  sticky  h-[500px] lg:h-auto  rounded-lg"
                               src={`${content.data}?autoplay=false`}
                               onLoad={onDataLoaded}
                               width="100%"

@@ -1,5 +1,3 @@
-import { IVideoCardWithDetails } from "../../models/interfaces/video_card";
-
 export const overviewTexts = [
   "80+ Videos",
   "100+ Resources",
@@ -26,11 +24,7 @@ export const videoCardWithDetailsObj = [
   {
     url: "https://www.youtube.com/embed/uemGiTGeGKw",
     title: "Masterclass - $147",
-    contentList: [
-      "80+ Videos",
-      "100+ Resources",
-      "Private Facebook Group",
-    ],
+    contentList: ["80+ Videos", "100+ Resources", "Private Facebook Group"],
     button: {
       text: "Get it now",
       enabled: true,

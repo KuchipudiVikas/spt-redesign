@@ -1,5 +1,3 @@
-import { IVideoCardWithDetails } from "../../models/interfaces/video_card";
-
 export const overviewTexts = [
   "80+ Videoclipuri",
   "100+ Resurse",

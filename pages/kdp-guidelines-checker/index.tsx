@@ -272,8 +272,8 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
       info={info}
       Title={<PageTitle title="KDP Guidelines Checker" />}
       Body={
-        <div className="min-h-[60vh] comp-container mx-auto mb-10 mt-0 md:px-24">
-          <div className="flex flex-col gap-3">
+        <div className="comp-container mx-auto pb-10 w-full mb-10 mt-10  lg:px-24">
+          <div className="  w-full flex mt-10 justify-center">
             {/* {!false && (
               <div className="samples-container">
                 <h6>Here are some free results to checkout: </h6>
@@ -314,8 +314,8 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                 </div>
               </div>
             )} */}
-            <div className="sp-container border-2 mt-20 light-border p-6 rounded-lg">
-              <div className="grid grid-cols-5 gap-4">
+            <div className="sp-container mx-4 border-2 w-full light-border p-6 rounded-lg">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 <div className=" ">
                   <Label className="text-label ">Select Paper</Label>
                   <CustomSelect
@@ -323,6 +323,10 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                     onChange={(e) =>
                       handleBookDataChange("bookType", e.target.value)
                     }
+                    style={{
+                      marginTop: "3px",
+                      borderRadius: "300px",
+                    }}
                     options={[
                       { value: "ebook", label: "Ebook" },
                       { value: "paperback", label: "Paperback" },
@@ -331,20 +335,19 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                     helperText={
                       bookTypeErrors && bookTypeErrors.length > 0
                         ? bookTypeErrors
-                            .map((error) => `${error.type}`)
+                            .map((error) => `${error.reason}`)
                             .join(", ")
                         : undefined
                     }
                   />
                 </div>
-                <div className="col-span-2">
+                <div className="lg:col-span-2">
                   <Label className="text-label">Write Title</Label>
                   <CustomInput
                     value={bookData.title}
                     onChange={(e) =>
                       handleBookDataChange("title", e.target.value)
                     }
-                    helperstyle={{ bottom: "-28px", color: "black" }}
                     helperText={
                       titleErrors && titleErrors.length > 0
                         ? titleErrors
@@ -352,7 +355,7 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                               // @ts-ignore
                               (error) =>
                                 // @ts-ignore
-                                `${error.violatedPart} - ${error.type}`
+                                `${error.violatedPart} - ${error.reason}`
                             )
                             .join(", ")
                         : `${bookData.title.length}/${bookTitleLimit}` ||
@@ -372,7 +375,7 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                     }
                   />
                 </div>
-                <div className="w-fit">
+                <div className="lg:w-fit w-full">
                   <Label className="text-label">Author Name</Label>
 
                   <CustomInput
@@ -380,7 +383,6 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                     onChange={(e) =>
                       handleBookDataChange("author", e.target.value)
                     }
-                    helperstyle={{ bottom: "-28px", color: "black" }}
                     helperText={
                       (authorErrors &&
                         authorErrors.length > 0 &&
@@ -449,7 +451,6 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                     onChange={(e) =>
                       handleBookDataChange("description", e.target.value)
                     }
-                    helperstyle={{ color: "black" }}
                     helperText={
                       descriptionErrors && descriptionErrors.length > 0
                         ? descriptionErrors
@@ -483,7 +484,6 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                   <CustomTextArea
                     value={bookData.apluscontent}
                     rows={4}
-                    helperstyle={{ color: "black" }}
                     onChange={(e) =>
                       handleBookDataChange("apluscontent", e.target.value)
                     }
@@ -524,7 +524,6 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                   onChange={(e) =>
                     handleBookDataChange("keywords", e.target.value)
                   }
-                  helperstyle={{ color: "black" }}
                   helperText={
                     keywordsErrorss && keywordsErrorss.length > 0
                       ? keywordsErrorss
@@ -553,7 +552,7 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                   }
                 />
               </div>
-              <div className="mt-5">
+              <div className="">
                 <Loader
                   loading={loading}
                   ButtonComp={
@@ -561,7 +560,7 @@ const Index: React.FC<IndexProps> = ({ info, token, isOwner }) => {
                       className="mt-4 py-6 rounded-full font-bold w-full"
                       onClick={handleCheck}
                     >
-                      {loading ? "Checking..." : "Check Guidelines"}
+                      {loading ? "Checking..." : "Check Trademark"}
                     </Button>
                   }
                 />

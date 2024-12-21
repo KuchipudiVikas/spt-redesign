@@ -20,7 +20,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { Separator } from "@/components/ui/separator";
 import { CheckIcon } from "lucide-react";
 import BillingTable from "@/components/checkout/BillingTable";
-// import { checkCountry } from '@/components/checkout/Paypal';
+import { checkCountry } from "@/components/checkout/Paypal";
 import VerifiedIcon from "@/public/assets/social/verified.png";
 
 type Product = {
@@ -58,15 +58,21 @@ const Index = ({ info, CrossSellItemsAccessCheck, token }) => {
     const storedReferrer = localStorage.getItem("referrer");
     console.log("referrer", storedReferrer);
     setReferrer(storedReferrer);
-    // checkCountry().then((data) => {
-    //   if (data) {
-    //     if (data && data?.country && excludedCounties.includes(data.country)) {
-    //       window.location.href = "/";
-    //     }
-    //   }
-    // }).catch((error) => {
-    //   console.error(error);
-    // } );
+    checkCountry()
+      .then((data) => {
+        if (data) {
+          if (
+            data &&
+            data?.country &&
+            excludedCounties.includes(data.country)
+          ) {
+            window.location.href = "/";
+          }
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
 
   const handleBack = () => {

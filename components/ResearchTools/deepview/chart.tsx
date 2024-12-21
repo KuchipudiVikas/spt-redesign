@@ -6,6 +6,7 @@ import styles from "@/styles/bsr-and-asin/ChartControlsStyles";
 import commonStyles from "@/styles/bsr-and-asin/CommonStyles";
 
 import "rodal/lib/rodal.css";
+import { RotateCw } from "lucide-react";
 
 //Valid values: [ 1: com | 2: co.uk 225 | 3: de | 4: fr | 5: co.jp | 6: ca | 8: it | 9: es | 10: in | 11: com.mx ]
 
@@ -31,7 +32,6 @@ const Chart: FC<IChart> = (props) => {
   const { asin, domainSuffix } = props;
   const chartAsin = asin || "B07CZDXDG8";
   const [loading, setLoading] = useState(false);
-  const dispatch = useDispatch();
 
   let colorIndex = {
     BSR: "#8601b0",
@@ -805,7 +805,7 @@ const Chart: FC<IChart> = (props) => {
       </div>
       {loading && (
         <div className="transition-all scale-150 transform  fixed top-1/2 left-1/2  w-fit -translate-x-1/2 -translate-y-1/2">
-          <Spinner className=" " size={"xl"} />
+          <RotateCw className="animate-spin" />
         </div>
       )}
       <div

@@ -1,5 +1,5 @@
 import request from "./interface";
-import { StreakRank } from "@/models/profile";
+import { StreakRank } from "@/lib/models/profile";
 
 type Usage = {
   user_id: string;

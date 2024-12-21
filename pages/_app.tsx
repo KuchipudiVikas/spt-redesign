@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import "@/styles/splash.css";
 import "@/styles/book-cover.css";
+import "@/styles/embla.css";
 import type { AppProps } from "next/app";
 import NextNProgress from "nextjs-progressbar";
 import { Toaster } from "@/components/ui/toaster";

@@ -5,8 +5,7 @@ import { AccountUtils } from "@/utils/retroVision";
 import { GetServerSidePropsContext } from "next";
 import { StarIcon } from "lucide-react";
 import SearchApiCardInfo from "@/components/ResearchTools/deepview/search-api-card";
-
-import BySptButton from "@/components/Common/BySptButton";
+import PageTitle from "@/components/Common/PageTitle";
 
 import { getSession } from "next-auth/react";
 import { User } from "@/lib/ts/types/user";
@@ -31,18 +30,9 @@ const Index: React.FC<IndexProps> = ({ info, isOwner }) => {
         description: "Deep View - Self Publishing Titans",
         keywords: "Deep View - Self Publishing Titans",
       }}
-      Title={
-        <div className="flex my-10 mb-20 justify-center flex-col items-center">
-          <h1 className="text-[45px] mt-[20px] font-jsans flex justify-center items-center gap-3 mx-auto  font-extrabold text-center text-gray-900 sm:text-4xl">
-            Titans{" "}
-            <StarIcon strokeWidth={3} className="text-primary font-bold" /> Deep
-            View
-          </h1>
-          <BySptButton />
-        </div>
-      }
+      Title={<PageTitle title="Titans Deep View" />}
       Body={
-        <div className="mt-5 comp-container md:mt-20">
+        <div className=" comp-container ">
           <SearchApiCardInfo
             asin={ASIN}
             onClick={function (): void {

@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import Image from "next/image";
 import { ArrowDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 function MobileTableExpander({ title, children }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -20,7 +21,7 @@ function MobileTableExpander({ title, children }) {
           <div className="flex flex-row justify-between">
             <h6>{title}</h6>
             <div className="text-gray-900 dark:text-gray-400">
-              <ArrowDown size={24} />
+              <ChevronDown className="w-4" size={24} />
             </div>
           </div>
         </th>

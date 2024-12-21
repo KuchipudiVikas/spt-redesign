@@ -6,7 +6,7 @@ import React, {
   useCallback,
 } from "react";
 import { CanvasContext } from "@/lib/contexts/canvas";
-import { CustomImage } from "@/components/Canvas/customClasses/image";
+import { CustomImage } from "@/components/DesignTools/Canvas/customClasses/image";
 import Image from "next/image";
 import { nanoid } from "nanoid";
 import { TApiRes } from "@/lib/api/images";

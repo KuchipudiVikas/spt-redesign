@@ -1,6 +1,10 @@
-import { AccessTypes, Availability, ESubscriptionType, productsType } from "@/constants";
-import { IPackage } from "@/models/interfaces";
- 
+import {
+  AccessTypes,
+  Availability,
+  ESubscriptionType,
+  productsType,
+} from "@/constants";
+import { IPackage } from "@/lib/models/interfaces";
 
 export const featuresMobile = [
   {

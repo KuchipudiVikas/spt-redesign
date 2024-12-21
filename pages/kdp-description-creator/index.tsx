@@ -287,7 +287,7 @@ const Index: React.FC<IndexProps> = ({ token, isOwner, info }) => {
       }}
       Title={<PageTitle title="KDP Description Generator" />}
       Body={
-        <div className="min-h-[60vh]  comp-container mx-auto mb-10 mt-10 px-5">
+        <div className="min-h-[60vh] px-4  comp-container mx-auto mb-10 mt-10 ">
           <ConfigSection
             setMid={setMid}
             setHostname={setHostname}

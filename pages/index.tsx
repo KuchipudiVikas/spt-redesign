@@ -7,7 +7,6 @@ import Accounts from "../lib/mw/Accounts";
 import { getSession } from "next-auth/react";
 
 export default function Index({ pageData, info, token }: HomeProps) {
-  console.log("token", token);
   return (
     <div className={` `}>
       <MainLayout

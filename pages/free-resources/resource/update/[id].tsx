@@ -5,7 +5,6 @@ import {
   ObjectCannedACL,
 } from "@aws-sdk/client-s3";
 import { useRouter } from "next/navigation";
-import { Button } from "@mui/material";
 import { ProductForm, TagFields } from "../addresource";
 
 interface data {

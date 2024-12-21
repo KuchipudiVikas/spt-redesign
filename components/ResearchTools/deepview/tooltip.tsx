@@ -1,23 +1,42 @@
 import React from "react";
-import styles from "./ToolTip.module.css";
-import infoIcon from "@/public/assets/logos/info.png"
-import { Tooltip } from "flowbite-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import Image from "next/image";
+import infoIcon from "@/public/assets/logos/info.png";
 
-const ToolTip = ({ style = {}, type }) => {
+const ToolTip = ({
+  style = {},
+  type,
+}: {
+  style?: React.CSSProperties;
+  type: string;
+}) => {
   return (
-    <Tooltip
-      content={<TooltipContent style={style} type={type} />}
-      style="light"
-      trigger="hover"
-    >
-      <span className="cursor-pointer"><Image src={infoIcon.src} height={25} width={25} alt="i" className="w-4" /></span>
-    </Tooltip>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger className="cursor-pointer">
+          <Image
+            src={infoIcon}
+            height={25}
+            width={25}
+            alt="info-icon"
+            className="w-4"
+          />
+        </TooltipTrigger>
+        <TooltipContent className="max-w-[250px]" style={style}>
+          <TooltipContentText type={type} />
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 };
 
-const TooltipContent = ({ style = {}, type }) => {
-  const toolTipContent = {
+const TooltipContentText = ({ type }: { type: string }) => {
+  const toolTipContent: Record<string, string> = {
     searchSuggestions:
       "The search suggestions are the keywords that Amazon suggests when you start typing a keyword in the Amazon search bar.",
     searchRank:
@@ -31,12 +50,8 @@ const TooltipContent = ({ style = {}, type }) => {
     opportunity:
       "The opportunity is the number of times the keyword is searched for in a month.",
   };
-  console.log({ style });
-  return (
-    <div style={style} className=" max-w-[250px]">
-      {toolTipContent[type]}
-    </div>
-  );
+
+  return <span>{toolTipContent[type]}</span>;
 };
 
 export default ToolTip;

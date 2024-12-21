@@ -2,7 +2,7 @@ import ImageContainer from "../imageContainer";
 import React from "react";
 import Image from "next/image";
 import { useState, useEffect, useRef, useCallback } from "react";
-import CustomImage from "@/components/Canvas/image";
+
 import { useCoverApp, TImage, TypesImages } from "@/lib/contexts/coverApp";
 
 interface CategoriesProps {

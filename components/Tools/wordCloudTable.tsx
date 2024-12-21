@@ -145,6 +145,7 @@ export function EnhancedTable({ data }) {
   const numColoums = size == EScreenSize.Mobile ? 1 : 5;
   useEffect(() => {
     let rowsData = Object.entries(data).map(([key, value]) =>
+      // @ts-ignore
       createData(key, value)
     );
     SetRows(rowsData);
@@ -273,7 +274,6 @@ export function EnhancedTable({ data }) {
                               {item?.word || ""}
                             </TableCell>
                             <TableCell
-                              size="small"
                               // className={` ${
                               //   isBgGray ? "bg-gray-200" : ""
                               // } pl-0 md:pr-3`}

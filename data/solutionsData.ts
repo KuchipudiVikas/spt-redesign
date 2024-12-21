@@ -1,4 +1,5 @@
 import { domains } from "@/constants/index";
+import { getLinkForTheTool } from "@/lib/utils";
 import {
   BlocksIcon,
   BookAIcon,
@@ -50,7 +51,7 @@ export type TCategory = {
 };
 
 export type TSolutionsData = {
-  Title: String;
+  Title: string;
   Categories: TCategory[];
   icon: React.ElementType;
 };
@@ -63,10 +64,24 @@ const SolutionsData: TSolutionsData[] = [
       {
         Items: [
           {
-            heading: "Titans Pro Web App",
-            tag: "Search suggestions and volume insights.",
+            heading: "Keyword Research - Titans Pro",
+            tag: "Search suggestions, analysis & search vol.",
             link: "/titans-pro/on-site",
             icon: SearchIcon,
+          },
+          {
+            flair: "New",
+            heading: "7 Backend Keywords",
+            tag: "Boost SEO rankings and visibility.",
+            newTab: false,
+            link: "/7-backend-keywords-tool-amazon-kdp",
+            icon: ListEndIcon,
+          },
+          {
+            heading: "Reverse ASIN Lookup",
+            tag: "Find top keywords from any top product.",
+            link: "/titans-retro-vision",
+            icon: TablePropertiesIcon,
           },
           {
             heading: "Titans Pro Chrome Extension",
@@ -76,31 +91,10 @@ const SolutionsData: TSolutionsData[] = [
             icon: BlocksIcon,
           },
           {
-            heading: "Titans Quick View",
-            tag: "Niche analysis and top keywords.",
-            newTab: true,
-            link: "https://chromewebstore.google.com/detail/titans-quick-view-amazon/eefljgmhgaidffapnppcmmafobefjece",
-            icon: TextIcon,
-          },
-          {
-            flair: "New",
-            heading: "7 Backend Keywords Tool",
-            tag: "Optimize book SEO.",
-            newTab: false,
-            link: "/7-backend-keywords-tool-amazon-kdp",
-            icon: ListEndIcon,
-          },
-          {
-            heading: "Titans Deep View",
-            tag: "Analyze multiple products at once.",
+            heading: "Competitor Research - Deep View",
+            tag: "Analyze 100 competitors for any niche.",
             link: "/titans-deep-view",
             icon: LayoutListIcon,
-          },
-          {
-            heading: "Titans Retro View",
-            tag: "Find competitors' top keywords.",
-            link: "/titans-retro-vision",
-            icon: TablePropertiesIcon,
           },
         ],
       },
@@ -113,36 +107,30 @@ const SolutionsData: TSolutionsData[] = [
       {
         Items: [
           {
-            heading: "Book Writer",
-            tag: "Write books easily and efficiently.",
-            link: "https://author.selfpublishingtitans.com",
-            icon: PenIcon,
-          },
-          {
-            heading: "Puzzle & Activity Tools",
+            heading: "30+ Puzzle & Activity Tools",
             tag: "Create puzzles like Sudoku, mazes, etc.",
             link: domains.books + "/Puzzle-Maker-Software",
             icon: PuzzleIcon,
             newTab: true,
           },
           {
+            heading: "Low Content Books",
+            tag: "Create notebooks, journals, and more.",
+            link: domains.books + "/FREE-No-Content-Book-Creator-Software",
+            icon: FileStackIcon,
+          },
+          {
             heading: "Coloring Books",
-            tag: "Design coloring books with illustrations.",
+            tag: "Create pages with hand drawn illustrations.",
             link: domains.coloring_book + "/",
             icon: BrushIcon,
             newTab: true,
           },
           {
-            heading: "Digital Titans Designer",
-            tag: "Create text and letter designs.",
-            link: "https://design.selfpublishingtitans.com/",
-            icon: BookAIcon,
-          },
-          {
-            heading: "Low Content Books",
-            tag: "Create notebooks and journals.",
-            link: domains.books + "/FREE-No-Content-Book-Creator-Software",
-            icon: FileStackIcon,
+            heading: "Book Writing & Editing",
+            tag: "Write books easily and efficiently.",
+            link: "https://author.selfpublishingtitans.com",
+            icon: PenIcon,
           },
         ],
       },
@@ -156,37 +144,37 @@ const SolutionsData: TSolutionsData[] = [
         Items: [
           {
             heading: "KDP Title Creator",
-            tag: "Generate engaging book titles.",
+            tag: "Create effective book titles that sell.",
             link: "/kdp-title-creator",
             icon: ClipboardTypeIcon,
           },
           {
-            heading: "KDP Description Generator",
-            tag: "Write compelling descriptions.",
+            heading: "Book Description Generator",
+            tag: "Write great book descriptions.",
             link: "/kdp-description-creator",
             icon: TextIcon,
           },
           {
-            heading: "KDP Trademark Checker",
-            tag: "Avoid trademark violations.",
+            heading: "Trademark Checker",
+            tag: "Avoid violations with your books.",
             link: "/kdp-trademark-checker",
             icon: CopyrightIcon,
           },
           {
-            heading: "KDP Guidelines Checker",
-            tag: "Ensure KDP guidelines compliance.",
+            heading: "Guidelines Checker",
+            tag: "Follow the rules & regulations better.",
             link: "/kdp-guidelines-checker",
             icon: TextIcon,
           },
           {
-            heading: "KDP Book Data Translator",
-            tag: "Translate book data instantly.",
+            heading: "Book Listing Translations",
+            tag: "Translate your book data instantly.",
             link: "/kdp-bookdata-translator",
             icon: LanguagesIcon,
           },
           {
-            heading: "Book Price Suggestion Tool",
-            tag: "Set the perfect book price.",
+            heading: "Book Price Suggestions",
+            tag: "Find the perfect price for your book.",
             link: "/kdp-price-checker",
             icon: DollarSignIcon,
           },
@@ -208,16 +196,22 @@ const SolutionsData: TSolutionsData[] = [
         Items: [
           {
             heading: "Cover Designer",
-            tag: "Design book covers easily.",
+            tag: "Design great book covers with ease.",
             link: "/book-cover-creator",
             icon: BookHeartIcon,
           },
           {
             heading: "A+ Content Maker",
-            tag: "Create images for book listings.",
+            tag: "Create A+ content images for your book.",
             link: "/A+-content-template-generator",
             flair: "New",
             icon: BookImageIcon,
+          },
+          {
+            heading: "Digital Titans Designer",
+            tag: "Create text and letter designs & patterns.",
+            link: "https://design.selfpublishingtitans.com/",
+            icon: BookAIcon,
           },
         ],
       },
@@ -295,7 +289,7 @@ const SolutionsData: TSolutionsData[] = [
         Items: [
           {
             heading: "KDP Masterclass",
-            tag: "Learn KDP with 80+ videos.",
+            tag: "A-Z training, 80+ videos, 100+ resources.",
             link: "/masterclass",
             icon: VideoIcon,
           },
@@ -305,7 +299,7 @@ const SolutionsData: TSolutionsData[] = [
         Items: [
           {
             heading: "Community Forum",
-            tag: "Join our supportive community.",
+            tag: "Ask any and all questions, anytime.",
             link: "https://community.selfpublishingtitans.com/",
             newTab: true,
             icon: GroupIcon,
@@ -316,7 +310,7 @@ const SolutionsData: TSolutionsData[] = [
         Items: [
           {
             heading: "Self-Publishing Simplified",
-            tag: "Learn the basics of Amazon KDP.",
+            tag: "Our Book available on Amazon. ",
             link: "https://www.amazon.com/Self-Publishing-Simplified-Publish-Amazon-Beginners/dp/B0CMZ92XLG/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1704220990&sr=8-1",
             newTab: true,
             icon: BookIcon,

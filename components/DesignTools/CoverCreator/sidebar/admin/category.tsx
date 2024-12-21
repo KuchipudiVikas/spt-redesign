@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useCoverApp } from "@/lib/contexts/coverApp";
 // import CoverFeed from "../coverFeed";
 import ImageContainer from "../imageContainer";
-import { TImage } from "@/@/lib/contexts/coverApp";
+import { TImage } from "@/lib/contexts/coverApp";
 
 export type TypesImages = {
   category: string;

@@ -7,7 +7,8 @@ import HintWrapper from "@/utils/hint";
 import { CloudDownloadIcon } from "lucide-react";
 import { deepViewSampleData } from "@/data/sample/deepView";
 import { SearchIcon } from "lucide-react";
-
+import { useMediaQuery } from "@/hooks/use-media-query";
+import { useCustomDeviceSize } from "@/utils/useDeviceSize";
 function ConfigSection({
   mid,
   setMid,
@@ -21,15 +22,17 @@ function ConfigSection({
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+
   return (
     <section
       style={{
-        marginTop: "-114px",
+        marginTop: "-40px",
         marginBottom: "50px",
       }}
       className=" flex flex-col justify-center items-center "
     >
-      <div className="flex items-center gap-2 ">
+      <div className="flex items-center md:gap-2 ">
         <div className="config-container">
           <select
             className={``}
@@ -55,7 +58,18 @@ function ConfigSection({
               setSearchedText(e.target.value);
             }}
           />
-          <div className="">
+          <div className="ml-auto flex gap-2">
+            {!isDesktop && (
+              <HintWrapper hint="Download results in an excel file">
+                <Button
+                  variant="outline"
+                  className=" py-6 rounded-full px-5 "
+                  onClick={() => downloadCSV()}
+                >
+                  Download <CloudDownloadIcon />
+                </Button>
+              </HintWrapper>
+            )}
             <HintWrapper hint="Get results for the search query">
               <Button
                 className="ml-2 p-4 py-6 rounded-full w-fit"
@@ -69,6 +83,7 @@ function ConfigSection({
                   }
                 }}
               >
+                Search
                 <SearchIcon
                   style={{
                     width: "20px",
@@ -80,7 +95,7 @@ function ConfigSection({
           </div>
         </div>
         <div className="">
-          <div className="">
+          {isDesktop && (
             <HintWrapper hint="Download results in an excel file">
               <Button
                 className=" py-6 rounded-full px-5 "
@@ -89,7 +104,7 @@ function ConfigSection({
                 Download <CloudDownloadIcon />
               </Button>
             </HintWrapper>
-          </div>
+          )}
         </div>
       </div>
       {!isOwner && (

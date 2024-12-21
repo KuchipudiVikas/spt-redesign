@@ -5,7 +5,6 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { EScreenSize, useCustomDeviceSize } from "@/utils/useDeviceSize";
 import { useSearchParams } from "next/navigation";
 import { getResults } from "@/lib/7-backend-keywords/api";
-import { useDispatch } from "react-redux";
 import KeywordsTextFieldCard from "@/components/7-backend-keywords/KeywordsTextFieldCard";
 import ScrollableKeywordList from "@/components/7-backend-keywords/ScrollableKeywordList";
 import SelectedKeywords from "@/components/7-backend-keywords/SelectedKeywords";
@@ -938,10 +937,8 @@ export default function SevenBackendKeyword({ token, info, pageData }) {
       }}
       Title={
         <>
-          <div className="flex my-10   flex-col items-center">
-            <h1 className="text-[45px] mt-[20px] font-jsans flex justify-center items-center gap-3 mx-auto  font-extrabold text-center text-gray-900 sm:text-4xl">
-              7 Backend Keywords Tool for KDP{" "}
-            </h1>
+          <div className="title-container">
+            <h1 className="title ">7 Backend Keywords Tool for KDP </h1>
             <BySptButton />
 
             <div className="flex mt-3 font-bold mb-7 gap-4">
@@ -950,10 +947,6 @@ export default function SevenBackendKeyword({ token, info, pageData }) {
                 text="Watch Tutorial"
               />
               <ShadowButton imageSrc={DocumentIcon.src} text="KDP Guidelines" />
-              <ShadowButton
-                imageSrc={BugIcon.src}
-                text="Feature Requests / Bug Report"
-              />
             </div>
           </div>
         </>
@@ -961,7 +954,7 @@ export default function SevenBackendKeyword({ token, info, pageData }) {
       Body={
         <Fragment>
           <main className="min-h-screen comp-container">
-            <section className=" mt-10  mx-4">
+            <section className=" mt-10 ">
               <Config
                 filters={filters}
                 setExcludedWordsSentence={setExcludedWordsSentence}
@@ -978,7 +971,7 @@ export default function SevenBackendKeyword({ token, info, pageData }) {
               />
             </section>
 
-            <section className="m-4  mt-16">
+            <section className="my-4  mt-16">
               <SelectedKeywords
                 selectedKeyword1={selectedKeyword1}
                 selectedKeyword2={selectedKeyword2}
@@ -1144,7 +1137,7 @@ export default function SevenBackendKeyword({ token, info, pageData }) {
             <section className="mx-auto ">
               <div className="flex flex-col md:flex-row mt-10 flex-wrap  overflow-auto w-full justify-center">
                 <div className="flex justify-center">
-                  <h4 className="text-[50px] font-extrabold">
+                  <h4 className="text-[18px] md:text-[50px] font-extrabold">
                     More <span className="text-[#c317e4]">Keyword</span>{" "}
                     Suggestions
                   </h4>

@@ -25,7 +25,7 @@ const HintWrapper: React.FC<IHintWrapperProps> = ({
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <span>{children}</span>
+          <>{children}</>
         </TooltipTrigger>
         <TooltipContent
           style={{

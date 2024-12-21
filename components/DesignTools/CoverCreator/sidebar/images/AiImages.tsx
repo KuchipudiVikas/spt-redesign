@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import Image from "next/image";
 import { CanvasContext } from "@/lib/contexts/canvas";
-import { CustomImage } from "@/components/Canvas/customClasses/image";
+import { CustomImage } from "@/components/DesignTools/Canvas/customClasses/image";
 import { nanoid } from "nanoid";
 
 const AiImages = () => {

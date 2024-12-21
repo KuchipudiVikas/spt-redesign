@@ -48,6 +48,7 @@ const CoversPanel = ({ hasPurchased }: CoversPanelProps) => {
     }
 
     try {
+      // @ts-ignore
       const customImage = await CustomImage.FromURL(url, {
         uid: nanoid(),
         name: "Example Image",

@@ -1,19 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { TrashIcon } from "lucide-react";
+import { BellIcon, TrashIcon } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
-import { useRouter } from "next/router";
-import { BellIcon } from "lucide-react";
 import { RotateCwIcon } from "lucide-react";
 import { User } from "@/lib/ts/types/user";
-import { NavigationMenuContent } from "@radix-ui/react-navigation-menu";
 
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import useDelayedPopover from "@/hooks/useDelayedPopover";
 
 export enum EDropdown {
   notification = "notification",
@@ -46,7 +44,7 @@ interface INotificationsResponse {
 }
 
 interface INotificationProps {
-  info: User;
+  info: User | false;
   // show: boolean;
   // toggleDropDown: (type: EDropdown) => void;
   // isMobile?: boolean;
@@ -64,10 +62,11 @@ const Notifications: React.FC<INotificationProps> = ({
 }) => {
   const [notifications, setNotifications] = useState<INotification[]>([]);
   const [notificationCount, setNotificationCount] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
+
+  const { isOpen, handleMouseEnter, handleMouseLeave } = useDelayedPopover(100);
 
   // const handleClick = () => {
   //   setIsOpen(!isOpen);
@@ -86,6 +85,7 @@ const Notifications: React.FC<INotificationProps> = ({
       setLoading(true);
       const response = await fetch(
         base +
+          // @ts-ignore
           `/api/notifications?page=${page}&page_size=5&user_id=${info._id}`,
         {
           method: "GET",
@@ -144,6 +144,8 @@ const Notifications: React.FC<INotificationProps> = ({
     getNotifications();
   }, [page]);
 
+  if (!info) return null;
+
   const DeleteNotification = async (id: number) => {
     try {
       const response = await fetch(
@@ -174,6 +176,7 @@ const Notifications: React.FC<INotificationProps> = ({
     try {
       const response = await fetch(
         base +
+          // @ts-ignore
           `/api/notifications/mark-as-read?notification_id=${id}&user_id=${info._id}`,
         {
           method: "POST",
@@ -202,64 +205,83 @@ const Notifications: React.FC<INotificationProps> = ({
     getNotifications();
   }
 
-  if (!info) return null;
-
   return (
-    <NavigationMenuContent
-      style={{
-        width: "300px",
-        padding: "10px",
-      }}
-    >
-      <div className=" mx-2 w-full inline-block text-left ">
-        <div
-          className=" w-full"
-          // onMouseLeave={handleClose}
-        >
-          <div className="flex w-full justify-between">
-            <h6 className=" text-black font-bold mb-2">
-              {" "}
-              Notifications ({notificationCount})
-            </h6>
-            <RotateCwIcon
-              onClick={() => Refresh()}
-              className="text-black cursor-pointer w-4  mr-3 top-2"
-            />
-          </div>
-          {notifications?.length > 0 ? (
-            notifications.map((notification, index) => (
-              <>
-                {/* @ts-ignore */}
-                <NotificationCard
-                  key={index}
-                  index={index}
-                  Notification={notification}
-                  user_id={info._id}
-                  markAsRead={MarkAsRead}
-                  deleteNotification={DeleteNotification}
-                />
-              </>
-            ))
-          ) : (
-            <h6>No notifications</h6>
-          )}
-          {hasMore && (
-            <div
-              onClick={() => HandleLoadMore()}
-              className="text-center text-blue-500 cursor-pointer font-bold font-sans"
-            >
-              {loading ? "Loading..." : "Load More"}
+    <Popover open={isOpen} onOpenChange={handleMouseLeave}>
+      <PopoverTrigger
+        style={{
+          fontWeight: "bold",
+          background: "transparent",
+        }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className="nav-menu-trigger flex items-center"
+      >
+        <BellIcon
+          style={{
+            height: "38px",
+          }}
+          width={22}
+          className=""
+        />
+      </PopoverTrigger>
+      <PopoverContent
+        style={{
+          width: "300px",
+          padding: "10px",
+        }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className=" mx-2 w-full inline-block text-left ">
+          <div
+            className=" w-full"
+            // onMouseLeave={handleClose}
+          >
+            <div className="flex w-full justify-between">
+              <h6 className=" text-black font-bold mb-2">
+                {" "}
+                Notifications ({notificationCount})
+              </h6>
+              <RotateCwIcon
+                onClick={() => Refresh()}
+                className="text-black cursor-pointer w-4  mr-3 top-2"
+              />
             </div>
-          )}
+            {notifications?.length > 0 ? (
+              notifications.map((notification, index) => (
+                <>
+                  {/* @ts-ignore */}
+                  <NotificationCard
+                    key={index}
+                    index={index}
+                    Notification={notification}
+                    user_id={info._id}
+                    markAsRead={MarkAsRead}
+                    deleteNotification={DeleteNotification}
+                  />
+                </>
+              ))
+            ) : (
+              <h6>No notifications</h6>
+            )}
+            {hasMore && (
+              <div
+                onClick={() => HandleLoadMore()}
+                className="text-center text-blue-500 cursor-pointer font-bold font-sans"
+              >
+                {loading ? "Loading..." : "Load More"}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
-    </NavigationMenuContent>
+      </PopoverContent>
+    </Popover>
   );
 };
 
 export default Notifications;
 
-interface INotificationProps {
+interface IndNotificationProps {
   Notification: INotification;
   index: number;
   user_id: string;
@@ -267,7 +289,7 @@ interface INotificationProps {
   markAsRead: (id: number) => void;
 }
 
-export const NotificationCard: React.FC<INotificationProps> = ({
+export const NotificationCard: React.FC<IndNotificationProps> = ({
   Notification,
   index,
   user_id,

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { CanvasContext } from "@/lib/contexts/canvas";
 import { FaSearch } from "react-icons/fa";
-import { CustomImage } from "@/components/Canvas/customClasses/image";
 import { nanoid } from "nanoid";
 // import Search from "./search";
 import Categories from "./category";

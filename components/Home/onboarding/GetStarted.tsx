@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Confetti from "react-confetti";
-import CelebrationRoundedIcon from "@mui/icons-material/CelebrationRounded";
 import CelebrationIcon from "@/public/assets/onboarding/celebrating owl.png";
-import MenuBookIcon from "@mui/icons-material/MenuBook";
-import BrushIcon from "@mui/icons-material/Brush";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
-import { Extension } from "@mui/icons-material";
-import { LibraryBooks } from "@mui/icons-material";
 
-import { Close } from "@mui/icons-material";
+import {
+  BookIcon,
+  BookUser,
+  BrushIcon,
+  PartyPopper,
+  SearchIcon,
+  XIcon,
+  YoutubeIcon,
+} from "lucide-react";
 
 import Image from "next/image";
+import { IoExtensionPuzzle } from "react-icons/io5";
 
 interface GetStartedProps {
   handleClose: () => void;
@@ -59,13 +61,13 @@ const GetStarted: React.FC<GetStartedProps> = ({ handleClose }) => {
           className="absolute top-0 right-0 bg-transparent border-none cursor-pointer"
           onClick={() => handleClose()}
         >
-          <Close />
+          <XIcon />
         </button>
 
         <div className="bg-white w-full h-full">
           <div className="h-[300px]  flex-col justify-center flex items-center">
             <h2 className="text-[#6800cc] flex items-center w-full mx-auto justify-center gap-3 text-3xl text-center font-sans">
-              <CelebrationRoundedIcon
+              <PartyPopper
                 //   color="primary"
                 className="gradient-text"
                 style={{
@@ -122,7 +124,7 @@ const GetStarted: React.FC<GetStartedProps> = ({ handleClose }) => {
               }}
               className="text-center items-center p-2 rounded-2xl px-3 font-sans flex gap-3 flex-col gap-5 p-3 cursor-pointer text-black"
             >
-              <MenuBookIcon
+              <BookIcon
                 style={{
                   background: "#ffe117",
                   color: "#fff",
@@ -170,7 +172,7 @@ const GetStarted: React.FC<GetStartedProps> = ({ handleClose }) => {
               }}
               className="text-center items-center p-2 rounded-2xl px-3 font-sans flex gap-3 flex-col gap-5 p-3 cursor-pointer text-black"
             >
-              <YouTubeIcon
+              <YoutubeIcon
                 style={{
                   background: "#ff3131",
                   color: "#fff",
@@ -195,7 +197,7 @@ const GetStarted: React.FC<GetStartedProps> = ({ handleClose }) => {
               }}
               className="text-center items-center p-2 rounded-2xl px-3 font-sans flex gap-3 flex-col gap-5 p-3 cursor-pointer text-black"
             >
-              <Extension
+              <IoExtensionPuzzle
                 style={{
                   background: "#b16eff",
                   color: "#fff",
@@ -220,7 +222,7 @@ const GetStarted: React.FC<GetStartedProps> = ({ handleClose }) => {
               }}
               className="text-center items-center p-2 rounded-2xl px-3 font-sans flex gap-3 flex-col gap-5 p-3 cursor-pointer text-black"
             >
-              <LibraryBooks
+              <BookUser
                 style={{
                   background: "#20acef",
                   color: "#fff",

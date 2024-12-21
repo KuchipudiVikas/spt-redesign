@@ -7,8 +7,8 @@ import { dbConfig } from "@/db";
 // Disable the default body parser
 export const config = {
   api: {
-    bodyParser: false
-  }
+    bodyParser: false,
+  },
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -25,7 +25,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const client = new Client({
-    ...dbConfig
+    ...dbConfig,
   });
 
   await client.connect();
@@ -60,13 +60,21 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const body = await json(req, { limit: "10mb" });
     // @ts-ignore
     const {
+      // @ts-ignore
       id,
+      // @ts-ignore
+      // @ts-ignore
       data,
+      // @ts-ignore
       thumbnail_uri,
+      // @ts-ignore
       page_width,
+      // @ts-ignore
       page_height,
+      // @ts-ignore
       cover_type,
-      page_count
+      // @ts-ignore
+      page_count,
     } = body;
 
     if (!id) {
@@ -88,7 +96,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       page_height,
       cover_type,
       page_count,
-      id
+      id,
     ];
 
     try {

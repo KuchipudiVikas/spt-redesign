@@ -1,7 +1,8 @@
 import React from "react";
+import { cn } from "@/lib/utils";
 
 interface CustomInputProps {
-  value: string;
+  value: string | number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   helperText?: string;
   error?: boolean;
@@ -10,6 +11,10 @@ interface CustomInputProps {
   severity?: "red" | "orange" | "gray";
   helperstyle?: React.CSSProperties;
   style?: React.CSSProperties;
+  inputClassName?: string;
+  containerClassName?: string;
+  containerStyle?: React.CSSProperties;
+  type?: string;
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({
@@ -22,15 +27,22 @@ const CustomInput: React.FC<CustomInputProps> = ({
   severity = "gray",
   helperstyle = {},
   style = {},
+  inputClassName = "",
+  containerClassName = "",
+  containerStyle = {},
+  type = "text",
 }) => {
   const borderColor = error ? (severity === "red" ? "red" : "orange") : "#ccc";
   const backgroundColor = error ? "#ffe6e6" : "white";
   const textColor = error ? (severity === "red" ? "red" : "orange") : "gray";
 
   return (
-    <div style={{ position: "relative" }}>
+    <div
+      className={cn(containerClassName)}
+      style={{ position: "relative", ...containerStyle }}
+    >
       <input
-        type="text"
+        type={type}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
@@ -44,7 +56,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
           ...style,
           // boxSizing: "border-box",
         }}
-        className="rounded-full my-1"
+        className={cn("rounded-full my-1", inputClassName)}
       />
       <div
         style={{
@@ -52,7 +64,8 @@ const CustomInput: React.FC<CustomInputProps> = ({
           // bottom: "5px", // Adjust this value as needed
           right: "10px",
           top: "53px",
-          fontSize: "10px",
+          fontWeight: "bold",
+          fontSize: "9px",
           color: textColor,
           ...helperstyle,
         }}

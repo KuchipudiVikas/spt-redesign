@@ -29,6 +29,7 @@ interface SnapHistory {
 export default function Snapshots({ info, snapHistory }) {
   return (
     <MainLayout
+      Title={<></>}
       meta={{
         title: "Snapshots",
         description: "Snapshots",

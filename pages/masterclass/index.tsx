@@ -63,7 +63,7 @@ function MasterClassPage({ info, pageData, masterclassDetails }) {
 
               <div
                 style={{
-                  backgroundImage: `url(${BGsvg.src})`, // Ensure the correct path to the SVG
+                  backgroundImage: `url(${BGsvg.src})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   width: "99vw",
@@ -73,25 +73,35 @@ function MasterClassPage({ info, pageData, masterclassDetails }) {
                 className="w-full flex mt-20 flex-col items-center"
               >
                 <div className="py-3  mt-12   md:py-9 md:mx-0">
-                  <div className="container  flex gap-10 items-start">
+                  <div className="container  flex gap-10 flex-col md:flex-row items-start">
                     <div className="text-lg  text-justify">
                       <div className=" px-3 ">
-                        <h6 className="font-bold text-center mb-6 text-[45px]">
+                        <h6 className="font-bold text-center mb-6 leading-10 text-[45px]">
                           {currLangItem.ourJourneyTitle}
                         </h6>
                       </div>
+                      <Image
+                        className="float-right py-3 px-5 block  lg:hidden d-inline-block h-auto w-full lg:w-1/2 md:px-4"
+                        height={1080}
+                        style={{
+                          borderRadius: "40px",
+                        }}
+                        width={1920}
+                        src={covrinImg.src}
+                        alt="my img"
+                      />
                       {languageItemsIndex[`${currentLanguage}`].ourJourney.map(
                         (item, index) => {
                           return (
                             <div key={index}>
-                              <h6 className="text-[14px]"> {item} </h6>
+                              <h6 className="text-[14px] px-4"> {item} </h6>
                             </div>
                           );
                         }
                       )}
                     </div>
                     <Image
-                      className="float-right py-3  d-inline-block h-auto w-full md:w-1/2 md:px-4"
+                      className="float-right py-3  hidden lg:block d-inline-block h-auto w-full lg:w-1/2 md:px-4"
                       height={1080}
                       style={{
                         borderRadius: "40px",
@@ -165,7 +175,7 @@ function MasterClassPage({ info, pageData, masterclassDetails }) {
             style={{
               marginTop: "50px",
             }}
-            className="w-full p-10 rounded-3xl lavbg  flex flex-col font-jsans justify-center  "
+            className="w-full p-10 rounded-3xl  lavbg  flex flex-col font-jsans justify-center  "
           >
             <Reviews
               testimonials={pageData.testimonials}
@@ -358,7 +368,7 @@ const TabSection = ({
                 }}
                 className={`${
                   selectedTab === item.id ? "  shadow-none  font-bold  " : ""
-                } text-center cursor-pointer py-2
+                } text-center w-[50%] md:w-fit mx-auto cursor-pointer py-2
                     `}
               >
                 <h6>{item.language}</h6>

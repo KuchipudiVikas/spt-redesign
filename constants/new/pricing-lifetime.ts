@@ -4,8 +4,7 @@ import {
   ESubscriptionType,
   productsType,
 } from "@/constants";
-import { IPackage } from "@/models/interfaces";
-
+import { IPackage } from "@/lib/models/interfaces";
 // Basic Plus Bundle,	Research Bundle 1.0,	Creative Bundle 1.0,	Mega Bundle 1.0
 export const lifetimeBundlePackages: IPackage[] = [
   {

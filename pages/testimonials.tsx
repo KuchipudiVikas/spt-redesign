@@ -13,6 +13,7 @@ import ChrisImage from "@/public/images/testimonials/11.png";
 import LorenzoImage from "@/public/images/testimonials/1.png";
 import NuriaImage from "@/public/images/testimonials/2.png";
 import BrandIcon from "@/public/favIcon.png";
+import PageTitle from "@/components/Common/PageTitle";
 
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
@@ -26,14 +27,7 @@ const Testimonials = () => {
         description: "Testimonials",
         keywords: "Testimonials ",
       }}
-      Title={
-        <div className="flex my-10 justify-center flex-col items-center">
-          <h1 className="text-[60px]  mt-[20px] font-jsans flex justify-center items-center gap-3 mx-auto  font-extrabold text-center text-gray-900 ">
-            Our Testimonials
-          </h1>
-          <ScrollDownButtonSpecial />
-        </div>
-      }
+      Title={<PageTitle title="Our Testimonials" showBySptButton={false} />}
       Body={
         <div
           style={{
@@ -43,10 +37,10 @@ const Testimonials = () => {
         >
           <h2
             style={{
-              fontSize: "45px",
+              // fontSize: "45px",
               width: "80%",
             }}
-            className="mx-auto text-center  font-jsans font-extrabold"
+            className="mx-auto text-center text-[30px] md:text-[45px]  font-jsans font-extrabold"
           >
             Over <span className="text-primary"> 150,000 </span> Authors have
             chosen Self Publishing Titans
@@ -80,7 +74,7 @@ const TestimonialCard: React.FC<ITestimonialCardProps> = ({
   const flexDirection = index % 2 == 0 ? "flex-row" : "flex-row";
   const BgColor = index % 2 == 0 ? "#f4f0f7" : "#f7f6f8";
   return (
-    <div className="my-6 flex justify-center w-[1300px] ">
+    <div className="my-6 flex justify-center lg:w-[1300px] ">
       <div
         style={{
           border: "1px solid #ccc",
@@ -88,7 +82,7 @@ const TestimonialCard: React.FC<ITestimonialCardProps> = ({
           gap: "20px",
           backgroundColor: BgColor,
         }}
-        className={`grid grid-cols-4  w-full p-10  ${flexDirection}  items-center  gap-6 -mx-4`}
+        className={`grid grid-cols-1 md:grid-cols-4  w-full p-10  ${flexDirection}  items-center  gap-6 -mx-4`}
       >
         <div style={{}} className="flex items-center flex-col gap-4">
           <div className="flex items-center">

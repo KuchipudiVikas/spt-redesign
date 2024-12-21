@@ -148,8 +148,8 @@ const Create = ({ userID }: CreateProps) => {
   return (
     <div>
       {true && (
-        <div className=" ">
-          <div className="w-[500px]">
+        <div className=" px-4">
+          <div className="md:w-[500px]">
             <span className="close" onClick={togglePopup}></span>
             <div className="flex  flex-col">
               {template == "book-cover" && (

@@ -3,7 +3,15 @@ import React, { useEffect, useRef, useState } from "react";
 import "draft-js/dist/Draft.css";
 import { stateToHTML } from "draft-js-export-html";
 import { useCustomDeviceSize, EScreenSize } from "@/utils/useDeviceSize";
-import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";
+import {
+  BoldIcon,
+  Heading4Icon,
+  Heading5Icon,
+  Heading6Icon,
+  ItalicIcon,
+  TicketsPlaneIcon,
+  UnderlineIcon,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CopyIcon } from "lucide-react";
 import HintWrapper from "@/utils/hint";
@@ -28,16 +36,16 @@ function getBlockStyle(block) {
 }
 
 const INLINE_STYLES = [
-  { label: "Bold", style: "BOLD", icon: <BoldIcon className="mt-0.5" /> },
+  { label: "Bold", style: "BOLD", icon: <BoldIcon className="mt-0.5 w-5" /> },
   {
     label: "Italic",
     style: "ITALIC",
-    icon: <ItalicIcon className="mt-0.5" />,
+    icon: <ItalicIcon className="mt-0.5 w-5" />,
   },
   {
     label: "Underline",
     style: "UNDERLINE",
-    icon: <UnderlineIcon className="mt-0.5" />,
+    icon: <UnderlineIcon className="mt-0.5 w-5" />,
   },
 ];
 
@@ -47,7 +55,7 @@ const BLOCK_TYPES = [
     style: "unstyled",
     icon: (
       <svg
-        className="mt-0.5"
+        className="mt-0.5 w-5"
         xmlns="http://www.w3.org/2000/svg"
         height="24px"
         viewBox="0 -960 960 960"
@@ -61,50 +69,17 @@ const BLOCK_TYPES = [
   {
     label: "H4",
     style: "header-four",
-    icon: (
-      <svg
-        className="mt-0.5"
-        xmlns="http://www.w3.org/2000/svg"
-        height="24px"
-        viewBox="0 -960 960 960"
-        width="24px"
-        fill="#00000"
-      >
-        <path d="M120-280v-400h80v160h160v-160h80v400h-80v-160H200v160h-80Zm600 0v-120H520v-280h80v200h120v-200h80v200h80v80h-80v120h-80Z" />
-      </svg>
-    ),
+    icon: <Heading4Icon className="w-5" />,
   },
   {
     label: "H5",
     style: "header-five",
-    icon: (
-      <svg
-        className="mt-0.5"
-        xmlns="http://www.w3.org/2000/svg"
-        height="24px"
-        viewBox="0 -960 960 960"
-        width="24px"
-        fill="#00000"
-      >
-        <path d="M120-280v-400h80v160h160v-160h80v400h-80v-160H200v160h-80Zm400 0v-80h240v-80H520v-240h320v80H600v80h160q33 0 56.5 23.5T840-440v80q0 33-23.5 56.5T760-280H520Z" />
-      </svg>
-    ),
+    icon: <Heading5Icon className="w-5" />,
   },
   {
     label: "H6",
     style: "header-six",
-    icon: (
-      <svg
-        className="mt-0.5"
-        xmlns="http://www.w3.org/2000/svg"
-        height="24px"
-        viewBox="0 -960 960 960"
-        width="24px"
-        fill="#00000"
-      >
-        <path d="M120-280v-400h80v160h160v-160h80v400h-80v-160H200v160h-80Zm480 0q-33 0-56.5-23.5T520-360v-240q0-33 23.5-56.5T600-680h240v80H600v80h160q33 0 56.5 23.5T840-440v80q0 33-23.5 56.5T760-280H600Zm0-160v80h160v-80H600Z" />
-      </svg>
-    ),
+    icon: <Heading6Icon className="w-5" />,
   },
 
   {
@@ -112,7 +87,7 @@ const BLOCK_TYPES = [
     style: "unordered-list-item",
     icon: (
       <svg
-        className="mt-0.5"
+        className="mt-0.5 w-5"
         xmlns="http://www.w3.org/2000/svg"
         height="24px"
         viewBox="0 -960 960 960"
@@ -128,7 +103,7 @@ const BLOCK_TYPES = [
     style: "ordered-list-item",
     icon: (
       <svg
-        className="mt-0.5"
+        className="mt-0.5 w-5"
         xmlns="http://www.w3.org/2000/svg"
         height="24px"
         viewBox="0 -960 960 960"
@@ -144,7 +119,7 @@ const BLOCK_TYPES = [
     style: "CLEAR",
     icon: (
       <svg
-        className="mt-0.5"
+        className="mt-0.5 w-5"
         xmlns="http://www.w3.org/2000/svg"
         height="24px"
         viewBox="0 -960 960 960"
@@ -202,7 +177,7 @@ const BlockStyleControls = (props) => {
           label={type.label}
           onToggle={props.onToggle}
           style={type.style}
-          icon={type.icon || <Title />}
+          icon={type.icon || <TicketsPlaneIcon />}
         />
       ))}
     </div>
@@ -212,7 +187,7 @@ const BlockStyleControls = (props) => {
 const InlineStyleControls = (props) => {
   const currentStyle = props.editorState.getCurrentInlineStyle();
   return (
-    <div className="RichEditor-controls">
+    <div className="flex">
       {INLINE_STYLES.map((type) => (
         <StyleButton
           key={type.label}
@@ -349,7 +324,7 @@ const DescriptionEditor = ({ editorState, setEditorState, editor }) => {
     >
       {/* Toolbar */}
       <div className="bg-transparent p-2  rounded-lg shadow-none ">
-        <div className="flex items-center space-x-4">
+        <div className="flex flex-col items-center space-x-4">
           {/* Block Style Controls */}
           <BlockStyleControls
             editorState={editorState}
@@ -366,7 +341,12 @@ const DescriptionEditor = ({ editorState, setEditorState, editor }) => {
       </div>
 
       {/* Editor */}
-      <div className="bg-white p-3 rounded-lg">
+      <div
+        style={{
+          minHeight: "200px",
+        }}
+        className="bg-white  p-3 rounded-lg"
+      >
         <Editor
           ref={editor}
           blockStyleFn={getBlockStyle}

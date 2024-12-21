@@ -118,7 +118,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="bg-[#f7f7f8] pt-5 px-5 md:mt-20 md:pb-20">
+    <div className="bg-[#f7f7f8] pt-5 px-5 mt-20 md:pb-20">
       <div className="max-w-[1300px]  mx-auto font-jsans">
         <div className="grid md:grid-cols-5 md:mt-[20px] w-full">
           <div className="col-span-2 md:block  flex items-center mb-10 md:mb-0 ">
@@ -134,15 +134,17 @@ const Footer = () => {
               <h6 className="font-bold text-[18px]">
                 Subscribe to Our Newsletter For Updates
               </h6>
-              <div className="border  rounded-full mb-[40px] flex mt-2 p-1">
-                <input
-                  type="text"
-                  placeholder="Enter Your Email"
-                  className="w-full outline-none p-2 px-4 rounded-full"
-                />
-                <button className="bg-primary px-[38px] py-[19px] rounded-full text-white">
-                  Subscribe
-                </button>
+              <div className="border rounded-full mb-[40px] w-fit flex mt-2 p-1">
+                <div className=" bg-white rounded-full flex ">
+                  <input
+                    type="text"
+                    placeholder="Enter Your Email"
+                    className="w-full outline-none p-2 px-4 rounded-full"
+                  />
+                  <button className="bg-primary  px-[38px] py-[19px] rounded-full text-white">
+                    Subscribe
+                  </button>
+                </div>
               </div>
               <div className="">
                 <h6 className="font-normal text-[18px]">

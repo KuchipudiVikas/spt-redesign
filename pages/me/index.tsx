@@ -49,7 +49,7 @@ const AccountPage: React.FC<AccountPageProps> = ({
 };
 
 export default AccountPage;
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
   let productList = { simple: {} };
   let courses = { simple: {} };
   let boardCollectionHistory = { simple: {} };

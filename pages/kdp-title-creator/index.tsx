@@ -23,6 +23,7 @@ import {
   TableComp,
   TableComp2,
 } from "@/components/BookListingTools/title-creator/Tables";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 import ConfigSection from "@/components/BookListingTools/title-creator/Config";
 import { Separator } from "@/components/ui/separator";
@@ -135,6 +136,9 @@ const Index: React.FC<IndexProps> = ({ token, isOwner, info }) => {
 
   const [colsNumber, setColsNumber] = useState(4);
 
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const isMobile = useMediaQuery("(max-width: 1024px)");
+
   return (
     <MainLayout
       meta={{
@@ -226,31 +230,35 @@ const Index: React.FC<IndexProps> = ({ token, isOwner, info }) => {
               <Loader loading={loading} time={120} />
             </div>
           ) : (
-            <div className=" mt-6">
+            <div className=" mt-6 mb-10">
               <div className="">
                 <div className="col-span-2 flex  flex-col gap-5">
                   <TryOutFields />
                 </div>
 
-                <div className="flex mt-10 items-center gap-2">
-                  <span className="text-sm font-medium  flex">
-                    Columns Per Row:
-                  </span>
-                  <div className="">
-                    <ToggleGroup
-                      value={colsNumber.toString()}
-                      onValueChange={(value) => setColsNumber(parseInt(value))}
-                      type="single"
-                    >
-                      <ToggleGroupItem value="2">2</ToggleGroupItem>
-                      <ToggleGroupItem value="4">4</ToggleGroupItem>
-                    </ToggleGroup>
+                {isDesktop && (
+                  <div className="flex mt-10 items-center gap-2">
+                    <span className="text-sm font-medium  flex">
+                      Columns Per Row:
+                    </span>
+                    <div className="">
+                      <ToggleGroup
+                        value={colsNumber.toString()}
+                        onValueChange={(value) =>
+                          setColsNumber(parseInt(value))
+                        }
+                        type="single"
+                      >
+                        <ToggleGroupItem value="2">2</ToggleGroupItem>
+                        <ToggleGroupItem value="4">4</ToggleGroupItem>
+                      </ToggleGroup>
+                    </div>
                   </div>
-                </div>
+                )}
 
                 <div
-                  className={`grid grid-cols-${
-                    colsNumber == 4 ? "10" : "2"
+                  className={`grid lg:mt-0 mt-5 grid-cols-${
+                    isMobile ? "1" : colsNumber == 4 ? "10" : "2"
                   } mt-2 gap-5`}
                 >
                   <div className={`col-span-${colsNumber == 4 ? "3" : "1"}`}>
@@ -276,8 +284,12 @@ const Index: React.FC<IndexProps> = ({ token, isOwner, info }) => {
                     />
                   </div>
                   <div
-                    className={`col-span-${colsNumber == 4 ? "4" : "2"} flex ${
-                      colsNumber == 2 && "grid grid-cols-2"
+                    className={` w-full col-span-${
+                      isMobile ? "3" : colsNumber == 4 ? "4" : "2"
+                    } flex ${
+                      isMobile
+                        ? "grid grid-cols-1"
+                        : colsNumber == 2 && "grid grid-cols-2"
                     } gap-5 `}
                   >
                     <div

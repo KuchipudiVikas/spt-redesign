@@ -140,9 +140,9 @@ export default function Home({ info, resources, tags }) {
       Title={<PageTitle title="Free Resources" />}
       Body={
         <div className="max-w-7xl mb-10  mx-auto mt-10">
-          <main className="min-h-screen">
+          <main className="min-h-screen px-5">
             <div className="grid md:grid-cols-5 gap-8">
-              <div className="col-span-1">
+              <div className="md:col-span-1 col-span-4">
                 <TagFields
                   selectedTags={selectedTags}
                   allTags={tags}
