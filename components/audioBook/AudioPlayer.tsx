@@ -145,7 +145,7 @@ export const AudioPlayer = ({ metaData, hasAccess }) => {
               ></iframe>
             </div>
             <div className=" mt-5">
-              <div className="grid md:grid-cols-8">
+              <div className="flex gap-2 ">
                 <div className="col-span-3 pr-3">
                   <select
                     value={selectedTrack}

@@ -6,6 +6,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 import LoadingBar from "../utils/LoadingBar";
 import Link from "next/link";
 import {
+  MinusIcon,
   PlusIcon,
   SettingsIcon,
   ShoppingCartIcon,
@@ -136,11 +137,10 @@ export const PdfViewer = ({ url, hasAccess, comp }) => {
   const ToolBar = () => {
     return (
       <div className=" flex  flex-col gap-3">
-        <div className="flex px-3 items-center justify-center">
+        <div className="flex px-3 gap-3 items-center justify-start">
           <h6>Zoom</h6>
 
-          <TrashIcon
-            color="primary"
+          <MinusIcon
             className="cursor-pointer mx-2"
             onClick={() => handlePageZoom("remove")}
           />
@@ -158,7 +158,6 @@ export const PdfViewer = ({ url, hasAccess, comp }) => {
             />
           </FormControl> */}
           <PlusIcon
-            color="primary"
             className="cursor-pointer ml-2"
             onClick={() => handlePageZoom("add")}
           />
@@ -173,7 +172,7 @@ export const PdfViewer = ({ url, hasAccess, comp }) => {
           />
           <Input
             type="number"
-            className=""
+            className="bg-white"
             value={pageNumber}
             onChange={(e) => goToPage(e.target.value)}
           />
@@ -181,7 +180,7 @@ export const PdfViewer = ({ url, hasAccess, comp }) => {
           <Input
             onClick={() => handlePageChange("inc")}
             color="primary"
-            className="cursor-pointer ml-2"
+            className="cursor-pointer bg-white ml-2"
           />
         </div>
       </div>
@@ -247,13 +246,13 @@ export const PdfViewer = ({ url, hasAccess, comp }) => {
       <LoadingBar isLoading={loading} title={`Loading..`} />
       <div className="w-full flex justify-center">
         <div className="flex relative justify-center flex-col  mx-1 md:mx-10 lg:max-w-[1320px]  shadowAround  bg-[#f2f2f2] items-center  ">
-          <div className=" lg:flex w-full  items-start br-16 md:mx-2 bg-white   ">
-            <div className="w-full md:w-[320px] relative md:m-3 flex justify-center flex-col items-center  br-16 md:px-3">
+          <div className="  lg:flex w-full  items-start br-16 md:mx-2 bg-white   ">
+            <div className="w-full sp-container p-4 rounded-2xl md:w-[320px] h-full relative md:m-3 flex justify-start flex-col items-center  br-16 md:px-3">
               <h6
                 color={"primary"}
-                className="font-Inter flex gap-1 mt-3 sticky mb-5 -top-10 items-center"
+                className="font-Inter flex gap-1 font-bold mt-3 sticky mb-5 -top-10 items-center"
               >
-                <SettingsIcon color="primary" />
+                <SettingsIcon />
                 Controls
               </h6>
 

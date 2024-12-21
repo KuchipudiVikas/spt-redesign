@@ -6,7 +6,6 @@ import { AudioPlayer } from "@/components/audioBook/AudioPlayer";
 import { metaData } from "@/data/sample/audiobook";
 import { getSession } from "next-auth/react";
 import Account from "@/lib/mw/Accounts";
-import Accounts from "@/lib/mw/Accounts";
 import axios from "axios";
 import PageTitle from "@/components/Common/PageTitle";
 
@@ -24,8 +23,6 @@ const Index = ({ info, AccessList }: CompProps) => {
   const [value, setValue] = useState<tab>("audio");
 
   const bookUrl = "./assets/pdfs/sptBookIntro.pdf";
-
-  console.log("AccessList", AccessList);
 
   return (
     <>
