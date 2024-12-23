@@ -229,7 +229,8 @@ export const Products: ProductMap = {
     isPaid: false,
     category: "General KDP Tools",
     description: "Word Cloud Tool. The fast and easy way.",
-    thumbnail_image: "",
+    thumbnail_image:
+      "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/ShopImages/word_cloud.png",
     product_link: ToolLinkIndex[ProductIdentifier.WORD_CLOUD],
   },
   [ProductIdentifier.KEYWORD_TRACKER]: {
@@ -237,7 +238,8 @@ export const Products: ProductMap = {
     isPaid: true,
     category: "General KDP Tools",
     description: "Keyword Tracker Tool. The fast and easy way.",
-    thumbnail_image: "",
+    thumbnail_image:
+      "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/ShopImages/kwt.png",
     product_link: ToolLinkIndex[ProductIdentifier.KEYWORD_TRACKER],
   },
   [ProductIdentifier.ASIN_TRACKER]: {
@@ -245,7 +247,8 @@ export const Products: ProductMap = {
     isPaid: true,
     category: "General KDP Tools",
     description: "ASIN Tracker Tool. The fast and easy way.",
-    thumbnail_image: "",
+    thumbnail_image:
+      "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/ShopImages/asin_tracker.png",
     product_link: ToolLinkIndex[ProductIdentifier.ASIN_TRACKER],
   },
   [ProductIdentifier.KDP_CATEGORY_FINDER]: {
@@ -253,7 +256,8 @@ export const Products: ProductMap = {
     isPaid: false,
     category: "General KDP Tools",
     description: "KDP Category Finder Tool. The fast and easy way.",
-    thumbnail_image: "",
+    thumbnail_image:
+      "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/ShopImages/kdp%20category%20finder.png",
     product_link: ToolLinkIndex[ProductIdentifier.KDP_CATEGORY_FINDER],
   },
   [ProductIdentifier.DIGITAL_TITANS_DESIGNER]: {
@@ -261,7 +265,8 @@ export const Products: ProductMap = {
     category: "Design Tools",
     isPaid: true,
     description: "Digital Titans Designer Tool. The fast and easy way.",
-    thumbnail_image: "",
+    thumbnail_image:
+      "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/ShopImages/BookDetails/coloringBooks.png",
     product_link: ToolLinkIndex[ProductIdentifier.DIGITAL_TITANS_DESIGNER],
   },
   [ProductIdentifier.A_PLUS_CONTENT]: {
@@ -269,7 +274,8 @@ export const Products: ProductMap = {
     category: "Design Tools",
     isPaid: false,
     description: "A+ Content Template Generator Tool. The fast and easy way.",
-    thumbnail_image: "",
+    thumbnail_image:
+      "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/ShopImages/book_cover_creator.png",
     product_link: ToolLinkIndex[ProductIdentifier.A_PLUS_CONTENT],
   },
   [ProductIdentifier.BOOK_COVER_DESIGNER]: {
@@ -277,7 +283,8 @@ export const Products: ProductMap = {
     category: "Design Tools",
     isPaid: false,
     description: "Book Cover  Tool. The fast and easy way.",
-    thumbnail_image: "",
+    thumbnail_image:
+      "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/ShopImages/book_cover_creator.png",
     product_link: ToolLinkIndex[ProductIdentifier.A_PLUS_CONTENT],
   },
   [ProductIdentifier.KDP_COVER_TEMPLATE_GENERATOR]: {
@@ -285,7 +292,8 @@ export const Products: ProductMap = {
     category: "Design Tools",
     isPaid: false,
     description: "KDP Cover Template Generator Tool. The fast and easy way.",
-    thumbnail_image: "",
+    thumbnail_image:
+      "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/ShopImages/kdp_cover_template_gen.png",
     product_link: ToolLinkIndex[ProductIdentifier.KDP_COVER_TEMPLATE_GENERATOR],
   },
 };

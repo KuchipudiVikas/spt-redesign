@@ -283,7 +283,12 @@ export default function EnhancedTable({
     <div style={{ maxWidth: "100vw", overflow: "auto" }}>
       <div>
         <div className="w-full">
-          <Table aria-labelledby="">
+          <Table
+            style={{
+              maxWidth: "99%",
+            }}
+            aria-labelledby=""
+          >
             <EnhancedTableHead
               numSelected={selected.length}
               order={order}

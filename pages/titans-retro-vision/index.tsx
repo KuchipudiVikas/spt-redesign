@@ -762,7 +762,7 @@ function TitansRetroVision({
             )
           }
 
-          <section className=" mt-10  h-full    md:mx-16">
+          <section className=" mt-10  h-full   ">
             {/* create two table on desktop view and one table on mobile view here with
               Amazon Search Suggestions, Est. Search Volume, Search Results, Demand, Opportunity */}
             <ProgressBar

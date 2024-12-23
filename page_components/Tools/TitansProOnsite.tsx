@@ -472,18 +472,23 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
               <DownloadCloudIcon />
             </button>
           </section>
-          <section className=" mx-auto max-w-[90vw]">
-            <div className="flex    w-full justify-center">
-              <table className="table-auto overflow-auto w-full my-12">
-                <thead className="sticky overflow-auto w-full top-16">
+          <section className=" flex w-full justify-center px-4">
+            <div className="overflow-x-auto w-full">
+              <table className="  w-full my-12">
+                <thead className=" ">
                   <tr className={` `}>
-                    <th className={``}>
+                    <th
+                      style={{
+                        minWidth: "240px",
+                      }}
+                      className={``}
+                    >
                       <div className="twa-th">
                         <h6
                           style={{
                             border: "none",
                           }}
-                          className="font-bold text-xs md:text-base"
+                          className="font-bold  text-xs md:text-base"
                         >
                           {" "}
                           Amazon Search Suggestions
@@ -504,7 +509,12 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                         </button>
                       </div>
                     </th>
-                    <th className={``}>
+                    <th
+                      style={{
+                        minWidth: "190px",
+                      }}
+                      className={``}
+                    >
                       <div className="twa-th">
                         <h6 className="text-xs md:text-base">
                           Est. Search Volume
@@ -526,7 +536,12 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                       </div>
                     </th>
 
-                    <th className={``}>
+                    <th
+                      style={{
+                        minWidth: "150px",
+                      }}
+                      className={``}
+                    >
                       <div className="twa-th">
                         <h6 className="text-xs md:text-base">
                           {" "}
@@ -557,7 +572,12 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                       </div>
                     </th>
 
-                    <th className={``}>
+                    <th
+                      style={{
+                        minWidth: "150px",
+                      }}
+                      className={``}
+                    >
                       <div className="twa-th">
                         <h6 className="text-xs md:text-base">Demand</h6>
                         <button
@@ -584,7 +604,12 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                         </button>
                       </div>
                     </th>
-                    <th className={``}>
+                    <th
+                      style={{
+                        minWidth: "150px",
+                      }}
+                      className={``}
+                    >
                       <div className="twa-th">
                         <h6 className="text-xs md:text-base"> Opportunity</h6>
                         <button
@@ -614,7 +639,7 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                   </tr>
                 </thead>
 
-                <tbody className="overflow-auto max-w-[50vw] w-full">
+                <tbody className=" ">
                   {isFreeUser && results.length ? (
                     <tr>
                       <td></td>
@@ -700,7 +725,9 @@ const TitansProOnsite: React.FC<TitansProOnsiteProps> = ({ token, info }) => {
                                   result.demandColor,
                                   85
                                 ),
+                                // backgroundColor: result.demandColor,
                                 color: darkenColor(result.demandColor, 40),
+                                // color: "black",
                                 border: `1px solid ${darkenColor(
                                   result.demandColor,
                                   40
