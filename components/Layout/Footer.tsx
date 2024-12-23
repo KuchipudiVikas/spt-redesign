@@ -43,10 +43,6 @@ const Footer = () => {
           label: "Community",
           url: LinkIndex.COMMUNITY,
         },
-        {
-          label: "Media",
-          url: LinkIndex.MEDIA,
-        },
       ],
     },
     {
@@ -54,31 +50,27 @@ const Footer = () => {
       links: [
         {
           label: "Research Tools",
-          url: LinkIndex.RESEARCH_TOOLS,
+          url: LinkIndex.TOOLS,
         },
         {
           label: "Book Creation",
-          url: LinkIndex.BOOK_CREATION,
+          url: LinkIndex.TOOLS,
         },
         {
           label: "Book Listing",
-          url: LinkIndex.BOOK_LISTING,
+          url: LinkIndex.TOOLS,
         },
         {
           label: "Design Tools",
-          url: LinkIndex.DESIGN_TOOLS,
+          url: LinkIndex.TOOLS,
         },
         {
           label: "General KDP",
-          url: LinkIndex.GENERAL_KDP,
+          url: LinkIndex.TOOLS,
         },
         {
           label: "Training Tools",
-          url: LinkIndex.TRAINING_TOOLS,
-        },
-        {
-          label: "Contact Form",
-          url: LinkIndex.CONTACT_FORM,
+          url: LinkIndex.TOOLS,
         },
       ],
     },
@@ -86,32 +78,16 @@ const Footer = () => {
       title: "Company",
       links: [
         {
-          label: "About Us",
-          url: LinkIndex.ABOUT,
-        },
-        {
-          label: "Contact Us",
-          url: LinkIndex.CONTACT_US,
-        },
-        {
-          label: "Faqs",
-          url: LinkIndex.FAQS,
-        },
-        {
           label: "Terms & Conditions",
           url: LinkIndex.TERMS_CONDITIONS,
         },
         {
-          label: "Trademark",
-          url: LinkIndex.TRADEMARK,
+          label: "Privacy Policy",
+          url: LinkIndex.PRIVACY_POLICY,
         },
         {
-          label: "Features",
-          url: LinkIndex.FEATURES,
-        },
-        {
-          label: "Pricing",
-          url: LinkIndex.PRICING,
+          label: "GDPR Policy",
+          url: LinkIndex.GDPR_POLICY,
         },
       ],
     },
@@ -147,7 +123,7 @@ const Footer = () => {
                 </div>
               </div>
               <div className="">
-                <h6 className="font-normal text-[18px]">
+                <h6 className="font-normal text-[14px]">
                   © Self Publising Titans. All Rights Reserved{" "}
                 </h6>
               </div>

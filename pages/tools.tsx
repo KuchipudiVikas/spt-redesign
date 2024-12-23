@@ -14,8 +14,6 @@ interface ToolsProps {
 }
 
 const Tools: React.FC<ToolsProps> = ({ info }) => {
-  console.log("info", info);
-
   return (
     <MainLayout
       info={info}

@@ -127,7 +127,7 @@ const BlogPost = ({ info, data, lBs, lang }) => {
               <div className="my-8">
                 <h6 className="mb-4 font-bold">YOU MIGHT ALSO LIKE</h6>
 
-                <div className="grid grid-cols-3 gap-5 ">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
                   {lBs.map((content, index) => (
                     <BlogCard
                       key={index}

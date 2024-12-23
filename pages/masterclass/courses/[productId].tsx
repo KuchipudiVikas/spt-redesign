@@ -451,7 +451,7 @@ function CoursePage({ info, token, productInfo, comments, purchased }) {
             <>
               <div className="h-screen">
                 <div className="flex flex-col h-screen justify-between">
-                  <div className="h-screen">
+                  <div className="">
                     <div
                       className="
 
@@ -472,7 +472,7 @@ function CoursePage({ info, token, productInfo, comments, purchased }) {
                             }`}
                           >
                             <iframe
-                              className=" pt-10  sticky  h-[500px] lg:h-auto  rounded-lg"
+                              className=" pt-10  sticky  min-h-[300px] xl:h-auto   rounded-lg"
                               src={`${content.data}?autoplay=false`}
                               onLoad={onDataLoaded}
                               width="100%"
@@ -553,9 +553,8 @@ function CoursePage({ info, token, productInfo, comments, purchased }) {
 
                   <div
                     className="
-                                    min-h-fit
-                                    pb-36
                                     px-1
+                                    max-h-auto
                                     overflow-y-auto
                         scrollbar-thin scrollbar-thumb-secCol1-500  scrollbar-track-secCol1-200"
                   >
@@ -583,6 +582,7 @@ function CoursePage({ info, token, productInfo, comments, purchased }) {
                         top-0
                         pr-2
                         pb-36
+                        pt-6
                         scrollbar scrollbar-thumb-secCol1-500   scrollbar-track-secCol1-200"
                   style={{
                     // height: "calc(100vh - 3.5rem)",

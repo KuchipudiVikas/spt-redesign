@@ -22,6 +22,7 @@ import {
 import { PlusIcon } from "lucide-react";
 import PageTitle from "@/components/Common/PageTitle";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 const DEFAULT_PADDING = 16;
 const ICON_SIZE = 8;
@@ -58,6 +59,8 @@ const ListItem = ({
   const [justCopied, setJustCopied] = useState(false);
   const [copiedLabel, setCopiedLabel] = useState("");
 
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   return (
     <div
       style={{
@@ -65,12 +68,13 @@ const ListItem = ({
         cursor: "pointer",
         zIndex: focused ? 999 : "unset",
         position: "relative",
+        flexDirection: hasNodes ? "row" : isMobile ? "column" : "row",
       }}
       onClick={(e) => {
         hasNodes && toggleNode && toggleNode();
         e.stopPropagation();
       }}
-      className="p-2 flex items-center border-b"
+      className="p-2 flex  items-center border-b"
     >
       <span className="font-medium">
         <h6 className="font-Inter gap-5 flex text-[16px]">
@@ -100,7 +104,7 @@ const ListItem = ({
         </span>
       )}
       {props.leaf && (
-        <div className="ml-auto flex gap-1 items-center">
+        <div className="ml-auto flex flex-col  md:flex-row gap-2 md:items-center">
           {justCopied && (
             <p className="text-xs text-gray-600 mr-3 animate__animated animate__fadeIn">
               {`Copied: ${copiedLabel}`}

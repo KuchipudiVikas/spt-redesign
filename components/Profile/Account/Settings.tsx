@@ -112,12 +112,12 @@ export default function AccountTab({
         <div className="flex flex-row items-center">
           <LoadingBar isLoading={loading} title="Loading..." />
           {/* <div className="h-full flex items-center"> */}
-          <div className=" w-20 h-20 border   rounded-full  flex justify-center items-center text-5xl text-white uppercase">
+          <div className="w-20 h-20 border rounded-full flex justify-center items-center text-5xl text-white uppercase overflow-hidden">
             <Image
-              src={BrandLogo.src}
+              src={info.image || BrandLogo.src}
               width={1000}
               height={1000}
-              className=" w-[47px] h-auto"
+              className="w-full h-full object-cover"
               alt="brand logo"
             />
           </div>

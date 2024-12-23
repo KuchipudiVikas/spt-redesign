@@ -86,9 +86,9 @@ export const Create = ({ userID, closeHandler = () => {} }: CreateProps) => {
       {true && (
         <div className=" w-full ">
           <div className="w-full md:w-[550px]">
-            <span className="close" onClick={togglePopup}>
+            {/* <span className="close" onClick={togglePopup}>
               &times;
-            </span>
+            </span> */}
             <h2 className="text-xl font-semibold mb-2">Create A+ Template</h2>
             <hr className="my-3" />
             <div className="flex font-space flex-col">

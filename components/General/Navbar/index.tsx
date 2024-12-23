@@ -65,14 +65,16 @@ const Navbar: React.FC<NavbarProps> = ({ info, logout, token }) => {
           >
             <div className="flex items-center">
               <NavigationMenuItem className="mr-3">
-                <NavigationMenuLink href="/">
+                <NavigationMenuLink
+                  href="/"
+                  className="flex items-center justify-center"
+                  style={{ minWidth: "50px" }}
+                >
                   <img
                     src={
                       "https://sptmedia.nyc3.cdn.digitaloceanspaces.com/favIcon.png"
                     }
                     alt="Brand Logo"
-                    width={50}
-                    height={50}
                     className="w-14 h-auto"
                   />
                 </NavigationMenuLink>

@@ -13,11 +13,13 @@ const LoadingBar = ({ isLoading, title = "Loading..." }: ILoadingBar) => {
   }, []);
   return isLoadingLocal ? (
     <Dialog open={isLoading}>
-      <DialogContent>
+      <DialogContent showClose={false}>
         <div className="flex flex-col items-center py-5 justify-center">
-          <h5 className="">{title}</h5>
+          <h5 className="text-[20px] font-medium">{title}</h5>
         </div>
-        <hr />
+        <div className="progress-bar">
+          <div className="progress-bar-value"></div>
+        </div>
       </DialogContent>
     </Dialog>
   ) : null;

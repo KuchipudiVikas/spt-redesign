@@ -8,9 +8,7 @@ function MobileTableExpander({ title, children }) {
   return (
     <Fragment>
       <tr
-        className={`lg:hidden ${
-          isExpanded ? "bg-gray-100" : "bg-white"
-        }  border-b dark:bg-gray-800 dark:border-gray-700 `}
+        className={`lg:hidden ${isExpanded ? "bg-[#f9f7ff]" : "bg-white"}   `}
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <th
@@ -19,7 +17,7 @@ function MobileTableExpander({ title, children }) {
           className="px-6 py-4 font-bold text-gray-900 whitespace-nowrap dark:text-white"
         >
           <div className="flex flex-row justify-between">
-            <h6>{title}</h6>
+            <h6>{title} </h6>
             <div className="text-gray-900 dark:text-gray-400">
               <ChevronDown className="w-4" size={24} />
             </div>

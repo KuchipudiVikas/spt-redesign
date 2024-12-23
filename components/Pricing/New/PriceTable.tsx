@@ -269,7 +269,7 @@ export default function PricingTableTabs({
         token={token}
       />
 
-      <h6 className="font-medium sp-container w-fit mb-20 mx-auto p-3 pr-6 py-2 rounded-2xl text-[16px] flex justify-center items-center gap-1 text-primary">
+      <h6 className="font-medium sp-container w-fit mb-5 md:mb-20 mx-auto p-3 pr-6 py-2 rounded-2xl text-[16px] flex justify-center items-center gap-1 text-primary">
         <Image src={VerifiedIcon.src} width={40} height={40} alt="" /> Trusted
         by <span className="font-extrabold">150,000 Authors</span> Worldwide
       </h6>
@@ -281,7 +281,7 @@ export default function PricingTableTabs({
         setValue={setValue}
       />
 
-      <div className="mt-10">
+      <div className="md:mt-10">
         <PriceTable
           token={token}
           products={products}
@@ -384,14 +384,14 @@ export function PriceTable({
           {/* mobile Responsive version */}
 
           <div
-            className={` mt-8 w-full ${
+            className={` mt-5 md:mt-8 w-full ${
               paymentPeriod !== EPaymentPeriod.Monthly &&
               paymentPeriod !== EPaymentPeriod.Yearly
                 ? "hidden"
                 : ""
             } `}
           >
-            <div className="flex justify-start md:hidden items-center">
+            {/* <div className="flex justify-start md:hidden items-center">
               {tableTitle.length > 0 ? (
                 <h6 className="md:ml-2 md:text-xl font-bold md:py-2">
                   {tableTitle}
@@ -410,7 +410,7 @@ export function PriceTable({
                   </p>
                 </Fragment>
               )}
-            </div>
+            </div> */}
 
             <table
               style={{ border: "none" }}
@@ -430,7 +430,9 @@ export function PriceTable({
                       <Fragment key={idx}>
                         <th
                           scope="col"
-                          className="flex-1 border-2 bg-white shadow-sm"
+                          className={`flex-1 border-l border-t border-b ${
+                            idx == packages.length - 1 && "border-r"
+                          } bg-white shadow-sm`}
                         >
                           <div
                             className={`text-center min-h-32 flex items-center flex-col justify-between py-2 px-0`}
@@ -444,7 +446,7 @@ export function PriceTable({
                                     key={index}
                                     className={` text-sm uppercase md:text-base`}
                                   >
-                                    {title} my
+                                    {title}
                                   </h6>
                                 );
                               })}
@@ -469,10 +471,10 @@ export function PriceTable({
                             <div hidden={!token} className={`h-9`} />
                             <Button
                               hidden={token && idx === 0}
-                              className={`   md:text-base text-sm px-2 py-2 ${
+                              className={`   md:text-base font-semibold text-sm px-4 py-2 ${
                                 isSubscribedByIndex(products, idx)
                                   ? "bg-gray-50"
-                                  : "bg-primary-150 text-white hover:bg-primary-200"
+                                  : ""
                               } `}
                               onClick={() =>
                                 buyNow({
@@ -489,7 +491,7 @@ export function PriceTable({
                                   : paymentPeriod == EPaymentPeriod.Monthly
                                   ? isSubscribedByIndex(products, idx)
                                     ? "SUBSCRIBED"
-                                    : "UPGRADE"
+                                    : "Upgrade"
                                   : "FREE")}
                             </Button>
                           </div>
@@ -548,12 +550,12 @@ export function PriceTable({
                                   ) {
                                     return (
                                       <Fragment key={"cc_" + idx}>
-                                        <td className=" py-3 border-2 flex-1 text-center">
+                                        <td className=" py-3  flex-1 text-center">
                                           <Image
                                             priority
                                             height={10}
                                             width={10}
-                                            className={`${styles.iconD} h-4 w-4`}
+                                            className={`${styles.iconD}  h-4 w-4`}
                                             src={crossIcon}
                                             alt="#"
                                           />
@@ -564,7 +566,7 @@ export function PriceTable({
                                   if (itemChild.text) {
                                     return (
                                       <td
-                                        className=" py-3 border-2 flex-1 text-center"
+                                        className=" py-3  flex-1 text-center"
                                         key={"ccc_" + idx}
                                       >
                                         <h6 className="text-black capitalize">
@@ -575,7 +577,7 @@ export function PriceTable({
                                   }
                                   return (
                                     <Fragment key={"cc_" + idx}>
-                                      <td className=" py-3 border-2 flex-1 text-center">
+                                      <td className=" py-3 border-b border-l border-r flex-1 text-center">
                                         {itemChild.status ===
                                           AccessTypes.Limited ||
                                         itemChild.status ===
@@ -590,7 +592,7 @@ export function PriceTable({
                                             priority
                                             height={10}
                                             width={10}
-                                            className={`${styles.iconD} h-4 w-4`}
+                                            className={`${styles.iconD}   h-4 w-4`}
                                             src={
                                               feature.title ===
                                                 "KDP Masterclass" &&

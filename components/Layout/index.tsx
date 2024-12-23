@@ -7,6 +7,7 @@ import { getSession, useSession } from "next-auth/react";
 import Account from "../../lib/mw/Accounts";
 import { User } from "@/lib/ts/types/user";
 import { signOut } from "next-auth/react";
+import Popups from "@/components/Popup/Popups";
 
 interface Meta {
   title: string;
@@ -72,6 +73,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
       <Header logout={logout} token={token} info={info}>
         {Title}
       </Header>
+      <Popups info={info} />
       <div
         className={`min-h-[60vh] mx-auto ${fullWidth ? "" : "max-w-[1300px]"}`}
       >

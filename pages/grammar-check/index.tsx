@@ -440,17 +440,15 @@ const TextViewComp: React.FC<TextViewCompProps> = ({
           <h6 className="text-[16px]">{text}</h6>
         </div>
         <div className=""></div>
+      </div>
+      <div className="flex justify-between">
+        {!isChanged && (
+          <div className="w-full text-left p-2 text-sm ">
+            <h6 className="text-green-600 font-bold">No suggested changes.</h6>
+          </div>
+        )}
+        <div className=""></div>
         <CopyIcon onClick={handleCopy} className="cursor-pointer ml-auto w-4" />
-        <div className="flex justify-between">
-          {!isChanged && (
-            <div className="w-full text-left p-2 text-sm ">
-              <h6 className="text-green-600 font-bold">
-                No suggested changes.
-              </h6>
-            </div>
-          )}
-          <div className=""></div>
-        </div>
       </div>
     </div>
   );

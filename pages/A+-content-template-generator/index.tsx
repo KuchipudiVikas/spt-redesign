@@ -12,13 +12,12 @@ import MainLayout from "@/components/Layout";
 import PageTitle from "@/components/Common/PageTitle";
 
 const inter = Inter({ subsets: ["latin"] });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 type Etab = "create" | "projects";
 
 export default function Home({ project_id, info }: any) {
   const userid = "";
   return (
-    <main className={`min-h-screen   ${spaceGrotesk.className}`}>
+    <main className={`min-h-screen  `}>
       <div className="">
         {/* <CanvasProvider> */}
         <MainLayout
@@ -48,7 +47,7 @@ function Dashboard({ userID }: DashboardProps) {
   const [projects, setProjects] = useState<Project[]>([]);
 
   return (
-    <div className="w-fit mx-auto p-6 md:p-8 w-[90%]  rounded-3xl sp-container mt-10">
+    <div className="w-fit mx-auto p-6 md:p-8 w-[90%]  rounded-3xl border light-border sp-container mt-10">
       <div className=" w-full flex justify-center mx-5  mb-10">
         <div className="">
           <button

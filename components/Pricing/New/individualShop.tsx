@@ -93,31 +93,29 @@ export const IndividualShopItems = ({
 
                     <div className="p-4 mt-auto flex justify-between items-center flex-wrap py-4">
                       <div className=" w-fit">
-                        <Link
-                          href={
-                            listing.buy_page === ""
-                              ? `/shop/${listing.id}`
-                              : listing.buy_page
-                          }
-                          passHref
-                          className="  "
+                        <Button
+                          disabled={listing?.isLifetimeOwned}
+                          style={{
+                            cursor: listing?.isLifetimeOwned ? "" : "pointer",
+                          }}
+                          className={` mr-2 rounded-full ${
+                            listing?.isLifetimeOwned
+                              ? "bg-gray-500 "
+                              : "themeGradient"
+                          }`}
                         >
-                          <Button
-                            disabled={listing?.isLifetimeOwned}
-                            style={{
-                              cursor: listing?.isLifetimeOwned
-                                ? "not-allowed"
-                                : "pointer",
-                            }}
-                            className={` mr-2 rounded-full ${
-                              listing?.isLifetimeOwned
-                                ? "bg-gray-500 "
-                                : "themeGradient"
-                            }`}
+                          <Link
+                            href={
+                              listing.buy_page === ""
+                                ? `/shop/${listing.id}`
+                                : listing.buy_page
+                            }
+                            passHref
+                            className="  "
                           >
                             Buy
-                          </Button>
-                        </Link>
+                          </Link>
+                        </Button>
                         {productsWithPreview.includes(listing.id) && (
                           <Link
                             href={shopUrlIndex[listing.id]}

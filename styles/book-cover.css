@@ -84,6 +84,7 @@
   overflow: hidden;
   height: 100%; /* Adjust as needed */
   display: flex;
+  /* padding-top: 16px; */
 }
 
 .panel-content {
@@ -165,7 +166,7 @@
   /* padding: 10px 20px; */
   height: 100%;
   width: 250px;
-  min-height: calc(100vh - 68px);
+  min-height: calc(100vh - 78px);
 }
 
 .options-pane-main {
@@ -342,7 +343,7 @@ input:checked + .slider:before {
 .editor-canvas-container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 68px);
+  height: calc(100vh - 78px);
   justify-content: center;
   position: relative;
   overflow: hidden;
@@ -356,7 +357,8 @@ input:checked + .slider:before {
   justify-content: space-between;
   width: 100vw;
   flex-grow: 1;
-  height: calc(100vh - 68px);
+  padding-top: 13px;
+  height: calc(100vh - 78px);
 }
 
 .dot-loader-3 {

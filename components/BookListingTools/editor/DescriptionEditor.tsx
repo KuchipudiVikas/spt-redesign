@@ -152,8 +152,8 @@ const StyleButton = ({ active, label, style, onToggle, icon }) => {
 
   return (
     <span
-      className={`px-2 py-1 text-sm font-medium text-gray-700 hover:bg-primary-50 hover:text-white cursor-pointer transition-colors 
-         ${isActive ? "bg-primary-150 text-white" : ""}`}
+      className={`px-2 py-1 text-sm font-medium text-gray-700  cursor-pointer 
+         ${isActive ? "bg-primary-150 text-primary font-bold" : ""}`}
       onMouseDown={handleToggle}
     >
       {show ? icon : label}

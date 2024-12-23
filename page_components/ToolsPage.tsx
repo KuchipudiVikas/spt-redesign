@@ -5,7 +5,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { ArrowRight, CheckIcon } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
-import { allProducts, Product, ProductCategory, Categories } from "@/data/shop";
+import { allProducts } from "@/data/shop";
+import { ProductCategory, Product, Categories } from "@/data/productIndex";
 import { User } from "@/lib/ts/types/user";
 import { isOwned } from "@/utils/common";
 import { useMediaQuery } from "@/hooks/use-media-query";
@@ -33,7 +34,7 @@ const ToolsPage: React.FC<ToolsPageProps> = ({ info }) => {
     // Filter by search query
     if (query) {
       filteredProducts = filteredProducts.filter((product) =>
-        product.title.toLowerCase().includes(query.toLowerCase())
+        product.name.toLowerCase().includes(query.toLowerCase())
       );
     }
 
@@ -59,16 +60,16 @@ const ToolsPage: React.FC<ToolsPageProps> = ({ info }) => {
     }
 
     // Sort by price range
-    if (priceRange) {
-      filteredProducts = filteredProducts.sort((a, b) => {
-        if (priceRange === "low_to_high") {
-          return a.price - b.price;
-        } else if (priceRange === "high_to_low") {
-          return b.price - a.price;
-        }
-        return 0;
-      });
-    }
+    // if (priceRange) {
+    //   filteredProducts = filteredProducts.sort((a, b) => {
+    //     if (priceRange === "low_to_high") {
+    //       return a.price - b.price;
+    //     } else if (priceRange === "high_to_low") {
+    //       return b.price - a.price;
+    //     }
+    //     return 0;
+    //   });
+    // }
 
     setProducts(filteredProducts);
   }, [query, selectedCategories, priceRange, toolType, showPurchased, info]);
@@ -202,7 +203,7 @@ const SingleProduct = ({
 
   const buttonText = isFree || hasAccess ? "Access" : "Preview";
   const buttonAction =
-    isFree || hasAccess ? product.preview_url : product.buy_url;
+    isFree || hasAccess ? product.product_link : product.product_link;
 
   hasAccess = isFree || hasAccess;
 
@@ -215,7 +216,7 @@ const SingleProduct = ({
     >
       <div className="flex h-full flex-col gap-2">
         <Image
-          src={product.thumb_url}
+          src={product.thumbnail_image}
           alt="Product Image"
           width={500}
           style={{
@@ -227,7 +228,7 @@ const SingleProduct = ({
         />
         <div className="flex px-3 justify-between h-full flex-col">
           <div className="flex flex-col">
-            <h3 className="font-bold text-[18px]">{product.title}</h3>
+            <h3 className="font-bold text-[18px]">{product.name}</h3>
             <p
               style={{
                 fontSize: "15px",
@@ -346,69 +347,8 @@ const Filters: React.FC<
           Clear
         </div>
       </div>
-      <hr className="my-3" />
-      <div className="">
-        <h3
-          style={{
-            fontSize: "18px",
-          }}
-          className="font-bold"
-        >
-          Price Range
-        </h3>{" "}
-        <div
-          style={{
-            marginTop: "25px",
-            gap: "25px",
-          }}
-          className="flex flex-col "
-        >
-          <div
-            onClick={() => {
-              if (priceRange === "low_to_high") {
-                setPriceRange(null);
-              } else {
-                setPriceRange("low_to_high");
-              }
-            }}
-            className="cursor-pointer flex gap-2 items-center"
-          >
-            <Checkbox
-              checked={priceRange == "low_to_high"}
-              style={{ borderRadius: "20%" }}
-            />{" "}
-            <span
-              style={{
-                fontSize: "18px",
-              }}
-            >
-              Low to High
-            </span>
-          </div>
-          <div
-            onClick={() => {
-              if (priceRange === "high_to_low") {
-                setPriceRange(null);
-              } else {
-                setPriceRange("high_to_low");
-              }
-            }}
-            className="cursor-pointer flex gap-2 items-center"
-          >
-            <Checkbox
-              checked={priceRange == "high_to_low"}
-              style={{ borderRadius: "20%" }}
-            />{" "}
-            <span
-              style={{
-                fontSize: "18px",
-              }}
-            >
-              High to Low
-            </span>
-          </div>
-        </div>
-      </div>
+      {/* <hr className="my-3" /> */}
+
       <hr className="my-3" />
       <div className="">
         <h3

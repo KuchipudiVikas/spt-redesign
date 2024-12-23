@@ -114,121 +114,120 @@ const Summary: React.FC<SummaryProps> = ({
     },
   ];
 
-  if (isMobile) {
-    return (
-      <div className="flex justify-center mb-10 items-center">
-        <div className="w-full mx-auto">
-          <Carousel
-            style={{
-              width: "100vw",
-            }}
-            className="w-full mx-auto"
-          >
-            <CarouselContent
-              ref={emblaRef}
-              className="flex gap-4 px-10" // Add padding for the peeking effect
-            >
-              {items.map((item, index) => (
-                <CarouselItem
-                  key={index}
-                  style={
-                    {
-                      // marginRight: "calc(100vw - 50%)",
-                    }
-                  }
-                  className="flex-[0_0_85%]"
-                >
-                  <div className="p-6 rounded-3xl bg-gray-50 border h-full light-border">
-                    <div className="text-black flex items-center gap-3 font-bold mb-1 text-[24px]">
-                      {item.Title}{" "}
-                      {index === 1 && (
-                        <span
-                          style={{ fontSize: "11.5px" }}
-                          className="lavbg p-1 px-3 rounded-full text-primary my-auto"
-                        >
-                          Most Popular
-                        </span>
-                      )}
-                    </div>
-                    <div className="text-primary flex items-end text-[28px] font-extrabold">
-                      {getPriceBasedOnPeriod(item, selectedPeriod)}/
-                      <span className="text-[14px] pb-1 font-medium text-black">
-                        {selectedPeriod}
-                      </span>
-                      {index === 1 && (
-                        <span
-                          style={{ fontSize: "11.5px" }}
-                          className="p-1 px-3 rounded-full"
-                        >
-                          - Save Up to 40%
-                        </span>
-                      )}
-                    </div>
-                    <hr className="my-4" />
-                    <div
-                      style={{ height: "70%" }}
-                      className="flex justify-between flex-col"
-                    >
-                      <div className="mt-2">
-                        <h6 className="font-bold mb-1">Key Features</h6>
-                        <ul>
-                          {item.overview_items.map((feature, idx) => (
-                            <li
-                              key={idx}
-                              className="flex gap-2 items-center my-3 text-[15px]"
-                            >
-                              <CheckIcon className="bg-green-400 w-5 h-5 rounded-full p-1 text-white" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <Button
-                        className="w-full rounded-full"
-                        size="lg"
-                        variant={
-                          item.buttonType === ESubscriptionStatusType.Subscribed
-                            ? "default"
-                            : "outline"
-                        }
-                        onClick={() =>
-                          buyNow({
-                            packageItem: packages[index + 1],
-                            subscriptionType: selectedPeriod,
-                          })
-                        }
-                      >
-                        {getButtonText(
-                          selectedPeriod,
-                          item.buttonType ===
-                            ESubscriptionStatusType.Subscribed,
-                          // @ts-ignore
-                          selectedPeriod === EPaymentPeriod.Lifetime
-                        )}
-                        {item.buttonType !==
-                          ESubscriptionStatusType.Subscribed && (
-                          <ArrowRight className="w-5 h-5" />
-                        )}
-                      </Button>
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-        </div>
-      </div>
-    );
-  }
+  // if (isMobile) {
+  //   return (
+  //     <div className="flex justify-center mb-10 items-center">
+  //       <div className="w-full mx-auto">
+  //         <Carousel
+  //           style={{
+  //             width: "100vw",
+  //           }}
+  //           className="w-full mx-auto"
+  //         >
+  //           <CarouselContent
+  //             ref={emblaRef}
+  //             className="flex gap-4 px-10"
+  //           >
+  //             {items.map((item, index) => (
+  //               <CarouselItem
+  //                 key={index}
+  //                 style={
+  //                   {
+  //                   }
+  //                 }
+  //                 className="flex-[0_0_85%]"
+  //               >
+  //                 <div className="p-6 rounded-3xl bg-gray-50 border h-full light-border">
+  //                   <div className="text-black flex items-center gap-3 font-bold mb-1 text-[24px]">
+  //                     {item.Title}{" "}
+  //                     {index === 1 && (
+  //                       <span
+  //                         style={{ fontSize: "11.5px" }}
+  //                         className="lavbg p-1 px-3 rounded-full text-primary my-auto"
+  //                       >
+  //                         Most Popular
+  //                       </span>
+  //                     )}
+  //                   </div>
+  //                   <div className="text-primary flex items-end text-[28px] font-extrabold">
+  //                     {getPriceBasedOnPeriod(item, selectedPeriod)}/
+  //                     <span className="text-[14px] pb-1 font-medium text-black">
+  //                       {selectedPeriod}
+  //                     </span>
+  //                     {index === 1 && (
+  //                       <span
+  //                         style={{ fontSize: "11.5px" }}
+  //                         className="p-1 px-3 rounded-full"
+  //                       >
+  //                         - Save Up to 40%
+  //                       </span>
+  //                     )}
+  //                   </div>
+  //                   <hr className="my-4" />
+  //                   <div
+  //                     style={{ height: "70%" }}
+  //                     className="flex justify-between flex-col"
+  //                   >
+  //                     <div className="mt-2">
+  //                       <h6 className="font-bold mb-1">Key Features</h6>
+  //                       <ul>
+  //                         {item.overview_items.map((feature, idx) => (
+  //                           <li
+  //                             key={idx}
+  //                             className="flex gap-2 items-center my-3 text-[15px]"
+  //                           >
+  //                             <CheckIcon className="bg-green-400 w-5 h-5 rounded-full p-1 text-white" />
+  //                             {feature}
+  //                           </li>
+  //                         ))}
+  //                       </ul>
+  //                     </div>
+  //                     <Button
+  //                       className="w-full rounded-full"
+  //                       size="lg"
+  //                       variant={
+  //                         item.buttonType === ESubscriptionStatusType.Subscribed
+  //                           ? "default"
+  //                           : "outline"
+  //                       }
+  //                       onClick={() =>
+  //                         buyNow({
+  //                           packageItem: packages[index + 1],
+  //                           subscriptionType: selectedPeriod,
+  //                         })
+  //                       }
+  //                     >
+  //                       {getButtonText(
+  //                         selectedPeriod,
+  //                         item.buttonType ===
+  //                           ESubscriptionStatusType.Subscribed,
+  //                         // @ts-ignore
+  //                         selectedPeriod === EPaymentPeriod.Lifetime
+  //                       )}
+  //                       {item.buttonType !==
+  //                         ESubscriptionStatusType.Subscribed && (
+  //                         <ArrowRight className="w-5 h-5" />
+  //                       )}
+  //                     </Button>
+  //                   </div>
+  //                 </div>
+  //               </CarouselItem>
+  //             ))}
+  //           </CarouselContent>
+  //         </Carousel>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="flex w-full justify-center items-center ">
       <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-        }}
-        className=" w-fit mx-auto my-10 gap-4"
+        // style={{
+        //   display: "grid",
+        //   gridTemplateColumns: "repeat(3, 1fr)",
+        // }}
+        className=" w-fit mx-auto grid grid-cols-1 p-5 md:grid-cols-3 my-10 gap-4"
       >
         {items.map((item, index) => {
           return (

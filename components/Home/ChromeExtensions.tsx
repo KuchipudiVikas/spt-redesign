@@ -5,9 +5,12 @@ import DotImage from "@/public/assets/home/dot-svgrepo-com.svg";
 import { CheckIcon } from "lucide-react";
 import ChromeIcon from "@/public/assets/home/chrome.png";
 import Link from "next/link";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 const ChromeExtensions = () => {
   const [selectedTab, setSelectedTab] = useState("tp");
+
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <div
@@ -58,7 +61,7 @@ const ChromeExtensions = () => {
               <div className="">
                 <iframe
                   width="100%"
-                  height="315"
+                  height={isMobile ? "220" : "315"}
                   src="https://www.youtube.com/embed/c4vouirX7xs?si=uOhwr9IJPwlfcHrM"
                   title="YouTube video player"
                   frameBorder="0"

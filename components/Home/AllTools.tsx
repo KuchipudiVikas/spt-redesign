@@ -44,7 +44,7 @@ const AllTools = () => {
           onClick={() => setSelectedTab("rt")}
           className={`${
             selectedTab === "rt" ? "border-b-2" : "bg-white text-black"
-          } flex items-center px-2 text-sm md:text-md md:px-[40px] gap-3 py-[24px] cursor-pointer`}
+          } flex text-center items-center px-2 text-sm md:text-md md:px-[40px] gap-3 py-[24px] cursor-pointer`}
         >
           Research Tools
         </div>
@@ -52,7 +52,7 @@ const AllTools = () => {
           onClick={() => setSelectedTab("ft")}
           className={`${
             selectedTab === "ft" ? "border-b-2" : "bg-white text-black"
-          } flex items-center px-2 text-sm md:text-md md:px-[40px] gap-3 py-[24px] cursor-pointer`}
+          } flex text-center items-center px-2 text-sm md:text-md md:px-[40px] gap-3 py-[24px] cursor-pointer`}
         >
           Free Tools
         </div>
@@ -60,7 +60,7 @@ const AllTools = () => {
           onClick={() => setSelectedTab("et")}
           className={`${
             selectedTab === "et" ? "border-b-2" : "bg-white text-black"
-          } flex items-center px-2 text-sm md:text-md md:px-[40px] gap-3 py-[24px] cursor-pointer`}
+          } flex text-center items-center px-2 text-sm md:text-md md:px-[40px] gap-3 py-[24px] cursor-pointer`}
         >
           Book Creation Tools
         </div>
@@ -68,7 +68,7 @@ const AllTools = () => {
           onClick={() => setSelectedTab("blt")}
           className={`${
             selectedTab === "blt" ? "border-b-2" : "bg-white text-black"
-          } flex items-center px-2 text-sm md:text-md md:px-[40px] gap-3 py-[24px] cursor-pointer`}
+          } flex text-center items-center px-2 text-sm md:text-md md:px-[40px] gap-3 py-[24px] cursor-pointer`}
         >
           Book Listing Tools
         </div>

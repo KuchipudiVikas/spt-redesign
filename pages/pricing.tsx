@@ -26,7 +26,7 @@ const Pricing: React.FC<PricingProps> = ({
       info={info}
       Title={
         <div className="flex my-10 pb-14 justify-center flex-col items-center">
-          <h1 className="text-[55px] mt-[20px]  flex justify-center items-center gap-3 mx-auto  font-extrabold text-center text-gray-900 ">
+          <h1 className="text-[34px] md:text-[55px] mt-[20px]  flex justify-center items-center gap-3 mx-auto  font-extrabold text-center text-gray-900 ">
             Titans{" "}
             <StarIcon strokeWidth={3} className="text-primary font-bold" />{" "}
             Pricing

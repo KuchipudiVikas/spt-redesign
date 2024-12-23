@@ -40,7 +40,7 @@ export default function DesktopTableHeader({
                     sticky
                      w-full overflow-x-auto
                       text-gray-700
-                         dark:bg-gray-700 gap-5 dark:text-gray-400  grid grid-cols-5 `}
+                         dark:bg-gray-700 gap-5 dark:text-gray-400 hidden lg:grid grid-cols-5 `}
     >
       <div
         style={{
